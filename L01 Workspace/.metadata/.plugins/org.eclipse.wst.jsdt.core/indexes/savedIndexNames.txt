@@ -1,0 +1,2 @@
+INDEX VERSION 1.122+\\VBOXSVR\dp\L01 Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3815584076.index

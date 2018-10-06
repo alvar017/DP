@@ -1,0 +1,17 @@
+!SESSION 2018-10-06 19:23:46.882 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_13
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 4 77 2018-10-06 19:25:10.140
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2018-10-06 19:25:10.140
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2018-10-06 19:25:10.140
+!MESSAGE \\VBOXSVR\dp\L01\Acme-Shout overlaps the location of another project: 'Acme-Shout'
+
+!ENTRY org.eclipse.core.jobs 2 2 2018-10-06 19:25:19.625
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.m2e.core.internal.index.nexus.IndexUpdaterJob
