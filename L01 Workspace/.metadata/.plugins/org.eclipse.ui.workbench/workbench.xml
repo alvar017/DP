@@ -47,8 +47,8 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="data.xml" partName="data.xml" path="//VBOXSVR/dp/L01 Workspace/Acme-Shout/src/main/resources/spring/config/data.xml" title="data.xml" tooltip="Acme-Shout/src/main/resources/spring/config/data.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Shout/src/main/resources/spring/config/data.xml"/>
+<editor activePart="true" focus="true" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="PopulateDatabase.xml" partName="PopulateDatabase.xml" path="//VBOXSVR/dp/L01 Workspace/Acme-Shout/src/main/resources/PopulateDatabase.xml" title="PopulateDatabase.xml" tooltip="Acme-Shout/src/main/resources/PopulateDatabase.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Shout/src/main/resources/PopulateDatabase.xml"/>
 </editor>
 </editors>
 <views>
@@ -216,7 +216,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@4c02bc48" ratio="0.47001934" ratioLeft="243" ratioRight="274" relationship="4" relative="org.eclipse.ui.internal.ViewStack@5c6ae889">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@4c02bc48" ratio="0.82011604" ratioLeft="424" ratioRight="93" relationship="4" relative="org.eclipse.ui.internal.ViewStack@5c6ae889">
 <folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
@@ -317,6 +317,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-Shout/src/main/java/utilities/DatabaseConfig.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-Shout/src/main/resources/spring/config/data.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/Acme-Shout/src/main/webapp/favicon.ico"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-Shout/src/main/resources/spring/config/converters.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-Shout/src/main/resources/PopulateDatabase.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-Shout/src/main/resources/log4j.properties"/>
 </editors>
 <item historyLabel="ProfileController.java" index="0">
 <position info="not_deleted" x="2487" y="0"/>
@@ -402,7 +405,22 @@
 <item historyLabel="favicon.ico" index="21">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="data.xml" index="20">
+<item historyLabel="data.xml" index="20">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="converters.xml" index="22">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="PopulateDatabase.xml" index="23">
+<position/>
+</item>
+<item historyLabel="log4j.properties" index="24">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="PopulateDatabase.xml" index="23">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="PopulateDatabase.xml" index="23">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
@@ -423,6 +441,15 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="PopulateDatabase.xml" tooltip="Acme-Shout/src/main/resources/PopulateDatabase.xml">
+<persistable path="/Acme-Shout/src/main/resources/PopulateDatabase.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="log4j.properties" tooltip="Acme-Shout/src/main/resources/log4j.properties">
+<persistable path="/Acme-Shout/src/main/resources/log4j.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="converters.xml" tooltip="Acme-Shout/src/main/resources/spring/config/converters.xml">
+<persistable path="/Acme-Shout/src/main/resources/spring/config/converters.xml"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="arrow_down.png" tooltip="Acme-Shout/src/main/webapp/images/arrow_down.png">
 <persistable path="/Acme-Shout/src/main/webapp/images/arrow_down.png"/>
 </file>
@@ -458,15 +485,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActorAdministratorController.java" tooltip="Acme-Certifications/src/main/java/controllers/administrator/ActorAdministratorController.java">
 <persistable path="/Acme-Certifications/src/main/java/controllers/administrator/ActorAdministratorController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AnnouncementAdministratorController.java" tooltip="Acme-Certifications/src/main/java/controllers/administrator/AnnouncementAdministratorController.java">
-<persistable path="/Acme-Certifications/src/main/java/controllers/administrator/AnnouncementAdministratorController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="action-2.jsp" tooltip="Acme-Shout/src/main/webapp/views/customer/action-2.jsp">
-<persistable path="/Acme-Shout/src/main/webapp/views/customer/action-2.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="action-1.jsp" tooltip="Acme-Shout/src/main/webapp/views/customer/action-1.jsp">
-<persistable path="/Acme-Shout/src/main/webapp/views/customer/action-1.jsp"/>
 </file>
 </mruList>
 </workbench>
