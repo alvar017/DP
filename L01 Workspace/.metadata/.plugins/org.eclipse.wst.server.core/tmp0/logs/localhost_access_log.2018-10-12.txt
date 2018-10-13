@@ -79,3 +79,9 @@
 127.0.0.1 - - [12/Oct/2018:20:31:04 +0200] "GET /Acme-Shout/customer/action-1.do HTTP/1.1" 200 2384
 127.0.0.1 - - [12/Oct/2018:20:40:43 +0200] "GET / HTTP/1.1" 404 951
 127.0.0.1 - - [12/Oct/2018:20:40:48 +0200] "GET /Acme-Shout/customer/action-1.do HTTP/1.1" 200 3014
+127.0.0.1 - - [12/Oct/2018:21:01:31 +0200] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [12/Oct/2018:21:02:06 +0200] "GET /Acme-Shout/customer/action-1.do HTTP/1.1" 302 -
+127.0.0.1 - - [12/Oct/2018:21:02:09 +0200] "GET /Acme-Shout/security/login.do;jsessionid=7132F765DB70BC313CD69B783323FAAF HTTP/1.1" 200 2138
+127.0.0.1 - - [12/Oct/2018:21:02:09 +0200] "GET /favicon.ico HTTP/1.1" 404 973
+127.0.0.1 - - [12/Oct/2018:21:02:16 +0200] "POST /Acme-Shout/j_spring_security_check HTTP/1.1" 302 -
+127.0.0.1 - - [12/Oct/2018:21:02:17 +0200] "GET /Acme-Shout/customer/action-1.do HTTP/1.1" 200 3014

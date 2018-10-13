@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="63" version="2.0">
+<workbench progressCount="83" version="2.0">
 <workbenchAdvisor/>
-<window height="732" maximized="true" width="816" x="549" y="5">
+<window height="675" maximized="true" width="816" x="549" y="5">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -17,7 +17,7 @@
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="39" y="22"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="39" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="62" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="183" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -73,7 +73,7 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Shout/src/main/java/repositories/ShoutRepository.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="237" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jst.jsp.core.jspsource.source" name="action-1.jsp" partName="action-1.jsp" path="//VBOXSVR/DPCompartida/ACMESHOUTWS/Acme-Shout/src/main/webapp/views/customer/action-1.jsp" title="action-1.jsp" tooltip="Acme-Shout/src/main/webapp/views/customer/action-1.jsp" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jst.jsp.core.jspsource.source" name="action-1.jsp" partName="action-1.jsp" path="//VBOXSVR/DPCompartida/L01 Workspace/Acme-Shout/src/main/webapp/views/customer/action-1.jsp" title="action-1.jsp" tooltip="Acme-Shout/src/main/webapp/views/customer/action-1.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Shout/src/main/webapp/views/customer/action-1.jsp"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1127" selectionTopPixel="0"/>
 </editor>
@@ -133,9 +133,6 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (43 items)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="219" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -214,7 +211,7 @@
 <fastViewBars>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@631ebf05" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.2976"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.29615384"/>
 <view id="org.eclipse.ui.views.ProgressView" ratio="0.3"/>
 <view id="org.eclipse.search.ui.views.SearchView" ratio="0.3"/>
 <view id="org.eclipse.jdt.junit.ResultView" ratio="0.4"/>
@@ -231,7 +228,7 @@
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@3edd044d" orientation="256" selectedTabId="org.eclipse.wst.server.ui.ServersView" style="0">
 <fastViews>
-<view id="org.eclipse.wst.server.ui.ServersView" ratio="0.2992"/>
+<view id="org.eclipse.wst.server.ui.ServersView" ratio="0.29807693"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@42137ac0" orientation="512" selectedTabId="org.eclipse.debug.ui.DebugView" style="0">
