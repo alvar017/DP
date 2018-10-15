@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+E:\gitKraken\DP\L01 Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3744265492.index
+124143079.index
+3556881033.index
+1609712456.index
+3815584076.index
