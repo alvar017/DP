@@ -63,6 +63,42 @@
 </div>
 
 <div>
-	<a href="?language=en">en</a> | <a href="?language=es">es</a>
+	<img class="img"id="img_es" alt="es" src="images/es.png" onClick="changeLangEs()"><img class="img" id="img_en" alt="en" src="images/en.png" onClick="changeLangEn()">
 </div>
+<script type="text/javascript">
+function changeLangEs(){
+	var cpage=window.location.href;
+		if(cpage.includes("language=en")){
+			cpage=cpage.replace("language=en", "language=es");
+		}else if(cpage.includes("language=es")){
+			
+		}else{
+			cpage=window.location.href+"?language=es";
+		}
+		window.location.href = cpage;
+		
+	
+	
+	}
+
+</script>
+<script type="text/javascript">
+function changeLangEn(){
+	var cpage=window.location.href;
+		if(cpage.includes("language=es")){
+			cpage=cpage.replace("language=es", "language=en");
+		}else if(cpage.includes("language=en")){
+			
+		}else{
+			cpage=window.location.href+"?language=en";
+		}
+		window.location.href = cpage;
+		
+	
+	
+	}
+</script>
+
+
+
 
