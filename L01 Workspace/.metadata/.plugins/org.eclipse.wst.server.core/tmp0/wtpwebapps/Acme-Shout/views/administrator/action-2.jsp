@@ -48,6 +48,15 @@ var chartBar = new Chart(finalGraph, {
           backgourdColor:'blue'
         }
       ]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
     }
 });
 </script>

@@ -319,3 +319,11 @@
 127.0.0.1 - - [16/Oct/2018:18:55:14 +0200] "GET /Acme-Shout/security/login.do HTTP/1.1" 200 2278
 127.0.0.1 - - [16/Oct/2018:18:55:18 +0200] "POST /Acme-Shout/j_spring_security_check HTTP/1.1" 302 -
 127.0.0.1 - - [16/Oct/2018:18:55:20 +0200] "GET /Acme-Shout/administrator/action-2.do HTTP/1.1" 200 3483
+127.0.0.1 - - [16/Oct/2018:20:32:40 +0200] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [16/Oct/2018:20:33:11 +0200] "GET /Acme-Shout HTTP/1.1" 302 -
+127.0.0.1 - - [16/Oct/2018:20:33:13 +0200] "GET /Acme-Shout/ HTTP/1.1" 200 1968
+127.0.0.1 - - [16/Oct/2018:20:33:13 +0200] "GET /favicon.ico HTTP/1.1" 404 973
+127.0.0.1 - - [16/Oct/2018:20:33:19 +0200] "GET /Acme-Shout/security/login.do HTTP/1.1" 200 2278
+127.0.0.1 - - [16/Oct/2018:20:33:24 +0200] "POST /Acme-Shout/j_spring_security_check HTTP/1.1" 302 -
+127.0.0.1 - - [16/Oct/2018:20:33:24 +0200] "GET /Acme-Shout/ HTTP/1.1" 200 2748
+127.0.0.1 - - [16/Oct/2018:20:33:32 +0200] "GET /Acme-Shout/administrator/action-2.do HTTP/1.1" 200 3659
