@@ -24,8 +24,8 @@
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="administrator/action-1.do"><spring:message code="master.page.administrator.action.1" /></a></li>
-					<li><a href="administrator/action-2.do"><spring:message code="master.page.administrator.action.2" /></a></li>					
+					<li><a href="administrator/dashboard.do"><spring:message code="master.page.administrator.action.1" /></a></li>
+					<li><a href="administrator/chart.do"><spring:message code="master.page.administrator.action.2" /></a></li>					
 				</ul>
 			</li>
 		</security:authorize>
@@ -34,8 +34,8 @@
 			<li><a class="fNiv"><spring:message	code="master.page.customer" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="customer/action-1.do"><spring:message code="master.page.customer.action.1" /></a></li>
-					<li><a href="customer/action-2.do"><spring:message code="master.page.customer.action.2" /></a></li>					
+					<li><a href="customer/shouts.do"><spring:message code="master.page.customer.action.1" /></a></li>
+					<li><a href="customer/enter-a-shout.do"><spring:message code="master.page.customer.action.2" /></a></li>					
 				</ul>
 			</li>
 		</security:authorize>
@@ -52,9 +52,9 @@
 				</a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="profile/action-1.do"><spring:message code="master.page.profile.action.1" /></a></li>
-					<li><a href="profile/action-2.do"><spring:message code="master.page.profile.action.2" /></a></li>
-					<li><a href="profile/action-3.do"><spring:message code="master.page.profile.action.3" /></a></li>					
+					<li><a href="profile/inspiring-quotes.do"><spring:message code="master.page.profile.action.1" /></a></li>
+					<li><a href="profile/calculator.do"><spring:message code="master.page.profile.action.2" /></a></li>
+					<li><a href="profile/oops.do"><spring:message code="master.page.profile.action.3" /></a></li>					
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
 				</ul>
 			</li>
@@ -63,6 +63,42 @@
 </div>
 
 <div>
-	<a href="?language=en">en</a> | <a href="?language=es">es</a>
+	<img class="img"id="img_es" alt="es" src="images/es.png" onClick="changeLangEs()"><img class="img" id="img_en" alt="en" src="images/en.png" onClick="changeLangEn()">
 </div>
+<script type="text/javascript">
+function changeLangEs(){
+	var cpage=window.location.href;
+		if(cpage.includes("language=en")){
+			cpage=cpage.replace("language=en", "language=es");
+		}else if(cpage.includes("language=es")){
+			
+		}else{
+			cpage=window.location.href+"?language=es";
+		}
+		window.location.href = cpage;
+		
+	
+	
+	}
+
+</script>
+<script type="text/javascript">
+function changeLangEn(){
+	var cpage=window.location.href;
+		if(cpage.includes("language=es")){
+			cpage=cpage.replace("language=es", "language=en");
+		}else if(cpage.includes("language=en")){
+			
+		}else{
+			cpage=window.location.href+"?language=en";
+		}
+		window.location.href = cpage;
+		
+	
+	
+	}
+</script>
+
+
+
 
