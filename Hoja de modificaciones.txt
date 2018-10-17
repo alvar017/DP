@@ -1,5 +1,6 @@
-07/10/2018 - Añadida hoja de modificaciones
+﻿07/10/2018 - Añadida hoja de modificaciones
 11/10/2018 - Añadida aplicaciones restantes y proceso de selección
 11/10/2018 - Mejora de proyecto base para Maria de Gracia
 15/10/2018 - Añadidos caso 1, 2, 3, 4, 5. Solo falta los casos A+ y A++
 16/10/2018 - Añadido caso A+
+17/10/2018 - Añadido caso A++ y corregido error al cambiar de idioma
