@@ -3,7 +3,6 @@ package domain;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -34,7 +33,6 @@ public class Sponsorship extends DomainEntity {
 		this.target = target;
 	}
 
-	@ElementCollection
 	public CreditCard getCreditCard() {
 		return this.creditCard;
 	}

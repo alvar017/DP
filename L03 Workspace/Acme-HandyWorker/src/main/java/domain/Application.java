@@ -2,23 +2,21 @@
 package domain;
 
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
-import org.joda.time.LocalDate;
-
 @Entity
 @Access(AccessType.PROPERTY)
 public class Application extends DomainEntity {
 
-	private LocalDate			moment;
+	private Date				moment;
 	private Boolean				state;
 	private Money				offered;
 	private String				comments;
@@ -39,11 +37,11 @@ public class Application extends DomainEntity {
 	}
 
 	@Past
-	public LocalDate getMoment() {
+	public Date getMoment() {
 		return this.moment;
 	}
 
-	public void setMoment(final LocalDate moment) {
+	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
 
@@ -55,7 +53,6 @@ public class Application extends DomainEntity {
 		this.state = state;
 	}
 
-	@ElementCollection
 	public Money getOffered() {
 		return this.offered;
 	}

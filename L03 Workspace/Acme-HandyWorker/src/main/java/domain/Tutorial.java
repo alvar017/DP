@@ -2,6 +2,7 @@
 package domain;
 
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -13,14 +14,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.URL;
-import org.joda.time.LocalTime;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Tutorial extends DomainEntity {
 
 	private String					title, summary, picture;
-	private LocalTime				moment;
+	private Date					moment;
 	/////////////////////////////////////////////
 	private Collection<Sponsorship>	sponsorships;
 	private Collection<Section>		sections;
@@ -62,11 +62,11 @@ public class Tutorial extends DomainEntity {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	public LocalTime getMoment() {
+	public Date getMoment() {
 		return this.moment;
 	}
 
-	public void setMoment(final LocalTime moment) {
+	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
 

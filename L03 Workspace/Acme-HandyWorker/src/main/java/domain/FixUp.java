@@ -2,11 +2,11 @@
 package domain;
 
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -15,19 +15,17 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
-import org.joda.time.LocalDate;
-
 @Entity
 @Access(AccessType.PROPERTY)
 public class FixUp extends DomainEntity {
 
 	private String					ticker;
-	private LocalDate				moment;
+	private Date					moment;
 	private String					description;
 	private String					address;
 	private Money					maxPrice;
-	private LocalDate				startDate;
-	private LocalDate				endDate;
+	private Date					startDate;
+	private Date					endDate;
 	/////////////////////////////////////////////
 	private Warranty				warranty;
 	private Collection<Application>	applications;
@@ -54,11 +52,11 @@ public class FixUp extends DomainEntity {
 	}
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	public LocalDate getMoment() {
+	public Date getMoment() {
 		return this.moment;
 	}
 
-	public void setMoment(final LocalDate moment) {
+	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
 
@@ -77,7 +75,7 @@ public class FixUp extends DomainEntity {
 	public void setAddress(final String address) {
 		this.address = address;
 	}
-	@ElementCollection
+
 	public Money getMaxPrice() {
 		return this.maxPrice;
 	}
@@ -86,19 +84,19 @@ public class FixUp extends DomainEntity {
 		this.maxPrice = maxPrice;
 	}
 	@Temporal(TemporalType.DATE)
-	public LocalDate getStartDate() {
+	public Date getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(final LocalDate startDate) {
+	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
 	@Temporal(TemporalType.DATE)
-	public LocalDate getEndDate() {
+	public Date getEndDate() {
 		return this.endDate;
 	}
 
-	public void setEndDate(final LocalDate endDate) {
+	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
 	}
 

@@ -1,22 +1,22 @@
 
 package domain;
 
+import java.util.Date;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.joda.time.LocalDate;
-
 @Entity
 @Access(AccessType.PROPERTY)
 public class Phase extends DomainEntity {
 
-	private String		title;
-	private String		description;
-	private LocalDate	startDate;
-	private LocalDate	endDate;
+	private String	title;
+	private String	description;
+	private Date	startDate;
+	private Date	endDate;
 
 
 	public String getTitle() {
@@ -35,19 +35,19 @@ public class Phase extends DomainEntity {
 		this.description = description;
 	}
 	@Temporal(TemporalType.DATE)
-	public LocalDate getStartDate() {
+	public Date getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(final LocalDate startDate) {
+	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
 	@Temporal(TemporalType.DATE)
-	public LocalDate getEndDate() {
+	public Date getEndDate() {
 		return this.endDate;
 	}
 
-	public void setEndDate(final LocalDate endDate) {
+	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
 	}
 

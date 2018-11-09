@@ -12,14 +12,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
-import org.joda.time.LocalTime;
-
 @Entity
 @Access(AccessType.PROPERTY)
 public class Finder extends DomainEntity {
 
 	private String		keyword;
-	private LocalTime	date;
+	private Date		date;
 	private Warranty	warranty;
 	private Double		minPrice;
 	private Double		maxPrice;
@@ -90,11 +88,11 @@ public class Finder extends DomainEntity {
 		this.keyword = keyword;
 	}
 
-	public LocalTime getDate() {
+	public Date getDate() {
 		return this.date;
 	}
 
-	public void setDate(final LocalTime date) {
+	public void setDate(final Date date) {
 		this.date = date;
 	}
 

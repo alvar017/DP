@@ -1,6 +1,8 @@
 
 package domain;
 
+import java.util.Date;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
@@ -8,14 +10,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.URL;
-import org.joda.time.LocalDate;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class EducationalRecord extends DomainEntity {
 
 	private String	diploma, awardedBy, link, comments;
-	private LocalDate	start, end;
+	private Date	start, end;
 
 
 	public String getDiploma() {
@@ -52,20 +53,20 @@ public class EducationalRecord extends DomainEntity {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	public LocalDate getStart() {
+	public Date getStart() {
 		return this.start;
 	}
 
-	public void setStart(final LocalDate start) {
+	public void setStart(final Date start) {
 		this.start = start;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	public LocalDate getEnd() {
+	public Date getEnd() {
 		return this.end;
 	}
 
-	public void setEnd(final LocalDate end) {
+	public void setEnd(final Date end) {
 		this.end = end;
 	}
 }
