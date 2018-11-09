@@ -17,12 +17,22 @@ public class HandyWorker extends Endorsable {
 	private String					make;
 	///////////////////////////////////
 	private Collection<Application>	applications;
-	private Collection<Endorsement>	endorsements;
 	private Collection<Note>		notes;
 	private Collection<Tutorial>	tutorials;
 	private Collection<Finder>		finders;
+	private Collection<FixUp>		fixUps;
 	private Curriculum				curriculum;
 
+
+	@Valid
+	@OneToMany(mappedBy = "handyWorker")
+	public Collection<FixUp> getFixUps() {
+		return this.fixUps;
+	}
+
+	public void setFixUps(final Collection<FixUp> fixUps) {
+		this.fixUps = fixUps;
+	}
 
 	@OneToMany
 	@Valid
@@ -62,14 +72,6 @@ public class HandyWorker extends Endorsable {
 		this.curriculum = curriculum;
 	}
 
-	@Valid
-	public Collection<Endorsement> getEndorsements() {
-		return this.endorsements;
-	}
-
-	public void setEndorsements(final Collection<Endorsement> endorsements) {
-		this.endorsements = endorsements;
-	}
 	@OneToMany(mappedBy = "applier")
 	@Valid
 	public Collection<Application> getApplications() {

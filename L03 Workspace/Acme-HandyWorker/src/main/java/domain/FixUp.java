@@ -31,7 +31,17 @@ public class FixUp extends DomainEntity {
 	private Collection<Application>	applications;
 	private Category				category;
 	private Collection<Complaint>	complaints;
+	private HandyWorker				handyWorker;
 
+
+	@ManyToOne(optional = true)
+	public HandyWorker getHandyWorker() {
+		return this.handyWorker;
+	}
+
+	public void setHandyWorker(final HandyWorker handyWorker) {
+		this.handyWorker = handyWorker;
+	}
 
 	@Valid
 	@OneToMany

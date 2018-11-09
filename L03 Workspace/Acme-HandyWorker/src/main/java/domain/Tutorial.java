@@ -70,7 +70,7 @@ public class Tutorial extends DomainEntity {
 		this.moment = moment;
 	}
 
-	@OneToMany(mappedBy = "Sponsorship")
+	@OneToMany(mappedBy = "tutorial")
 	public Collection<Sponsorship> getSponsorships() {
 		return this.sponsorships;
 	}

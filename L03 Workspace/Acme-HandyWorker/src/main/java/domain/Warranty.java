@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 
 @Entity
@@ -23,7 +24,7 @@ public class Warranty extends DomainEntity {
 	public void setTitle(final String title) {
 		this.title = title;
 	}
-
+	@ElementCollection(targetClass = String.class)
 	public Collection<String> getTerms() {
 		return this.terms;
 	}
@@ -31,7 +32,7 @@ public class Warranty extends DomainEntity {
 	public void setTerms(final Collection<String> terms) {
 		this.terms = terms;
 	}
-
+	@ElementCollection(targetClass = String.class)
 	public Collection<String> getLaws() {
 		return this.laws;
 	}

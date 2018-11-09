@@ -76,6 +76,7 @@
 		<property name="complaints" ><null/></property>
 		<property name="category" ><null/></property>
 		<property name="phases" ><null/></property>
+		<property name="handyWorker" ><null/></property>
 	</bean>
 	<!--  
 	<bean id="fixUp2" class="domain.FixUpTask">
