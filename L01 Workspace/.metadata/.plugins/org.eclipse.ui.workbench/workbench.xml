@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="88" version="2.0">
+<workbench progressCount="79" version="2.0">
 <workbenchAdvisor/>
 <window height="675" maximized="true" width="816" x="549" y="5">
 <fastViewData fastViewLocation="1024"/>
@@ -51,7 +51,7 @@
 <editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles_es.xml" partName="tiles_es.xml" path="//VBOXSVR/clone2DP/DP/L01 Workspace/Acme-Shout/src/main/webapp/views/profile/tiles_es.xml" title="tiles_es.xml" tooltip="Acme-Shout/src/main/webapp/views/profile/tiles_es.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Shout/src/main/webapp/views/profile/tiles_es.xml"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles.xml" partName="tiles.xml" path="//VBOXSVR/clone2DP/DP/L01 Workspace/Acme-Shout/src/main/webapp/views/profile/tiles.xml" title="tiles.xml" tooltip="Acme-Shout/src/main/webapp/views/profile/tiles.xml" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles.xml" partName="tiles.xml" path="//VBOXSVR/dp/L01 Workspace/Acme-Shout/src/main/webapp/views/profile/tiles.xml" title="tiles.xml" tooltip="Acme-Shout/src/main/webapp/views/profile/tiles.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-Shout/src/main/webapp/views/profile/tiles.xml"/>
 </editor>
 </editors>
@@ -101,7 +101,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspectives activePart="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -255,10 +255,8 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-Shout/src/main/webapp/views/profile/action-2.jsp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-Shout/src/main/webapp/views/profile/tiles_es.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-Shout/src/main/webapp/views/profile/tiles.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.core.runtime.xml.source" path="/Acme-Shout/src/main/webapp/views/profile/tiles.xml"/>
 </editors>
-<item historyLabel="security.xml" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
 <item historyLabel="WelcomeController.java" index="2">
 <position info="not_deleted" x="4" y="0"/>
 </item>
@@ -403,7 +401,10 @@
 <item historyLabel="tiles_es.xml" index="23">
 <position info="not_deleted" x="856" y="0"/>
 </item>
-<item active="true" historyLabel="tiles.xml" index="24">
+<item historyLabel="tiles.xml" index="24">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="tiles.xml" index="25">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
