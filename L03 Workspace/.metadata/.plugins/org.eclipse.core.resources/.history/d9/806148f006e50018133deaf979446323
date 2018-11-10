@@ -406,37 +406,22 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
 <!-- Referee --> 
 
 <bean id="Franref01" class="domain.Referee">
-        <property name="name" value="Manuel" />
-        <property name="surname" value="Rojo" />
-        <property name="middleName" value="" />
-        <property name="email" value="manuel@gmail.com" />
-        <property name="SocialProfiles">
-            <null />
-        </property>
-        <property name="photo">
-            <null />
-        </property>
-        <property name="mailBoxes">
-            <null />
-        </property>
-        <property name="address" value="Calle Pozonegro Número 12" />
-        <property name="reports" >
-            <list>
-                <ref bean="Franrep01"/>
-            </list>        
-        </property>
+    
+<property name="reports"><null/></property>
+
 </bean>
 
 <!-- Reports -->
 
 <bean id="Franrep01" class="domain.Report">
     
-        <property name="moment" value="2017/03/11"/>
+        <property name="moment" ><null/></property>
         <property name="description" value="Frandescription1" />
         <property name="attachment" value="https://www.google.es/Fran1" />
         <property name="complaint" ref="Francom01" />
         <property name="referee" ref="Franref01" />
-         <property name="notes" ><null/></property>
+        <property name="note" ref="annot01" />
+
     </bean>
 
 <!-- report --> 
@@ -446,7 +431,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="moment" value="2018/05/10" />
         <property name="description" value="cdescriptionrep" />
         <property name="complaint" ref="com01" />
-        <property name="referee" ref="Franref01" />
+        <property name="referee" ref="FranRef01" />
      <property name="notes" >
             <list>
                 <ref bean="annot01"/>
@@ -454,17 +439,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         </property>    
        </bean>
 
-    <!-- notes --> 
-     <bean id="annot01" class="domain.Note">
-    
-        <property name="moment" value="2017/05/10" />
-        <property name="commentReferee" value="commentref" />
-        <property name="commentCustomer" value="commentCus" />
-        <property name="commentHandyWorker" value="commenthandy" />
-    </bean>
     
   </beans>
     
-
 
 
