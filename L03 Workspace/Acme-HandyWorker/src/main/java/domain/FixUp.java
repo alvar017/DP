@@ -66,6 +66,7 @@ public class FixUp extends DomainEntity {
 		return this.moment;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}
@@ -97,7 +98,7 @@ public class FixUp extends DomainEntity {
 	public Date getStartDate() {
 		return this.startDate;
 	}
-
+	@Temporal(TemporalType.TIMESTAMP)
 	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
@@ -106,6 +107,7 @@ public class FixUp extends DomainEntity {
 		return this.endDate;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
 	}

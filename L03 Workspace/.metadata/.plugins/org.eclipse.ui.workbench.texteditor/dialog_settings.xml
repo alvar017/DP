@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
-		<item value="271" key="DIALOG_Y_ORIGIN"/>
-		<item value="993" key="DIALOG_X_ORIGIN"/>
+		<item value="63" key="DIALOG_Y_ORIGIN"/>
 		<item value="362" key="DIALOG_HEIGHT"/>
+		<item value="1016" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="OneToMany" key="selection"/>
+		<item value="Date" key="selection"/>
 		<list key="findhistory">
+			<item value="DATE"/>
+			<item value="date"/>
+			<item value="publish"/>
 			<item value="OneTomany"/>
 			<item value="oneto"/>
 			<item value="LocalTime"/>
 			<item value="LocalDate"/>
 			<item value="display"/>
-			<item value="acme-shout.hidora.com"/>
-			<item value="acme-"/>
-			<item value="app-"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Date"/>
