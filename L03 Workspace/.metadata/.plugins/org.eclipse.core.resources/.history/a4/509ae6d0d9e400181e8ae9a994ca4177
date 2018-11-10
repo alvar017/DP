@@ -66,16 +66,6 @@
 		<property name="nameEN" value="category" />
 		<property name="subCategories"><null/></property>
 
-	</bean>
-	
-	<!-- Warranty -->	
-	
-	<bean id="war01" class="domain.Warranty">
-	
-		<property name="title" value="warranty1" />
-		<property name="terms"><null/></property>
-		<property name="laws"><null/></property>
-
 
 	</bean>
 		
@@ -90,9 +80,9 @@
 		<property name="maxPrice" ><null/></property>
 		<property name="startDate" ><null/></property>
 		<property name="endDate" ><null/></property>
-		<property name="warranty" ref="war01"/>
+		<property name="warranty" ><null/></property>
 		<property name="applications" ><null/></property>
-		<property name="category" ref="cat01"/>
+		<property name="category" ><null/></property>
 		<property name="complaints" ><null/></property>
 		<property name="handyWorker" ><null/></property>
 	</bean>

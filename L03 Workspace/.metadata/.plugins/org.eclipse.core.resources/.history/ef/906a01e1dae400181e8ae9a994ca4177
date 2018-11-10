@@ -72,7 +72,7 @@
 	
 	<bean id="war01" class="domain.Warranty">
 	
-		<property name="title" value="warranty1" />
+		<property name="tittle" value="warranty1" />
 		<property name="terms"><null/></property>
 		<property name="laws"><null/></property>
 
@@ -90,7 +90,7 @@
 		<property name="maxPrice" ><null/></property>
 		<property name="startDate" ><null/></property>
 		<property name="endDate" ><null/></property>
-		<property name="warranty" ref="war01"/>
+		<property name="warranty" ><null/></property>
 		<property name="applications" ><null/></property>
 		<property name="category" ref="cat01"/>
 		<property name="complaints" ><null/></property>
