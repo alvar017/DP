@@ -1,8 +1,13 @@
 #./src/main/resources/Entities.map
-#Sat Nov 10 12:23:12 CET 2018
-war01=11
-fixUp1=12
-userAccount3=9
-userAccount2=8
-cat01=10
-userAccount1=7
+#Sat Nov 10 14:13:23 CET 2018
+fixUp1=30
+com02=27
+com01=26
+war01=29
+cat01=28
+han01=25
+app02=32
+userAccount3=24
+app01=31
+userAccount2=23
+userAccount1=22

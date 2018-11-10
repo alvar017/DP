@@ -58,6 +58,75 @@
 	</bean>
 	
 	<!-- Other domain beans come here -->
+	
+	<!-- HandyWorker -->
+	<bean id="han01" class="domain.HandyWorker">
+       
+     	<property name="name" value="Ester" />
+ 		<property name="surname" value="Exposito" />
+ 		<property name="middleName" value="" />
+ 		<property name="SocialProfiles"><null/></property>
+ 		<property name="photo"><null/></property>
+     	<property name="mailBoxes"><null/></property>
+     	<property name="address" value="Calle Aguditas Número 12" />
+        <property name="make" value="make1" />
+        <property name="applications"><null/></property>
+        <property name="endreferenced"><null/></property>
+        <property name="notes"><null/></property>
+        <property name="tutorials"><null/></property>
+        <property name="finders"><null/></property>
+        <property name="curriculum"><null/></property>
+        
+    </bean>
+	
+	<!-- Application -->	
+	
+	<bean id="app01" class="domain.Application">
+        <property name="moment" value="2018/11/10 08:00"/>
+        <property name="state" value="True" />
+        <property name="offered" ref="mon01"/>
+        <property name="comments" value="comments1" />
+        <property name="applier" ref="han01"/>
+        <property name="fixUp" ref="fixUp1"/>
+        <property name="workplan"><null/></property>
+    </bean>
+    
+    <bean id="app02" class="domain.Application">   
+        <property name="moment" value="2018/01/10 08:00"/>
+        <property name="state" value="True" />
+        <property name="offered" ref="mon01"/>
+        <property name="comments" value="comments2" />
+        <property name="applier" ref="han01"/>
+        <property name="fixUp" ref="fixUp1"/>
+        <property name="workplan"><null/></property>
+    </bean>
+	
+	<!-- Complaint -->	
+	
+	<bean id="com01" class="domain.Complaint">
+    
+        <property name="ticker" value="ticker1" />
+        <property name="description" value="description1" />
+        <property name="attachment" value="http://www.google.es/" />
+        <property name="moment" value="2018/11/29 08:00" />
+        <property name="reports"><null/></property>
+    </bean>
+    	<bean id="com02" class="domain.Complaint">
+    
+        <property name="ticker" value="ticker2" />
+        <property name="description" value="description2" />
+        <property name="attachment" value="http://www.google.com/" />
+        <property name="moment" value="2018/11/30 08:00" />
+        <property name="reports"><null/></property>
+    </bean>
+	<!-- Money -->	
+	
+	<bean id="mon01" class="domain.Money">
+	
+		<property name="currency" value="EUR" />
+		<property name="quantity" value="70" />
+
+	</bean>
 	<!-- Category -->	
 	
 	<bean id="cat01" class="domain.Category">
@@ -84,17 +153,27 @@
 	<bean id="fixUp1" class="domain.FixUp">
 	
 		<property name="ticker" value="123456b" />
-		<property name="moment" value="01/02/2015 23:59"/>
+		<property name="moment" value="2018/11/10 08:00"/>
 		<property name="description" value="The Handy Worker has to repair a pipeline" />
 		<property name="address" value="Avenida Reina Mercedes Nº23" />
-		<property name="maxPrice" ><null/></property>
-		<property name="startDate" ><null/></property>
-		<property name="endDate" ><null/></property>
+		<property name="maxPrice" ref="mon01"/>
+		<property name="startDate" value="2018/11/18 08:00"/>
+		<property name="endDate" value="2018/11/30 08:00"/>
 		<property name="warranty" ref="war01"/>
-		<property name="applications" ><null/></property>
+		<property name="applications" >
+			<list>
+				<ref bean="app01"/>
+				<ref bean="app02"/>				
+			</list>		
+		</property>
 		<property name="category" ref="cat01"/>
-		<property name="complaints" ><null/></property>
-		<property name="handyWorker" ><null/></property>
+		<property name="complaints" >
+			<list>
+				<ref bean="com01"/>
+				<ref bean="com02"/>				
+			</list>		
+		</property>
+		<property name="handyWorker" ref="han01"/>
 	</bean>
 	<!--  
 	<bean id="fixUp2" class="domain.FixUpTask">

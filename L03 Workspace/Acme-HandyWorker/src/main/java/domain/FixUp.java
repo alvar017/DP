@@ -94,20 +94,19 @@ public class FixUp extends DomainEntity {
 	public void setMaxPrice(final Money maxPrice) {
 		this.maxPrice = maxPrice;
 	}
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getStartDate() {
 		return this.startDate;
 	}
-	@Temporal(TemporalType.TIMESTAMP)
+
 	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	public Date getEndDate() {
 		return this.endDate;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
 	}
