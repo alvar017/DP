@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Categor" key="selection"/>
+		<item value="domain.App" key="selection"/>
 		<list key="findhistory">
+			<item value="domain.app"/>
+			<item value="application"/>
+			<item value="mon3"/>
+			<item value="money"/>
+			<item value="fixup"/>
+			<item value="fix"/>
+			<item value="domain.Application"/>
 			<item value="categor"/>
-			<item value="catego"/>
-			<item value="DATE"/>
-			<item value="date"/>
-			<item value="publish"/>
-			<item value="OneTomany"/>
-			<item value="oneto"/>
-			<item value="LocalTime"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Date"/>

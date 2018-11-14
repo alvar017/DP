@@ -1,8 +1,30 @@
 #./src/main/resources/Entities.map
-#Sat Nov 10 12:41:17 CET 2018
-war01=11
-fixUp1=12
-userAccount3=9
-userAccount2=8
-cat01=10
-userAccount1=7
+#Wed Nov 14 12:52:28 CET 2018
+Francom01=130
+ccat01=137
+annot01=144
+com02=129
+com01=128
+war01=133
+fixUp1=134
+ccom02=139
+ccom01=138
+cfixUp1=149
+Franrep01=142
+FranfixUp1=135
+userAccount3=126
+Franapp02=148
+userAccount2=125
+Franapp01=147
+userAccount1=124
+ancus01=140
+app02=146
+han01=127
+app01=145
+capp02=151
+chan01=136
+capp01=150
+anrep01=143
+Franref01=141
+Francom02=131
+cat01=132

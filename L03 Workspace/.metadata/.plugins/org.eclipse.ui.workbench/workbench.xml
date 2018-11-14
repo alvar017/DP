@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="71" version="2.0">
+<workbench progressCount="77" version="2.0">
 <workbenchAdvisor/>
 <window height="675" maximized="true" width="951" x="320" y="75">
 <fastViewData fastViewLocation="1024"/>
@@ -45,7 +45,6 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
-<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -60,10 +59,6 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="PopulateDatabase.xml" partName="PopulateDatabase.xml" path="//VBOXSVR/dp/L03 Workspace/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml" title="PopulateDatabase.xml" tooltip="Acme-HandyWorker/src/main/resources/PopulateDatabase.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Complaint.java" partName="Complaint.java" path="//VBOXSVR/dp/L03 Workspace/Acme-HandyWorker/src/main/java/domain/Complaint.java" title="Complaint.java" tooltip="Acme-HandyWorker/src/main/java/domain/Complaint.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/domain/Complaint.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -96,7 +91,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -185,7 +180,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25239852" ratioLeft="342" ratioRight="1013" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.49129593" ratioLeft="254" ratioRight="263" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottomRight" ratio="0.69052225" ratioLeft="357" ratioRight="160" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
@@ -216,7 +211,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@23d6e3cd" ratio="0.9389474" ratioLeft="446" ratioRight="29" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@23d6e3cd" ratio="0.94020617" ratioLeft="456" ratioRight="29" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" appearance="2" expanded="2">
 <page content="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" label="Data Source Explorer"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
@@ -233,8 +228,6 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.core.runtime.xml.source" path="/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/Category.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/Warranty.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
@@ -247,156 +240,160 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/Complaint.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/Customer.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.core.runtime.xml.source" path="/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml"/>
+<editor connInfoName="Undefined:::" editorInputType="SQLScrapbookEditorInput" factoryID="org.eclipse.datatools.sqltools.internal.sqlscrapbook.editor.SQLScrapbookEditorInputFactory" id="org.eclipse.datatools.sqltools.sqlscrapbook.SQLScrapbookEditor" path="/Scrapbook/create-database.sql"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml"/>
+<editor connInfoName="Undefined:::" editorInputType="SQLScrapbookEditorInput" factoryID="org.eclipse.datatools.sqltools.internal.sqlscrapbook.editor.SQLScrapbookEditorInputFactory" id="org.eclipse.datatools.sqltools.sqlscrapbook.SQLScrapbookEditor" path="/Scrapbook/create-users.sql"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/HandyWorker.java"/>
 </editors>
 <item historyLabel="FixUp.java" index="1">
-<position info="not_deleted" x="1482" y="0"/>
-</item>
-<item historyLabel="PopulateDatabase.xml" index="0">
-<position info="not_deleted" x="2192" y="0"/>
-</item>
-<item historyLabel="PopulateDatabase.xml" index="0">
-<position info="not_deleted" x="2492" y="0"/>
-</item>
-<item historyLabel="PopulateDatabase.xml" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="FixUp.java" index="3">
-<position info="not_deleted" x="3268" y="0"/>
-</item>
-<item historyLabel="FixUp.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="PopulateDatabase.xml" index="0">
-<position info="not_deleted" x="2353" y="0"/>
-</item>
-<item historyLabel="FixUp.java" index="3">
 <position info="not_deleted" x="3109" y="0"/>
 </item>
 <item historyLabel="PopulateDatabase.xml" index="0">
 <position info="not_deleted" x="5089" y="6"/>
 </item>
-<item historyLabel="FixUp.java" index="3">
+<item historyLabel="FixUp.java" index="1">
 <position info="not_deleted" x="3104" y="5"/>
 </item>
 <item historyLabel="PopulateDatabase.xml" index="0">
 <position info="not_deleted" x="5089" y="6"/>
 </item>
-<item historyLabel="Category.java" index="4">
+<item historyLabel="Category.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="PopulateDatabase.xml" index="0">
 <position info="not_deleted" x="5089" y="6"/>
 </item>
-<item historyLabel="FixUp.java" index="3">
+<item historyLabel="FixUp.java" index="1">
 <position info="not_deleted" x="3104" y="5"/>
 </item>
-<item historyLabel="Category.java" index="4">
+<item historyLabel="Category.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="PopulateDatabase.xml" index="0">
 <position info="not_deleted" x="3059" y="0"/>
 </item>
-<item historyLabel="Warranty.java" index="5">
+<item historyLabel="Warranty.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="PopulateDatabase.xml" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="6">
+<item historyLabel="FixUp.java" index="4">
 <position info="not_deleted" x="2506" y="0"/>
 </item>
 <item historyLabel="PopulateDatabase.xml" index="0">
 <position info="not_deleted" x="2757" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="6">
+<item historyLabel="FixUp.java" index="4">
 <position info="not_deleted" x="2229" y="33"/>
 </item>
-<item historyLabel="Money.java" index="7">
+<item historyLabel="Money.java" index="5">
 <position info="not_deleted" x="216" y="8"/>
 </item>
 <item historyLabel="PopulateDatabase.xml" index="0">
 <position info="not_deleted" x="1935" y="0"/>
 </item>
-<item historyLabel="Money.java" index="7">
+<item historyLabel="Money.java" index="5">
 <position info="not_deleted" x="243" y="8"/>
 </item>
 <item historyLabel="PopulateDatabase.xml" index="0">
 <position info="not_deleted" x="2015" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="6">
+<item historyLabel="FixUp.java" index="4">
 <position info="not_deleted" x="2229" y="33"/>
 </item>
-<item historyLabel="Application.java" index="8">
+<item historyLabel="Application.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="6">
+<item historyLabel="FixUp.java" index="4">
 <position info="not_deleted" x="2229" y="33"/>
 </item>
-<item historyLabel="Complaint.java" index="9">
+<item historyLabel="Complaint.java" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="HandyWorker.java" index="10">
+<item historyLabel="HandyWorker.java" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="11">
+<item historyLabel="FixUp.java" index="9">
 <position info="not_deleted" x="941" y="35"/>
 </item>
-<item historyLabel="HandyWorker.java" index="10">
+<item historyLabel="HandyWorker.java" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="PopulateDatabase.xml" index="12">
+<item historyLabel="PopulateDatabase.xml" index="10">
 <position/>
 </item>
-<item historyLabel="HandyWorker.java" index="10">
+<item historyLabel="HandyWorker.java" index="8">
 <position info="not_deleted" x="374" y="4"/>
 </item>
-<item historyLabel="PopulateDatabase.xml" index="12">
+<item historyLabel="PopulateDatabase.xml" index="10">
 <position info="not_deleted" x="2430" y="0"/>
 </item>
-<item historyLabel="Complaint.java" index="13">
+<item historyLabel="Complaint.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="11">
+<item historyLabel="FixUp.java" index="9">
 <position info="not_deleted" x="941" y="35"/>
 </item>
-<item historyLabel="Complaint.java" index="13">
+<item historyLabel="Complaint.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="PopulateDatabase.xml" index="12">
+<item historyLabel="PopulateDatabase.xml" index="10">
 <position/>
 </item>
-<item historyLabel="Complaint.java" index="13">
+<item historyLabel="Complaint.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="PopulateDatabase.xml" index="12">
+<item historyLabel="PopulateDatabase.xml" index="10">
 <position/>
 </item>
-<item historyLabel="Complaint.java" index="13">
+<item historyLabel="Complaint.java" index="11">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="PopulateDatabase.xml" index="12">
+<item historyLabel="PopulateDatabase.xml" index="10">
 <position info="not_deleted" x="5796" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="11">
+<item historyLabel="FixUp.java" index="9">
 <position info="not_deleted" x="814" y="0"/>
 </item>
-<item historyLabel="PopulateDatabase.xml" index="12">
+<item historyLabel="PopulateDatabase.xml" index="10">
 <position info="not_deleted" x="5867" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="11">
+<item historyLabel="FixUp.java" index="9">
 <position info="not_deleted" x="814" y="0"/>
 </item>
-<item historyLabel="Customer.java" index="14">
+<item historyLabel="Customer.java" index="12">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FixUp.java" index="11">
+<item historyLabel="FixUp.java" index="9">
 <position info="not_deleted" x="814" y="0"/>
 </item>
-<item historyLabel="PopulateDatabase.xml" index="12">
+<item historyLabel="PopulateDatabase.xml" index="10">
 <position info="not_deleted" x="5867" y="0"/>
+</item>
+<item historyLabel="PopulateDatabase.xml" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="PopulateDatabase.xml" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="create-database.sql" index="14">
+<position info="not_deleted" x="0" y="60"/>
+</item>
+<item historyLabel="PopulateDatabase.xml" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="create-users.sql" index="16">
+<position info="not_deleted" x="0" y="205"/>
+</item>
+<item historyLabel="PopulateDatabase.xml" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="HandyWorker.java" index="17">
+<position info="not_deleted" x="374" y="4"/>
 </item>
 <item active="true" historyLabel="PopulateDatabase.xml" index="15">
-<position info="not_deleted" x="0" y="0"/>
+<position info="not_deleted" x="0" y="20116"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -404,6 +401,14 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="topRight"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@23d6e3cd"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -412,10 +417,17 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottomRight"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.datatools.sqltools.sqlscrapbook.SQLScrapbookEditor" name="create-users.sql" tooltip="Scrapbook/create-users.sql">
+<persistable path="/Scrapbook/create-users.sql"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.datatools.sqltools.sqlscrapbook.SQLScrapbookEditor" name="create-database.sql" tooltip="Scrapbook/create-database.sql">
+<persistable path="/Scrapbook/create-database.sql"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Customer.java" tooltip="Acme-HandyWorker/src/main/java/domain/Customer.java">
 <persistable path="/Acme-HandyWorker/src/main/java/domain/Customer.java"/>
 </file>
@@ -454,12 +466,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Sponsor.java" tooltip="Acme-HandyWorker/src/main/java/domain/Sponsor.java">
 <persistable path="/Acme-HandyWorker/src/main/java/domain/Sponsor.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SocialProfile.java" tooltip="Acme-HandyWorker/src/main/java/domain/SocialProfile.java">
-<persistable path="/Acme-HandyWorker/src/main/java/domain/SocialProfile.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Section.java" tooltip="Acme-HandyWorker/src/main/java/domain/Section.java">
-<persistable path="/Acme-HandyWorker/src/main/java/domain/Section.java"/>
 </file>
 </mruList>
 </workbench>
