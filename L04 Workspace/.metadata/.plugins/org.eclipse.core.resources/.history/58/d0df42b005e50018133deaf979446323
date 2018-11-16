@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2018 Universidah´ de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="customer" />
+		<property name="password" value="91ec1f9324753048c0096d036a694f86" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="super" />
+		<property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Other domain beans come here -->
+	
+	<!-- HandyWorker -->
+	<bean id="han01" class="domain.HandyWorker">
+       
+     	<property name="name" value="Ester" />
+ 		<property name="surname" value="Exposito" />
+ 		<property name="middleName" value="" />
+ 		<property name="SocialProfiles"><null/></property>
+ 		<property name="photo"><null/></property>
+     	<property name="mailBoxes"><null/></property>
+     	<property name="address" value="Calle Aguditas Número 12" />
+        <property name="make" value="make1" />
+        <property name="applications"><null/></property>
+        <property name="endreferenced"><null/></property>
+        <property name="notes"><null/></property>
+        <property name="tutorials"><null/></property>
+        <property name="finders"><null/></property>
+        <property name="curriculum"><null/></property>
+        
+    </bean>
+	
+	<!-- Application -->	
+	
+	<bean id="app01" class="domain.Application">
+        <property name="moment" value="2018/11/10 08:00"/>
+        <property name="state" value="True" />
+        <property name="offered" ref="mon01"/>
+        <property name="comments" value="comments1" />
+        <property name="applier" ref="han01"/>
+        <property name="fixUp" ref="fixUp1"/>
+        <property name="workplan"><null/></property>
+    </bean>
+    
+    <bean id="app02" class="domain.Application">   
+        <property name="moment" value="2018/01/10 08:00"/>
+        <property name="state" value="True" />
+        <property name="offered" ref="mon01"/>
+        <property name="comments" value="comments2" />
+        <property name="applier" ref="han01"/>
+        <property name="fixUp" ref="fixUp1"/>
+        <property name="workplan"><null/></property>
+    </bean>
+	
+	<!-- Complaint -->	
+	
+	<bean id="com01" class="domain.Complaint">
+    
+        <property name="ticker" value="ticker1" />
+        <property name="description" value="description1" />
+        <property name="attachment" value="http://www.google.es/" />
+        <property name="moment" value="2018/11/29 08:00" />
+        <property name="reports"><null/></property>
+    </bean>
+    	<bean id="com02" class="domain.Complaint">
+    
+        <property name="ticker" value="ticker2" />
+        <property name="description" value="description2" />
+        <property name="attachment" value="http://www.google.com/" />
+        <property name="moment" value="2018/11/30 08:00" />
+        <property name="reports"><null/></property>
+    </bean>
+	<!-- Money -->	
+	
+	<bean id="mon01" class="domain.Money">
+	
+		<property name="currency" value="EUR" />
+		<property name="quantity" value="70" />
+
+	</bean>
+	<!-- Category -->	
+	
+	<bean id="cat01" class="domain.Category">
+	
+		<property name="nameES" value="categoria" />
+		<property name="nameEN" value="category" />
+		<property name="subCategories"><null/></property>
+
+	</bean>
+	
+	<!-- Warranty -->	
+	
+	<bean id="war01" class="domain.Warranty">
+	
+		<property name="title" value="warranty1" />
+		<property name="terms"><null/></property>
+		<property name="laws"><null/></property>
+
+
+	</bean>
+		
+	<!-- FixUp -->	
+		
+	<bean id="fixUp1" class="domain.FixUp">
+	
+		<property name="ticker" value="123456b" />
+		<property name="moment" value="2018/11/10 08:00"/>
+		<property name="description" value="The Handy Worker has to repair a pipeline" />
+		<property name="address" value="Avenida Reina Mercedes Nº23" />
+		<property name="maxPrice" ref="mon01"/>
+		<property name="startDate" value="2018/11/18 08:00"/>
+		<property name="endDate" value="2018/11/30 08:00"/>
+		<property name="warranty" ref="war01"/>
+		<property name="applications" >
+			<list>
+				<ref bean="app01"/>
+				<ref bean="app02"/>				
+			</list>		
+		</property>
+		<property name="category" ref="cat01"/>
+		<property name="complaints" >
+			<list>
+				<ref bean="com01"/>
+				<ref bean="com02"/>				
+			</list>		
+		</property>
+		<property name="handyWorker" ref="han01"/>
+	</bean>
+	<!--  
+	<bean id="fixUp2" class="domain.FixUpTask">
+	
+		<property name="ticker" value="1234981b" />
+		<property name="description" value="The Handy Worker has to repair the roof" />
+		<property name="publishDate" value="3-11-2018" />
+		<property name="startDate" value="5-11-2018" />
+		<property name="currency" value="EUR" />
+		<property name="amount" value="450" />
+		<property name="endDate" value="6-11-2018" />
+		<property name="address" value="Avenida Reina Mercedes Nº24" />
+		<property name="warranty" ref="warranty2"/>
+		<property name="applications" value="" />
+		<property name="complaints" value="" />
+		<property name="category" ref="category2" />
+		<property name="phases" value="" />
+	</bean>
+	<bean id="fixUp3" class="domain.FixUpTask">
+	
+		<property name="ticker" value="123489b" />
+		<property name="description" value="The Handy Worker has to take down a tree" />
+		<property name="publishDate" value="5-11-2018" />
+		<property name="startDate" value="9-11-2018" />
+		<property name="currency" value="EUR" />
+		<property name="amount" value="450" />
+		<property name="endDate" value="10-11-2018" />
+		<property name="address" value="Avenida Reina Mercedes Nº25" />
+		<property name="warranty" ref="warranty3"/>
+		<property name="applications" value="" />
+		<property name="complaints" value="" />
+		<property name="category" ref="category3" />
+		<property name="phases" value="" />
+	</bean>
+	<bean id="fixUp4" class="domain.FixUpTask">
+	
+		<property name="ticker" value="123467a" />
+		<property name="description" value="The Handy Worker has to repair the wall" />
+		<property name="publishDate" value="1-10-2018" />
+		<property name="startDate" value="11-11-2018" />
+		<property name="currency" value="EUR" />
+		<property name="amount" value="450" />
+		<property name="endDate" value="13-11-2018" />
+		<property name="address" value="Avenida Reina Mercedes Nº26" />
+		<property name="warranty" ref="warranty4"/>
+		<property name="applications" value="" />
+		<property name="complaints" value="" />
+		<property name="category" ref="category4" />
+		<property name="phases" value="" />
+	</bean>
+	-->
+</beans>

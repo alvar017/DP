@@ -1,0 +1,472 @@
+-Query C/1-
+
+The average, the minimum, the maximum, and the standard deviation of the number of fix-up tasks per user.
+
+select h, h.fixUps.size from HandyWorker h where (h.fixUps.size=(select min(h1.fixUps.size) from HandyWorker h1));
+
+//selects the handy worker whose number of fixups is the min and its value
+//2 objects selected
+//[domain.HandyWorker{id=153, version=0}, 2]
+//[domain.HandyWorker{id=162, version=0}, 2]
+
+select h, h.fixUps.size from HandyWorker h where (h.fixUps.size=(select max(h1.fixUps.size) from HandyWorker h1));
+
+//selects the handy worker whose number of fixups is the min and its value
+//2 objects selected
+//[domain.HandyWorker{id=153, version=0}, 2]
+//[domain.HandyWorker{id=162, version=0}, 2]
+
+select avg(h.fixUps.size) from HandyWorker h;
+
+//selects the average number of fixups a handy worker has
+//1 object selected
+//2.0
+
+
+select sqrt(sum(h.fixUps.size*h.fixUps.size)/count(h)-(avg(h.fixUps.size)*avg(h.fixUps.size))) from HandyWorker h;
+
+//calculates the standard deviation of the number of fixups per handy worker using its formula.
+//1 object selected
+//0.0
+
+-Query C/2-
+
+The average, the minimum, the maximum, and the standard deviation of the number of applications per fix-up task.
+
+select  f, f.applications.size from FixUp f where ( f.applications.size = ( select max(f1.applications.size) from FixUp f1));
+
+//selects the fixup which has the maximum number of applications and its value
+//2 objects selected
+//[domain.FixUp{id=85, version=0}, 2]
+//[domain.FixUp{id=86, version=0}, 2]
+
+select  f, f.applications.size from FixUp f where ( f.applications.size = ( select min(f1.applications.size) from FixUp f1));
+
+//selects the fixup which has the minimum number of applications and its value
+// 1 object selected
+//[domain.FixUp{id=101, version=0}, 1]
+
+
+select avg(f.applications.size) from FixUp f;
+
+//selects the average number of application a fixup has.
+//1 object selected
+//1.6667
+
+select sqrt (sum(f.applications.size*f.applications.size)/count(f.applications.size)-(avg(f.applications.size)*avg(f.applications.size))) from FixUp f; 
+
+//calculates the standard deviation of the number of applications per fixup using its formula.
+//1 object selected
+//0.4714045231480543
+
+Query C/3
+
+The average, the minimum, the maximum, and the standard deviation of the maximum price of the fix-up tasks.
+
+select a,b.quantity from FixUp a join a.maxPrice b where(b.quantity = (select min(b1.quantity) from FixUp a1 join a1.maxPrice b1));
+
+//This query check if the valour of the attribute maxPrice match with the minimun valour of all the attributes maxPrice in the table FIxuP and print it at console. 
+//1 object selected
+//[domain.FixUp{id=115, version=0}, 70.0]
+
+select a,b.quantity from FixUp a join a.maxPrice b where(b.quantity = (select max(b1.quantity) from FixUp a1 join a1.maxPrice b1));
+
+//This query check if the valour of the attribute maxPrice match with the maximun valour of all the attributes maxPrice in the table FIxuP and print it at console. 
+//3 objects selected
+//[domain.FixUp{id=117, version=0}, 90.0]
+//[domain.FixUp{id=118, version=0}, 90.0]
+//[domain.FixUp{id=136, version=0}, 90.0]
+
+select avg(b.quantity) from FixUp a join a.maxPrice b;
+
+//This query do the average of the attribute maxPrice in the table FixUp.
+//1 object selected
+//84.0
+
+select sqrt(sum(b.quantity*b.quantity)/count(b.quantity)-(avg(b.quantity)*avg(b.quantity))) from FixUp f join f.maxPrice b;
+
+//This query its the standard deviation formula with the attribute maxPrice of FixUp.
+//1 object selected
+//8.0
+
+
+Query C/4
+
+The average, the minimum, the maximum, and the standard deviation of the price offered in the applications.The average, the minimum, the maximum, and the standard deviation of the price offered in the applications.
+
+select a,b.quantity from Application a join a.offered b where(b.quantity = (select max(b1.quantity) from Application a1 join a1.offered b1));
+
+//selects the application which has the minimum number of quantity and its value
+//1 object selected
+//[domain.Application{id=177, version=0}, 90.0]
+
+select a,b.quantity from Application a join a.offered b where(b.quantity = (select min(b1.quantity) from Application a1 join a1.offered b1));
+
+//selects the application which has the maximun number of quantity and its value
+//4 objects selected
+//[domain.Application{id=175, version=0}, 70.0]
+//[domain.Application{id=178, version=0}, 70.0]
+//[domain.Application{id=181, version=0}, 70.0]
+//[domain.Application{id=182, version=0}, 70.0]
+
+select avg(b.quantity) from Application a join a.offered b;
+
+//selects the average number of quantity an application has
+//1 object selected
+//75.0
+
+select sqrt(sum(b.quantity*b.quantity)/count(b.quantity)-(avg(b.quantity)*avg(b.quantity))) from Application a join a.offered b;
+
+//This query its the standard deviation formula
+//1 object selected
+//7.637626158259714
+
+Query C/5
+
+The ratio of pending applications.
+
+select count(a.state), sum(case when a.state = null then 1 else 0 end)
+        / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0
+from Application a;
+
+//16.66667%
+//This query sum the cases that state is pending divided by the number of total application
+
+Query C/6
+
+The ratio of accepted applications.
+
+select count(a.state), sum(case when a.state = 1 then 1 else 0 end)
+        / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0
+from Application a;
+
+//66.66667%
+//This query sum the cases that state is accepted divided by the number of total application
+
+Query C/7
+
+The ratio of rejected applications.
+
+select count(a.state), sum(case when a.state = 0 then 1 else 0 end)
+        / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0
+from Application a;
+
+//16.66667%
+//This query sum the cases that state is rejected divided by the number of total application
+
+Query C/8
+
+The ratio of pending applications that cannot change its status because their time period’s elapsed.
+
+select count(a.state), sum(case when a.state = null
+                        and f.id = a.fixUp
+                        and current_timestamp > f.endDate then 1 else 0 end)
+        /count(a)  * 100.0
+from Application a, FixUp f  join a.fixUp f;
+
+// Sum the cases of pending application can’t change because the time of FixUp it elapsed
+// Result: 16.66667
+
+Query C/9
+
+The listing of customers who have published at least 10% more fix-up tasks than the average, ordered by number of applications.
+
+select c from Customer c join c.fixUps fi where((c.fixUps.size) >=  ((select avg(cus.fixUps.size) from Customer cus) * 1.1)) group by c order by fi.applications.size desc;
+
+//This query select the customers that her size of fixups is greater than or equal to the average of the size of the fixups per customer multiplied by 1.1 and the result is group by customers and ordered by the size of applications descendingly.
+1 object selected
+domain.Customer{id=125, version=0}
+    domain.DomainEntity::id: int = 125
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "David"
+    domain.Actor::address: java.lang.String = "Calle Pozoblanco Número 12"
+    domain.Actor::surname: java.lang.String = "Martín"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = "david@gmail.com"
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.Customer::fixUps: java.util.Collection = [domain.FixUp{id=115, version=0}, domain.FixUp{id=136, version=0}]
+    domain.Customer::notes: java.util.Collection = []
+
+
+Query C/10
+
+The listing of handy workers who have got accepted at least 10% more ap-plications than the average, ordered by number of applications.
+
+select h from HandyWorker h where((select count(a) from HandyWorker hw join hw.applications a where(a.state=1 and hw.id=h.id)) >=((select count(a.state)/2.0 from HandyWorker h join h.applications a where (a.state=1)) * 1.1));
+
+//Selects the best Handy Workers that have a number of accepted applications a 10% higher than the average number of accepted applications per handy worker.
+//1 object selected
+domain.HandyWorker{id=153, version=0}
+    domain.DomainEntity::id: int = 153
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "Ester"
+    domain.Actor::address: java.lang.String = "Calle Aguditas Número 12"
+    domain.Actor::surname: java.lang.String = "Exposito"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = null
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Query B/1
+
+The minimum, the maximum, the average, and the standard deviation of the number of complaints per fix-up task.
+
+select f, f.complaints.size from FixUp f where (f.complaints.size=(select min(f1.complaints.size) from FixUp f1));
+
+//selects the fixup which has the minimum number of complaints and its value
+//1 object selected
+//[domain.FixUp{id=180, version=0}, 0]
+
+select f, f.complaints.size from FixUp f where (f.complaints.size=(select max(f1.complaints.size) from FixUp f1));
+
+//selects the fixup which has the maximum number of complaints and its value
+//3 objects selected
+//[domain.FixUp{id=160, version=0}, 2]
+//[domain.FixUp{id=161, version=0}, 2]
+//[domain.FixUp{id=179, version=0}, 2]
+
+select avg(f.complaints.size)from FixUp f;
+
+//selects the average number of complaints a fixup has.
+//1 object selected
+//1.5
+
+select sqrt(sum(f.complaints.size*f.complaints.size)/count(f)-(avg(f.complaints.size)*avg(f.complaints.size))) from FixUp f;
+
+//calculates the standard deviation of the number of complaints per fixup task using its formula.
+//1 object selected
+//0.8660254037844386
+
+
+Query B/2
+
+The minimum, the maximum, the average, and the standard deviation of the number of notes per referee report.
+
+select  r,r.notes.size from Report r where (r.notes.size = ( select max(r1.notes.size) from  Report r1));
+
+//selects the report which has the maximum number of notes and its value
+//1 object selected
+//[domain.Report{id=94, version=0}, 2]
+
+select  r,r.notes.size from Report r where (r.notes.size = ( select min(r1.notes.size) from  Report r1));
+
+//selects the report which has the minimum number of notes and its value
+//1 object selected
+//[domain.Report{id=93, version=0}, 0]
+
+select avg(r.notes.size) from Report r;
+
+//selects the average number of notes a fixup has.
+//1 object selected
+//1.0
+
+select sqrt (sum(r.notes.size*r.notes.size)/count(r.notes.size)-(avg(r.notes.size)*avg(r.notes.size))) from Report r; 
+//calculates the standard deviation of the number of notes per report using its formula. 
+//1 object selected
+//1.0
+
+Query B/3
+
+The ratio of fix-up tasks with a complaint.
+
+select ((select count(f) from FixUp f where f.complaints.size > 0)/count(f))*1.0 from FixUp f;
+
+//Sum the FixUp which more than one complaints divided by the total number of fixUp with more than one complaints
+//1 object selected
+//1.0
+
+Query B/4
+
+The top-three customers in terms of complaints.
+
+select cu from Customer cu join cu.fixUps f where f.complaints.size > 0 order by f.complaints.size desc;
+
+// ordena clientes que han puesto quejas por orden descendente
+//This query select the customer who here number of complaints is greater than 0 and is ordered by the size of complaints descendingly.
+4 objects selected
+domain.Customer{id=125, version=0}
+    domain.DomainEntity::id: int = 125
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "David"
+    domain.Actor::address: java.lang.String = "Calle Pozoblanco Número 12"
+    domain.Actor::surname: java.lang.String = "Martín"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = "david@gmail.com"
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.Customer::fixUps: java.util.Collection = [domain.FixUp{id=115, version=0}, domain.FixUp{id=136, version=0}]
+    domain.Customer::notes: java.util.Collection = []
+domain.Customer{id=125, version=0}
+    domain.DomainEntity::id: int = 125
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "David"
+    domain.Actor::address: java.lang.String = "Calle Pozoblanco Número 12"
+    domain.Actor::surname: java.lang.String = "Martín"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = "david@gmail.com"
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.Customer::fixUps: java.util.Collection = [domain.FixUp{id=115, version=0}, domain.FixUp{id=136, version=0}]
+    domain.Customer::notes: java.util.Collection = []
+domain.Customer{id=126, version=0}
+    domain.DomainEntity::id: int = 126
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "Paco"
+    domain.Actor::address: java.lang.String = "Calle Pozorojo Número 12"
+    domain.Actor::surname: java.lang.String = "Martín"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = "paco@gmail.com"
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.Customer::fixUps: java.util.Collection = [domain.FixUp{id=116, version=0}]
+    domain.Customer::notes: java.util.Collection = []
+domain.Customer{id=127, version=0}
+    domain.DomainEntity::id: int = 127
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "Polo"
+    domain.Actor::address: java.lang.String = "Calle Pozoverde Número 12"
+    domain.Actor::surname: java.lang.String = "Martín"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = "polo@gmail.com"
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.Customer::fixUps: java.util.Collection = [domain.FixUp{id=118, version=0}]
+    domain.Customer::notes: java.util.Collection = []
+
+Query B/5
+
+The top-three handy workers in terms of complaints.
+
+select hw from HandyWorker hw join hw.fixUps f order by f.complaints.size desc;
+
+//This query print the list of handyworkers ordered by the size of her complaints.
+5 objects selected
+domain.HandyWorker{id=107, version=0}
+    domain.DomainEntity::id: int = 107
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "Ester"
+    domain.Actor::address: java.lang.String = "Calle Aguditas Número 12"
+    domain.Actor::surname: java.lang.String = "Exposito"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = null
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.HandyWorker::make: java.lang.String = "make1"
+    domain.HandyWorker::applications: java.util.Collection = [domain.Application{id=132, version=0}, domain.Application{id=
+133, version=0}, domain.Application{id=135, version=0}]
+    domain.HandyWorker::notes: java.util.Collection = []
+    domain.HandyWorker::tutorials: java.util.Collection = []
+    domain.HandyWorker::finders: java.util.Collection = []
+    domain.HandyWorker::fixUps: java.util.Collection = [domain.FixUp{id=115, version=0}, domain.FixUp{id=116, version=0}, d
+omain.FixUp{id=117, version=0}, domain.FixUp{id=118, version=0}]
+    domain.HandyWorker::curriculum: domain.Curriculum = null
+domain.HandyWorker{id=107, version=0}
+    domain.DomainEntity::id: int = 107
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "Ester"
+    domain.Actor::address: java.lang.String = "Calle Aguditas Número 12"
+    domain.Actor::surname: java.lang.String = "Exposito"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = null
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.HandyWorker::make: java.lang.String = "make1"
+    domain.HandyWorker::applications: java.util.Collection = [domain.Application{id=132, version=0}, domain.Application{id=
+133, version=0}, domain.Application{id=135, version=0}]
+    domain.HandyWorker::notes: java.util.Collection = []
+    domain.HandyWorker::tutorials: java.util.Collection = []
+    domain.HandyWorker::finders: java.util.Collection = []
+    domain.HandyWorker::fixUps: java.util.Collection = [domain.FixUp{id=115, version=0}, domain.FixUp{id=116, version=0}, d
+omain.FixUp{id=117, version=0}, domain.FixUp{id=118, version=0}]
+    domain.HandyWorker::curriculum: domain.Curriculum = null
+domain.HandyWorker{id=119, version=0}
+    domain.DomainEntity::id: int = 119
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "Carmen"
+    domain.Actor::address: java.lang.String = "Castillo de Constantina N5"
+    domain.Actor::surname: java.lang.String = "Fernández"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = null
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.HandyWorker::make: java.lang.String = "cmake1"
+    domain.HandyWorker::applications: java.util.Collection = [domain.Application{id=137, version=0}, domain.Application{id=
+138, version=0}]
+    domain.HandyWorker::notes: java.util.Collection = []
+    domain.HandyWorker::tutorials: java.util.Collection = []
+    domain.HandyWorker::finders: java.util.Collection = []
+    domain.HandyWorker::fixUps: java.util.Collection = [domain.FixUp{id=136, version=0}]
+    domain.HandyWorker::curriculum: domain.Curriculum = null
+domain.HandyWorker{id=107, version=0}
+    domain.DomainEntity::id: int = 107
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "Ester"
+    domain.Actor::address: java.lang.String = "Calle Aguditas Número 12"
+    domain.Actor::surname: java.lang.String = "Exposito"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = null
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.HandyWorker::make: java.lang.String = "make1"
+    domain.HandyWorker::applications: java.util.Collection = [domain.Application{id=132, version=0}, domain.Application{id=
+133, version=0}, domain.Application{id=135, version=0}]
+    domain.HandyWorker::notes: java.util.Collection = []
+    domain.HandyWorker::tutorials: java.util.Collection = []
+    domain.HandyWorker::finders: java.util.Collection = []
+    domain.HandyWorker::fixUps: java.util.Collection = [domain.FixUp{id=115, version=0}, domain.FixUp{id=116, version=0}, d
+omain.FixUp{id=117, version=0}, domain.FixUp{id=118, version=0}]
+    domain.HandyWorker::curriculum: domain.Curriculum = null
+domain.HandyWorker{id=107, version=0}
+    domain.DomainEntity::id: int = 107
+    domain.DomainEntity::version: int = 0
+    domain.Actor::name: java.lang.String = "Ester"
+    domain.Actor::address: java.lang.String = "Calle Aguditas Número 12"
+    domain.Actor::surname: java.lang.String = "Exposito"
+    domain.Actor::middleName: java.lang.String = ""
+    domain.Actor::socialProfiles: java.util.Collection = []
+    domain.Actor::email: java.lang.String = null
+    domain.Actor::photo: java.lang.String = null
+    domain.Actor::mailBoxes: java.util.Collection = []
+    domain.Endorsable::endreferenced: java.util.List = []
+    domain.Endorsable::enddone: java.util.List = []
+    domain.HandyWorker::make: java.lang.String = "make1"
+    domain.HandyWorker::applications: java.util.Collection = [domain.Application{id=132, version=0}, domain.Application{id=
+133, version=0}, domain.Application{id=135, version=0}]
+    domain.HandyWorker::notes: java.util.Collection = []
+    domain.HandyWorker::tutorials: java.util.Collection = []
+    domain.HandyWorker::finders: java.util.Collection = []
+    domain.HandyWorker::fixUps: java.util.Collection = [domain.FixUp{id=115, version=0}, domain.FixUp{id=116, version=0}, d
+omain.FixUp{id=117, version=0}, domain.FixUp{id=118, version=0}]
+    domain.HandyWorker::curriculum: domain.Curriculum = null
