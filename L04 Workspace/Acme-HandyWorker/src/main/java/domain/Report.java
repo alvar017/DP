@@ -24,7 +24,16 @@ public class Report extends DomainEntity {
 	private Complaint			complaint;
 	private Referee				referee;
 	private Collection<Note>	notes;
+	private Boolean				isFinal;
 
+
+	public Boolean getIsFinal() {
+		return this.isFinal;
+	}
+
+	public void setIsFinal(final Boolean isFinal) {
+		this.isFinal = isFinal;
+	}
 
 	@Temporal(TemporalType.TIMESTAMP)
 	public Date getMoment() {

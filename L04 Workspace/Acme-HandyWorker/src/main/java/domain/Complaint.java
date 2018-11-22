@@ -9,6 +9,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -22,7 +23,17 @@ public class Complaint extends DomainEntity {
 	private Date				moment;
 	////////////////////////////////////
 	private Collection<Report>	reports;
+	private Referee				referee;
 
+
+	@OneToOne(optional = true)
+	public Referee getReferee() {
+		return this.referee;
+	}
+
+	public void setReferee(final Referee referee) {
+		this.referee = referee;
+	}
 
 	@Column(unique = true)
 	public String getTicker() {

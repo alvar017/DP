@@ -15,7 +15,16 @@ public class Warranty extends DomainEntity {
 	private String				title;
 	private Collection<String>	terms;
 	private Collection<String>	laws;
+	private Boolean				isFinal;
 
+
+	public Boolean getIsFinal() {
+		return this.isFinal;
+	}
+
+	public void setIsFinal(final Boolean isFinal) {
+		this.isFinal = isFinal;
+	}
 
 	public String getTitle() {
 		return this.title;

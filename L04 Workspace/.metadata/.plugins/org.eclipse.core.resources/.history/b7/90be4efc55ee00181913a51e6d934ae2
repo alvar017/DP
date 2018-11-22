@@ -1,0 +1,18 @@
+
+package repositories;
+
+import java.util.Collection;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import domain.FixUp;
+import domain.MailBox;
+
+@Repository
+public interface FixUpRepository extends JpaRepository<FixUp, Integer> {
+
+	@Query("select f rom FixUp f join f.customer fc where fc.id=?1")
+	Collection<FixUp> findAllFixUpFromCustomer(Integer id);
+}

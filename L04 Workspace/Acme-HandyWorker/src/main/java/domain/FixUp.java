@@ -32,7 +32,17 @@ public class FixUp extends DomainEntity {
 	private Category				category;
 	private Collection<Complaint>	complaints;
 	private HandyWorker				handyWorker;
+	private Customer				customer;
 
+
+	@ManyToOne(optional = false)
+	public Customer getCustomer() {
+		return this.customer;
+	}
+
+	public void setCustomer(final Customer customer) {
+		this.customer = customer;
+	}
 
 	@ManyToOne(optional = true)
 	public HandyWorker getHandyWorker() {

@@ -19,7 +19,7 @@ public class HandyWorker extends Endorsable {
 	private Collection<Application>	applications;
 	private Collection<Note>		notes;
 	private Collection<Tutorial>	tutorials;
-	private Collection<Finder>		finders;
+	private Finder					finder;
 	private Collection<FixUp>		fixUps;
 	private Curriculum				curriculum;
 
@@ -53,14 +53,13 @@ public class HandyWorker extends Endorsable {
 		this.tutorials = tutorials;
 	}
 
-	@OneToMany
-	@Valid
-	public Collection<Finder> getFinders() {
-		return this.finders;
+	@OneToOne(optional = true)
+	public Finder getFinder() {
+		return this.finder;
 	}
 
-	public void setFinders(final Collection<Finder> finders) {
-		this.finders = finders;
+	public void setFinder(final Finder finder) {
+		this.finder = finder;
 	}
 
 	@OneToOne(optional = true)
