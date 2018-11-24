@@ -1,0 +1,84 @@
+
+package services;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+
+import repositories.CustomerRepository;
+import security.Authority;
+import security.UserAccount;
+import domain.Customer;
+import domain.FixUp;
+
+@Service
+@Transactional
+public class CustomerService {
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private CustomerRepository	customerRepository;
+
+	//Supporting services ------------------
+
+	@Autowired
+	private FixUpService		fixUpService;
+
+
+	//Simple CRUD Methods ------------------
+
+	public Customer create() {
+		Customer result;
+
+		result = new Customer();
+		final UserAccount cuenta = new UserAccount();
+		final List<Authority> autoridades = new ArrayList<>();
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.CUSTOMER);
+		autoridades.add(authority);
+		cuenta.setAuthorities(autoridades);
+		cuenta.setPassword("123456789");
+		cuenta.setUsername("d0gran");
+
+		result.setUserAccount(cuenta);
+
+		return result;
+	}
+
+	public Collection<Customer> findAll() {
+		return this.customerRepository.findAll();
+
+	}
+
+	public Customer findOne(final int id) {
+
+		final Customer result = this.customerRepository.findOne(id);
+		Assert.notNull(result);
+		return result;
+	}
+
+	public Customer save(final Customer customer) {
+		return this.customerRepository.save(customer);
+	}
+
+	//Other Methods
+
+	public void deleteFixUp(final FixUp fixUp) {
+		this.fixUpService.delete(fixUp);
+	}
+	public void updateFixUp(final FixUp fixUp) {
+
+		this.fixUpService.update(fixUp);
+	}
+	public FixUp createFixUp() {
+		return this.fixUpService.create();
+	}
+
+}

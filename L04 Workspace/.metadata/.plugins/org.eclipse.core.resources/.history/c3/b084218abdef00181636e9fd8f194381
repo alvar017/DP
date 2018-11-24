@@ -1,0 +1,58 @@
+
+package services;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
+
+import security.Authority;
+import security.UserAccount;
+
+import domain.Category;
+import domain.Customer;
+import domain.FixUp;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class CustomerServiceTest {
+
+	//Services under Test
+
+	@Autowired
+	private CustomerService	customerService;
+	
+	public void testSaveCustomer() {
+		final Customer customer = this.customerService.create();
+		final Collection<FixUp> fixups = new ArrayList<>();
+		customer.setName("Alvaro");
+		customer.setSurname("avl");
+		customer.setFixUps(fixups);
+		customer.setAddress("Rodrigo de Triana");
+		customer.setEmail("alvarodelaflor@gmail.com");
+		final UserAccount userAccount = new UserAccount();
+		userAccount.setUsername("dskmj");
+		userAccount.setPassword("28u34u293742983u92u9238u923u");
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.CUSTOMER);
+		final Collection<Authority> authorities = Arrays.asList(authority);
+		userAccount.setAuthorities(authorities);
+		customer.setUserAccount(userAccount);
+
+		final Customer saveCustomer = this.customerService.save(customer);
+		final Collection<Customer> customers = this.customerService.findAll();
+		Assert.isTrue(customers.contains(saveCustomer));
+	}
+
+}

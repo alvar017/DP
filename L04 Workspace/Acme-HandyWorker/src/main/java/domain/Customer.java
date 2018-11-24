@@ -13,7 +13,6 @@ import javax.validation.Valid;
 @Access(AccessType.PROPERTY)
 public class Customer extends Endorsable {
 
-	private Collection<FixUp>	fixUps;
 	private Collection<Note>	notes;
 
 
@@ -25,16 +24,6 @@ public class Customer extends Endorsable {
 
 	public void setNotes(final Collection<Note> notes) {
 		this.notes = notes;
-	}
-
-	@Valid
-	@OneToMany
-	public Collection<FixUp> getFixUps() {
-		return this.fixUps;
-	}
-
-	public void setFixUps(final Collection<FixUp> fixUps) {
-		this.fixUps = fixUps;
 	}
 
 }

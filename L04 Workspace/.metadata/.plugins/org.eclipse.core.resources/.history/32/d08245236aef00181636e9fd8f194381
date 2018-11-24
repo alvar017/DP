@@ -1,0 +1,54 @@
+
+package services;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
+
+import repositories.FixUpRepository;
+import domain.FixUp;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class FixUpServiceTest {
+
+	//Services under Test
+
+	@Autowired
+	private FixUpService	fixUpService;
+	private FixUpRepository	fixRepository;
+
+
+	@Test
+	public void testSaveFixUp() {
+		final FixUp fixUp = this.fixUpService.create();
+		Assert.isTrue(fixUp != null);
+	}
+
+	@Test
+	public void updateFixUp() {
+		final FixUp fixUp = this.fixUpService.create();
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		saveFixUp.setDescription("Descripción editada");
+		this.fixUpService.update(saveFixUp);
+		Assert.isTrue(saveFixUp.getDescription().equals("Descripción editada"));
+	}
+
+	@Test
+	public void deleteFixUp() {
+		System.out.println(this.fixUpService.findAll());
+		this.fixRepository.flush();
+
+		//		this.fixUpService.delete(fixUp);
+		//		Assert.isTrue(!this.fixUpService.findAll().contains(savefixUp));
+	}
+
+}

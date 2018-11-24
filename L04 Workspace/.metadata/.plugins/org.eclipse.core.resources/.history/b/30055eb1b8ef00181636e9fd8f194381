@@ -1,0 +1,47 @@
+
+package services;
+
+import java.util.Collection;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
+
+import domain.FixUp;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class CategoryServiceTest {
+
+	//Services under Test
+
+	@Autowired
+	private FixUpService	fixUpService;
+
+
+	@Test
+	public void testSaveFixUp() {
+		final FixUp fixUp = this.fixUpService.create();
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		//		Assert.isTrue(this.fixUpService.findOne(saveFixUp.getId()) != null);
+		final Collection<FixUp> fixUps = this.fixUpService.findAll();
+	}
+
+	@Test
+	public void updateFixUp() {
+		final FixUp fixUp = this.fixUpService.create();
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		saveFixUp.setDescription("Descripción editada");
+		this.fixUpService.update(saveFixUp);
+		Assert.isTrue(saveFixUp.getDescription().equals("Descripción editada"));
+	}
+
+}

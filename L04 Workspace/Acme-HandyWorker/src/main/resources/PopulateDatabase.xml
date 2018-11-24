@@ -82,7 +82,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="tutorials">
             <null />
         </property>
-        <property name="finders">
+        <property name="finder">
             <null />
         </property>
         <property name="curriculum">
@@ -245,6 +245,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     <bean id="war01" class="domain.Warranty">
 
         <property name="title" value="warranty1" />
+        <property name="isFinal" value="True" />
         <property name="terms">
             <null />
         </property>
@@ -281,6 +282,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             </list>
         </property>
         <property name="handyWorker" ref="han01" />
+        <property name="customer" ref="ancus01" />
+        
     </bean>
 
     <bean id="FranfixUp1" class="domain.FixUp">
@@ -307,6 +310,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             </list>
         </property>
         <property name="handyWorker" ref="han01" />
+        <property name="customer" ref="ancus01" />
+        
     </bean>
     
     <bean id="cfixUp1" class="domain.FixUp">
@@ -332,6 +337,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             </list>        
         </property>
         <property name="handyWorker" ref="chan01"/>
+        <property name="customer" ref="ancus02" />
     </bean>
     
         <bean id="antfixUp" class="domain.FixUp">
@@ -352,6 +358,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="category" ref="ccat01"/>
         <property name="complaints"><null/></property>
         <property name="handyWorker" ref="chan01"/>
+        <property name="customer" ref="ancus03" />
+        
     </bean>
     
     <bean id="chan01" class="domain.HandyWorker">
@@ -368,7 +376,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced"><null/></property>
         <property name="notes"><null/></property>
         <property name="tutorials"><null/></property>
-        <property name="finders"><null/></property>
+        <property name="finder"><null/></property>
         <property name="curriculum"><null/></property>
         
     </bean>
@@ -421,12 +429,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>
-        <property name="fixUps" >
-            <list>
-                <ref bean="cfixUp1"/>
-                <ref bean="fixUp1"/>                
-            </list>        
-        </property>
         <property name="notes"><null/></property>       
     </bean>
 
@@ -447,11 +449,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="address" value="Calle PozoRojo Número 15" />
         <property name="endreferenced">
             <null />
-        </property>
-        <property name="fixUps" >
-            <list>
-                <ref bean="FranfixUp1"/>                
-            </list>        
         </property>
         <property name="notes"><null/></property>       
     </bean>
@@ -474,11 +471,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>
-        <property name="fixUps" >
-            <list>
-                <ref bean="antfixUp"/>                
-            </list>        
-        </property>
         <property name="notes"><null/></property>       
     </bean>
 <!-- Referee --> 
@@ -498,11 +490,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>
         <property name="address" value="Calle Pozonegro Número 12" />
-        <property name="reports" >
-            <list>
-                <ref bean="Franrep01"/>
-            </list>        
-        </property>
+
 </bean>
 
 <!-- Reports -->

@@ -1,0 +1,70 @@
+
+package services;
+
+import java.security.SecureRandom;
+import java.util.Collection;
+
+import org.joda.time.LocalDate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.CategoryRepository;
+import domain.FixUp;
+
+@Service
+@Transactional
+public class CategoryService {
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private CategoryRepository	CategoryRepository;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------
+
+	public FixUp create() {
+
+		final Category category = new FixUp();
+		
+
+		return category;
+
+	}
+
+	public String randomTicker() {
+		final String characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		final StringBuilder sb = new StringBuilder(); //consider using StringBuffer if needed
+		for (int i = 0; i < 6; i++) {
+			final int randomInt = new SecureRandom().nextInt(characterSet.length());
+			sb.append(characterSet.substring(randomInt, randomInt + 1));
+		}
+		return LocalDate.now().toString().replaceAll("-", "") + sb.toString();
+	}
+
+	public Collection<FixUp> findAll() {
+		return this.fixUpRepository.findAll();
+	}
+
+	public FixUp findOne(final int id) {
+		return this.fixUpRepository.findOne(id);
+	}
+	public FixUp save(final FixUp fixUp) {
+		return this.fixUpRepository.save(fixUp);
+	}
+	public void delete(final FixUp fixUp) {
+		Assert.notNull(this.fixUpRepository.findOne(fixUp.getId()), "La fixUp no existe");
+		this.fixUpRepository.delete(fixUp);
+	}
+
+	public void update(final FixUp fixUp) {
+		this.fixUpRepository.save(fixUp);
+	}
+
+	//Other Methods
+
+}
