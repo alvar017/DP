@@ -96,7 +96,5 @@ public class FixUpServiceTest extends AbstractTest {
 		final FixUp saveFixUp3 = this.fixUpService.save(fixUp3);
 		final FixUp fixUp4 = this.fixUpService.create();
 		final FixUp saveFixUp4 = this.fixUpService.save(fixUp4);
-		for (final FixUp fixup : this.fixUpService.findAll())
-			System.out.println(fixup);
 	}
 }

@@ -28,7 +28,7 @@ public class FixUp extends DomainEntity {
 	private Date					endDate;
 	/////////////////////////////////////////////
 	private Warranty				warranty;
-	private Collection<Application>	applications;
+	//	private Collection<Application>	applications;
 	private Category				category;
 	private Collection<Complaint>	complaints;
 	private HandyWorker				handyWorker;
@@ -130,15 +130,15 @@ public class FixUp extends DomainEntity {
 		this.warranty = warranty;
 	}
 
-	@OneToMany(mappedBy = "fixUp")
-	@Valid
-	public Collection<Application> getApplications() {
-		return this.applications;
-	}
-
-	public void setApplications(final Collection<Application> applications) {
-		this.applications = applications;
-	}
+	//	@OneToMany(mappedBy = "fixUp")
+	//	@Valid
+	//	public Collection<Application> getApplications() {
+	//		return this.applications;
+	//	}
+	//
+	//	public void setApplications(final Collection<Application> applications) {
+	//		this.applications = applications;
+	//	}
 
 	@ManyToOne(optional = false)
 	public Category getCategory() {

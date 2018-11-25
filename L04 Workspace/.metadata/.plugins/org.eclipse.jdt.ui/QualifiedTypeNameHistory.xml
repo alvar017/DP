@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Queue"/>
-<fullyQualifiedTypeName name="java.util.Stack"/>
-<fullyQualifiedTypeName name="org.hibernate.FlushMode"/>
 <fullyQualifiedTypeName name="javax.persistence.FlushModeType"/>
 <fullyQualifiedTypeName name="utilities.internal.ThrowablePrinter"/>
 <fullyQualifiedTypeName name="utilities.internal.SchemaPrinter"/>
@@ -31,7 +28,6 @@
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
-<fullyQualifiedTypeName name="domain.Application"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
 <fullyQualifiedTypeName name="repositories.MailBoxRepository"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
@@ -43,8 +39,6 @@
 <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="org.springframework.security.access.vote.AuthenticatedVoter"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="domain.Customer"/>
@@ -58,6 +52,12 @@
 <fullyQualifiedTypeName name="domain.Warranty"/>
 <fullyQualifiedTypeName name="services.CategoryService"/>
 <fullyQualifiedTypeName name="services.WarrantyService"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="repositories.ApplicationRepository"/>
+<fullyQualifiedTypeName name="org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
+<fullyQualifiedTypeName name="domain.Application"/>
+<fullyQualifiedTypeName name="services.ApplicationService"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 </qualifiedTypeNameHistroy>

@@ -89,4 +89,7 @@ public class FixUpService {
 
 	//Other Methods
 
+	public Collection<FixUp> getFixUpByCustomerId(final int customerId) {
+		return this.fixUpRepository.findFixUpsByCustomer(customerId);
+	}
 }

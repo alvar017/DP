@@ -1,4 +1,7 @@
+
 package repositories;
+
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -7,19 +10,25 @@ import domain.Application;
 
 public interface ApplicationRepository extends JpaRepository<Application, Integer> {
 
-	//	The ratio of pending applications
-	@Query("select count(a.state), sum(case when a.state = null then 1 else 0 end) / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0 from Application a")
-	Double getRatioPending();
+	//	//	The ratio of pending applications
+	//	@Query("select count(a.state), sum(case when a.state = null then 1 else 0 end) / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0 from Application a")
+	//	Double getRatioPending();
+	//
+	//	//	The ratio of accepted applications.
+	//	@Query("select count(a.state), sum(case when a.state = 1 then 1 else 0 end) / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0 from Application a;")
+	//	Double getRatioAccepted();
+	//
+	//	//	The ratio of rejected applications.
+	//	@Query("select count(a.state), sum(case when a.state = 0 then 1 else 0 end) / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0 from Application a;")
+	//	Double getRatioRejected();
+	//
+	//	//	The ratio of pending applications that cannot change its status because their time periodâ€™s elapsed.
+	//	@Query("select count(a.state), sum(case when a.state = null and f.id = a.fixUp and current_timestamp > f.endDate then 1 else 0 end) /count(a)* 100.0 from Application a, FixUp f join a.fixUp f;")
+	//	Double getRatioUnmodifiable();
 
-	//	The ratio of accepted applications.
-	@Query("select count(a.state), sum(case when a.state = 1 then 1 else 0 end) / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0 from Application a;")
-	Double getRatioAccepted();
+	@Query("select a from Application a join a.fixUp f where f.customer.id=?1")
+	Collection<Application> findAllByCustomer(int customer);
 
-	//	The ratio of rejected applications.
-	@Query("select count(a.state), sum(case when a.state = 0 then 1 else 0 end) / sum(case when a.state =null or a.state =1 or a.state = 0 then 1 else 0 end)  * 100.0 from Application a;")
-	Double getRatioRejected();
-
-	//	The ratio of pending applications that cannot change its status because their time period’s elapsed.
-	@Query("select count(a.state), sum(case when a.state = null and f.id = a.fixUp and current_timestamp > f.endDate then 1 else 0 end) /count(a)* 100.0 from Application a, FixUp f join a.fixUp f;")
-	Double getRatioUnmodifiable();
+	@Query("select a from Application a join a.fixUp f where f.id=?1")
+	Collection<Application> findAllByFixUp(int fixUp);
 }

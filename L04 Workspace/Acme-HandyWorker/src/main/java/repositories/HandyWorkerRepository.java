@@ -2,9 +2,14 @@
 package repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface HandyWorkerRepository extends JpaRepository<HandyWorkerRepository, Integer> {
+import domain.HandyWorker;
 
+@Repository
+public interface HandyWorkerRepository extends JpaRepository<HandyWorker, Integer> {
+
+	@Query("select hw from HandyWorker hw join hw.userAccount cua where cua.id=?1")
+	HandyWorker findByUserAccountId(int userAccountId);
 }
