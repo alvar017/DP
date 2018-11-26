@@ -38,7 +38,7 @@ public class ApplicationServiceTest extends AbstractTest {
 	private ApplicationRepository	applicationRepository;
 
 
-	//	@Test
+	@Test
 	public void testSaveApplication() {
 		final HandyWorker handyWorker = this.handyWorkerService.create();
 		handyWorker.setName("Alvaro");

@@ -83,13 +83,39 @@ public class FixUpService {
 		this.fixUpRepository.delete(fixUp);
 	}
 
-	public void update(final FixUp fixUp) {
-		this.fixUpRepository.save(fixUp);
+	public FixUp update(final FixUp fixUp) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		Assert.isTrue(fixUp.getCustomer().equals(customer));
+		Assert.isTrue(this.findOne(fixUp.getId()) != null);
+		final FixUp saveFixUp = this.fixUpRepository.save(fixUp);
+		return saveFixUp;
 	}
 
 	//Other Methods
 
 	public Collection<FixUp> getFixUpByCustomerId(final int customerId) {
 		return this.fixUpRepository.findFixUpsByCustomer(customerId);
+	}
+
+	public Collection<FixUp> listing() {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		return this.fixUpRepository.findFixUpsByCustomer(customer.getId());
+	}
+
+	public FixUp showing(final int fixUpId) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customerLogin = this.customerService.getCustomerByUserAccountId(login.getId());
+		Assert.isTrue(this.findOne(fixUpId) != null);
+		final Customer customerFixUp = this.findOne(fixUpId).getCustomer();
+		Assert.isTrue(customerLogin.equals(customerFixUp));
+		return this.findOne(fixUpId);
 	}
 }

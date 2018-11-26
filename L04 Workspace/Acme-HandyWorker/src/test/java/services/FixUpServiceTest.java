@@ -26,13 +26,14 @@ public class FixUpServiceTest extends AbstractTest {
 	@Autowired
 	private FixUpService	fixUpService;
 	@Autowired
-	private CategoryService	categoryService;
-	@Autowired
-	private WarrantyService	warrantyService;
-	@Autowired
 	private CustomerService	customerService;
 
 
+	@Test
+	public void testCreateFixUp() {
+		final Customer customer = this.customerService.create();
+		Assert.isTrue(customer != null);
+	}
 	@Test
 	public void testSaveFixUp() {
 		final Customer customer = this.customerService.create();
@@ -47,7 +48,7 @@ public class FixUpServiceTest extends AbstractTest {
 		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
 	}
 	@Test
-	public void updateFixUp() {
+	public void testUpdateFixUp() {
 		final Customer customer = this.customerService.create();
 		customer.setName("Alvaro");
 		customer.setSurname("alvaro");
@@ -59,12 +60,12 @@ public class FixUpServiceTest extends AbstractTest {
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
 		saveFixUp.setAddress("Rodrigo de Triana 14");
-		final FixUp saveFixUp2 = this.fixUpService.save(saveFixUp);
+		final FixUp saveFixUp2 = this.fixUpService.update(saveFixUp);
 		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp2));
 	}
 
 	@Test
-	public void deleteFixUp() {
+	public void testDeleteFixUp() {
 		final Customer customer = this.customerService.create();
 		customer.setName("Alvaro");
 		customer.setSurname("alvaro");
@@ -96,5 +97,20 @@ public class FixUpServiceTest extends AbstractTest {
 		final FixUp saveFixUp3 = this.fixUpService.save(fixUp3);
 		final FixUp fixUp4 = this.fixUpService.create();
 		final FixUp saveFixUp4 = this.fixUpService.save(fixUp4);
+		final int numFixUpAfter = this.fixUpService.listing().size();
+		Assert.isTrue(numFixUpAfter == 4);
+	}
+
+	public void testShowFixUp() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp1 = this.fixUpService.create();
+		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
+		Assert.isTrue(this.fixUpService.showing(saveFixUp1.getId()).equals(saveFixUp1));
 	}
 }

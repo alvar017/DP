@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.persistence.FlushModeType"/>
-<fullyQualifiedTypeName name="utilities.internal.ThrowablePrinter"/>
 <fullyQualifiedTypeName name="utilities.internal.SchemaPrinter"/>
 <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
 <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
@@ -45,19 +43,21 @@
 <fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="security.LoginController"/>
 <fullyQualifiedTypeName name="utilities.AbstractTest"/>
-<fullyQualifiedTypeName name="security.UserAccount"/>
-<fullyQualifiedTypeName name="security.Authority"/>
-<fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="domain.Category"/>
 <fullyQualifiedTypeName name="domain.Warranty"/>
 <fullyQualifiedTypeName name="services.CategoryService"/>
 <fullyQualifiedTypeName name="services.WarrantyService"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="repositories.ApplicationRepository"/>
 <fullyQualifiedTypeName name="org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="domain.Application"/>
 <fullyQualifiedTypeName name="services.ApplicationService"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Pattern"/>
+<fullyQualifiedTypeName name="repositories.FixUpRepository"/>
+<fullyQualifiedTypeName name="security.UserAccount"/>
+<fullyQualifiedTypeName name="security.LoginService"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="security.Authority"/>
+<fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 </qualifiedTypeNameHistroy>

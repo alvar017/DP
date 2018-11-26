@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="70" version="2.0">
+<workbench progressCount="75" version="2.0">
 <workbenchAdvisor/>
 <window height="675" maximized="true" width="951" x="320" y="75">
 <fastViewData fastViewLocation="1024"/>
@@ -14,7 +14,7 @@
 <coolItem id="org.eclipse.datatools.sqltools.sqlscrapbook.SQLScrapbookEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="124" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jpt.jpa.ui.internal.editors.PersistenceEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="88" y="22"/>
@@ -41,21 +41,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationService.java" partName="ApplicationService.java" path="//VBOXSVR/dp/L04 Workspace/Acme-HandyWorker/src/main/java/services/ApplicationService.java" title="ApplicationService.java" tooltip="Acme-HandyWorker/src/main/java/services/ApplicationService.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/services/ApplicationService.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2291" selectionTopPixel="1069"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationServiceTest.java" partName="ApplicationServiceTest.java" path="//VBOXSVR/dp/L04 Workspace/Acme-HandyWorker/src/test/java/services/ApplicationServiceTest.java" title="ApplicationServiceTest.java" tooltip="Acme-HandyWorker/src/test/java/services/ApplicationServiceTest.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/test/java/services/ApplicationServiceTest.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5044" selectionTopPixel="1885"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
@@ -90,7 +79,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspectives activePart="org.eclipse.jdt.junit.ResultView" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -152,8 +141,8 @@
 <view id="org.eclipse.ui.views.PropertySheet"/>
 <view id="org.eclipse.wst.server.ui.ServersView"/>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView"/>
-<view id="org.eclipse.jdt.junit.ResultView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.jdt.junit.ResultView"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
@@ -226,181 +215,12 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/test/java/services/ApplicationServiceTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/Application.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/test/java/services/FixUpServiceTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/repositories/FixUpRepository.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/services/FixUpService.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/repositories/HandyWorkerRepository.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/HandyWorker.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/repositories/ApplicationRepository.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/services/ApplicationService.java"/>
-</editors>
-<item historyLabel="FixUpServiceTest.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="FixUpServiceTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="FixUpServiceTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="FixUpServiceTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="FixUpServiceTest.java" index="2">
-<position info="not_deleted" x="3795" y="0"/>
-</item>
-<item historyLabel="FixUpService.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="FixUpService.java" index="4">
-<position info="not_deleted" x="2850" y="2"/>
-</item>
-<item historyLabel="FixUpService.java" index="4">
-<position info="not_deleted" x="2796" y="0"/>
-</item>
-<item historyLabel="FixUpServiceTest.java" index="2">
-<position/>
-</item>
-<item historyLabel="FixUpService.java" index="4">
-<position info="not_deleted" x="2796" y="0"/>
-</item>
-<item historyLabel="FixUpServiceTest.java" index="2">
-<position info="not_deleted" x="3703" y="0"/>
-</item>
-<item historyLabel="FixUpService.java" index="4">
-<position info="not_deleted" x="2796" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position info="not_deleted" x="5129" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position info="not_deleted" x="4847" y="0"/>
-</item>
-<item historyLabel="Application.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HandyWorkerRepository.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Application.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HandyWorker.java" index="6">
-<position/>
-</item>
-<item historyLabel="Application.java" index="1">
-<position info="not_deleted" x="576" y="0"/>
-</item>
-<item historyLabel="HandyWorker.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Application.java" index="1">
-<position info="not_deleted" x="576" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="FixUp.java" index="7">
-<position info="not_deleted" x="3263" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position info="not_deleted" x="5332" y="0"/>
-</item>
-<item historyLabel="ApplicationRepository.java" index="8">
-<position/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="FixUpRepository.java" index="3">
-<position/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="FixUpRepository.java" index="3">
-<position info="not_deleted" x="463" y="0"/>
-</item>
-<item historyLabel="ApplicationRepository.java" index="8">
-<position info="not_deleted" x="1665" y="50"/>
-</item>
-<item historyLabel="ApplicationService.java" index="9">
-<position info="not_deleted" x="631" y="0"/>
-</item>
-<item historyLabel="ApplicationService.java" index="9">
-<position info="not_deleted" x="2355" y="0"/>
-</item>
-<item historyLabel="ApplicationService.java" index="9">
-<position info="not_deleted" x="2291" y="0"/>
-</item>
-<item historyLabel="ApplicationRepository.java" index="8">
-<position info="not_deleted" x="1713" y="0"/>
-</item>
-<item historyLabel="ApplicationService.java" index="9">
-<position info="not_deleted" x="2291" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position info="not_deleted" x="4754" y="0"/>
-</item>
-<item historyLabel="ApplicationRepository.java" index="8">
-<position info="not_deleted" x="1655" y="0"/>
-</item>
-<item historyLabel="ApplicationService.java" index="9">
-<position info="not_deleted" x="2291" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="ApplicationRepository.java" index="8">
-<position info="not_deleted" x="1593" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="ApplicationService.java" index="9">
-<position info="not_deleted" x="2291" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position info="not_deleted" x="4876" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position info="not_deleted" x="4920" y="0"/>
-</item>
-<item historyLabel="ApplicationServiceTest.java" index="0">
-<position info="not_deleted" x="4947" y="0"/>
-</item>
-<item active="true" historyLabel="ApplicationServiceTest.java" index="0">
-<position info="not_deleted" x="4949" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="topRight"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -409,17 +229,30 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@23d6e3cd"/>
-<trimItem IMemento.internal.id="bottomRight"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/ApplicationRepository.java">
-<persistable path="/Acme-HandyWorker/src/main/java/repositories/ApplicationRepository.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/CustomerRepository.java">
+<persistable path="/Acme-HandyWorker/src/main/java/repositories/CustomerRepository.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerService.java" tooltip="Acme-HandyWorker/src/main/java/services/CustomerService.java">
+<persistable path="/Acme-HandyWorker/src/main/java/services/CustomerService.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/FixUpRepository.java">
 <persistable path="/Acme-HandyWorker/src/main/java/repositories/FixUpRepository.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpService.java" tooltip="Acme-HandyWorker/src/main/java/services/FixUpService.java">
+<persistable path="/Acme-HandyWorker/src/main/java/services/FixUpService.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpServiceTest.java" tooltip="Acme-HandyWorker/src/test/java/services/FixUpServiceTest.java">
+<persistable path="/Acme-HandyWorker/src/test/java/services/FixUpServiceTest.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ThrowablePrinter.java" tooltip="Acme-HandyWorker/src/main/java/utilities/internal/ThrowablePrinter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/utilities/internal/ThrowablePrinter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/ApplicationRepository.java">
+<persistable path="/Acme-HandyWorker/src/main/java/repositories/ApplicationRepository.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUp.java" tooltip="Acme-HandyWorker/src/main/java/domain/FixUp.java">
 <persistable path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
@@ -430,17 +263,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HandyWorkerRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/HandyWorkerRepository.java">
 <persistable path="/Acme-HandyWorker/src/main/java/repositories/HandyWorkerRepository.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpService.java" tooltip="Acme-HandyWorker/src/main/java/services/FixUpService.java">
-<persistable path="/Acme-HandyWorker/src/main/java/services/FixUpService.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpServiceTest.java" tooltip="Acme-HandyWorker/src/test/java/services/FixUpServiceTest.java">
-<persistable path="/Acme-HandyWorker/src/test/java/services/FixUpServiceTest.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Application.java" tooltip="Acme-HandyWorker/src/main/java/domain/Application.java">
 <persistable path="/Acme-HandyWorker/src/main/java/domain/Application.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/CustomerRepository.java">
-<persistable path="/Acme-HandyWorker/src/main/java/repositories/CustomerRepository.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationServiceTest.java" tooltip="Acme-HandyWorker/src/test/java/services/ApplicationServiceTest.java">
 <persistable path="/Acme-HandyWorker/src/test/java/services/ApplicationServiceTest.java"/>
@@ -453,12 +277,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationService.java" tooltip="Acme-HandyWorker/src/main/java/services/ApplicationService.java">
 <persistable path="/Acme-HandyWorker/src/main/java/services/ApplicationService.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WarrantyRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/WarrantyRepository.java">
-<persistable path="/Acme-HandyWorker/src/main/java/repositories/WarrantyRepository.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WarrantyService.java" tooltip="Acme-HandyWorker/src/main/java/services/WarrantyService.java">
-<persistable path="/Acme-HandyWorker/src/main/java/services/WarrantyService.java"/>
 </file>
 </mruList>
 </workbench>
