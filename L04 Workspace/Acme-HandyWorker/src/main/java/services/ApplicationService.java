@@ -28,7 +28,6 @@ public class ApplicationService {
 	//Supporting services ------------------
 	@Autowired
 	private HandyWorkerService		handyWorkerService;
-	private CustomerService			customerService;
 
 
 	//Simple CRUD Methods ------------------
@@ -60,13 +59,28 @@ public class ApplicationService {
 		this.applicationRepository.delete(application);
 	}
 
-	public void update(final Application application) {
-		this.applicationRepository.save(application);
+	public Application update(final Application application) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		final int idLogin = login.getId();
+		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(idLogin);
+		Assert.isTrue(hw.equals(application.getApplier()));
+		final Application originalApplication = this.findOne(application.getId());
+		if (originalApplication.getState() != null) {
+			if (originalApplication.getState() == true)
+				Assert.isTrue(application.getCreditCard() != null);
+		} else
+			Assert.isTrue(application.getComments() != null);
+		final Application saveApplication = this.applicationRepository.save(application);
+		return saveApplication;
 	}
-
 	//Other Methods
 
 	public Collection<Application> findAllByCustomer(final Customer c) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		final int idLogin = login.getId();
+		Assert.isTrue(c.getUserAccount().getId() == idLogin);
 		return this.applicationRepository.findAllByCustomer(c.getId());
 	}
 

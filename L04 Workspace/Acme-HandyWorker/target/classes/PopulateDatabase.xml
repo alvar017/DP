@@ -102,6 +102,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="workplan">
             <null />
         </property>
+        <property name="creditCard">
+            <null />
+		</property>            
     </bean>
 
     <bean id="app02" class="domain.Application">
@@ -114,6 +117,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="workplan">
             <null />
         </property>
+                <property name="creditCard">
+            <null />
+		</property> 
     </bean>
 
     <bean id="Franapp01" class="domain.Application">
@@ -126,6 +132,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="workplan">
             <null />
         </property>
+                <property name="creditCard">
+            <null />
+		</property> 
     </bean>
 
 
@@ -139,6 +148,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="workplan">
             <null />
         </property>
+                <property name="creditCard">
+            <null />
+		</property> 
     </bean>   
     
     <bean id="capp01" class="domain.Application">
@@ -149,6 +161,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="applier" ref="chan01"/>
         <property name="fixUp" ref="cfixUp1"/>
         <property name="workplan"><null/></property>
+                <property name="creditCard">
+            <null />
+		</property> 
     </bean>
     
     <bean id="capp02" class="domain.Application">   
@@ -159,6 +174,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="applier" ref="chan01"/>
         <property name="fixUp" ref="cfixUp1"/>
         <property name="workplan"><null/></property>
+                <property name="creditCard">
+            <null />
+		</property> 
     </bean>
     <!-- Complaint -->
 

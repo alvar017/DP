@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Appli" key="selection"/>
+		<item value=".update" key="selection"/>
 		<list key="findhistory">
+			<item value=".update"/>
+			<item value="update"/>
+			<item value="system"/>
+			<item value="com"/>
+			<item value="domain.application"/>
+			<item value="phase"/>
+			<item value="&lt;property name=&quot;applications&quot;"/>
 			<item value="applie"/>
-			<item value="appli"/>
-			<item value="assert"/>
-			<item value="Category"/>
-			<item value="category"/>
-			<item value="name=&quot;customer&quot;"/>
-			<item value="customer"/>
-			<item value="getse"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Warranty"/>
