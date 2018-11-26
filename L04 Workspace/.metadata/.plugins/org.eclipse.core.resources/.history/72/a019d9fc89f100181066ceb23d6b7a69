@@ -267,7 +267,12 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="startDate" value="2018/11/18 08:00" />
         <property name="endDate" value="2018/11/30 08:00" />
         <property name="warranty" ref="war01" />
-
+        <property name="applications">
+            <list>
+                <ref bean="app01" />
+                <ref bean="app02" />
+            </list>
+        </property>
         <property name="category" ref="cat01" />
         <property name="complaints">
             <list>
@@ -290,8 +295,12 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="startDate" value="2018/3/18 08:00" />
         <property name="endDate" value="2018/3/30 08:00" />
         <property name="warranty" ref="war01" />
-
-
+        <property name="applications">
+            <list>
+                <ref bean="Franapp01" />
+                <ref bean="Franapp02" />
+            </list>
+        </property>
         <property name="category" ref="cat01" />
         <property name="complaints">
             <list>
@@ -313,7 +322,12 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="startDate" value="2018/11/18 08:00"/>
         <property name="endDate" value="2018/11/13 08:00"/>
         <property name="warranty" ref="war01"/>
-
+        <property name="applications" >
+            <list>
+                <ref bean="capp01"/>
+                <ref bean="capp02"/>                
+            </list>        
+        </property>
         <property name="category" ref="ccat01"/>
         <property name="complaints" >
             <list>
@@ -334,7 +348,12 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="startDate" value="2018/11/18 08:00"/>
         <property name="endDate" value="2018/11/13 08:00"/>
         <property name="warranty" ref="war01"/>
-
+        <property name="applications" >
+            <list>
+                <ref bean="capp01"/>
+                <ref bean="capp02"/>                
+            </list>        
+        </property>
         <property name="category" ref="ccat01"/>
         <property name="complaints"><null/></property>
         <property name="handyWorker" ref="chan01"/>
@@ -352,7 +371,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
          <property name="mailBoxes"><null/></property>
          <property name="address" value="Castillo de Constantina N5" />
         <property name="make" value="cmake1" />
-
+        <property name="applications"><null/></property>
         <property name="endreferenced"><null/></property>
         <property name="notes"><null/></property>
         <property name="tutorials"><null/></property>

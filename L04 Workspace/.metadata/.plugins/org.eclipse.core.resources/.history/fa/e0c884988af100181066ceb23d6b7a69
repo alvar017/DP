@@ -352,7 +352,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
          <property name="mailBoxes"><null/></property>
          <property name="address" value="Castillo de Constantina N5" />
         <property name="make" value="cmake1" />
-
+        <property name="applications"><null/></property>
         <property name="endreferenced"><null/></property>
         <property name="notes"><null/></property>
         <property name="tutorials"><null/></property>
