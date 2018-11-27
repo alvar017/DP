@@ -1,0 +1,141 @@
+
+package services;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.AdministratorRepository;
+import security.Authority;
+import security.UserAccount;
+import domain.Administrator;
+import domain.Customer;
+import domain.HandyWorker;
+
+@Service
+@Transactional
+public class AdministratorService {
+
+	//Managed Repository -------------------	
+	@Autowired
+	private AdministratorRepository	adminRepository;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------		
+	public Administrator create() {
+		final Administrator ad = new Administrator();
+		final UserAccount cuenta = new UserAccount();
+		final List<Authority> autoridades = new ArrayList<>();
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.ADMIN);
+		autoridades.add(authority);
+		cuenta.setAuthorities(autoridades);
+
+		ad.setUserAccount(cuenta);
+
+		return ad;
+	}
+
+	public Collection<Administrator> findAll() {
+		return this.adminRepository.findAll();
+	}
+
+	public Administrator findOne(final int id) {
+		final Administrator result = this.adminRepository.findOne(id);
+		Assert.notNull(result);
+		return result;
+	}
+
+	public Administrator save(final Administrator ad) {
+		Assert.isTrue(!this.adminRepository.exists(ad.getId()));
+		return this.adminRepository.save(ad);
+	}
+	public Administrator getAdministratorByUserAccountId(final int userAccountId) {
+		Administrator res;
+		res = this.adminRepository.findByUserAccountId(userAccountId);
+		return res;
+	}
+
+	public Integer getMinComplaintPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMinComplaintPerFixUp();
+		return res;
+	}
+
+	public Integer getMaxComplaintPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMaxComplaintPerFixUp();
+		return res;
+	}
+
+	public Double getAverageComplaintPerFixUp() {
+		Double res;
+		res = this.adminRepository.getAverageComplaintPerFixUp();
+		return res;
+	}
+
+	public Double getStandardDeviationFixUp() {
+		Double res;
+		res = this.adminRepository.getStandardDeviationFixUp();
+		return res;
+	}
+
+	public Integer getMaxNotesPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMaxNotesPerFixUp();
+		return res;
+	}
+
+	public Integer getMinNotesPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMinNotesPerFixUp();
+		return res;
+	}
+
+	public Double getAvgNotesPerFixUp() {
+		Double res;
+		res = this.adminRepository.getAvgNotesPerFixUp();
+		return res;
+	}
+
+	public Double getStandardDeviationNotesPerFixUp() {
+		Double res;
+		res = this.adminRepository.getStandardDeviationNotesPerFixUp();
+		return res;
+	}
+
+	public Double getRatioFixUpComplaint() {
+		Double res;
+		res = this.adminRepository.getRatioFixUpComplaint();
+		return res;
+	}
+
+	public Collection<Customer> getTopThreeCustomers() {
+		Collection<Customer> list = this.adminRepository.getTopThreeCustomers();
+		final List<Customer> customers = new ArrayList<>(list);
+		if (customers.size() <= 3)
+			customers.subList(0, customers.size() - 1);
+		else
+			customers.subList(0, 2);
+		list = customers;
+		return list;
+	}
+	
+	public Collection<HandyWorker> getTopThreeHandyWorker() {
+		Collection<HandyWorker> list = this.adminRepository.getTopThreeHandyWorker();
+		final List<HandyWorker> hw = new ArrayList<>(list);
+		if (hw.size() <= 3)
+			hw.subList(0, hw.size() - 1);
+		else
+			hw.subList(0, 2);
+		list = hw;
+		return list;
+	}
+}

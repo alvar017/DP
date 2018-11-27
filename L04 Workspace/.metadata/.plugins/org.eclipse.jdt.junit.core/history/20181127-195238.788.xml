@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="AdministratorServiceTest" project="Acme-HandyWorker" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="services.AdministratorServiceTest" time="21.11">
-    <testcase name="testSaveAdministrator" classname="services.AdministratorServiceTest" time="21.11"/>
-  </testsuite>
-</testrun>

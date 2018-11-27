@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.validation.Validator"/>
-<fullyQualifiedTypeName name="org.springframework.validation.BindingResultUtils"/>
 <fullyQualifiedTypeName name="org.springframework.validation.Validator"/>
 <fullyQualifiedTypeName name="org.springframework.validation.MapBindingResult"/>
 <fullyQualifiedTypeName name="domain.Shout"/>
@@ -23,9 +21,7 @@
 <fullyQualifiedTypeName name="domain.Message"/>
 <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.User"/>
 <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.springframework.security.access.vote.AuthenticatedVoter"/>
-<fullyQualifiedTypeName name="domain.Customer"/>
 <fullyQualifiedTypeName name="security.LoginController"/>
 <fullyQualifiedTypeName name="utilities.AbstractTest"/>
 <fullyQualifiedTypeName name="domain.Category"/>
@@ -40,24 +36,28 @@
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="security.Authority"/>
 <fullyQualifiedTypeName name="domain.Application"/>
-<fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="domain.CreditCard"/>
 <fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="repositories.AdministratorRepository"/>
 <fullyQualifiedTypeName name="domain.Referee"/>
 <fullyQualifiedTypeName name="services.AdmnistratorService"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="domain.Administrator"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="domain.Actor"/>
 <fullyQualifiedTypeName name="services.CustomerService"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="services.AdministratorService"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="repositories.HandyWorkerRepository"/>
+<fullyQualifiedTypeName name="domain.Administrator"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="domain.Customer"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="domain.HandyWorker"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 </qualifiedTypeNameHistroy>

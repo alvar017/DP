@@ -1,0 +1,81 @@
+
+package services;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.AdministratorRepository;
+import security.Authority;
+import security.UserAccount;
+import domain.Administrator;
+
+@Service
+@Transactional
+public class AdministratorService {
+
+	//Managed Repository -------------------	
+	@Autowired
+	private AdministratorRepository	adminRepository;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------		
+	public Administrator create() {
+		final Administrator ad = new Administrator();
+		final UserAccount cuenta = new UserAccount();
+		final List<Authority> autoridades = new ArrayList<>();
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.ADMIN);
+		autoridades.add(authority);
+		cuenta.setAuthorities(autoridades);
+
+		ad.setUserAccount(cuenta);
+
+		return ad;
+	}
+
+	public Collection<Administrator> findAll() {
+		return this.adminRepository.findAll();
+	}
+
+	public Administrator findOne(final int id) {
+		final Administrator result = this.adminRepository.findOne(id);
+		Assert.notNull(result);
+		return result;
+	}
+
+	public Administrator save(final Administrator ad) {
+		Assert.isTrue(!this.adminRepository.exists(ad.getId()));
+		return this.adminRepository.save(ad);
+	}
+	public Administrator getAdministratorByUserAccountId(final int userAccountId) {
+		Administrator res;
+		res = this.adminRepository.findByUserAccountId(userAccountId);
+		return res;
+	}
+
+	public Integer getMinComplaintPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMinComplaintPerFixUp();
+		return res;
+	}
+
+	public Integer getMaxComplaintPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMaxComplaintPerFixUp();
+		return res;
+	}
+
+	public Double getAverageComplaintPerFixUp() {
+		Double res;
+		res = this.adminRepository.getStandardDeviationFixUp();
+		return res;
+	}
+}

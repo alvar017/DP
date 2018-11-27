@@ -12,8 +12,11 @@ import org.springframework.util.Assert;
 
 import repositories.AdministratorRepository;
 import security.Authority;
+import security.LoginService;
 import security.UserAccount;
 import domain.Administrator;
+import domain.Customer;
+import domain.HandyWorker;
 
 @Service
 @Transactional
@@ -59,5 +62,84 @@ public class AdministratorService {
 		Administrator res;
 		res = this.adminRepository.findByUserAccountId(userAccountId);
 		return res;
+	}
+
+	public Integer getMinComplaintPerFixUp() {
+		final UserAccount userAccount = LoginService.getPrincipal();
+		final int idAdmin = userAccount.getId();
+		Assert.isTrue(this.getAdministratorByUserAccountId(idAdmin) != null);
+		Integer res;
+		res = this.adminRepository.getMinComplaintPerFixUp();
+		return res;
+	}
+
+	public Integer getMaxComplaintPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMaxComplaintPerFixUp();
+		return res;
+	}
+
+	public Double getAverageComplaintPerFixUp() {
+		Double res;
+		res = this.adminRepository.getAverageComplaintPerFixUp();
+		return res;
+	}
+
+	public Double getStandardDeviationFixUp() {
+		Double res;
+		res = this.adminRepository.getStandardDeviationFixUp();
+		return res;
+	}
+
+	public Integer getMaxNotesPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMaxNotesPerFixUp();
+		return res;
+	}
+
+	public Integer getMinNotesPerFixUp() {
+		Integer res;
+		res = this.adminRepository.getMinNotesPerFixUp();
+		return res;
+	}
+
+	public Double getAvgNotesPerFixUp() {
+		Double res;
+		res = this.adminRepository.getAvgNotesPerFixUp();
+		return res;
+	}
+
+	public Double getStandardDeviationNotesPerFixUp() {
+		Double res;
+		res = this.adminRepository.getStandardDeviationNotesPerFixUp();
+		return res;
+	}
+
+	public Double getRatioFixUpComplaint() {
+		Double res;
+		res = this.adminRepository.getRatioFixUpComplaint();
+		return res;
+	}
+
+	public Collection<Customer> getTopThreeCustomers() {
+		Collection<Customer> list = this.adminRepository.getTopThreeCustomers();
+		final List<Customer> customers = new ArrayList<>(list);
+		if (customers.size() <= 3)
+			customers.subList(0, customers.size() - 1);
+		else
+			customers.subList(0, 2);
+		list = customers;
+		return list;
+	}
+
+	public Collection<HandyWorker> getTopThreeHandyWorker() {
+		final Collection<HandyWorker> list = this.adminRepository.getTopThreeHandyWorker();
+		if (list.size() < 3)
+			return list;
+		else {
+			final List<HandyWorker> hw = new ArrayList<>(list);
+			hw.subList(0, 2);
+			return hw;
+		}
 	}
 }

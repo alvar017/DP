@@ -1,0 +1,45 @@
+
+package repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import domain.Administrator;
+
+@Repository
+public interface AdministratorRepository extends JpaRepository<Administrator, Integer> {
+
+	@Query("select a from Administrator a join a.userAccount ua where ua.id=?1")
+	Administrator findByUserAccountId(int userAccountId);
+
+	@Query("select f, f.complaints.size from FixUp f where (f.complaints.size=(select min(f1.complaints.size) from FixUp f1))")
+	Administrator getMinComplaintPerFixUp();
+
+	@Query("select f, f.complaints.size from FixUp f where (f.complaints.size=(select max(f1.complaints.size) from FixUp f1))")
+	Administrator getMaxComplaintPerFixUp();
+
+	@Query("select avg(f.complaints.size)from FixUp f")
+	Administrator getAverageComplaintPerFixUp();
+
+	@Query("select sqrt(sum(f.complaints.size*f.complaints.size)/count(f)-(avg(f.complaints.size)*avg(f.complaints.size))) from FixUp f")
+	Administrator getStandardDeviationFixUp();
+	
+	@Query("select  r,r.notes.size from Report r where (r.notes.size = ( select max(r1.notes.size) from  Report r1))")
+	Administrator getMaxNotesPerFixUp();
+	
+	@Query("select  r,r.notes.size from Report r where (r.notes.size = ( select min(r1.notes.size) from  Report r1))))")
+	Administrator getMinNotesPerFixUp();
+	
+	@Query("select avg(r.notes.size) from Report r")
+	Administrator getAvgNotesPerFixUp();
+	
+	@Query("select sqrt (sum(r.notes.size*r.notes.size)/count(r.notes.size)-(avg(r.notes.size)*avg(r.notes.size))) from Report r")
+	Administrator getStandardDeviationNotesPerFixUp();
+	
+	@Query("select ((select count(f) from FixUp f where f.complaints.size > 0)/count(f))*1.0 from FixUp f")
+	Administrator getTopThreeCustomers();
+	
+	@Query("select cu from Customer cu join cu.fixUps f where f.complaints.size > 0 order by f.complaints.size desc")
+	Administrator getTopThreeHandyWorker();
+}
