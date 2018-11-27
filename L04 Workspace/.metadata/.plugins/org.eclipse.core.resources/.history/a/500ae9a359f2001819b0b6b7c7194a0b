@@ -1,0 +1,72 @@
+
+package services;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+
+import repositories.RefereeRepository;
+import security.Authority;
+import security.LoginService;
+import security.UserAccount;
+import domain.Referee;
+
+@Service
+@Transactional
+public class RefereeService {
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private RefereeRepository		refereeRepository;
+
+	//Supporting services ------------------
+	@Autowired
+	private AdministratorService	administratorService;
+
+
+	//Simple CRUD Methods ------------------
+
+	public Referee create() {
+
+		final UserAccount userAccount = LoginService.getPrincipal();
+		final int idAdmin = userAccount.getId();
+		Assert.isTrue(this.administratorService.findOne(idAdmin) != null);
+		final Referee referee = new Referee();
+		final UserAccount cuenta = new UserAccount();
+		final List<Authority> autoridades = new ArrayList<>();
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.REFEREE);
+		autoridades.add(authority);
+		cuenta.setAuthorities(autoridades);
+
+		referee.setUserAccount(cuenta);
+
+		return referee;
+	}
+
+	public Collection<Referee> findAll() {
+		return this.refereeRepository.findAll();
+
+	}
+
+	public Referee findOne(final int id) {
+
+		final Referee result = this.refereeRepository.findOne(id);
+		Assert.notNull(result);
+		return result;
+	}
+
+	public Referee save(final Referee referee) {
+		return this.refereeRepository.save(referee);
+	}
+
+	//Other Methods
+
+}

@@ -43,25 +43,34 @@ public class ActorService {
 
 	// Other M
 	public Collection<Actor> findActorsSuspicious() {
+		final UserAccount userAccount = LoginService.getPrincipal();
+		final int idAdmin = userAccount.getId();
+		Assert.isTrue(this.administratorService.getAdministratorByUserAccountId(idAdmin) != null);
 		return this.actorRepository.findActorsSuspicious();
 	}
 
 	public Collection<Actor> findActorsBanned() {
+		final UserAccount userAccount = LoginService.getPrincipal();
+		final int idAdmin = userAccount.getId();
+		Assert.isTrue(this.administratorService.getAdministratorByUserAccountId(idAdmin) != null);
 		return this.actorRepository.findActorsBanned();
 	}
 
 	public Actor banActor(final Actor actor) {
 		final UserAccount userAccount = LoginService.getPrincipal();
 		final int idAdmin = userAccount.getId();
-		System.out.println(idAdmin);
-		//		Assert.isTrue(this.administratorService.findOne(idAdmin) != null);
-		//		Assert.isTrue(actor.getIsBanned() != true, "Actor is already banned");
-		//		actor.setIsBanned(true);
+		Assert.isTrue(this.administratorService.getAdministratorByUserAccountId(idAdmin) != null);
+		Assert.isTrue(this.findOne(actor.getId()) != null);
+		Assert.isTrue(actor.getIsBanned() != true, "Actor is already banned");
+		actor.setIsBanned(true);
 		final Actor saveActor = this.actorRepository.save(actor);
 		return saveActor;
 	}
 
 	public Actor unBanActor(final Actor actor) {
+		final UserAccount userAccount = LoginService.getPrincipal();
+		final int idAdmin = userAccount.getId();
+		Assert.isTrue(this.administratorService.getAdministratorByUserAccountId(idAdmin) != null);
 		Assert.isTrue(this.findOne(actor.getId()) != null);
 		Assert.isTrue(actor.getIsBanned() != false, "Actor is not ban");
 		actor.setIsBanned(false);

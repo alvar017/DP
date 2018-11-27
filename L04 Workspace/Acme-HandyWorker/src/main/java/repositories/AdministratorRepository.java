@@ -10,6 +10,6 @@ import domain.Administrator;
 @Repository
 public interface AdministratorRepository extends JpaRepository<Administrator, Integer> {
 
-	@Query("select ad from Referee ad join ad.userAccount cua where cua.id=?1")
+	@Query("select a from Administrator a join a.userAccount ua where ua.id=?1")
 	Administrator findByUserAccountId(int userAccountId);
 }

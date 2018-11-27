@@ -10,7 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
-import security.UserAccount;
 import utilities.AbstractTest;
 import domain.Administrator;
 import domain.Referee;
@@ -35,13 +34,11 @@ public class RefereeServiceTest extends AbstractTest {
 		final Administrator administrator = this.administratorService.create();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
-		final UserAccount account = administrator.getUserAccount();
-		account.setUsername("adminUser");
-		account.setPassword("12345678");
+		administrator.getUserAccount().setUsername("adminUser");
+		administrator.getUserAccount().setPassword("12345678");
 		final Administrator saveAdministrator = this.administratorService.save(administrator);
-		administrator.setUserAccount(account);
 		Assert.isTrue(this.administratorService.findAll().contains(saveAdministrator));
-		super.authenticate("admin");
+		super.authenticate("adminUser");
 		final Referee referee = this.refereeService.create();
 		referee.setName("Alvaro");
 		referee.setSurname("alvaro");
