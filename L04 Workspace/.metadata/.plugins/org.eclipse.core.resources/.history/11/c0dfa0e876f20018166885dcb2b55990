@@ -1,14 +1,12 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -78,13 +76,13 @@ public class Report extends DomainEntity {
 	//		this.referee = referee;
 	//	}
 
-	@OneToMany(mappedBy = "report")
-	public Collection<Note> getNotes() {
-		return this.notes;
-	}
-
-	public void setNotes(final Collection<Note> notes) {
-		this.notes = notes;
-	}
+	//	@OneToMany
+	//	public Collection<Note> getNotes() {
+	//		return this.notes;
+	//	}
+	//
+	//	public void setNotes(final Collection<Note> notes) {
+	//		this.notes = notes;
+	//	}
 
 }

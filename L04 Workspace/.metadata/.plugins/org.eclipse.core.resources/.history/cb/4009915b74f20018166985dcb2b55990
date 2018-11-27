@@ -78,7 +78,7 @@ public class Report extends DomainEntity {
 	//		this.referee = referee;
 	//	}
 
-	@OneToMany(mappedBy = "report")
+	@OneToMany(mappedBy="report")
 	public Collection<Note> getNotes() {
 		return this.notes;
 	}

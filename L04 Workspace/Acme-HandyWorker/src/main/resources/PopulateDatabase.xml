@@ -483,6 +483,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="Frandescription1" />
         <property name="attachment" value="https://www.google.es/Fran1" />
         <property name="complaint" ref="Francom01" />
+        <property name="notes"><null/></property>
     </bean>
 
 <!-- report --> 
@@ -492,6 +493,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="moment" value="2018/05/10" />
         <property name="description" value="cdescriptionrep" />
         <property name="complaint" ref="com01" />
+        <property name="notes"><null/></property>
        </bean>
 
     <bean id="anrep02" class="domain.Report">
@@ -499,6 +501,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="moment" value="2018/05/10" />
         <property name="description" value="cdescriptionrep" />
         <property name="complaint" ref="com01" />
+        <property name="notes"><null/></property>
        </bean>
     <!-- notes --> 
      <bean id="annot01" class="domain.Note">
