@@ -71,15 +71,15 @@ public class HandyWorker extends Endorsable {
 		this.curriculum = curriculum;
 	}
 
-	@OneToMany(mappedBy = "applier")
-	@Valid
-	public Collection<Application> getApplications() {
-		return this.applications;
-	}
-
-	public void setApplications(final Collection<Application> applications) {
-		this.applications = applications;
-	}
+		@OneToMany(mappedBy = "applier")
+		@Valid
+		public Collection<Application> getApplications() {
+			return this.applications;
+		}
+	
+		public void setApplications(final Collection<Application> applications) {
+			this.applications = applications;
+		}
 
 	public String getMake() {
 		return this.make;

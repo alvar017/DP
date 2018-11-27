@@ -84,7 +84,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="curriculum">
             <null />
         </property>
-        <property name="applications"><null/></property>
     </bean>
 
     <!-- Application -->
@@ -333,8 +332,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="notes"><null/></property>
         <property name="tutorials"><null/></property>
         <property name="finder"><null/></property>
-        <property name="curriculum"><null/></property>    
-        <property name="applications"><null/></property>   
+        <property name="curriculum"><null/></property>       
     </bean>
     
     <!-- Category -->    

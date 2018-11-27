@@ -53,6 +53,7 @@ public class FixUp extends DomainEntity {
 		this.handyWorker = handyWorker;
 	}
 
+	@Valid
 	@OneToMany(mappedBy = "fixUp")
 	public Collection<Complaint> getComplaints() {
 		return this.complaints;

@@ -1,7 +1,6 @@
 <!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidah´ de Sevilla 
     * * The use of this project is hereby constrained to the conditions of the 
     * T<?xml version="1.0" encoding="UTF-8"?>
-
 DG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
@@ -70,9 +69,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         </property>
         <property name="address" value="Calle Aguditas Número 12" />
         <property name="make" value="make1" />
-        <property name="applications">
-            <null />
-        </property>
+
+
         <property name="endreferenced">
             <null />
         </property>
@@ -82,13 +80,10 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="tutorials">
             <null />
         </property>
-        <property name="finder">
-            <null />
-        </property>
+        <property name="finder" ref ="fin01" />
         <property name="curriculum">
             <null />
         </property>
-
     </bean>
 
     <!-- Application -->
@@ -100,9 +95,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="comments" value="comments1" />
         <property name="applier" ref="han01" />
         <property name="fixUp" ref="fixUp1" />
-        <property name="workplan">
+        <property name="creditCard">
             <null />
-        </property>
+		</property>            
     </bean>
 
     <bean id="app02" class="domain.Application">
@@ -112,9 +107,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="comments" value="comments2" />
         <property name="applier" ref="han01" />
         <property name="fixUp" ref="fixUp1" />
-        <property name="workplan">
+                <property name="creditCard">
             <null />
-        </property>
+		</property> 
     </bean>
 
     <bean id="Franapp01" class="domain.Application">
@@ -124,9 +119,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="comments" value="Francomments1" />
         <property name="applier" ref="han01" />
         <property name="fixUp" ref="FranfixUp1" />
-        <property name="workplan">
+                <property name="creditCard">
             <null />
-        </property>
+		</property> 
     </bean>
 
 
@@ -137,9 +132,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="comments" value="Francomments2" />
         <property name="applier" ref="han01" />
         <property name="fixUp" ref="FranfixUp1" />
-        <property name="workplan">
+                <property name="creditCard">
             <null />
-        </property>
+		</property> 
     </bean>   
     
     <bean id="capp01" class="domain.Application">
@@ -149,7 +144,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="comments" value="ccomments1" />
         <property name="applier" ref="chan01"/>
         <property name="fixUp" ref="cfixUp1"/>
-        <property name="workplan"><null/></property>
     </bean>
     
     <bean id="capp02" class="domain.Application">   
@@ -159,7 +153,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="comments" value="ccomments2" />
         <property name="applier" ref="chan01"/>
         <property name="fixUp" ref="cfixUp1"/>
-        <property name="workplan"><null/></property>
     </bean>
     <!-- Complaint -->
 
@@ -168,9 +161,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="description1" />
         <property name="attachment" value="http://www.google.es/" />
         <property name="moment" value="2018/11/29 08:00" />
-        <property name="reports">
-            <null />
-        </property>
+        <property name="fixUp" ref="fixUp1" />
     </bean>
 
     <bean id="com02" class="domain.Complaint">
@@ -178,9 +169,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="description2" />
         <property name="attachment" value="http://www.google.com/" />
         <property name="moment" value="2018/11/30 08:00" />
-        <property name="reports">
-            <null />
-        </property>
+        <property name="fixUp" ref="fixUp1" />
     </bean>
 
     <bean id="Francom01" class="domain.Complaint">
@@ -188,9 +177,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="Frandescription1" />
         <property name="attachment" value="http://www.google.com/Fran1" />
         <property name="moment" value="2018/1/30 08:00" />
-        <property name="reports">
-            <null />
-        </property>
+        <property name="fixUp" ref="fixUp1" />
     </bean>
 
 
@@ -200,9 +187,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="Frandescription2" />
         <property name="attachment" value="http://www.google.com/Fran2" />
         <property name="moment" value="2018/2/30 08:00" />
-        <property name="reports">
-            <null />
-        </property>
+        <property name="fixUp" ref="fixUp1" />
     </bean>
 
 
@@ -268,21 +253,11 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="startDate" value="2018/11/18 08:00" />
         <property name="endDate" value="2018/11/30 08:00" />
         <property name="warranty" ref="war01" />
-        <property name="applications">
-            <list>
-                <ref bean="app01" />
-                <ref bean="app02" />
-            </list>
-        </property>
+
         <property name="category" ref="cat01" />
-        <property name="complaints">
-            <list>
-                <ref bean="com01" />
-                <ref bean="com02" />
-            </list>
-        </property>
         <property name="handyWorker" ref="han01" />
         <property name="customer" ref="ancus01" />
+        <property name="complaints"><null/></property>
         
     </bean>
 
@@ -296,21 +271,12 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="startDate" value="2018/3/18 08:00" />
         <property name="endDate" value="2018/3/30 08:00" />
         <property name="warranty" ref="war01" />
-        <property name="applications">
-            <list>
-                <ref bean="Franapp01" />
-                <ref bean="Franapp02" />
-            </list>
-        </property>
+
+
         <property name="category" ref="cat01" />
-        <property name="complaints">
-            <list>
-                <ref bean="Francom01" />
-                <ref bean="Francom02" />
-            </list>
-        </property>
         <property name="handyWorker" ref="han01" />
         <property name="customer" ref="ancus01" />
+        <property name="complaints"><null/></property>
         
     </bean>
     
@@ -323,21 +289,11 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="startDate" value="2018/11/18 08:00"/>
         <property name="endDate" value="2018/11/13 08:00"/>
         <property name="warranty" ref="war01"/>
-        <property name="applications" >
-            <list>
-                <ref bean="capp01"/>
-                <ref bean="capp02"/>                
-            </list>        
-        </property>
+
         <property name="category" ref="ccat01"/>
-        <property name="complaints" >
-            <list>
-                <ref bean="ccom01"/>
-                <ref bean="ccom02"/>                
-            </list>        
-        </property>
         <property name="handyWorker" ref="chan01"/>
         <property name="customer" ref="ancus02" />
+        <property name="complaints"><null/></property>
     </bean>
     
         <bean id="antfixUp" class="domain.FixUp">
@@ -349,16 +305,11 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="startDate" value="2018/11/18 08:00"/>
         <property name="endDate" value="2018/11/13 08:00"/>
         <property name="warranty" ref="war01"/>
-        <property name="applications" >
-            <list>
-                <ref bean="capp01"/>
-                <ref bean="capp02"/>                
-            </list>        
-        </property>
+
         <property name="category" ref="ccat01"/>
-        <property name="complaints"><null/></property>
         <property name="handyWorker" ref="chan01"/>
         <property name="customer" ref="ancus03" />
+        <property name="complaints"><null/></property>
         
     </bean>
     
@@ -372,13 +323,12 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
          <property name="mailBoxes"><null/></property>
          <property name="address" value="Castillo de Constantina N5" />
         <property name="make" value="cmake1" />
-        <property name="applications"><null/></property>
+
         <property name="endreferenced"><null/></property>
         <property name="notes"><null/></property>
         <property name="tutorials"><null/></property>
         <property name="finder"><null/></property>
-        <property name="curriculum"><null/></property>
-        
+        <property name="curriculum"><null/></property>       
     </bean>
     
     <!-- Category -->    
@@ -399,7 +349,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="cdescription1" />
         <property name="attachment" value="http://www.google.es/" />
         <property name="moment" value="2018/11/29 08:00" />
-        <property name="reports"><null/></property>
+        <property name="fixUp" ref="fixUp1" />
+        
+        
     </bean>
         <bean id="ccom02" class="domain.Complaint">
     
@@ -407,7 +359,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="cdescription2" />
         <property name="attachment" value="http://www.google.com/" />
         <property name="moment" value="2018/11/30 08:00" />
-        <property name="reports"><null/></property>
+        <property name="fixUp" ref="fixUp1" />
     </bean>
     
     <!-- Customer --> 
@@ -429,7 +381,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>
-        <property name="notes"><null/></property>       
     </bean>
 
     <bean id="ancus02" class="domain.Customer">
@@ -449,8 +400,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="address" value="Calle PozoRojo Número 15" />
         <property name="endreferenced">
             <null />
-        </property>
-        <property name="notes"><null/></property>       
+        </property>     
     </bean>
     
         <bean id="ancus03" class="domain.Customer">
@@ -470,8 +420,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="address" value="Calle Pozoverde Número 12" />
         <property name="endreferenced">
             <null />
-        </property>
-        <property name="notes"><null/></property>       
+        </property>      
     </bean>
 <!-- Referee --> 
 
@@ -490,7 +439,29 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>
         <property name="address" value="Calle Pozonegro Número 12" />
+		<property name="isBanned" value="false"/>
+		<property name="isSuspicious" value="false"/>
+		
+		
+</bean>
 
+<bean id="Franref02" class="domain.Referee">
+        <property name="name" value="Manuel" />
+        <property name="surname" value="Rojo" />
+        <property name="middleName" value="" />
+        <property name="email" value="manuel@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle Pozonegro Número 12" />
+		<property name="isBanned" value="false"/>
+		<property name="isSuspicious" value="false"/>
 </bean>
 
 <!-- Reports -->
@@ -501,8 +472,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="Frandescription1" />
         <property name="attachment" value="https://www.google.es/Fran1" />
         <property name="complaint" ref="Francom01" />
-        <property name="referee" ref="Franref01" />
-         <property name="notes" ><null/></property>
     </bean>
 
 <!-- report --> 
@@ -512,13 +481,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="moment" value="2018/05/10" />
         <property name="description" value="cdescriptionrep" />
         <property name="complaint" ref="com01" />
-        <property name="referee" ref="Franref01" />
-     <property name="notes" >
-            <list>
-                <ref bean="annot01"/>
-                <ref bean="annot02"/>
-            </list>        
-        </property>    
        </bean>
 
     <bean id="anrep02" class="domain.Report">
@@ -526,8 +488,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="moment" value="2018/05/10" />
         <property name="description" value="cdescriptionrep" />
         <property name="complaint" ref="com01" />
-        <property name="referee" ref="Franref01" />
-     	<property name="notes"><null/></property>   
        </bean>
     <!-- notes --> 
      <bean id="annot01" class="domain.Note">
@@ -536,6 +496,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="commentReferee" value="commentref" />
         <property name="commentCustomer" value="commentCus" />
         <property name="commentHandyWorker" value="commenthandy" />
+        <property name="customer" ref="ancus03" />
+        <property name="report" ref="anrep02" />
     </bean>
     
      <bean id="annot02" class="domain.Note">
@@ -544,11 +506,35 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="commentReferee" value="commentref" />
         <property name="commentCustomer" value="commentCus" />
         <property name="commentHandyWorker" value="commenthandy" />
+        <property name="customer" ref="ancus03" />
+        <property name="report" ref="anrep01" />
+    </bean>
+    
+    <!-- FINDER -->
+    <bean id="fin01" class="domain.Finder">
+   <property name="category">
+            <null />
+        </property>
+        
+     <property name="warranty">
+            <null />
+        </property>
+            
+        <property name="date" value="2018/11/29 08:00" />
+        <property name="endDate" value="2018/12/19 08:00" />
+        <property name="startDate" value="2018/11/29 08:00" />
+        <property name="keyword" value="carmen" />
+        <property name="maxPrice" value="20.0" />
+          <property name="minPrice" value="10.0" />
+        <property name="fixUps" >
+            <list>
+                <ref bean="fixUp1"/>
+                <ref bean="FranfixUp1"/>
+                <ref bean="cfixUp1"/>
+                <ref bean="antfixUp"/>
+            </list>        
+        </property>          
     </bean>
     
     
-  </beans>
-    
-
-
-
+</beans>

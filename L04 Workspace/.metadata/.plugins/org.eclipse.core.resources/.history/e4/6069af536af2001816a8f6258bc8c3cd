@@ -84,7 +84,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="curriculum">
             <null />
         </property>
-        <property name="applications"><null/></property>
     </bean>
 
     <!-- Application -->
@@ -258,8 +257,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="category" ref="cat01" />
         <property name="handyWorker" ref="han01" />
         <property name="customer" ref="ancus01" />
-        <property name="complaints"><null/></property>
-        <property name="applications"><null/></property>
+        <property name="complaint"><null/></property>
         
     </bean>
 
@@ -278,8 +276,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="category" ref="cat01" />
         <property name="handyWorker" ref="han01" />
         <property name="customer" ref="ancus01" />
-        <property name="complaints"><null/></property>
-        <property name="applications"><null/></property>
+        <property name="complaint"><null/></property>
         
     </bean>
     
@@ -296,8 +293,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="category" ref="ccat01"/>
         <property name="handyWorker" ref="chan01"/>
         <property name="customer" ref="ancus02" />
-        <property name="complaints"><null/></property>
-        <property name="applications"><null/></property>
+        <property name="complaint"><null/></property>
     </bean>
     
         <bean id="antfixUp" class="domain.FixUp">
@@ -313,8 +309,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="category" ref="ccat01"/>
         <property name="handyWorker" ref="chan01"/>
         <property name="customer" ref="ancus03" />
-        <property name="complaints"><null/></property>
-        <property name="applications"><null/></property>
+        <property name="complaint"><null/></property>
         
     </bean>
     
@@ -333,8 +328,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="notes"><null/></property>
         <property name="tutorials"><null/></property>
         <property name="finder"><null/></property>
-        <property name="curriculum"><null/></property>    
-        <property name="applications"><null/></property>   
+        <property name="curriculum"><null/></property>       
     </bean>
     
     <!-- Category -->    
