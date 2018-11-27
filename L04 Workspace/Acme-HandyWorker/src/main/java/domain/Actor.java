@@ -32,6 +32,8 @@ public class Actor extends DomainEntity {
 	private String						photo;
 	private Collection<MailBox>			mailBoxes;
 	private UserAccount					userAccount;
+	private Boolean						isBanned;
+	private Boolean						isSuspicious;
 
 
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -110,6 +112,22 @@ public class Actor extends DomainEntity {
 
 	public void setMailBoxes(final Collection<MailBox> mailBoxes) {
 		this.mailBoxes = mailBoxes;
+	}
+
+	public Boolean getIsBanned() {
+		return this.isBanned;
+	}
+
+	public void setIsBanned(final Boolean isBanned) {
+		this.isBanned = isBanned;
+	}
+
+	public Boolean getIsSuspicious() {
+		return this.isSuspicious;
+	}
+
+	public void setIsSuspicious(final Boolean isSuspicious) {
+		this.isSuspicious = isSuspicious;
 	}
 
 }

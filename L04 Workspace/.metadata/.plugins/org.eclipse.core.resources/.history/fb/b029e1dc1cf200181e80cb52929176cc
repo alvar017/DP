@@ -1,0 +1,69 @@
+
+package services;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.AdministratorRepository;
+import security.Authority;
+import security.UserAccount;
+import domain.Administrator;
+
+@Service
+@Transactional
+public class AdministratorService {
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private AdministratorRepository	administratorRepository;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------
+
+	public Administrator create() {
+
+		final Administrator ad = new Administrator();
+		final UserAccount cuenta = new UserAccount();
+		final List<Authority> autoridades = new ArrayList<>();
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.ADMIN);
+		autoridades.add(authority);
+		cuenta.setAuthorities(autoridades);
+
+		ad.setUserAccount(cuenta);
+
+		return ad;
+
+	}
+
+	public Collection<Administrator> findAll() {
+		return this.administratorRepository.findAll();
+	}
+
+	public Administrator findOne(final int id) {
+		return this.administratorRepository.findOne(id);
+	}
+	public Administrator save(final Administrator administrator) {
+		return this.administratorRepository.save(administrator);
+	}
+	public void delete(final Administrator administrator) {
+		Assert.notNull(this.administratorRepository.findOne(administrator.getId()), "La Warranty no existe");
+		this.administratorRepository.delete(administrator);
+	}
+
+	public void update(final Administrator administrator) {
+		this.administratorRepository.save(administrator);
+	}
+
+	//Other Methods
+
+}

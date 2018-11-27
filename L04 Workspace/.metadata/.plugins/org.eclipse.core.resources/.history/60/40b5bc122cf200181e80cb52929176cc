@@ -1,0 +1,34 @@
+
+package services;
+
+import java.util.Collection;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import repositories.ActorRepository;
+import domain.Actor;
+
+@Service
+@Transactional
+public class ActorService {
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private ActorRepository	actorRepository;
+
+	//Supporting services ------------------
+
+	// Other M
+	//	public Collection<Actor> findActorsSuspicious() {
+	//		return this.actorRepository.findActorsSuspicious();
+	//	}
+	
+		public Collection<Actor> findActorsBanned() {
+			return this.actorRepository.findActorsBanned();
+		}
+
+}

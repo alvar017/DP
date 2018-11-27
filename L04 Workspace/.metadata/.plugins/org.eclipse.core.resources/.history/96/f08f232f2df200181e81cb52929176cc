@@ -1,0 +1,48 @@
+
+package services;
+
+import java.util.Collection;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import domain.Actor;
+import domain.Customer;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class ActorServiceTest {
+
+	@Autowired
+	private ActorService	actorService;
+	@Autowired
+	private CustomerService	customerService;
+
+
+	@Test
+	public void testBanned() {
+		final Customer customer1 = this.customerService.create();
+		customer1.setName("Alvaro");
+		customer1.setSurname("viso");
+		customer1.setIsBanned(true);
+		final Customer saveCustomer1 = this.customerService.save(customer1);
+		final Customer customer2 = this.customerService.create();
+		customer2.setName("Alvaro");
+		customer2.setSurname("viso");
+		customer2.setIsBanned(false);
+		final Customer saveCustomer2 = this.customerService.save(customer1);
+		final Collection<Actor> banneds = this.actorService.findActorsBanned();
+		for (final Actor actor : banneds) {
+			System.out.println(actor);
+		}
+	}
+
+}

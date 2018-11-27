@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.regex.Pattern"/>
-<fullyQualifiedTypeName name="java.lang.RuntimeException"/>
-<fullyQualifiedTypeName name="com.lowagie.text.Entities"/>
-<fullyQualifiedTypeName name="java.io.OutputStream"/>
-<fullyQualifiedTypeName name="domain.DomainEntity"/>
-<fullyQualifiedTypeName name="utilities.internal.DatabaseUtil"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="javax.validation.Validator"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResultUtils"/>
@@ -19,7 +13,6 @@
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="repositories.ShoutRepository"/>
 <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
-<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="utilities.internal.AbstractDatabasePopulator"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
@@ -34,11 +27,8 @@
 <fullyQualifiedTypeName name="org.springframework.security.core.userdetails.User"/>
 <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.security.access.vote.AuthenticatedVoter"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="domain.Customer"/>
-<fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="security.LoginController"/>
 <fullyQualifiedTypeName name="utilities.AbstractTest"/>
 <fullyQualifiedTypeName name="domain.Category"/>
@@ -47,17 +37,27 @@
 <fullyQualifiedTypeName name="services.WarrantyService"/>
 <fullyQualifiedTypeName name="repositories.ApplicationRepository"/>
 <fullyQualifiedTypeName name="org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="services.ApplicationService"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Pattern"/>
 <fullyQualifiedTypeName name="repositories.FixUpRepository"/>
-<fullyQualifiedTypeName name="security.UserAccount"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="security.Authority"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
-<fullyQualifiedTypeName name="security.LoginService"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="domain.Application"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="domain.CreditCard"/>
+<fullyQualifiedTypeName name="security.LoginService"/>
+<fullyQualifiedTypeName name="repositories.AdministratorRepository"/>
+<fullyQualifiedTypeName name="domain.Referee"/>
+<fullyQualifiedTypeName name="services.AdmnistratorService"/>
+<fullyQualifiedTypeName name="services.AdministratorService"/>
+<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="domain.Administrator"/>
+<fullyQualifiedTypeName name="security.UserAccount"/>
+<fullyQualifiedTypeName name="domain.Actor"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="services.CustomerService"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 </qualifiedTypeNameHistroy>

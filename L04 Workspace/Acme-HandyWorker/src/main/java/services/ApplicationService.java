@@ -66,10 +66,10 @@ public class ApplicationService {
 		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(idLogin);
 		Assert.isTrue(hw.equals(application.getApplier()));
 		final Application originalApplication = this.findOne(application.getId());
-		if (originalApplication.getState() != null) {
-			if (originalApplication.getState() == true)
-				Assert.isTrue(application.getCreditCard() != null);
-		} else
+		if (originalApplication.getState() != null && originalApplication.getState() == true)
+			//			if (true)
+			Assert.isTrue(application.getCreditCard() != null);
+		else
 			Assert.isTrue(application.getComments() != null);
 		final Application saveApplication = this.applicationRepository.save(application);
 		return saveApplication;
