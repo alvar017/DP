@@ -12,18 +12,18 @@ import javax.persistence.OneToMany;
 @Access(AccessType.PROPERTY)
 public class Customer extends Endorsable {
 
-	private Collection<FixUp>	fixUps;
+	private Collection<FixUp> fixUps;
 
-
-	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy=customer)
 	public Collection<FixUp> getFixUps() {
-		return this.fixUps;
+		return fixUps;
 	}
 
-	public void setFixUps(final Collection<FixUp> fixUps) {
+	
+	public void setFixUps(Collection<FixUp> fixUps) {
 		this.fixUps = fixUps;
 	}
-
+	
 	//	private Collection<Note>	notes;
 
 	//	@Valid

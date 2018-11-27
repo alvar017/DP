@@ -389,6 +389,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>
+        <property name="fixUps"><null/></property>
     </bean>
 
     <bean id="ancus02" class="domain.Customer">
@@ -408,7 +409,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="address" value="Calle PozoRojo Número 15" />
         <property name="endreferenced">
             <null />
-        </property>     
+        </property>    
+        <property name="fixUps"><null/></property> 
     </bean>
     
         <bean id="ancus03" class="domain.Customer">
@@ -428,7 +430,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="address" value="Calle Pozoverde Número 12" />
         <property name="endreferenced">
             <null />
-        </property>      
+        </property>   
+        <property name="fixUps"><null/></property>   
     </bean>
 <!-- Referee --> 
 

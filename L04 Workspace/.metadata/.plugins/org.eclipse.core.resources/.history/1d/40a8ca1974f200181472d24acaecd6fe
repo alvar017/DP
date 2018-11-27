@@ -15,7 +15,7 @@ public class Customer extends Endorsable {
 	private Collection<FixUp>	fixUps;
 
 
-	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy = customer)
 	public Collection<FixUp> getFixUps() {
 		return this.fixUps;
 	}
