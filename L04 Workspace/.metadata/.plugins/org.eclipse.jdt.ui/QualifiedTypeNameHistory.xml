@@ -50,14 +50,14 @@
 <fullyQualifiedTypeName name="repositories.AdministratorRepository"/>
 <fullyQualifiedTypeName name="domain.Referee"/>
 <fullyQualifiedTypeName name="services.AdmnistratorService"/>
-<fullyQualifiedTypeName name="services.AdministratorService"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="domain.Administrator"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
-<fullyQualifiedTypeName name="domain.Actor"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="domain.Actor"/>
+<fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="services.AdministratorService"/>
 </qualifiedTypeNameHistroy>

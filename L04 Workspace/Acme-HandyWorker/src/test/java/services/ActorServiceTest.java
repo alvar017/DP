@@ -12,7 +12,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
+import security.UserAccount;
+import utilities.AbstractTest;
 import domain.Actor;
+import domain.Administrator;
 import domain.Customer;
 
 @ContextConfiguration(locations = {
@@ -20,12 +23,14 @@ import domain.Customer;
 })
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
-public class ActorServiceTest {
+public class ActorServiceTest extends AbstractTest {
 
 	@Autowired
-	private ActorService	actorService;
+	private ActorService			actorService;
 	@Autowired
-	private CustomerService	customerService;
+	private CustomerService			customerService;
+	@Autowired
+	private AdministratorService	administratorService;
 
 
 	@Test
@@ -66,4 +71,40 @@ public class ActorServiceTest {
 		Assert.isTrue(sizeSuspiciousBefore + 1 == sizeSuspiciousAfter);
 	}
 
+	@Test
+	public void testBan() {
+		final Customer customer1 = this.customerService.create();
+		customer1.setName("Alvaro");
+		customer1.setSurname("viso");
+		customer1.setIsBanned(false);
+		final Customer saveCustomer = this.customerService.save(customer1);
+		final Administrator administrator = this.administratorService.create();
+		administrator.setName("Ana");
+		administrator.setSurname("navarro");
+		final UserAccount account = administrator.getUserAccount();
+		account.setUsername("adminUser");
+		account.setPassword("12345678");
+		final Administrator saveAdministrator = this.administratorService.save(administrator);
+		administrator.setUserAccount(account);
+		final Administrator saveAdministrator2 = this.administratorService.save(administrator);
+		Assert.isTrue(this.administratorService.findAll().contains(saveAdministrator));
+		super.authenticate("adminUser");
+		final Boolean isBanBefore = saveCustomer.getIsBanned();
+		this.actorService.banActor(saveCustomer);
+		final Boolean isBanAfter = saveCustomer.getIsBanned();
+		Assert.isTrue(isBanAfter != isBanBefore);
+	}
+
+	@Test
+	public void testUnBan() {
+		final Customer customer1 = this.customerService.create();
+		customer1.setName("Alvaro");
+		customer1.setSurname("viso");
+		customer1.setIsBanned(true);
+		final Customer saveCustomer = this.customerService.save(customer1);
+		final Boolean isBanBefore = saveCustomer.getIsBanned();
+		this.actorService.unBanActor(saveCustomer);
+		final Boolean isBanAfter = saveCustomer.getIsBanned();
+		Assert.isTrue(isBanAfter != isBanBefore);
+	}
 }

@@ -87,8 +87,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="curriculum">
             <null />
         </property>
-        <property name="isBanned" value="false"/>
-		<property name="isSuspicious" value="false"/>
     </bean>
 
     <!-- Application -->
@@ -376,9 +374,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="notes"><null/></property>
         <property name="tutorials"><null/></property>
         <property name="finder"><null/></property>
-        <property name="curriculum"><null/></property>
-        <property name="isBanned" value="false"/>
-		<property name="isSuspicious" value="false"/>        
+        <property name="curriculum"><null/></property>       
     </bean>
     
     <!-- Category -->    
@@ -429,9 +425,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>
-        <property name="notes"><null/></property>
-        <property name="isBanned" value="false"/>
-		<property name="isSuspicious" value="false"/>       
+        <property name="notes"><null/></property>     
     </bean>
 
     <bean id="ancus02" class="domain.Customer">
@@ -452,9 +446,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>
-        <property name="notes"><null/></property>
-        <property name="isBanned" value="false"/>
-		<property name="isSuspicious" value="false"/>       
+        <property name="notes"><null/></property>     
     </bean>
     
         <bean id="ancus03" class="domain.Customer">
@@ -475,9 +467,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>
-        <property name="notes"><null/></property>
-        <property name="isBanned" value="false"/>
-		<property name="isSuspicious" value="false"/>       
+        <property name="notes"><null/></property>      
     </bean>
 <!-- Referee --> 
 

@@ -51,6 +51,8 @@ public class UserAccount extends DomainEntity implements UserDetails {
 	private String					username;
 	private String					password;
 	private Collection<Authority>	authorities;
+	private Boolean					isBanned;
+	private Boolean					isSuspicious;
 
 
 	@Size(min = 5, max = 32)
@@ -123,6 +125,22 @@ public class UserAccount extends DomainEntity implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public Boolean getIsBanned() {
+		return this.isBanned;
+	}
+
+	public void setIsBanned(final Boolean isBanned) {
+		this.isBanned = isBanned;
+	}
+
+	public Boolean getIsSuspicious() {
+		return this.isSuspicious;
+	}
+
+	public void setIsSuspicious(final Boolean isSuspicious) {
+		this.isSuspicious = isSuspicious;
 	}
 
 }
