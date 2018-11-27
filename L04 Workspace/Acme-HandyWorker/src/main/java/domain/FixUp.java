@@ -1,7 +1,6 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
@@ -9,30 +8,28 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class FixUp extends DomainEntity {
 
-	private String					ticker;
-	private Date					moment;
-	private String					description;
-	private String					address;
-	private Money					maxPrice;
-	private Date					startDate;
-	private Date					endDate;
+	private String		ticker;
+	private Date		moment;
+	private String		description;
+	private String		address;
+	private Money		maxPrice;
+	private Date		startDate;
+	private Date		endDate;
 	/////////////////////////////////////////////
-	private Warranty				warranty;
+	private Warranty	warranty;
 	//	private Collection<Application>	applications;
-	private Category				category;
-	private Collection<Complaint>	complaints;
-	private HandyWorker				handyWorker;
-	private Customer				customer;
+	private Category	category;
+	//	private Collection<Complaint>	complaints;
+	private HandyWorker	handyWorker;
+	private Customer	customer;
 
 
 	@ManyToOne(optional = false)
@@ -53,15 +50,15 @@ public class FixUp extends DomainEntity {
 		this.handyWorker = handyWorker;
 	}
 
-	@Valid
-	@OneToMany
-	public Collection<Complaint> getComplaints() {
-		return this.complaints;
-	}
-
-	public void setComplaints(final Collection<Complaint> complaints) {
-		this.complaints = complaints;
-	}
+	//	@Valid
+	//	@OneToMany
+	//	public Collection<Complaint> getComplaints() {
+	//		return this.complaints;
+	//	}
+	//
+	//	public void setComplaints(final Collection<Complaint> complaints) {
+	//		this.complaints = complaints;
+	//	}
 	@Column(unique = true)
 	public String getTicker() {
 		return this.ticker;

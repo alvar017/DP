@@ -17,6 +17,7 @@ public class Note extends DomainEntity {
 	private Date		moment;
 	private String		commentReferee, commentCustomer, commentHandyWorker;
 	private Customer	customer;
+	private Report		report;
 
 
 	@ManyToOne
@@ -60,5 +61,14 @@ public class Note extends DomainEntity {
 
 	public void setCommentHandyWorker(final String commentHandyWorker) {
 		this.commentHandyWorker = commentHandyWorker;
+	}
+
+	@ManyToOne(optional = true)
+	public Report getReport() {
+		return this.report;
+	}
+
+	public void setReport(final Report report) {
+		this.report = report;
 	}
 }

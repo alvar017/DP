@@ -1,41 +1,38 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.validation.Valid;
 import javax.validation.constraints.Past;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Application extends DomainEntity {
 
-	private Date				moment;
-	private Boolean				state;
-	private Money				offered;
-	private String				comments;
+	private Date		moment;
+	private Boolean		state;
+	private Money		offered;
+	private String		comments;
 	/////////////////////////////////////
-	private HandyWorker			applier;
-	private FixUp				fixUp;
-	private Collection<Phase>	workplan;	// workplan = phases;
-	private CreditCard			creditCard;
+	private HandyWorker	applier;
+	private FixUp		fixUp;
+	//	private Collection<Phase>	workplan;	// workplan = phases;
+	private CreditCard	creditCard;
 
 
-	@Valid
-	@OneToMany
-	public Collection<Phase> getWorkplan() {
-		return this.workplan;
-	}
-
-	public void setWorkplan(final Collection<Phase> workplan) {
-		this.workplan = workplan;
-	}
+	//	@Valid
+	//	@OneToMany
+	//	public Collection<Phase> getWorkplan() {
+	//		return this.workplan;
+	//	}
+	//
+	//	public void setWorkplan(final Collection<Phase> workplan) {
+	//		this.workplan = workplan;
+	//	}
 
 	@Past
 	public Date getMoment() {

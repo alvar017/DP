@@ -1,0 +1,517 @@
+<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidah´ de Sevilla 
+    * * The use of this project is hereby constrained to the conditions of the 
+    * T<?xml version="1.0" encoding="UTF-8"?>
+
+DG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+    <!-- User accounts -->
+
+    <bean id="userAccount1" class="security.UserAccount">
+        <property name="username" value="admin" />
+        <property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="userAccount2" class="security.UserAccount">
+        <property name="username" value="customer" />
+        <property name="password" value="91ec1f9324753048c0096d036a694f86" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="CUSTOMER" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="userAccount3" class="security.UserAccount">
+        <property name="username" value="super" />
+        <property name="password" value="1b3231655cebb7a1f783eddf27d254ca" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+                <bean class="security.Authority">
+                    <property name="authority" value="CUSTOMER" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Other domain beans come here -->
+
+    <!-- HandyWorker -->
+    <bean id="han01" class="domain.HandyWorker">
+
+        <property name="name" value="Ester" />
+        <property name="surname" value="Exposito" />
+        <property name="middleName" value="" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle Aguditas Número 12" />
+        <property name="make" value="make1" />
+
+
+        <property name="endreferenced">
+            <null />
+        </property>
+        <property name="notes">
+            <null />
+        </property>
+        <property name="tutorials">
+            <null />
+        </property>
+        <property name="finder">
+            <null />
+        </property>
+        <property name="curriculum">
+            <null />
+        </property>
+    </bean>
+
+    <!-- Application -->
+
+    <bean id="app01" class="domain.Application">
+        <property name="moment" value="2018/11/10 08:00" />
+        <property name="state" value="True" />
+        <property name="offered" ref="mon01" />
+        <property name="comments" value="comments1" />
+        <property name="applier" ref="han01" />
+        <property name="fixUp" ref="fixUp1" />
+        <property name="creditCard">
+            <null />
+		</property>            
+    </bean>
+
+    <bean id="app02" class="domain.Application">
+        <property name="moment" value="2018/01/10 08:00" />
+        <property name="state" value="True" />
+        <property name="offered" ref="mon02" />
+        <property name="comments" value="comments2" />
+        <property name="applier" ref="han01" />
+        <property name="fixUp" ref="fixUp1" />
+                <property name="creditCard">
+            <null />
+		</property> 
+    </bean>
+
+    <bean id="Franapp01" class="domain.Application">
+        <property name="moment" value="2018/1/10 08:00" />
+        <property name="state" value="True" />
+        <property name="offered" ref="mon03" />
+        <property name="comments" value="Francomments1" />
+        <property name="applier" ref="han01" />
+        <property name="fixUp" ref="FranfixUp1" />
+                <property name="creditCard">
+            <null />
+		</property> 
+    </bean>
+
+
+    <bean id="Franapp02" class="domain.Application">
+        <property name="moment" value="2018/2/10 08:00" />
+        <property name="state" value="True" />
+        <property name="offered" ref="mon01" />
+        <property name="comments" value="Francomments2" />
+        <property name="applier" ref="han01" />
+        <property name="fixUp" ref="FranfixUp1" />
+                <property name="creditCard">
+            <null />
+		</property> 
+    </bean>   
+    
+    <bean id="capp01" class="domain.Application">
+        <property name="moment" value="2018/11/10 08:00"/>
+        <property name="state" value="False" />
+        <property name="offered" ref="mon01"/>
+        <property name="comments" value="ccomments1" />
+        <property name="applier" ref="chan01"/>
+        <property name="fixUp" ref="cfixUp1"/>
+    </bean>
+    
+    <bean id="capp02" class="domain.Application">   
+        <property name="moment" value="2018/01/10 08:00"/>
+        <property name="state"><null/></property>
+        <property name="offered" ref="mon01"/>
+        <property name="comments" value="ccomments2" />
+        <property name="applier" ref="chan01"/>
+        <property name="fixUp" ref="cfixUp1"/>
+    </bean>
+    <!-- Complaint -->
+
+    <bean id="com01" class="domain.Complaint">
+        <property name="ticker" value="ticker1" />
+        <property name="description" value="description1" />
+        <property name="attachment" value="http://www.google.es/" />
+        <property name="moment" value="2018/11/29 08:00" />
+        <property name="fixUp" ref="fixUp1" />
+    </bean>
+
+    <bean id="com02" class="domain.Complaint">
+        <property name="ticker" value="ticker2" />
+        <property name="description" value="description2" />
+        <property name="attachment" value="http://www.google.com/" />
+        <property name="moment" value="2018/11/30 08:00" />
+        <property name="fixUp" ref="fixUp1" />
+    </bean>
+
+    <bean id="Francom01" class="domain.Complaint">
+        <property name="ticker" value="Franticker1" />
+        <property name="description" value="Frandescription1" />
+        <property name="attachment" value="http://www.google.com/Fran1" />
+        <property name="moment" value="2018/1/30 08:00" />
+        <property name="fixUp" ref="fixUp1" />
+    </bean>
+
+
+    <bean id="Francom02" class="domain.Complaint">
+
+        <property name="ticker" value="Franticker2" />
+        <property name="description" value="Frandescription2" />
+        <property name="attachment" value="http://www.google.com/Fran2" />
+        <property name="moment" value="2018/2/30 08:00" />
+        <property name="fixUp" ref="fixUp1" />
+    </bean>
+
+
+    <!-- Money -->
+
+    <bean id="mon01" class="domain.Money">
+
+        <property name="currency" value="EUR" />
+        <property name="quantity" value="70" />
+
+    </bean>
+    
+    <bean id="mon02" class="domain.Money">
+
+        <property name="currency" value="EUR" />
+        <property name="quantity" value="80" />
+
+    </bean>
+    
+        <bean id="mon03" class="domain.Money">
+
+        <property name="currency" value="EUR" />
+        <property name="quantity" value="90" />
+
+    </bean>
+    <!-- Category -->
+
+    <bean id="cat01" class="domain.Category">
+
+        <property name="nameES" value="categoria" />
+        <property name="nameEN" value="category" />
+        <property name="subCategories">
+            <null />
+        </property>
+
+    </bean>
+
+    <!-- Warranty -->
+
+    <bean id="war01" class="domain.Warranty">
+
+        <property name="title" value="warranty1" />
+        <property name="isFinal" value="True" />
+        <property name="terms">
+            <null />
+        </property>
+        <property name="laws">
+            <null />
+        </property>
+
+
+    </bean>
+
+    <!-- FixUp -->
+
+    <bean id="fixUp1" class="domain.FixUp">
+
+        <property name="ticker" value="123456b" />
+        <property name="moment" value="2018/11/10 08:00" />
+        <property name="description" value="The Handy Worker has to repair a pipeline" />
+        <property name="address" value="Avenida Reina Mercedes Nº23" />
+        <property name="maxPrice" ref="mon01" />
+        <property name="startDate" value="2018/11/18 08:00" />
+        <property name="endDate" value="2018/11/30 08:00" />
+        <property name="warranty" ref="war01" />
+
+        <property name="category" ref="cat01" />
+        <property name="handyWorker" ref="han01" />
+        <property name="customer" ref="ancus01" />
+        
+    </bean>
+
+    <bean id="FranfixUp1" class="domain.FixUp">
+
+        <property name="ticker" value="123fran1" />
+        <property name="moment" value="2018/11/10 08:00" />
+        <property name="description" value="Description 3" />
+        <property name="address" value="Avenida Reina Mercedes Nº23" />
+        <property name="maxPrice" ref="mon02" />
+        <property name="startDate" value="2018/3/18 08:00" />
+        <property name="endDate" value="2018/3/30 08:00" />
+        <property name="warranty" ref="war01" />
+
+
+        <property name="category" ref="cat01" />
+        <property name="handyWorker" ref="han01" />
+        <property name="customer" ref="ancus01" />
+        
+    </bean>
+    
+    <bean id="cfixUp1" class="domain.FixUp">
+        <property name="ticker" value="123456c" />
+        <property name="moment" value="2018/11/10 08:00"/>
+        <property name="description" value="The Handy Worker has to repair a engine" />
+        <property name="address" value="Lora del Río N5" />
+        <property name="maxPrice" ref="mon03"/>
+        <property name="startDate" value="2018/11/18 08:00"/>
+        <property name="endDate" value="2018/11/13 08:00"/>
+        <property name="warranty" ref="war01"/>
+
+        <property name="category" ref="ccat01"/>
+        <property name="handyWorker" ref="chan01"/>
+        <property name="customer" ref="ancus02" />
+    </bean>
+    
+        <bean id="antfixUp" class="domain.FixUp">
+        <property name="ticker" value="723456c" />
+        <property name="moment" value="2018/11/10 08:00"/>
+        <property name="description" value="The Handy Worker has to repair a engine" />
+        <property name="address" value="Lora del Río N6" />
+        <property name="maxPrice" ref="mon03"/>
+        <property name="startDate" value="2018/11/18 08:00"/>
+        <property name="endDate" value="2018/11/13 08:00"/>
+        <property name="warranty" ref="war01"/>
+
+        <property name="category" ref="ccat01"/>
+        <property name="handyWorker" ref="chan01"/>
+        <property name="customer" ref="ancus03" />
+        
+    </bean>
+    
+    <bean id="chan01" class="domain.HandyWorker">
+       
+         <property name="name" value="Carmen" />
+         <property name="surname" value="Fernández" />
+         <property name="middleName" value="" />
+         <property name="SocialProfiles"><null/></property>
+         <property name="photo"><null/></property>
+         <property name="mailBoxes"><null/></property>
+         <property name="address" value="Castillo de Constantina N5" />
+        <property name="make" value="cmake1" />
+
+        <property name="endreferenced"><null/></property>
+        <property name="notes"><null/></property>
+        <property name="tutorials"><null/></property>
+        <property name="finder"><null/></property>
+        <property name="curriculum"><null/></property>       
+    </bean>
+    
+    <!-- Category -->    
+    
+    <bean id="ccat01" class="domain.Category">
+    
+        <property name="nameES" value="ccategoria" />
+        <property name="nameEN" value="ccategory" />
+        <property name="subCategories"><null/></property>
+
+    </bean>
+    
+    <!-- Complaint -->    
+    
+    <bean id="ccom01" class="domain.Complaint">
+    
+        <property name="ticker" value="cticker1" />
+        <property name="description" value="cdescription1" />
+        <property name="attachment" value="http://www.google.es/" />
+        <property name="moment" value="2018/11/29 08:00" />
+        <property name="fixUp" ref="fixUp1" />
+        
+        
+    </bean>
+        <bean id="ccom02" class="domain.Complaint">
+    
+        <property name="ticker" value="cticker2" />
+        <property name="description" value="cdescription2" />
+        <property name="attachment" value="http://www.google.com/" />
+        <property name="moment" value="2018/11/30 08:00" />
+        <property name="fixUp" ref="fixUp1" />
+    </bean>
+    
+    <!-- Customer --> 
+    <bean id="ancus01" class="domain.Customer">
+        <property name="name" value="David" />
+        <property name="surname" value="Martín" />
+        <property name="middleName" value="" />
+        <property name="email" value="david@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle Pozoblanco Número 12" />
+        <property name="endreferenced">
+            <null />
+        </property>
+    </bean>
+
+    <bean id="ancus02" class="domain.Customer">
+        <property name="name" value="Alvaro" />
+        <property name="surname" value="Martín" />
+        <property name="middleName" value="" />
+        <property name="email" value="alvaro@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle PozoRojo Número 15" />
+        <property name="endreferenced">
+            <null />
+        </property>     
+    </bean>
+    
+        <bean id="ancus03" class="domain.Customer">
+        <property name="name" value="María del Gracia" />
+        <property name="surname" value="Martín" />
+        <property name="middleName" value="" />
+        <property name="email" value="maria@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle Pozoverde Número 12" />
+        <property name="endreferenced">
+            <null />
+        </property>      
+    </bean>
+<!-- Referee --> 
+
+<bean id="Franref01" class="domain.Referee">
+        <property name="name" value="Manuel" />
+        <property name="surname" value="Rojo" />
+        <property name="middleName" value="" />
+        <property name="email" value="manuel@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle Pozonegro Número 12" />
+		<property name="isBanned" value="false"/>
+		<property name="isSuspicious" value="false"/>
+		
+		
+</bean>
+
+<bean id="Franref02" class="domain.Referee">
+        <property name="name" value="Manuel" />
+        <property name="surname" value="Rojo" />
+        <property name="middleName" value="" />
+        <property name="email" value="manuel@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle Pozonegro Número 12" />
+		<property name="isBanned" value="false"/>
+		<property name="isSuspicious" value="false"/>
+</bean>
+
+<!-- Reports -->
+
+<bean id="Franrep01" class="domain.Report">
+    
+        <property name="moment" value="2017/03/11"/>
+        <property name="description" value="Frandescription1" />
+        <property name="attachment" value="https://www.google.es/Fran1" />
+        <property name="complaint" ref="Francom01" />
+    </bean>
+
+<!-- report --> 
+    
+    <bean id="anrep01" class="domain.Report">
+    
+        <property name="moment" value="2018/05/10" />
+        <property name="description" value="cdescriptionrep" />
+        <property name="complaint" ref="com01" />
+       </bean>
+
+    <bean id="anrep02" class="domain.Report">
+    
+        <property name="moment" value="2018/05/10" />
+        <property name="description" value="cdescriptionrep" />
+        <property name="complaint" ref="com01" />
+       </bean>
+    <!-- notes --> 
+     <bean id="annot01" class="domain.Note">
+    
+        <property name="moment" value="2017/05/10" />
+        <property name="commentReferee" value="commentref" />
+        <property name="commentCustomer" value="commentCus" />
+        <property name="commentHandyWorker" value="commenthandy" />
+        <property name="report" ref="anrep02" />
+    </bean>
+    
+     <bean id="annot02" class="domain.Note">
+    
+        <property name="moment" value="2017/05/10" />
+        <property name="commentReferee" value="commentref" />
+        <property name="commentCustomer" value="commentCus" />
+        <property name="commentHandyWorker" value="commenthandy" />
+        <property name="report" ref="anrep01" />
+    </bean>
+    
+    
+  </beans>
+  
+  
+    
+
+
+

@@ -1,14 +1,13 @@
 
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,11 +18,12 @@ import org.hibernate.validator.constraints.URL;
 @Access(AccessType.PROPERTY)
 public class Complaint extends DomainEntity {
 
-	private String				ticker, description, attachment;
-	private Date				moment;
+	private String	ticker, description, attachment;
+	private Date	moment;
 	////////////////////////////////////
-	private Collection<Report>	reports;
-	private Referee				referee;
+	//	private Collection<Report>	reports;
+	private Referee	referee;
+	private FixUp	fixUp;
 
 
 	@OneToOne(optional = true)
@@ -70,13 +70,21 @@ public class Complaint extends DomainEntity {
 		this.moment = moment;
 	}
 
-	@OneToMany(mappedBy = "complaint")
-	public Collection<Report> getReports() {
-		return this.reports;
+	//	@OneToMany(mappedBy = "complaint")
+	//	public Collection<Report> getReports() {
+	//		return this.reports;
+	//	}
+	//
+	//	public void setReports(final Collection<Report> reports) {
+	//		this.reports = reports;
+	//	}
+	@ManyToOne(optional = false)
+	public FixUp getFixUp() {
+		return this.fixUp;
 	}
 
-	public void setReports(final Collection<Report> reports) {
-		this.reports = reports;
+	public void setFixUp(final FixUp fixUp) {
+		this.fixUp = fixUp;
 	}
 
 }

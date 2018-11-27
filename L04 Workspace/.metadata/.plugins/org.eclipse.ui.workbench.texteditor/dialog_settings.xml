@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
-		<item value="63" key="DIALOG_Y_ORIGIN"/>
-		<item value="1016" key="DIALOG_X_ORIGIN"/>
+		<item value="271" key="DIALOG_Y_ORIGIN"/>
 		<item value="362" key="DIALOG_HEIGHT"/>
+		<item value="1050" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="Han" key="selection"/>
 		<list key="findhistory">
-			<item value="        &lt;property name=&quot;isBanned&quot; value=&quot;false&quot;/&gt;"/>
-			<item value="domain.hand"/>
-			<item value="domain"/>
-			<item value="handy"/>
-			<item value="domain.admi"/>
-			<item value="admin"/>
-			<item value="referee"/>
-			<item value=".update"/>
+			<item value="han"/>
+			<item value="hans01"/>
+			<item value="fixUp"/>
+			<item value="domain.custo"/>
+			<item value="note"/>
+			<item value="fixUp1"/>
+			<item value="domain.com"/>
+			<item value="repo"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

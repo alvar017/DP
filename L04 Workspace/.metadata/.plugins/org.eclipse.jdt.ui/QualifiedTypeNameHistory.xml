@@ -19,7 +19,6 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
 <fullyQualifiedTypeName name="repositories.MailBoxRepository"/>
-<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="domain.Complaint"/>
 <fullyQualifiedTypeName name="domain.Report"/>
 <fullyQualifiedTypeName name="domain.Message"/>
@@ -42,7 +41,6 @@
 <fullyQualifiedTypeName name="repositories.FixUpRepository"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="security.Authority"/>
-<fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="domain.Application"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="domain.CreditCard"/>
@@ -55,9 +53,11 @@
 <fullyQualifiedTypeName name="domain.Administrator"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="domain.Actor"/>
 <fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="services.AdministratorService"/>
+<fullyQualifiedTypeName name="domain.FixUp"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
 </qualifiedTypeNameHistroy>

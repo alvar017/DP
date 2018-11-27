@@ -55,9 +55,8 @@ public class ActorService {
 		final int idAdmin = userAccount.getId();
 		System.out.println(idAdmin);
 		//		Assert.isTrue(this.administratorService.findOne(idAdmin) != null);
-		//		Assert.isTrue(this.findOne(actor.getId()) != null);
-		Assert.isTrue(actor.getIsBanned() != true, "Actor is already banned");
-		actor.setIsBanned(true);
+		//		Assert.isTrue(actor.getIsBanned() != true, "Actor is already banned");
+		//		actor.setIsBanned(true);
 		final Actor saveActor = this.actorRepository.save(actor);
 		return saveActor;
 	}

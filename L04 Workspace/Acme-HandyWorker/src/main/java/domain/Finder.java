@@ -2,8 +2,8 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -77,7 +77,7 @@ public class Finder extends DomainEntity {
 
 
 	///////////////////////////////AÑADIR LOS DE FRRETE-Checked V
-	private List<FixUp>	fixUps;
+	private Collection<FixUp>	fixUps;
 
 
 	public String getKeyword() {
@@ -98,12 +98,13 @@ public class Finder extends DomainEntity {
 
 	@Valid
 	@ManyToMany
-	// FERRETE: @OnetoMany 
-	public List<FixUp> getFixUps() {
+	// FERRETE: @OnetoMany
+	public Collection<FixUp> getFixUps() {
 		return new ArrayList<>(this.fixUps);
 	}
 
-	public void setFixUps(final List<FixUp> fixUps) {
+	public void setFixUps(final Collection<FixUp> fixUps) {
 		this.fixUps = fixUps;
 	}
+
 }

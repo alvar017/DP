@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,6 +18,7 @@ public class Phase extends DomainEntity {
 	private String	description;
 	private Date	startDate;
 	private Date	endDate;
+	private FixUp	fixUp;
 
 
 	public String getTitle() {
@@ -49,6 +51,15 @@ public class Phase extends DomainEntity {
 
 	public void setEndDate(final Date endDate) {
 		this.endDate = endDate;
+	}
+
+	@ManyToOne(optional = false)
+	public FixUp getFixUp() {
+		return this.fixUp;
+	}
+
+	public void setFixUp(final FixUp fixUp) {
+		this.fixUp = fixUp;
 	}
 
 }
