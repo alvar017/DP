@@ -1,0 +1,60 @@
+package services;
+
+import java.util.Date;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+
+import repositories.EndorsementRepository;
+import security.LoginService;
+import security.UserAccount;
+import domain.Customer;
+import domain.Endorsement;
+
+
+@Service
+@Transactional
+public class EndorsementService {
+	
+	@Autowired
+	private EndorsementRepository endorsementRepository;
+	
+	@Autowired
+	private CustomerService customerService;
+	
+
+	//CARMEN
+	public Endorsement create() {
+
+		final Endorsement endorsement = new Endorsement();
+
+		final String comments = "";
+//		final Endorsable endorsableRec  = "";
+//		final Endorsable endorsableSender  = "";
+		final Date moment = new Date();
+
+		endorsement.setComments(comments);
+		endorsement.setMoment(moment);
+
+		return endorsement;
+	}
+	//CARMEN
+	
+	//CARMEN
+		public Endorsement save(final Endorsement endorsement) {
+
+			final UserAccount login = LoginService.getPrincipal();
+			final Customer re = this.customerService.getCustomerByUserAccountId(login.getId());
+
+			Assert.isTrue(report.getComplaint() != null);
+
+			Assert.isTrue(report.getComplaint().getReferee() == re);
+
+			return this.endorsementRepository.save(endorsement);
+		}
+		//CARMEN
+
+}

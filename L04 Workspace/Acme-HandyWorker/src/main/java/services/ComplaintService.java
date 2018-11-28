@@ -4,6 +4,7 @@ package services;
 import java.util.Collection;
 import java.util.Date;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,8 +25,6 @@ public class ComplaintService {
 	@Autowired
 	private FixUpService		fixUpService;
 	@Autowired
-	private HandyWorkerService	handyWorkerService;
-	@Autowired
 	private RefereeService		refereeService;
 
 
@@ -35,13 +34,9 @@ public class ComplaintService {
 
 		final String attachment = "";
 		final String description = "";
-		final Date moment = new Date();
+		final Date moment = LocalDate.now().toDate();
 		moment.setTime(moment.getTime() - 1);
 		final String ticker = this.fixUpService.randomTicker();
-		res.setAttachment(attachment);
-		res.setDescription(description);
-		res.setMoment(moment);
-		res.setTicker(ticker);
 
 		return res;
 	}

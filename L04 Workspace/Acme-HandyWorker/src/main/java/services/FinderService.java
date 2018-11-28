@@ -26,30 +26,30 @@ public class FinderService {
 
 	//Simple CRUD Methods ------------------
 
-	//(CARMEN)
+	//CARMEN
 	public Finder create() {
 		final Finder finder = new Finder();
 		return finder;
 	}
-	//(CARMEN)
+	//CARMEN
 
-	//(CARMEN)
+	//CARMEN
 	public Collection<Finder> findAll() {
 		return this.finderRepository.findAll();
 	}
-	//(CARMEN)
+	//CARMEN
 
-	//(CARMEN)
+	//CARMEN
 	public Finder save(final Finder finder) {
 		return this.finderRepository.save(finder);
 	}
-	//(CARMEN)
+	//CARMEN
 
-	//(CARMEN)
+	//CARMEN
 	public Finder findOne(final int id) {
 		return this.finderRepository.findOne(id);
 	}
-	//(CARMEN)
+	//CARMEN
 
 	//37.1 (CARMEN)--> HandyWorker: Change the filters of his or her finder.
 	public Finder update(final Finder finder) {
@@ -59,6 +59,6 @@ public class FinderService {
 		final Finder saveFinder = this.finderRepository.save(finder);
 		return saveFinder;
 	}
-	//(CARMEN)
+	//CARMEN
 
 }

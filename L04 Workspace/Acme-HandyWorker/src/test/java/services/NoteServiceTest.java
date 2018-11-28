@@ -48,8 +48,8 @@ public class NoteServiceTest extends AbstractTest {
 	private AdministratorService	administratorService;
 
 
-	//37.4 (CARMEN) --> Write a note regarding any of the reports that a referees written regarding any of
-	//the complaints in which he or shes involved.
+	//36.4 (CARMEN) -->Write a note regarding any of the reports that he or shes written (as long as it was
+	//saved in final mode).
 	@Test
 	public void testCreateNote() {
 
@@ -102,8 +102,7 @@ public class NoteServiceTest extends AbstractTest {
 	}
 	//CARMEN
 
-	//37.5 (CARMEN) --> Write a comment in a note regarding any of the reports that a referees written on
-	//any of the complaints in which he or shes involved.
+	//36.5 (CARMEN) --> Write a comment in a note regarding any of the reports that he or shes written.
 	@Test
 	public void testUpdateRefereeComment() {
 

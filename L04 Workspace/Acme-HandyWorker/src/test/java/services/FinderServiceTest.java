@@ -47,5 +47,5 @@ public class FinderServiceTest extends AbstractTest {
 
 		Assert.isTrue(this.finderService.findAll().contains(saveF));
 	}
-	//(CARMEN)
+	//CARMEN
 }

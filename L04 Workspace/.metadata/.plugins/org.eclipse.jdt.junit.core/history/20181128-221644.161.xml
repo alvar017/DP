@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ActorServiceTest" project="Acme-HandyWorker" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="services.ActorServiceTest" time="24.969">
+    <testcase name="testBan" classname="services.ActorServiceTest" time="24.437"/>
+    <testcase name="testUnBan" classname="services.ActorServiceTest" time="0.063"/>
+    <testcase name="testSuspicious" classname="services.ActorServiceTest" time="0.094"/>
+    <testcase name="testBanned" classname="services.ActorServiceTest" time="0.375"/>
+  </testsuite>
+</testrun>

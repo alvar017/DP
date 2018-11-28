@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="NoteServiceTest" project="Acme-HandyWorker" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="services.NoteServiceTest" time="25.469">
+    <testcase name="testUpdateRefereeComment" classname="services.NoteServiceTest" time="25.359"/>
+    <testcase name="testCreateNote" classname="services.NoteServiceTest" time="0.11"/>
+  </testsuite>
+</testrun>

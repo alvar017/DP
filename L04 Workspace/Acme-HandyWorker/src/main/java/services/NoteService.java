@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.transaction.Transactional;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -18,29 +19,30 @@ import domain.Note;
 public class NoteService {
 
 	@Autowired
-	private NoteRepository	noteRepository;
+	private NoteRepository		noteRepository;
 
 	@Autowired
-	private RefereeService	refereeService;
+	private RefereeService		refereeService;
 
 	@Autowired
-	private CustomerService	customerService;
+	private CustomerService		customerService;
+
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
+
+	@Autowired
+	private ReportService		reportService;
 
 
-	//37.4 (CARMEN) --> Write a note regarding any of the reports that a referees written regarding any of
-	//the complaints in which he or shes involved.
+	//36.4 (CARMEN) --> Write a note regarding any of the reports that he or shes written (as long as it was
+	//saved in final mode).
 	public Note create() {
 		final Note note = new Note();
 
-		final Date moment = new Date();
+		final Date moment = LocalDate.now().toDate();
 		final String commentCustomer = "";
 		final String commentHandyWorker = "";
 		final String commentReferee = "";
-
-		note.setCommentCustomer(commentCustomer);
-		note.setCommentHandyWorker(commentHandyWorker);
-		note.setCommentReferee(commentReferee);
-		note.setMoment(moment);
 
 		return note;
 	}
@@ -65,7 +67,7 @@ public class NoteService {
 	}
 	//CARMEN
 
-	//CARMEN
+	//36.5 (CARMEN) --> Write a comment in a note regarding any of the reports that he or shes written.
 	public Note updateRefereeComment(final Note note) {
 
 		Assert.isTrue(note.getReport().getComplaint().getReferee() != null);
