@@ -13,6 +13,7 @@ import repositories.ComplaintRepository;
 import security.LoginService;
 import security.UserAccount;
 import domain.Complaint;
+import domain.Referee;
 
 @Service
 @Transactional
@@ -50,8 +51,17 @@ public class ComplaintService {
 		return this.complaintRepository.save(c);
 	}
 
+	public Complaint update(final Complaint c) {
+		Assert.isTrue(c.getFixUp() != null);
+		return this.complaintRepository.save(c);
+	}
+
 	public Collection<Complaint> findAll() {
 		return this.complaintRepository.findAll();
+	}
+
+	public Complaint findOne(final int idComlaint) {
+		return this.complaintRepository.findOne(idComlaint);
 	}
 
 	////
@@ -63,5 +73,20 @@ public class ComplaintService {
 		final UserAccount login = LoginService.getPrincipal();
 		Assert.isTrue(this.refereeService.findByUserAccountId(login.getId()) != null);
 		return this.complaintRepository.getComplaintWithoutReferee();
+	}
+
+	public Complaint setReefereeToAComplaint(final Complaint c) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.refereeService.findByUserAccountId(login.getId()) != null);
+		final Referee referee = this.refereeService.findByUserAccountId(login.getId());
+		c.setReferee(referee);
+		return this.update(c);
+	}
+
+	public Collection<Complaint> getComplaintByReferee(final Integer idReferee) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.refereeService.findByUserAccountId(login.getId()) != null);
+		final Referee referee = this.refereeService.findByUserAccountId(login.getId());
+		return this.complaintRepository.getComplaintByReferee(referee.getId());
 	}
 }
