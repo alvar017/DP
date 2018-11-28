@@ -2,17 +2,17 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import repositories.ComplaintRepository;
 import security.LoginService;
 import security.UserAccount;
 import domain.Complaint;
-import domain.FixUp;
-import domain.HandyWorker;
 
 @Service
 @Transactional
@@ -24,26 +24,29 @@ public class ComplaintService {
 	private FixUpService		fixUpService;
 	@Autowired
 	private HandyWorkerService	handyWorkerService;
+	@Autowired
+	private RefereeService		refereeService;
 
 
 	public Complaint create() {
 
-		final Complaint complaint = new Complaint();
+		final Complaint res = new Complaint();
 
-		final FixUp f = this.fixUpService.create();
-		final UserAccount login = LoginService.getPrincipal();
-		final FixUp saveF = this.fixUpService.save(f);
+		final String attachment = "";
+		final String description = "";
+		final Date moment = new Date();
+		moment.setTime(moment.getTime() - 1);
+		final String ticker = this.fixUpService.randomTicker();
+		res.setAttachment(attachment);
+		res.setDescription(description);
+		res.setMoment(moment);
+		res.setTicker(ticker);
 
-		final UserAccount login2 = LoginService.getPrincipal();
-		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login2.getId());
-
-		complaint.setFixUp(saveF);
-
-		return complaint;
-
+		return res;
 	}
 
 	public Complaint save(final Complaint c) {
+		Assert.isTrue(c.getFixUp() != null);
 		return this.complaintRepository.save(c);
 	}
 
@@ -57,6 +60,8 @@ public class ComplaintService {
 	}
 
 	public Collection<Complaint> getComplaintWithoutReferee() {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.refereeService.findByUserAccountId(login.getId()) != null);
 		return this.complaintRepository.getComplaintWithoutReferee();
 	}
 }

@@ -67,6 +67,10 @@ public class RefereeService {
 		return this.refereeRepository.save(referee);
 	}
 
+	public Referee findByUserAccountId(final int userAccountId) {
+		return this.refereeRepository.findByUserAccountId(userAccountId);
+	}
+
 	//Other Methods
 
 }

@@ -16,7 +16,6 @@ import security.UserAccount;
 import domain.Category;
 import domain.Customer;
 import domain.FixUp;
-import domain.Warranty;
 
 @Service
 @Transactional
@@ -50,10 +49,10 @@ public class FixUpService {
 		category.setNameES("CategoríaEjemplo");
 		final Category saveCategory = this.categoryService.save(category);
 		fixUp.setCategory(saveCategory);
-		final Warranty warranty = this.warrantyService.create();
-		warranty.setTitle("DefaultWarranty");
-		final Warranty saveWaranty = this.warrantyService.save(warranty);
-		fixUp.setWarranty(saveWaranty);
+		//		final Warranty warranty = this.warrantyService.create();
+		//		warranty.setTitle("DefaultWarranty");
+		//		final Warranty saveWaranty = this.warrantyService.save(warranty);
+		//		fixUp.setWarranty(saveWaranty);
 		return fixUp;
 
 	}
@@ -90,6 +89,8 @@ public class FixUpService {
 		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
 		Assert.isTrue(fixUp.getCustomer().equals(customer));
 		Assert.isTrue(this.findOne(fixUp.getId()) != null);
+		if (fixUp.getWarranty() != null)
+			Assert.isTrue(fixUp.getWarranty().getIsFinal() == true);
 		final FixUp saveFixUp = this.fixUpRepository.save(fixUp);
 		return saveFixUp;
 	}

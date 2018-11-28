@@ -120,7 +120,7 @@ public class FixUp extends DomainEntity {
 		this.endDate = endDate;
 	}
 
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public Warranty getWarranty() {
 		return this.warranty;
 	}

@@ -13,6 +13,7 @@ import org.springframework.util.Assert;
 import utilities.AbstractTest;
 import domain.Customer;
 import domain.FixUp;
+import domain.Warranty;
 
 @ContextConfiguration(locations = {
 	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
@@ -27,6 +28,8 @@ public class FixUpServiceTest extends AbstractTest {
 	private FixUpService	fixUpService;
 	@Autowired
 	private CustomerService	customerService;
+	@Autowired
+	private WarrantyService	warrantyService;
 
 
 	@Test
@@ -57,9 +60,13 @@ public class FixUpServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		final Warranty warranty = this.warrantyService.create();
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
 		saveFixUp.setAddress("Rodrigo de Triana 14");
+		warranty.setIsFinal(true);
+		final Warranty saveWarranty = this.warrantyService.save(warranty);
+		saveFixUp.setWarranty(saveWarranty);
 		final FixUp saveFixUp2 = this.fixUpService.update(saveFixUp);
 		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp2));
 	}

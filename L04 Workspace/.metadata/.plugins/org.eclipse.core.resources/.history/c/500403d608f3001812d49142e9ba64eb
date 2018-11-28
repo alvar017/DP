@@ -1,0 +1,73 @@
+
+package services;
+
+import java.sql.Date;
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.ComplaintRepository;
+import security.LoginService;
+import security.UserAccount;
+import domain.Complaint;
+import domain.FixUp;
+import domain.Referee;
+
+@Service
+@Transactional
+public class ComplaintService {
+
+	@Autowired
+	private ComplaintRepository	complaintRepository;
+	@Autowired
+	private FixUpService		fixUpService;
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
+	@Autowired
+	private RefereeService		refereeService;
+
+
+	public Complaint create() {
+
+		final Complaint res = new Complaint();
+
+		final String attachment = "";
+		final String description = "";
+		final FixUp fixUp = new FixUp();
+		final Date moment = new Date();
+		moment.setTime(moment.getTime() - 1);
+		final Referee referee = new Referee();
+		final String ticker = this.randomTicker();
+
+		res.setAttachment(attachment);
+		res.setDescription(description);
+		res.setFixUp(fixUp);
+		res.setMoment(moment);
+		res.setReferee(referee);
+		res.setTicker(ticker);
+
+		return res;
+	}
+
+	public Complaint save(final Complaint c) {
+		return this.complaintRepository.save(c);
+	}
+
+	public Collection<Complaint> findAll() {
+		return this.complaintRepository.findAll();
+	}
+
+	////
+	public Collection<Complaint> getAllComplaintsByHandyWorker(final int hw) {
+		return this.complaintRepository.getComplaintFixUpByHandyWorker2(hw);
+	}
+
+	public Collection<Complaint> getComplaintWithoutReferee() {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.refereeService.findByUserAccountId(login.getId()) != null);
+		return this.complaintRepository.getComplaintWithoutReferee();
+	}
+}
