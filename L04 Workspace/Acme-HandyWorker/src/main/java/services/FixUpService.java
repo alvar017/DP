@@ -119,4 +119,10 @@ public class FixUpService {
 		Assert.isTrue(customerLogin.equals(customerFixUp));
 		return this.findOne(fixUpId);
 	}
+
+	//73.2 (CARMEN) --> Display the fix-up tasks in his or her finder.
+	public Collection<FixUp> showAllFixUpbyFinder(final int finderId) {
+		return this.fixUpRepository.findFixUpsOfFinderByHandyWorker(finderId);
+	}
+	//(CARMEN)
 }

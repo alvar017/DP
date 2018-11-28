@@ -64,11 +64,6 @@ public class ComplaintService {
 		return this.complaintRepository.findOne(idComlaint);
 	}
 
-	////
-	public Collection<Complaint> getAllComplaintsByHandyWorker(final int hw) {
-		return this.complaintRepository.getComplaintFixUpByHandyWorker2(hw);
-	}
-
 	public Collection<Complaint> getComplaintWithoutReferee() {
 		final UserAccount login = LoginService.getPrincipal();
 		Assert.isTrue(this.refereeService.findByUserAccountId(login.getId()) != null);
@@ -89,4 +84,10 @@ public class ComplaintService {
 		final Referee referee = this.refereeService.findByUserAccountId(login.getId());
 		return this.complaintRepository.getComplaintByReferee(referee.getId());
 	}
+
+	//37.3 (CARMEN )--> List and show the complaints regarding the fix-up tasks in which he or shes been in-volved.(test)
+	public Collection<Complaint> getAllComplaintsByHandyWorker(final int hw) {
+		return this.complaintRepository.getComplaintFixUpByHandyWorker2(hw);
+	}
+	//CARMEN
 }

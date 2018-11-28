@@ -1,6 +1,9 @@
 
 package services;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -12,7 +15,9 @@ import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
 import domain.Customer;
+import domain.Finder;
 import domain.FixUp;
+import domain.HandyWorker;
 import domain.Warranty;
 
 @ContextConfiguration(locations = {
@@ -25,11 +30,15 @@ public class FixUpServiceTest extends AbstractTest {
 	//Services under Test
 
 	@Autowired
-	private FixUpService	fixUpService;
+	private FixUpService		fixUpService;
 	@Autowired
-	private CustomerService	customerService;
+	private CustomerService		customerService;
 	@Autowired
-	private WarrantyService	warrantyService;
+	private WarrantyService		warrantyService;
+	@Autowired
+	private FinderService		finderService;
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
 
 
 	@Test
@@ -120,4 +129,54 @@ public class FixUpServiceTest extends AbstractTest {
 		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
 		Assert.isTrue(this.fixUpService.showing(saveFixUp1.getId()).equals(saveFixUp1));
 	}
+
+	//73.2 (CARMEN) --> Display the fix-up tasks in his or her finder.
+	@Test
+	public void allFixUpsByFInder() {
+
+		final Customer customer = this.customerService.create();
+		customer.setName("Carmen");
+		customer.setSurname("carmen");
+		customer.getUserAccount().setUsername("carferben");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("carferben");
+
+		final FixUp fixUp1 = this.fixUpService.create();
+		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
+
+		final FixUp fixUp2 = this.fixUpService.create();
+		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
+
+		final FixUp fixUp3 = this.fixUpService.create();
+		final FixUp saveFixUp3 = this.fixUpService.save(fixUp3);
+
+		final FixUp fixUp4 = this.fixUpService.create();
+		final FixUp saveFixUp4 = this.fixUpService.save(fixUp4);
+
+		final Collection<FixUp> fixUps = new ArrayList<>();
+		fixUps.add(saveFixUp1);
+		fixUps.add(saveFixUp2);
+		fixUps.add(saveFixUp3);
+		fixUps.add(saveFixUp4);
+
+		final Finder finder = this.finderService.create();
+		finder.setFixUps(fixUps);
+		final Finder finderSave = this.finderService.save(finder);
+
+		final HandyWorker handyWorker = this.handyWorkerService.create();
+		handyWorker.setName("Alvaro");
+		handyWorker.setSurname("alvaro");
+		handyWorker.getUserAccount().setUsername("hwAuth");
+		handyWorker.getUserAccount().setPassword("123456789");
+		handyWorker.setFinder(finderSave);
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
+		super.authenticate("hwAuth");
+
+		final Collection<FixUp> resF = this.fixUpService.showAllFixUpbyFinder(finderSave.getId());
+		final Integer list = resF.size();
+		//		System.out.println(resF);
+		Assert.isTrue(resF.size() == 4);
+	}
+	//(CARMEN)
 }

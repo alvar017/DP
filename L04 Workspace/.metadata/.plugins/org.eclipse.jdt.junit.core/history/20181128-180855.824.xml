@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FixUpServiceTest" project="Acme-HandyWorker" tests="6" started="6" failures="0" errors="1" ignored="0">
+  <testsuite name="services.FixUpServiceTest" time="46.5">
+    <testcase name="testListingFixUp" classname="services.FixUpServiceTest" time="45.187"/>
+    <testcase name="testDeleteFixUp" classname="services.FixUpServiceTest" time="0.703"/>
+    <testcase name="testUpdateFixUp" classname="services.FixUpServiceTest" time="0.188"/>
+    <testcase name="testCreateFixUp" classname="services.FixUpServiceTest" time="0.023"/>
+    <testcase name="allFixUpsByFInder" classname="services.FixUpServiceTest" time="0.235">
+      <error>org.springframework.orm.jpa.JpaSystemException: Exception occurred inside getter of domain.Finder.fixUps; nested exception is org.hibernate.PropertyAccessException: Exception occurred inside getter of domain.Finder.fixUps&#13;
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:243)&#13;
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:154)&#13;
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:417)&#13;
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:59)&#13;
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:213)&#13;
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:147)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)&#13;
+	at org.springframework.data.jpa.repository.support.LockModeRepositoryPostProcessor$LockModePopulatingMethodIntercceptor.invoke(LockModeRepositoryPostProcessor.java:92)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)&#13;
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:92)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)&#13;
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:207)&#13;
+	at sun.proxy.$Proxy72.save(Unknown Source)&#13;
+	at services.FinderService.save(FinderService.java:44)&#13;
+	at services.FinderService$$FastClassByCGLIB$$7dec0dff.invoke(&lt;generated&gt;)&#13;
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:204)&#13;
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:713)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157)&#13;
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)&#13;
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)&#13;
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)&#13;
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:646)&#13;
+	at services.FinderService$$EnhancerByCGLIB$$e13839bc.save(&lt;generated&gt;)&#13;
+	at services.FixUpServiceTest.allFixUpsByFInder(FixUpServiceTest.java:158)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:601)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)&#13;
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:83)&#13;
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)&#13;
+Caused by: org.hibernate.PropertyAccessException: Exception occurred inside getter of domain.Finder.fixUps&#13;
+	at org.hibernate.property.BasicPropertyAccessor$BasicGetter.get(BasicPropertyAccessor.java:172)&#13;
+	at org.hibernate.tuple.entity.AbstractEntityTuplizer.getPropertyValues(AbstractEntityTuplizer.java:608)&#13;
+	at org.hibernate.tuple.entity.PojoEntityTuplizer.getPropertyValues(PojoEntityTuplizer.java:372)&#13;
+	at org.hibernate.persister.entity.AbstractEntityPersister.getPropertyValues(AbstractEntityPersister.java:4720)&#13;
+	at org.hibernate.event.internal.DefaultMergeEventListener.copyValues(DefaultMergeEventListener.java:409)&#13;
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsTransient(DefaultMergeEventListener.java:214)&#13;
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:154)&#13;
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:76)&#13;
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:872)&#13;
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:854)&#13;
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:859)&#13;
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.merge(AbstractEntityManagerImpl.java:1196)&#13;
+	at sun.reflect.GeneratedMethodAccessor137.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:601)&#13;
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:257)&#13;
+	at sun.proxy.$Proxy53.merge(Unknown Source)&#13;
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:361)&#13;
+	at sun.reflect.GeneratedMethodAccessor135.invoke(Unknown Source)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:601)&#13;
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.executeMethodOn(RepositoryFactorySupport.java:358)&#13;
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:343)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)&#13;
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:98)&#13;
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:262)&#13;
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:95)&#13;
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179)&#13;
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:136)&#13;
+	... 49 more&#13;
+Caused by: java.lang.reflect.InvocationTargetException&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:601)&#13;
+	at org.hibernate.property.BasicPropertyAccessor$BasicGetter.get(BasicPropertyAccessor.java:169)&#13;
+	... 77 more&#13;
+Caused by: java.lang.NullPointerException&#13;
+	at java.util.ArrayList.&lt;init&gt;(ArrayList.java:151)&#13;
+	at domain.Finder.getFixUps(Finder.java:103)&#13;
+	... 82 more&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="testSaveFixUp" classname="services.FixUpServiceTest" time="0.164"/>
+  </testsuite>
+</testrun>

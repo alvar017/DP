@@ -17,6 +17,7 @@ import domain.Administrator;
 import domain.Complaint;
 import domain.Customer;
 import domain.FixUp;
+import domain.HandyWorker;
 import domain.Referee;
 
 @ContextConfiguration(locations = {
@@ -62,15 +63,6 @@ public class ComplaintServiceTest extends AbstractTest {
 		c.setFixUp(saveFixUp);
 		final Complaint saveComplaint = this.complaintService.save(c);
 		Assert.isTrue(this.complaintService.findAll().contains(saveComplaint));
-	}
-
-	//37.3 --> List and show the complaints regarding the fix-up tasks in which he or shes been in-volved.(test)
-	@Test
-	public void testListingFixUpHandyWorker() {
-
-		//Use the method of complaintService
-		final Collection<Complaint> res = this.complaintService.getAllComplaintsByHandyWorker(416);
-		Assert.isTrue(res.size() == 6);
 	}
 
 	@Test
@@ -192,4 +184,38 @@ public class ComplaintServiceTest extends AbstractTest {
 		Assert.isTrue(refereeAfter != refereeBefore);
 		Assert.isTrue(this.complaintService.getComplaintByReferee(saveReferee.getId()).size() == 1);
 	}
+
+	//37.3 (CARMEN )--> List and show the complaints regarding the fix-up tasks in which he or shes been in-volved.(test)
+	@Test
+	public void testListingFixUpHandyWorker() {
+
+		final HandyWorker handyWorker = this.handyWorkerService.create();
+		handyWorker.setName("Alvaro");
+		handyWorker.setSurname("alvaro");
+		handyWorker.getUserAccount().setUsername("hwAuth");
+		handyWorker.getUserAccount().setPassword("123456789");
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
+		super.authenticate("hwAuth");
+
+		final Customer customer = this.customerService.create();
+		customer.setName("Carmen");
+		customer.setSurname("carmen");
+		customer.getUserAccount().setUsername("carferben");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("carferben");
+
+		final FixUp fixUp1 = this.fixUpService.create();
+		fixUp1.setHandyWorker(saveHandyWorker);
+		fixUp1.setCustomer(saveCustomer);
+		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
+
+		final Complaint c = this.complaintService.create();
+		c.setFixUp(saveFixUp1);
+		final Complaint cSave = this.complaintService.save(c);
+
+		final Collection<Complaint> res = this.complaintService.getAllComplaintsByHandyWorker(saveHandyWorker.getId());
+		Assert.isTrue(res.size() == 1);
+	}
+	//CARMEN
 }

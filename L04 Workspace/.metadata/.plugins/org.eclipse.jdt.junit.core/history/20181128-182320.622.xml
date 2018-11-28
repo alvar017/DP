@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FixUpServiceTest" project="Acme-HandyWorker" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="services.FixUpServiceTest" time="20.364">
+    <testcase name="testListingFixUp" classname="services.FixUpServiceTest" time="20.051"/>
+    <testcase name="testDeleteFixUp" classname="services.FixUpServiceTest" time="0.123"/>
+    <testcase name="testUpdateFixUp" classname="services.FixUpServiceTest" time="0.067"/>
+    <testcase name="testCreateFixUp" classname="services.FixUpServiceTest" time="0.0"/>
+    <testcase name="allFixUpsByFInder" classname="services.FixUpServiceTest" time="0.079"/>
+    <testcase name="testSaveFixUp" classname="services.FixUpServiceTest" time="0.044"/>
+  </testsuite>
+</testrun>
