@@ -1,8 +1,0 @@
-Changes made to the UML model:
-
-	1. We have added a realition between HandyWorker and FixUp.
-	2. We have added the entities of UserAccount and UserAthority.
-	3. We have added the missing attributes of the finder entity.
-	4. We have realacionado warranty and category with finder.
-
-All these changes have also been made to the persistence model.
