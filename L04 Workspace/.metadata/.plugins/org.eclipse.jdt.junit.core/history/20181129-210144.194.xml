@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="HandyWorkerServiceTest" project="Acme-HandyWorker" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="services.HandyWorkerServiceTest" time="17.508">
+    <testcase name="testCreateHandyWorker" classname="services.HandyWorkerServiceTest" time="16.946"/>
+    <testcase name="test12510" classname="services.HandyWorkerServiceTest" time="0.375"/>
+    <testcase name="testUpdateHandyWorker" classname="services.HandyWorkerServiceTest" time="0.093"/>
+    <testcase name="testSaveHandyWorker" classname="services.HandyWorkerServiceTest" time="0.047"/>
+    <testcase name="testRegisterHandyWorker" classname="services.HandyWorkerServiceTest" time="0.047"/>
+  </testsuite>
+</testrun>

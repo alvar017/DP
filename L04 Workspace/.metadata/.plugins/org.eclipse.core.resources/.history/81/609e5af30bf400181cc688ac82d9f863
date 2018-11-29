@@ -1,0 +1,120 @@
+package services;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
+
+import security.Authority;
+import utilities.AbstractTest;
+import domain.Administrator;
+import domain.Complaint;
+import domain.Customer;
+import domain.FixUp;
+import domain.HandyWorker;
+import domain.Note;
+import domain.Referee;
+import domain.Report;
+
+@ContextConfiguration(locations = {
+    "classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class NoteServiceTest extends AbstractTest {
+
+    @Autowired
+    private NoteService                noteService;
+
+    @Autowired
+    private RefereeService            refereeService;
+
+    @Autowired
+    private ComplaintService        complaintService;
+
+    @Autowired
+    private ReportService            reportService;
+
+    @Autowired
+    private CustomerService            customerService;
+
+    @Autowired
+    private FixUpService            fixUpService;
+
+    @Autowired
+    private AdministratorService    administratorService;
+
+    @Autowired
+    private HandyWorkerService        handyWorkerService;
+
+
+    @Test
+    public void handyWorkerCreateNoteTest() {
+
+        final HandyWorker handyWorker = this.handyWorkerService.create();
+        handyWorker.setName("Alvaro");
+        handyWorker.setSurname("alvaro");
+        handyWorker.getUserAccount().setUsername("dogran");
+        handyWorker.getUserAccount().setPassword("123456789");
+        final HandyWorker savehandyWorker = this.handyWorkerService.save(handyWorker);
+        super.authenticate("dogran");
+
+        final Customer customer = this.customerService.create();
+        customer.setName("Alvaro");
+        customer.setSurname("alvaro");
+        customer.getUserAccount().setUsername("dogran");
+        customer.getUserAccount().setPassword("123456789");
+        final Customer customerSave = this.customerService.save(customer);
+        super.authenticate("dogran");
+
+        final FixUp fixUp = this.fixUpService.create();
+        fixUp.setHandyWorker(savehandyWorker);
+        final FixUp fixUpSave = this.fixUpService.save(fixUp);
+
+        final Administrator administrator = this.administratorService.create();
+        administrator.setName("Ana");
+        administrator.setSurname("navarro");
+        administrator.getUserAccount().setUsername("adminUser");
+        administrator.getUserAccount().setPassword("12345678");
+        final Administrator saveAdministrator = this.administratorService.save(administrator);
+        Assert.isTrue(this.administratorService.findAll().contains(saveAdministrator));
+        super.authenticate("adminUser");
+        final Referee referee = this.refereeService.create();
+        referee.setName("Alvaro");
+        referee.setSurname("alvaro");
+        referee.getUserAccount().setUsername("refereeUser");
+        referee.getUserAccount().setPassword("12345678");
+        final Referee saveReferee = this.refereeService.save(referee);
+        super.authenticate("refereeUser");
+
+        final Complaint complaint = this.complaintService.create();
+        complaint.setFixUp(fixUpSave);
+        final Complaint complaintSave = this.complaintService.save(complaint);
+
+        final Boolean refereeBefore = complaintSave.getReferee() != null;
+        this.complaintService.setReefereeToAComplaint(complaintSave);
+        final Boolean refereeAfter = complaintSave.getReferee() != null;
+        Assert.isTrue(refereeAfter != refereeBefore);
+
+        final Report report = this.reportService.create();
+        report.setComplaint(complaintSave);
+        final Report reportSaver = this.reportService.save(report);
+
+        final Authority a = new Authority();
+        a.setAuthority(Authority.HANDYWORKER);
+
+        Assert.isTrue(savehandyWorker.getUserAccount().getAuthorities().contains(a));
+
+        final Note note = this.noteService.create();
+        note.setReport(reportSaver);
+        final Note noteSave = this.noteService.save(note);
+
+        Assert.isTrue(this.noteService.findAll().contains(noteSave));
+    }
+
+   
+}

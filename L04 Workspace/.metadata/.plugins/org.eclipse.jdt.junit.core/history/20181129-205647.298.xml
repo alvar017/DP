@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AdministratorServiceTest" project="Acme-HandyWorker" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="services.AdministratorServiceTest" time="18.06">
+    <testcase name="testSaveAdministrator" classname="services.AdministratorServiceTest" time="17.685"/>
+    <testcase name="testDashboard" classname="services.AdministratorServiceTest" time="0.281"/>
+    <testcase name="testRegisterAdministrator" classname="services.AdministratorServiceTest" time="0.024"/>
+    <testcase name="testUpdateAdministrator" classname="services.AdministratorServiceTest" time="0.07"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,44 @@
+
+package repositories;
+
+import java.util.Collection;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import domain.FixUp;
+
+@Repository
+public interface FixUpRepository extends JpaRepository<FixUp, Integer> {
+
+	@Query("select f from FixUp f join f.customer fc where fc.id=?1")
+	Collection<FixUp> findFixUpsByCustomer(Integer id);
+
+	//	@Query("select f.fixUp from HandyWorker h join h.finder f where h.id=?1")
+	//	Collection<FixUp> findFixUpsOfFinderByHandyWorker(Integer id);
+
+	@Query("select avg(h.fixUps.size) from HandyWorker h")
+	Double averagePerHandyWorker();
+
+	@Query("select sqrt(sum(h.fixUps.size*h.fixUps.size)/count(h)-(avg(h.fixUps.size)*avg(h.fixUps.size))) from HandyWorker h")
+	Double desviationPerHandyWorker();
+
+	@Query("select min(b.quantity) from FixUp a join a.maxPrice b")
+	Double minPriceFixUp();
+
+	@Query("select max(b.quantity) from FixUp a join a.maxPrice b")
+	Double maxPriceFixUp();
+
+	@Query("select avg(b.quantity) from FixUp a join a.maxPrice b")
+	Double averagePriceFixUp();
+
+	@Query("select sqrt(sum(b.quantity*b.quantity)/count(b.quantity)-(avg(b.quantity)*avg(b.quantity))) from FixUp f join f.maxPrice b")
+	Double desviationPriceFixUp();
+
+	@Query("select min(h.fixUps.size) from HandyWorker h")
+	Integer minFixUpHandyWorker();
+
+	@Query("select max(h.fixUps.size) from HandyWorker h")
+	Integer maxFixUpHandyWorker();
+}

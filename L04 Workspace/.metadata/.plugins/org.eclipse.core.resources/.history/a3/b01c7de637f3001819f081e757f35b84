@@ -1,0 +1,44 @@
+
+package services;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import utilities.AbstractTest;
+import domain.Phase;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class PhaseServiceTest extends AbstractTest {
+
+	@Autowired
+	private ReportService			reportService;
+	@Autowired
+	private AdministratorService	administratorService;
+	@Autowired
+	private RefereeService			refereeService;
+	@Autowired
+	private ComplaintService		complaintService;
+	@Autowired
+	private FixUpService			fixUpService;
+	@Autowired
+	private PhaseService			phaseService;
+
+
+	//CARMEN
+	@Test
+	public void testCreate() {
+		Phase phase = phaseService.create();
+		this.phaseService.save(phase);
+		System.out.println(this.phaseService.findAll());
+	}
+
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TutorialServiceTest" project="Acme-HandyWorker" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="services.TutorialServiceTest" time="20.672">
+    <testcase name="testFindAll" classname="services.TutorialServiceTest" time="20.485"/>
+    <testcase name="testFindOne" classname="services.TutorialServiceTest" time="0.047"/>
+    <testcase name="testCreate" classname="services.TutorialServiceTest" time="0.047"/>
+    <testcase name="testDelete" classname="services.TutorialServiceTest" time="0.093"/>
+  </testsuite>
+</testrun>

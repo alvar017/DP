@@ -56,9 +56,9 @@ public class NoteService {
 			res.setCustomer(this.customerService.getCustomerByUserAccountId(login.getId()));
 
 		//El report esta vacío porque se pondrá el valor por defecto en otro create
-		//		if (login.getAuthorities().contains(r)) {	
-		//			res.setReport(this.refereeService.findRefereeByReport(res.getReport()));
-		//		}
+		//        if (login.getAuthorities().contains(r)) {    
+		//            res.setReport(this.refereeService.findRefereeByReport(res.getReport()));
+		//        }
 
 		final Date moment = LocalDate.now().toDate();
 		res.setMoment(moment);
@@ -113,9 +113,9 @@ public class NoteService {
 		return this.noteRepository.save(note);
 
 		//El report esta vacío porque se pondrá el valor por defecto en otro create
-		//		if (login.getAuthorities().contains(r)) {	
-		//			res.setReport(this.refereeService.findRefereeByReport(res.getReport()));
-		//		}
+		//        if (login.getAuthorities().contains(r)) {    
+		//            res.setReport(this.refereeService.findRefereeByReport(res.getReport()));
+		//        }
 
 	}
 	//FRAN

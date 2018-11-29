@@ -15,8 +15,8 @@ import repositories.RefereeRepository;
 import security.Authority;
 import security.LoginService;
 import security.UserAccount;
+import domain.MailBox;
 import domain.Referee;
-import domain.Report;
 
 @Service
 @Transactional
@@ -30,6 +30,9 @@ public class RefereeService {
 	//Supporting services ------------------
 	@Autowired
 	private AdministratorService	administratorService;
+
+	@Autowired
+	private MailBoxService			mailBoxService;
 
 
 	//Simple CRUD Methods ------------------
@@ -48,6 +51,33 @@ public class RefereeService {
 		cuenta.setAuthorities(autoridades);
 
 		referee.setUserAccount(cuenta);
+
+		final Collection<MailBox> boxesDefault = new ArrayList<>();
+
+		final MailBox inBox = this.mailBoxService.create();
+		inBox.setName("inBox");
+		inBox.setIsDefault(true);
+		final MailBox outBox = this.mailBoxService.create();
+		outBox.setName("outBox");
+		outBox.setIsDefault(true);
+		final MailBox spamBox = this.mailBoxService.create();
+		spamBox.setName("spamBox");
+		spamBox.setIsDefault(true);
+		final MailBox trashBox = this.mailBoxService.create();
+		trashBox.setName("trashBox");
+		trashBox.setIsDefault(true);
+
+		final MailBox inBoxSave = this.mailBoxService.save(inBox);
+		final MailBox outBoxSave = this.mailBoxService.save(outBox);
+		final MailBox spamBoxSave = this.mailBoxService.save(spamBox);
+		final MailBox trashBoxSave = this.mailBoxService.save(trashBox);
+
+		boxesDefault.add(inBoxSave);
+		boxesDefault.add(outBoxSave);
+		boxesDefault.add(spamBoxSave);
+		boxesDefault.add(trashBoxSave);
+
+		referee.setMailBoxes(boxesDefault);
 
 		return referee;
 	}
@@ -68,15 +98,20 @@ public class RefereeService {
 		return this.refereeRepository.save(referee);
 	}
 
+	public Referee isRegister(final Referee rf) {
+		final UserAccount a = rf.getUserAccount();
+		Assert.isTrue(a.getUsername() == null);
+		return this.refereeRepository.save(rf);
+	}
+	public Referee update(final Referee referee) {
+		Assert.isTrue(LoginService.getPrincipal().getId() == referee.getUserAccount().getId()); //UN ACTOR SOLO PUEDE MODIFICICAR SUS DATOS 9.2
+		return this.refereeRepository.save(referee);
+	}
+
 	public Referee findByUserAccountId(final int userAccountId) {
 		return this.refereeRepository.findByUserAccountId(userAccountId);
 	}
 
 	//Other Methods
-
-	//FRAN CARMEN
-	public Referee findRefereeByReport(final Report re) {
-		return this.refereeRepository.getRefereeByReport(re.getId());
-	}
 
 }

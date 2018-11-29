@@ -1,0 +1,27 @@
+
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import repositories.EndorsementRepository;
+import domain.Endorsement;
+
+@Service
+@Transactional
+public class EndorsementsService {
+
+	//Managed Repository -------------------	
+	@Autowired
+	private EndorsementRepository	endorsementRepository;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------		
+	public Endorsement create() {
+		final Endorsement endorsement = new Endorsement();
+		return endorsement;
+	}
+}

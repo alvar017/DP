@@ -17,7 +17,7 @@ public class HandyWorker extends Endorsable {
 	private String					make;
 	///////////////////////////////////
 	private Collection<Application>	applications;
-	//	private Collection<Note>		notes;
+	//private Collection<Note>		notes;
 	private Collection<Tutorial>	tutorials;
 	private Finder					finder;
 	private Collection<FixUp>		fixUps;

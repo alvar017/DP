@@ -6,7 +6,6 @@ import java.util.Date;
 
 import javax.transaction.Transactional;
 
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -39,11 +38,15 @@ public class ReportService {
 		final String attachment = "";
 		final String description = "";
 		final Boolean isFinal = false;
-		final Date moment = LocalDate.now().toDate();
+		final Date moment = new Date();
+
+		report.setAttachment(attachment);
+		report.setDescription(description);
+		report.setIsFinal(isFinal);
+		report.setMoment(moment);
 
 		return report;
 	}
-	//CARMEN
 
 	//CARMEN
 	public Report save(final Report report) {
@@ -57,12 +60,21 @@ public class ReportService {
 
 		return this.reportRepository.save(report);
 	}
+
+	public Report update(final Report report) {
+		Assert.isTrue(report.getIsFinal() == false);
+		final Report saveReport = this.save(report);
+		return saveReport;
+	}
+
 	//CARMEN
+	//	public Collection<Report> allReportByReferee(final int refereeId) {
+	//		return this.reportRepository.getReportReferee(refereeId);
+	//	}
 
 	//CARMEN
 	public Collection<Report> findAll() {
 		return this.reportRepository.findAll();
 	}
-	//CARMEN
 
 }

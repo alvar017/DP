@@ -1,0 +1,45 @@
+
+package services;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
+
+import security.LoginService;
+import security.UserAccount;
+import utilities.AbstractTest;
+import domain.Administrator;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class UserAccountServiceTest extends AbstractTest {
+
+	@Autowired
+	private LoginService			loginService;
+
+	@Autowired
+	private AdministratorService	administratorService;
+
+
+	@Test
+	public void testCreateUserAccount() {
+		final Administrator adminTest = this.administratorService.create();
+		adminTest.setName("Alvaro");
+		adminTest.setSurname("alvaro");
+		adminTest.getUserAccount().setUsername("dogran1");
+		adminTest.getUserAccount().setPassword("123456789");
+		final Administrator adminTestSave = this.administratorService.save(adminTest);
+		super.authenticate("dogran1");
+		final UserAccount userAccount = this.loginService.create();
+		Assert.notNull(userAccount);
+	}
+
+}

@@ -73,18 +73,6 @@ public class Authority implements GrantedAuthority {
 		authority.setAuthority(Authority.CUSTOMER);
 		result.add(authority);
 
-		authority = new Authority();
-		authority.setAuthority(Authority.HANDYWORKER);
-		result.add(authority);
-
-		authority = new Authority();
-		authority.setAuthority(Authority.REFEREE);
-		result.add(authority);
-
-		authority = new Authority();
-		authority.setAuthority(Authority.SPONSOR);
-		result.add(authority);
-
 		return result;
 	}
 

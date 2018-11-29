@@ -1,0 +1,44 @@
+
+package services;
+
+import java.util.Collection;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+
+import repositories.PhaseRepository;
+import domain.Phase;
+
+@Service
+@Transactional
+public class PhaseService {
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private PhaseRepository			phaseRepository;
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private AdministratorService	administratorService;
+
+
+	//Supporting services ------------------
+
+	public Collection<Phase> findAll() {
+		return this.phaseRepository.findAll();
+	}
+
+	public Phase findOne(final int id) {
+		final Phase result = this.phaseRepository.findOne(id);
+		Assert.notNull(result);
+		return result;
+	}
+
+	// Other M
+
+}

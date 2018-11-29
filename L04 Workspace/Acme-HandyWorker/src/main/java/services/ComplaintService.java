@@ -4,7 +4,6 @@ package services;
 import java.util.Collection;
 import java.util.Date;
 
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +24,8 @@ public class ComplaintService {
 	@Autowired
 	private FixUpService		fixUpService;
 	@Autowired
+	private HandyWorkerService	handyWorkerService;
+	@Autowired
 	private RefereeService		refereeService;
 
 
@@ -32,9 +33,13 @@ public class ComplaintService {
 
 		final Complaint res = new Complaint();
 
-		final Date moment = LocalDate.now().toDate();
+		final String attachment = "";
+		final String description = "";
+		final Date moment = new Date();
+		moment.setTime(moment.getTime() - 1);
 		final String ticker = this.fixUpService.randomTicker();
-
+		res.setAttachment(attachment);
+		res.setDescription(description);
 		res.setMoment(moment);
 		res.setTicker(ticker);
 
@@ -59,6 +64,11 @@ public class ComplaintService {
 		return this.complaintRepository.findOne(idComlaint);
 	}
 
+	////
+	public Collection<Complaint> getAllComplaintsByHandyWorker(final int hw) {
+		return this.complaintRepository.getComplaintFixUpByHandyWorker2(hw);
+	}
+
 	public Collection<Complaint> getComplaintWithoutReferee() {
 		final UserAccount login = LoginService.getPrincipal();
 		Assert.isTrue(this.refereeService.findByUserAccountId(login.getId()) != null);
@@ -79,18 +89,4 @@ public class ComplaintService {
 		final Referee referee = this.refereeService.findByUserAccountId(login.getId());
 		return this.complaintRepository.getComplaintByReferee(referee.getId());
 	}
-
-	//37.3 (CARMEN )--> List and show the complaints regarding the fix-up tasks in which he or shes been in-volved.(test)
-	public Collection<Complaint> getAllComplaintsByHandyWorker(final int hw) {
-		return this.complaintRepository.getComplaintFixUpByHandyWorker2(hw);
-	}
-	//CARMEN
-
-	// 35.1 (FRAN)
-	public Collection<Complaint> getComplaintsByCustomer(final int id) {
-
-		return this.complaintRepository.findComplaintsByCustomer(id);
-	}
-	//FRAN
-
 }

@@ -1,0 +1,36 @@
+
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.EndorsementRepository;
+import security.LoginService;
+import security.UserAccount;
+import domain.Customer;
+import domain.Endorsement;
+
+@Service
+@Transactional
+public class EndorsementsService {
+
+	//Managed Repository -------------------	
+	@Autowired
+	private EndorsementRepository	endorsementRepository;
+	@Autowired
+	private CustomerService			customerService;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------		
+	public Endorsement create() {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		final Endorsement endorsement = new Endorsement();
+		return endorsement;
+	}
+}

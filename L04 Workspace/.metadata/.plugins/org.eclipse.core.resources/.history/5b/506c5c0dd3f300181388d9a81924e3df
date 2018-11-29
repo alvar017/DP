@@ -1,0 +1,54 @@
+
+package services;
+
+import java.util.Collection;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
+
+import utilities.AbstractTest;
+import domain.Administrator;
+import domain.HandyWorker;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class HandyWorkerServiceTest extends AbstractTest {
+
+	@Autowired
+	private HandyWorkerService		handyWorkerService;
+
+	@Autowired
+	private AdministratorService	administratorService;
+
+
+	@Test
+	public void testCreateHandyWorker() {
+		final HandyWorker handyWorker = this.handyWorkerService.create();
+		Assert.notNull(handyWorker);
+	}
+
+	@Test
+	public void test12510() {
+		final Administrator adminBox = this.administratorService.createFirstAdmin();
+		adminBox.getUserAccount().setUsername("AdminBox1");
+		adminBox.getUserAccount().setPassword("AdminBoxPass");
+		adminBox.setName("AdminBox");
+		adminBox.setSurname("AdminBoxSur");
+		final Administrator adminBoxSaved = this.administratorService.save(adminBox);
+		super.authenticate("AdminBox1");
+		final Collection<HandyWorker> handyWorkers = this.handyWorkerService.betterHandyWorker();
+		final List<HandyWorker> handWorkerList = (List<HandyWorker>) handyWorkers;
+		Assert.isTrue(handWorkerList.get(0).getId() == 416);
+	}
+
+}

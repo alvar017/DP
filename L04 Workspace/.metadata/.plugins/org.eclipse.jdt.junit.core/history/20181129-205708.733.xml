@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ApplicationServiceTest" project="Acme-HandyWorker" tests="10" started="10" failures="0" errors="0" ignored="0">
+  <testsuite name="services.ApplicationServiceTest" time="19.383">
+    <testcase name="testUpdateApplication1" classname="services.ApplicationServiceTest" time="18.657"/>
+    <testcase name="testUpdateApplication2" classname="services.ApplicationServiceTest" time="0.117"/>
+    <testcase name="testListingApplication" classname="services.ApplicationServiceTest" time="0.164"/>
+    <testcase name="testSaveApplication" classname="services.ApplicationServiceTest" time="0.094"/>
+    <testcase name="test1252" classname="services.ApplicationServiceTest" time="0.14"/>
+    <testcase name="test1254" classname="services.ApplicationServiceTest" time="0.071"/>
+    <testcase name="test1255" classname="services.ApplicationServiceTest" time="0.023"/>
+    <testcase name="test1256" classname="services.ApplicationServiceTest" time="0.047"/>
+    <testcase name="test1257" classname="services.ApplicationServiceTest" time="0.023"/>
+    <testcase name="test1258" classname="services.ApplicationServiceTest" time="0.047"/>
+  </testsuite>
+</testrun>

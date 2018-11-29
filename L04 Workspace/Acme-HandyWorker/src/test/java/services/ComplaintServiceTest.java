@@ -65,9 +65,19 @@ public class ComplaintServiceTest extends AbstractTest {
 		Assert.isTrue(this.complaintService.findAll().contains(saveComplaint));
 	}
 
+	//37.3 --> List and show the complaints regarding the fix-up tasks in which he or shes been in-volved.(test)
+	//Este falla pero carmen lo tiene bien
+	//	@Test
+	//	public void testListingFixUpHandyWorker() {
+	//
+	//		//Use the method of complaintService
+	//		final Collection<Complaint> res = this.complaintService.getAllComplaintsByHandyWorker(463);
+	//		Assert.isTrue(res.size() == 6);
+	//	}
+
 	@Test
 	public void testListingComplaintWithoutReferee() {
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		administrator.getUserAccount().setUsername("adminUser");
@@ -124,7 +134,7 @@ public class ComplaintServiceTest extends AbstractTest {
 		final Complaint saveComplaint1 = this.complaintService.save(c1);
 		super.unauthenticate();
 		// Creo un referee
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		administrator.getUserAccount().setUsername("adminUser");
@@ -162,7 +172,7 @@ public class ComplaintServiceTest extends AbstractTest {
 		final Complaint saveComplaint1 = this.complaintService.save(c1);
 		super.unauthenticate();
 		// Creo un referee
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		administrator.getUserAccount().setUsername("adminUser");
@@ -185,7 +195,6 @@ public class ComplaintServiceTest extends AbstractTest {
 		Assert.isTrue(this.complaintService.getComplaintByReferee(saveReferee.getId()).size() == 1);
 	}
 
-	//37.3 (CARMEN )--> List and show the complaints regarding the fix-up tasks in which he or shes been in-volved.(test)
 	@Test
 	public void testListingFixUpHandyWorker() {
 
@@ -251,4 +260,5 @@ public class ComplaintServiceTest extends AbstractTest {
 		Assert.isTrue(savedC.getId() == one.getId());
 	}
 	//FRAN
+
 }

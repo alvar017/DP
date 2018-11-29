@@ -34,7 +34,7 @@ public class ActorServiceTest extends AbstractTest {
 
 	@Test
 	public void testBanned() {
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		administrator.getUserAccount().setUsername("adminUser");
@@ -61,7 +61,7 @@ public class ActorServiceTest extends AbstractTest {
 
 	@Test
 	public void testSuspicious() {
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		administrator.getUserAccount().setUsername("adminUser");
@@ -95,7 +95,7 @@ public class ActorServiceTest extends AbstractTest {
 		customer1.setIsBanned(false);
 		final Customer saveCustomer = this.customerService.save(customer1);
 		// Logueo un administrador
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		administrator.getUserAccount().setUsername("adminUser");
@@ -118,7 +118,7 @@ public class ActorServiceTest extends AbstractTest {
 		customer1.setIsBanned(true);
 		final Customer saveCustomer = this.customerService.save(customer1);
 		// Logueo un administrador
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		administrator.getUserAccount().setUsername("adminUser");

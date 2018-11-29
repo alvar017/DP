@@ -1,0 +1,35 @@
+
+package services;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.AdministratorRepository;
+import security.Authority;
+import security.LoginService;
+import security.UserAccount;
+import domain.Administrator;
+import domain.Customer;
+import domain.HandyWorker;
+
+@Service
+@Transactional
+public class EndorsementsService {
+
+	//Managed Repository -------------------	
+	@Autowired
+	private AdministratorRepository	adminRepository;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------		
+
+
+}

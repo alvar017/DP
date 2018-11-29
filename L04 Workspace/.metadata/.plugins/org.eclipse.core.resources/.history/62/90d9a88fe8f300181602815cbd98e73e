@@ -1,0 +1,152 @@
+
+package services;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.Assert;
+
+import utilities.AbstractTest;
+import domain.Administrator;
+import domain.Customer;
+import domain.FixUp;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class FixUpServiceTest extends AbstractTest {
+
+	//Services under Test
+
+	@Autowired
+	private FixUpService			fixUpService;
+	@Autowired
+	private CustomerService			customerService;
+	@Autowired
+	private WarrantyService			warrantyService;
+	@Autowired
+	private AdministratorService	administratorService;
+
+
+	//@Test
+	public void testCreateFixUp() {
+		final Customer customer = this.customerService.create();
+		Assert.isTrue(customer != null);
+	}
+	@Test
+	public void testSaveFixUp() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp = this.fixUpService.create();
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
+	}
+	//@Test
+	public void testUpdateFixUp() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp = this.fixUpService.create();
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
+		saveFixUp.setAddress("Rodrigo de Triana 14");
+		final FixUp saveFixUp2 = this.fixUpService.update(saveFixUp);
+		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp2));
+	}
+
+	//@Test
+	public void testDeleteFixUp() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp = this.fixUpService.create();
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
+		this.fixUpService.delete(saveFixUp);
+		Assert.isTrue(!this.fixUpService.findAll().contains(saveFixUp));
+	}
+
+	//@Test
+	public void testListingFixUp() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp1 = this.fixUpService.create();
+		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
+		final FixUp fixUp2 = this.fixUpService.create();
+		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
+		final FixUp fixUp3 = this.fixUpService.create();
+		final FixUp saveFixUp3 = this.fixUpService.save(fixUp3);
+		final FixUp fixUp4 = this.fixUpService.create();
+		final FixUp saveFixUp4 = this.fixUpService.save(fixUp4);
+		final int numFixUpAfter = this.fixUpService.listing().size();
+		Assert.isTrue(numFixUpAfter == 4);
+	}
+
+	public void testShowFixUp() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp1 = this.fixUpService.create();
+		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
+		Assert.isTrue(this.fixUpService.showing(saveFixUp1.getId()).equals(saveFixUp1));
+	}
+
+	//@Test
+	public void test1251() {
+		final Administrator adminTest = this.administratorService.createFirstAdmin();
+		adminTest.setName("Alvaro");
+		adminTest.setSurname("alvaro");
+		adminTest.getUserAccount().setUsername("dogran");
+		adminTest.getUserAccount().setPassword("123456789");
+		final Administrator adminTestSave = this.administratorService.save(adminTest);
+		super.authenticate("dogran");
+		Assert.isTrue(this.fixUpService.minFixUpHandyWorker() == 2);
+		Assert.isTrue(this.fixUpService.maxFixUpHandyWorker() == 2);
+		Assert.isTrue(this.fixUpService.avgFixUpPerHandyWorker() == 2.0);
+		Assert.isTrue(this.fixUpService.desviationFixUpPerHandyWorker() == 0.0);
+	}
+
+	//@Test
+	public void test1253() {
+		final Administrator adminTest = this.administratorService.createFirstAdmin();
+		adminTest.setName("Alvaro");
+		adminTest.setSurname("alvaro");
+		adminTest.getUserAccount().setUsername("dogran");
+		adminTest.getUserAccount().setPassword("123456789");
+		final Administrator adminTestSave = this.administratorService.save(adminTest);
+		super.authenticate("dogran");
+		Assert.isTrue(this.fixUpService.minPriceFixUp() == 70.0);
+		Assert.isTrue(this.fixUpService.maxPriceFixUp() == 90.0);
+		Assert.isTrue(this.fixUpService.avgPriceFixUp() == 82.5);
+		Assert.isTrue(this.fixUpService.desviationPriceFixUp() == 8.2915619758885);
+	}
+
+}

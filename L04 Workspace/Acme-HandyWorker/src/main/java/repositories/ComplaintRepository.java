@@ -18,19 +18,15 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Integer> {
 	@Query("select c from Complaint c join c.referee r where r.id = ?1")
 	Collection<Complaint> getComplaintRefereeId(Integer id);
 
-	//37.3 (CARMEN )--> List and show the complaints regarding the fix-up tasks in which he or shes been in-volved.(test)
+	//	@Query("select f.complaint from HandyWorker h join h.finder f where h.id=?1")
+	//	Collection<Complaint> getComplaintFixUpByHandyWorker(Integer id);
+
 	@Query("select c from Complaint c join c.fixUp where c.fixUp.handyWorker.id = ?1")
 	Collection<Complaint> getComplaintFixUpByHandyWorker2(Integer Hwid);
-	//CARMEN
 
 	@Query("select c from Complaint c where c.referee=null")
 	Collection<Complaint> getComplaintWithoutReferee(Integer id);
 
 	@Query("select c from Complaint c where c.referee.id=?1")
 	Collection<Complaint> getComplaintByReferee(Integer idReferee);
-
-	//35.1 (FRAN) 
-	@Query("select f.complaints from FixUp f join f.customer c where c.id=?1")
-	Collection<Complaint> findComplaintsByCustomer(Integer id);
-	//FRAN
 }

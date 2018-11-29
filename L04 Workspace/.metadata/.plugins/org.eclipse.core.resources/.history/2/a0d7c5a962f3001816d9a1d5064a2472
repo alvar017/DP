@@ -1,0 +1,61 @@
+
+package services;
+
+import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.EndorsementRepository;
+import security.LoginService;
+import security.UserAccount;
+import domain.Customer;
+import domain.Endorsement;
+import domain.FixUp;
+import domain.HandyWorker;
+
+@Service
+@Transactional
+public class EndorsementsService {
+
+	//Managed Repository -------------------	
+	@Autowired
+	private EndorsementRepository	endorsementRepository;
+	@Autowired
+	private CustomerService			customerService;
+	@Autowired
+	private HandyWorkerService		handyWorkerService;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------		
+	public Endorsement create() {
+		// Creo el customer que creará la endorsment
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		final Endorsement endorsement = new Endorsement();
+		// El customer será el sender y luego creo la endorsement
+		endorsement.setEndorsableSender(customer);
+		return endorsement;
+	}
+
+	public Endorsement save(final Endorsement toSaveEndorsement) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		final Collection<HandyWorker> hws = this.handyWorkerService.getAllHandyWorkersByCustomer(customer.getId());
+		final Integer idEndorsable = toSaveEndorsement.getEndorsableRec().getId();
+		Assert.isTrue(customer.getId() == toSaveEndorsement.getEndorsableSender().getId());
+		Assert.isTrue(hws.contains(toSaveEndorsement.getEndorsableRec()) == true);
+		return this.endorsementRepository.save(toSaveEndorsement);
+	}
+	
+	public Collection<Endorsement> findAll() {
+		return this.endorsementRepository.findAll();
+	}
+}

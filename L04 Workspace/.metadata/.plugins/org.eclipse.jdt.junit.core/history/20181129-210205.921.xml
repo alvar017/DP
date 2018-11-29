@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MailBoxServiceTest" project="Acme-HandyWorker" tests="8" started="8" failures="0" errors="0" ignored="0">
+  <testsuite name="services.MailBoxServiceTest" time="20.296">
+    <testcase name="delete" classname="services.MailBoxServiceTest" time="19.875"/>
+    <testcase name="testSaveFindOneDefault" classname="services.MailBoxServiceTest" time="0.023"/>
+    <testcase name="testSaveFindAll" classname="services.MailBoxServiceTest" time="0.07"/>
+    <testcase name="testAdminBox" classname="services.MailBoxServiceTest" time="0.188"/>
+    <testcase name="testSaveFindAllDefault" classname="services.MailBoxServiceTest" time="0.0"/>
+    <testcase name="testAddMessageInBox" classname="services.MailBoxServiceTest" time="0.117"/>
+    <testcase name="testCreateMailBox" classname="services.MailBoxServiceTest" time="0.0"/>
+    <testcase name="getInbox" classname="services.MailBoxServiceTest" time="0.023"/>
+  </testsuite>
+</testrun>

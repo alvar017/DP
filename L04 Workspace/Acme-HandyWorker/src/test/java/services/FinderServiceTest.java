@@ -39,7 +39,7 @@ public class FinderServiceTest extends AbstractTest {
 		final HandyWorker saveHW = this.handyWorkerService.save(hw);
 		super.authenticate("dogran");
 
-		final Finder f = this.finderService.findOne(428);
+		final Finder f = this.finderService.findOne(462);
 
 		f.setVersion(2);
 

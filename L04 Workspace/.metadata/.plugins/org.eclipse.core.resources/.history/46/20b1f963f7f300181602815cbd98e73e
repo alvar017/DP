@@ -1,0 +1,54 @@
+
+package services;
+
+import java.util.Collection;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+
+import repositories.TutorialRepository;
+import security.LoginService;
+import security.UserAccount;
+import domain.HandyWorker;
+import domain.Tutorial;
+
+@Service
+@Transactional
+public class TutorialService {
+
+	@Autowired
+	private TutorialRepository	tutorialRepository;
+
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
+
+
+	public Tutorial create() {
+		final UserAccount user = LoginService.getPrincipal();
+		final HandyWorker hw = this.handyWorkerService.findByUserAccountId(user.getId());
+		Assert.notNull(hw);
+		final Tutorial tutorial = new Tutorial();
+		tutorial.setHandyWorker(hw);
+		return tutorial;
+	}
+	
+	public Tutorial save(Tutorial tutorial) {
+		final UserAccount user = LoginService.getPrincipal();
+		final HandyWorker hw = this.handyWorkerService.findByUserAccountId(user.getId());
+		Assert.notNull(hw);
+		Assert.isTrue(tutorial.getHandyWorker().equals(hw));
+		Tutorial tutorialSaved = tutorialRepository.save(tutorial):
+		return tutorial;
+	}
+
+	public Collection<Tutorial> findAll() {
+		return this.tutorialRepository.findAll();
+	}
+
+	public Tutorial findOne(final Integer id) {
+		return this.tutorialRepository.findOne(id);
+	}
+}

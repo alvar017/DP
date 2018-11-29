@@ -1,0 +1,59 @@
+
+package services;
+
+import javax.transaction.Transactional;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import utilities.AbstractTest;
+import domain.Customer;
+import domain.Endorsement;
+import domain.FixUp;
+import domain.HandyWorker;
+
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@RunWith(SpringJUnit4ClassRunner.class)
+@Transactional
+public class EndorsementsServiceTest extends AbstractTest {
+
+	//Services under Test
+
+	@Autowired
+	private EndorsementsService	endorsementsService;
+	@Autowired
+	private CustomerService		customerService;
+	@Autowired
+	private FixUpService		fixUpService;
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
+
+
+	@Test
+	public void testSaveEndorsements() {
+		//Creo el customer al que se le asignara el endorsement
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp = this.fixUpService.create();
+		final HandyWorker hw = this.handyWorkerService.create();
+		hw.setName("hw");
+		hw.setSurname("hwsur");
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(hw);
+		fixUp.setHandyWorker(saveHandyWorker);
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setEndorsableRec(saveHandyWorker);
+		Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
+		System.out.println(this.endorsementsService.findAll());
+	}
+}

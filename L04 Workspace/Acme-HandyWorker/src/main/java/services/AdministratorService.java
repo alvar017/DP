@@ -17,6 +17,7 @@ import security.UserAccount;
 import domain.Administrator;
 import domain.Customer;
 import domain.HandyWorker;
+import domain.MailBox;
 
 @Service
 @Transactional
@@ -26,11 +27,16 @@ public class AdministratorService {
 	@Autowired
 	private AdministratorRepository	adminRepository;
 
+	@Autowired
+	private MailBoxService			mailBoxService;
+
 
 	//Supporting services ------------------
 
 	//Simple CRUD Methods ------------------		
 	public Administrator create() {
+		final Administrator a = this.adminRepository.findByUserAccountId(LoginService.getPrincipal().getId());
+		Assert.notNull(a);
 		final Administrator ad = new Administrator();
 		final UserAccount cuenta = new UserAccount();
 		final List<Authority> autoridades = new ArrayList<>();
@@ -40,6 +46,76 @@ public class AdministratorService {
 		cuenta.setAuthorities(autoridades);
 
 		ad.setUserAccount(cuenta);
+
+		final Collection<MailBox> boxesDefault = new ArrayList<>();
+
+		final MailBox inBox = this.mailBoxService.create();
+		inBox.setName("inBox");
+		inBox.setIsDefault(true);
+		final MailBox outBox = this.mailBoxService.create();
+		outBox.setName("outBox");
+		outBox.setIsDefault(true);
+		final MailBox spamBox = this.mailBoxService.create();
+		spamBox.setName("spamBox");
+		spamBox.setIsDefault(true);
+		final MailBox trashBox = this.mailBoxService.create();
+		trashBox.setName("trashBox");
+		trashBox.setIsDefault(true);
+
+		final MailBox inBoxSave = this.mailBoxService.save(inBox);
+		final MailBox outBoxSave = this.mailBoxService.save(outBox);
+		final MailBox spamBoxSave = this.mailBoxService.save(spamBox);
+		final MailBox trashBoxSave = this.mailBoxService.save(trashBox);
+
+		boxesDefault.add(inBoxSave);
+		boxesDefault.add(outBoxSave);
+		boxesDefault.add(spamBoxSave);
+		boxesDefault.add(trashBoxSave);
+
+		ad.setMailBoxes(boxesDefault);
+
+		return ad;
+	}
+
+	public Administrator createFirstAdmin() {
+		final Collection<Administrator> administrators = this.adminRepository.findAll();
+		Assert.isTrue(administrators.size() == 0);
+		final Administrator ad = new Administrator();
+		final UserAccount cuenta = new UserAccount();
+		final List<Authority> autoridades = new ArrayList<>();
+		final Authority authority = new Authority();
+		authority.setAuthority(Authority.ADMIN);
+		autoridades.add(authority);
+		cuenta.setAuthorities(autoridades);
+
+		ad.setUserAccount(cuenta);
+
+		final Collection<MailBox> boxesDefault = new ArrayList<>();
+
+		final MailBox inBox = this.mailBoxService.create();
+		inBox.setName("inBox");
+		inBox.setIsDefault(true);
+		final MailBox outBox = this.mailBoxService.create();
+		outBox.setName("outBox");
+		outBox.setIsDefault(true);
+		final MailBox spamBox = this.mailBoxService.create();
+		spamBox.setName("spamBox");
+		spamBox.setIsDefault(true);
+		final MailBox trashBox = this.mailBoxService.create();
+		trashBox.setName("trashBox");
+		trashBox.setIsDefault(true);
+
+		final MailBox inBoxSave = this.mailBoxService.save(inBox);
+		final MailBox outBoxSave = this.mailBoxService.save(outBox);
+		final MailBox spamBoxSave = this.mailBoxService.save(spamBox);
+		final MailBox trashBoxSave = this.mailBoxService.save(trashBox);
+
+		boxesDefault.add(inBoxSave);
+		boxesDefault.add(outBoxSave);
+		boxesDefault.add(spamBoxSave);
+		boxesDefault.add(trashBoxSave);
+
+		ad.setMailBoxes(boxesDefault);
 
 		return ad;
 	}
@@ -58,6 +134,18 @@ public class AdministratorService {
 		Assert.isTrue(!this.adminRepository.exists(ad.getId()));
 		return this.adminRepository.save(ad);
 	}
+
+	public Administrator isRegister(final Administrator admin) {
+		final UserAccount a = admin.getUserAccount();
+		Assert.isTrue(a.getUsername() == null);
+		return this.adminRepository.save(admin);
+	}
+
+	public Administrator update(final Administrator admin) {
+		Assert.isTrue(LoginService.getPrincipal().getId() == admin.getUserAccount().getId());
+		return this.adminRepository.save(admin);
+	}
+
 	public Administrator getAdministratorByUserAccountId(final int userAccountId) {
 		Administrator res;
 		res = this.adminRepository.findByUserAccountId(userAccountId);
@@ -141,5 +229,10 @@ public class AdministratorService {
 			hw.subList(0, 2);
 			return hw;
 		}
+	}
+
+	public Administrator findByUserAccount(final int UserAccountId) {
+		final Administrator result = this.adminRepository.findByUserAccountId(UserAccountId);
+		return result;
 	}
 }

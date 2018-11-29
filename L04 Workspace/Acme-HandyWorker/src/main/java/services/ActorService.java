@@ -77,4 +77,14 @@ public class ActorService {
 		final Actor saveActor = this.actorRepository.save(actor);
 		return saveActor;
 	}
+
+	public Actor getActorByUserId(final Integer id) {
+		final Actor a = this.actorRepository.getActorByUserId(id);
+		return a;
+	}
+
+	public UserAccount getUserByActorId(final Integer id) {
+		final UserAccount u = this.actorRepository.getUserByUserActorId(id);
+		return u;
+	}
 }

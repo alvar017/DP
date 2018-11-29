@@ -139,7 +139,7 @@ public class FixUp extends DomainEntity {
 		this.applications = applications;
 	}
 
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public Category getCategory() {
 		return this.category;
 	}

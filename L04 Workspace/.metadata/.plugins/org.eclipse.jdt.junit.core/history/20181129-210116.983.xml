@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FixUpServiceTest" project="Acme-HandyWorker" tests="11" started="11" failures="0" errors="0" ignored="0">
+  <testsuite name="services.FixUpServiceTest" time="21.61">
+    <testcase name="testListingFixUp" classname="services.FixUpServiceTest" time="20.649"/>
+    <testcase name="testDeleteFixUp" classname="services.FixUpServiceTest" time="0.258"/>
+    <testcase name="testUpdateFixUp" classname="services.FixUpServiceTest" time="0.117"/>
+    <testcase name="testCreateFixUp" classname="services.FixUpServiceTest" time="0.023"/>
+    <testcase name="test1251" classname="services.FixUpServiceTest" time="0.094"/>
+    <testcase name="test1253" classname="services.FixUpServiceTest" time="0.07"/>
+    <testcase name="findAllFixUps" classname="services.FixUpServiceTest" time="0.094"/>
+    <testcase name="allFixUpsByFInder" classname="services.FixUpServiceTest" time="0.117"/>
+    <testcase name="testSaveFixUp" classname="services.FixUpServiceTest" time="0.071"/>
+    <testcase name="filterAllFixUps" classname="services.FixUpServiceTest" time="0.07"/>
+    <testcase name="testSuspiciousFixUp" classname="services.FixUpServiceTest" time="0.047"/>
+  </testsuite>
+</testrun>

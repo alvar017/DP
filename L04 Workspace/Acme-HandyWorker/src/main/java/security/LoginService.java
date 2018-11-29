@@ -21,6 +21,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
+import services.AdministratorService;
+
 @Service
 @Transactional
 public class LoginService implements UserDetailsService {
@@ -29,6 +31,9 @@ public class LoginService implements UserDetailsService {
 
 	@Autowired
 	UserAccountRepository	userRepository;
+
+	@Autowired
+	AdministratorService	administratorService;
 
 
 	// Business methods -------------------------------------------------------
@@ -73,5 +78,4 @@ public class LoginService implements UserDetailsService {
 
 		return result;
 	}
-
 }

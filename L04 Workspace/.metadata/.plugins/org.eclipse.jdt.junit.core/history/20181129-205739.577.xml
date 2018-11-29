@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ComplaintServiceTest" project="Acme-HandyWorker" tests="8" started="8" failures="0" errors="0" ignored="0">
+  <testsuite name="services.ComplaintServiceTest" time="96.539">
+    <testcase name="testListingComplaintWithoutReferee" classname="services.ComplaintServiceTest" time="70.008"/>
+    <testcase name="testSaveComplaint" classname="services.ComplaintServiceTest" time="4.429"/>
+    <testcase name="testListingFixUpHandyWorker" classname="services.ComplaintServiceTest" time="6.024"/>
+    <testcase name="testListingByReferee" classname="services.ComplaintServiceTest" time="6.609"/>
+    <testcase name="testFindAll" classname="services.ComplaintServiceTest" time="1.781"/>
+    <testcase name="testFindOne" classname="services.ComplaintServiceTest" time="1.782"/>
+    <testcase name="testAssignedRefereeToComplaint" classname="services.ComplaintServiceTest" time="5.601"/>
+    <testcase name="testCreateComplaint" classname="services.ComplaintServiceTest" time="0.305"/>
+  </testsuite>
+</testrun>

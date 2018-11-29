@@ -1,0 +1,53 @@
+
+package services;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.EndorsementRepository;
+import security.LoginService;
+import security.UserAccount;
+import domain.Customer;
+import domain.Endorsement;
+import domain.HandyWorker;
+
+@Service
+@Transactional
+public class EndorsementsService {
+
+	//Managed Repository -------------------	
+	@Autowired
+	private EndorsementRepository	endorsementRepository;
+	@Autowired
+	private CustomerService			customerService;
+	@Autowired
+	private HandyWorkerService		handyWorkerService;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------		
+	public Endorsement create() {
+		// Creo el customer que creará la endorsment
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		final Endorsement endorsement = new Endorsement();
+		return endorsement;
+	}
+
+	public Endorsement save(final Endorsement toSaveEndorsement) {
+		// Creo el customer que creará la endorsment
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		final Collection<HandyWorker> hws = this.handyWorkerService.getAllHandyWorkersByCustomer(customer.getId());
+		final Integer idEndorsable = toSaveEndorsement.getEndorsableRec().getId();
+		Assert.isTrue(customer.getId()==idEndorsable);
+		return this.endorsementRepository.save(toSaveEndorsement);
+	}
+}

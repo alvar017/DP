@@ -13,19 +13,18 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="handyWorker" key="selection"/>
+		<item value="crea" key="selection"/>
 		<list key="findhistory">
-			<item value="customer"/>
-			<item value="AUTHEN"/>
-			<item value="fix"/>
-			<item value="getf"/>
-			<item value="getcom"/>
-			<item value="domain.rep"/>
-			<item value="domain.cus"/>
-			<item value="domain.han"/>
+			<item value="crea"/>
+			<item value="domain.no"/>
+			<item value="domain.Han"/>
+			<item value="findAll"/>
+			<item value="catego"/>
+			<item value="cat"/>
+			<item value="handy"/>
+			<item value="hand"/>
 		</list>
 		<list key="replacehistory">
-			<item value="handyWorker"/>
 			<item value=""/>
 			<item value="Warranty"/>
 			<item value="Date"/>
@@ -33,10 +32,11 @@
 			<item value="http://"/>
 			<item value="http://app-0ed10681-16d9-4f8c-a16e-712b3f324487.cleverapps.io"/>
 			<item value="app-0ed10681-16d9-4f8c-a16e-712b3f324487"/>
+			<item value="acme-shout.hidora.com"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
 		<item value="389" key="DIALOG_Y_ORIGIN"/>
-		<item value="547" key="DIALOG_X_ORIGIN"/>
+		<item value="609" key="DIALOG_X_ORIGIN"/>
 	</section>
 </section>

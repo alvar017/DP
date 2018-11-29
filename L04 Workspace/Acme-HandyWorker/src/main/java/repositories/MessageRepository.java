@@ -12,9 +12,9 @@ import domain.Message;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 
-	@Query("select m from MailBox ma join ma.message m where ma.name=spambox")
+	@Query("select m from MailBox ma join ma.messages m where ma.name=spambox")
 	Collection<Message> getMessageSpamBox();
 
-	@Query("select ma.messae from Actor a join a.mailbox ma where ma.name = outbox and a.id=?1")
+	@Query("select ma.messages from Actor a join a.mailBoxes ma where ma.name = outbox and a.id=?1")
 	Collection<Message> getMessageOutBoxFromActor();
 }

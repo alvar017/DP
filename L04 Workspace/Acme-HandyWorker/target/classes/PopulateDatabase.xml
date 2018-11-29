@@ -9,6 +9,14 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     ">
 
+	<bean id="phase" class="domain.Phase">
+    	<property name="title" value="Titulo"/>
+        <property name="description" value="HolaEx"/>
+        <property name="startDate" value="2018/11/10 08:00" />
+        <property name="endDate" value="2018/11/10 08:00" />
+        <property name="fixUp" ref="fixUp1" />          
+    </bean>
+
     <!-- User accounts -->
 
     <bean id="userAccount1" class="security.UserAccount">
@@ -57,7 +65,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
 
         <property name="name" value="Ester" />
         <property name="surname" value="Exposito" />
-        <property name="middleName" value="" />
         <property name="SocialProfiles">
             <null />
         </property>
@@ -74,7 +81,6 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>
-        
         <property name="tutorials">
             <null />
         </property>
@@ -508,8 +514,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="commentCustomer" value="commentCus" />
         <property name="commentHandyWorker" value="commenthandy" />
         <property name="customer" ref="ancus03" />
-   		<property name="handyWorker"><null/></property>
         <property name="report" ref="anrep02" />
+        <property name="handyWorker"><null/></property>
+        
     </bean>
     
      <bean id="annot02" class="domain.Note">
@@ -519,8 +526,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="commentCustomer" value="commentCus" />
         <property name="commentHandyWorker" value="commenthandy" />
         <property name="customer" ref="ancus03" />
-           		<property name="handyWorker"><null/></property>
         <property name="report" ref="anrep01" />
+        <property name="handyWorker"><null/></property>
+        
     </bean>
     
     <!-- FINDER -->

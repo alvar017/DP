@@ -28,9 +28,9 @@ public class AdministratorServiceTest extends AbstractTest {
 	private AdministratorService	administratorService;
 
 
-	//	@Test
+	@Test
 	public void testSaveAdministrator() {
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		final Administrator saveAdministrator = this.administratorService.save(administrator);
@@ -39,6 +39,13 @@ public class AdministratorServiceTest extends AbstractTest {
 
 	@Test
 	public void testDashboard() {
+		final Administrator adminBox = this.administratorService.createFirstAdmin();
+		adminBox.getUserAccount().setUsername("AdminBox1");
+		adminBox.getUserAccount().setPassword("AdminBoxPass");
+		adminBox.setName("AdminBox");
+		adminBox.setSurname("AdminBoxSur");
+		final Administrator adminBoxSaved = this.administratorService.save(adminBox);
+		super.authenticate("AdminBox1");
 		final Administrator administrator = this.administratorService.create();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
@@ -60,4 +67,39 @@ public class AdministratorServiceTest extends AbstractTest {
 		final Collection<HandyWorker> x2 = this.administratorService.getTopThreeHandyWorker();
 		Assert.isTrue((p1 != null && p2 != null && p3 != null && p3 != null && p4 != null && z1 != null && z2 != null && z3 != null && z4 != null && z5 != null && x1 != null && x2 != null) == true);
 	}
+
+	@Test
+	public void testUpdateAdministrator() {
+		final Administrator administrator = this.administratorService.createFirstAdmin();
+		//
+		administrator.setName("Ana");
+		administrator.setSurname("navarro");
+		administrator.getUserAccount().setUsername("anita");
+		administrator.getUserAccount().setPassword("123456");
+		//
+
+		final Administrator administrator2 = this.administratorService.save(administrator);
+		//
+
+		super.authenticate("anita");
+		//
+
+		administrator2.setName("Anasssss");
+		administrator2.setSurname("navarrosssss");
+		final Administrator updateAdministrator = this.administratorService.update(administrator2);
+
+		Assert.isTrue(this.administratorService.findAll().contains(updateAdministrator));
+	}
+
+	@Test
+	public void testRegisterAdministrator() {
+		final Administrator ana = this.administratorService.createFirstAdmin();
+		ana.setName("Ana");
+		ana.setSurname("navarro");
+
+		final Administrator saveAna = this.administratorService.isRegister(ana);
+		Assert.isTrue(this.administratorService.findAll().contains(saveAna));
+
+	}
+
 }

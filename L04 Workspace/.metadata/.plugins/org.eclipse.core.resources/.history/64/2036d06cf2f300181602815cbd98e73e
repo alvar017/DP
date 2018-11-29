@@ -1,0 +1,105 @@
+package services;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.EndorsementRepository;
+import security.LoginService;
+import security.UserAccount;
+import domain.Customer;
+import domain.Endorsement;
+import domain.HandyWorker;
+
+@Service
+@Transactional
+public class EndorsementsService {
+
+	//Managed Repository -------------------	
+	@Autowired
+	private EndorsementRepository	endorsementRepository;
+	@Autowired
+	private CustomerService			customerService;
+	@Autowired
+	private HandyWorkerService		handyWorkerService;
+
+
+	//Supporting services ------------------
+
+	//Simple CRUD Methods ------------------		
+	public Endorsement create() {
+		// Creo el customer que creará la endorsment
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		final Endorsement endorsement = new Endorsement();
+		// El customer será el sender y luego creo la endorsement
+		endorsement.setEndorsableSender(customer);
+		return endorsement;
+	}
+
+	public Endorsement save(final Endorsement toSaveEndorsement) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		final Collection<HandyWorker> hws = this.handyWorkerService.getAllHandyWorkersByCustomer(customer.getId());
+		final Integer idEndorsable = toSaveEndorsement.getEndorsableRec().getId();
+		Assert.isTrue(customer.getId() == toSaveEndorsement.getEndorsableSender().getId());
+		Assert.isTrue(hws.contains(toSaveEndorsement.getEndorsableRec()) == true);
+		return this.endorsementRepository.save(toSaveEndorsement);
+	}
+
+	public Collection<Endorsement> getEndorsementBySender(final int idCustomer) {
+		return this.endorsementRepository.getEndorsementBySender(idCustomer);
+	}
+
+	public Collection<Endorsement> getEndorsementByReceiver(final int idCustomer) {
+		return this.endorsementRepository.getEndorsementByReceiver(idCustomer);
+	}
+
+	public Collection<Endorsement> findAll() {
+		return this.endorsementRepository.findAll();
+	}
+
+	public Endorsement findOne(final int idEndorsement) {
+		return this.endorsementRepository.findOne(idEndorsement);
+	}
+
+	public Collection<Endorsement> listing() {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		return this.endorsementRepository.getEndorsementBySender(customer.getId());
+	}
+
+	public Endorsement showing(final int idEndorsement) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		Assert.isTrue(this.endorsementRepository.findOne(idEndorsement) != null);
+		Assert.isTrue(this.endorsementRepository.findOne(idEndorsement).getEndorsableSender().equals(customer));
+		return this.endorsementRepository.findOne(idEndorsement);
+	}
+
+	public Endorsement update(final Endorsement endorsement) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		Assert.isTrue(this.endorsementRepository.findOne(endorsement.getId()) != null);
+		final Endorsement oldEndorsement = this.endorsementRepository.findOne(endorsement.getId());
+		Assert.isTrue(oldEndorsement.getEndorsableSender() == customer);
+		return this.endorsementRepository.save(endorsement);
+	}
+	public void delete(final Endorsement endorsement) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		Assert.isTrue(this.endorsementRepository.findOne(endorsement.getId()) != null);
+		final Endorsement oldEndorsement = this.endorsementRepository.findOne(endorsement.getId());
+		Assert.isTrue(oldEndorsement.getEndorsableSender() == customer);
+		this.endorsementRepository.delete(endorsement.getId());
+	}
+}

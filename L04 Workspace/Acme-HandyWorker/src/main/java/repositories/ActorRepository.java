@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import security.UserAccount;
 import domain.Actor;
 
 @Repository
@@ -17,4 +18,10 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 
 	@Query("select a from Actor a where a.isSuspicious=true")
 	Collection<Actor> findActorsSuspicious();
+
+	@Query("select a from Actor a join a.userAccount u where u.id = ?1")
+	Actor getActorByUserId(Integer id);
+
+	@Query("select u from Actor a join a.userAccount u where a.id = ?1")
+	UserAccount getUserByUserActorId(Integer id);
 }

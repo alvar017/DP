@@ -14,9 +14,6 @@ import domain.HandyWorker;
 @Repository
 public interface AdministratorRepository extends JpaRepository<Administrator, Integer> {
 
-	@Query("select a from Administrator a join a.userAccount ua where ua.id=?1")
-	Administrator findByUserAccountId(int userAccountId);
-
 	@Query("select f.complaints.size from FixUp f where (f.complaints.size=(select min(f1.complaints.size) from FixUp f1))")
 	Integer getMinComplaintPerFixUp();
 
@@ -49,4 +46,7 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 
 	@Query("select distinct hw from HandyWorker hw join hw.fixUps f order by f.complaints.size desc")
 	Collection<HandyWorker> getTopThreeHandyWorker();
+
+	@Query("select a from Administrator a join a.userAccount aua where aua.id=?1")
+	Administrator findByUserAccountId(int userAccountId);
 }

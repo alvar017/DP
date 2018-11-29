@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PhaseServiceTest" project="Acme-HandyWorker" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="services.PhaseServiceTest" time="20.601">
+    <testcase name="testDeletePhase" classname="services.PhaseServiceTest" time="20.484"/>
+    <testcase name="testSavePhase" classname="services.PhaseServiceTest" time="0.117"/>
+  </testsuite>
+</testrun>

@@ -13,6 +13,7 @@ import org.springframework.util.Assert;
 import repositories.ApplicationRepository;
 import repositories.HandyWorkerRepository;
 import utilities.AbstractTest;
+import domain.Administrator;
 import domain.Application;
 import domain.CreditCard;
 import domain.Customer;
@@ -40,6 +41,8 @@ public class ApplicationServiceTest extends AbstractTest {
 	private CustomerService			customerService;
 	@Autowired
 	private ApplicationRepository	applicationRepository;
+	@Autowired
+	private AdministratorService	administratorService;
 
 
 	@Test
@@ -187,4 +190,79 @@ public class ApplicationServiceTest extends AbstractTest {
 		Assert.isTrue(this.applicationService.findAllByCustomer(saveCustomer1).size() == 2);
 		Assert.isTrue(this.applicationService.findAllByCustomer(saveCustomer1).contains(saveApplication1) && this.applicationService.findAllByCustomer(saveCustomer1).contains(saveApplication1));
 	}
+
+	@Test
+	public void test1252() {
+		final Administrator adminBox = this.administratorService.createFirstAdmin();
+		adminBox.getUserAccount().setUsername("AdminBox");
+		adminBox.getUserAccount().setPassword("AdminBoxPass");
+		adminBox.setName("AdminBox");
+		adminBox.setSurname("AdminBoxSur");
+		final Administrator adminSaveBox = this.administratorService.save(adminBox);
+		super.authenticate("AdminBox");
+		Assert.isTrue(this.applicationService.minFixUp() == 0);
+		Assert.isTrue(this.applicationService.maxFixUp() == 2);
+		Assert.isTrue(this.applicationService.avgPerFixUp() == 1.5);
+		Assert.isTrue(this.applicationService.desviationPerFixUp() == 0.8660254037844386);
+	}
+
+	@Test
+	public void test1254() {
+		final Administrator adminBox = this.administratorService.createFirstAdmin();
+		adminBox.getUserAccount().setUsername("AdminBox");
+		adminBox.getUserAccount().setPassword("AdminBoxPass");
+		adminBox.setName("AdminBox");
+		adminBox.setSurname("AdminBoxSur");
+		final Administrator adminSaveBox = this.administratorService.save(adminBox);
+		super.authenticate("AdminBox");
+		Assert.isTrue(this.applicationService.minPricePerApplication() == 70.0);
+		Assert.isTrue(this.applicationService.maxPricePerApplication() == 90.0);
+		Assert.isTrue(this.applicationService.averagePriceApp() == 75.0);
+		Assert.isTrue(this.applicationService.desviationPriceApp() == 7.637626158259714);
+	}
+	@Test
+	public void test1255() {
+		final Administrator adminBox = this.administratorService.createFirstAdmin();
+		adminBox.getUserAccount().setUsername("AdminBox");
+		adminBox.getUserAccount().setPassword("AdminBoxPass");
+		adminBox.setName("AdminBox");
+		adminBox.setSurname("AdminBoxSur");
+		final Administrator adminSaveBox = this.administratorService.save(adminBox);
+		super.authenticate("AdminBox");
+		Assert.isTrue(this.applicationService.getRatioPending() == 16.66667);
+	}
+	@Test
+	public void test1256() {
+		final Administrator adminBox = this.administratorService.createFirstAdmin();
+		adminBox.getUserAccount().setUsername("AdminBox");
+		adminBox.getUserAccount().setPassword("AdminBoxPass");
+		adminBox.setName("AdminBox");
+		adminBox.setSurname("AdminBoxSur");
+		final Administrator adminSaveBox = this.administratorService.save(adminBox);
+		super.authenticate("AdminBox");
+		Assert.isTrue(this.applicationService.getRatioAccepted() == 66.66667);
+	}
+	@Test
+	public void test1257() {
+		final Administrator adminBox = this.administratorService.createFirstAdmin();
+		adminBox.getUserAccount().setUsername("AdminBox");
+		adminBox.getUserAccount().setPassword("AdminBoxPass");
+		adminBox.setName("AdminBox");
+		adminBox.setSurname("AdminBoxSur");
+		final Administrator adminSaveBox = this.administratorService.save(adminBox);
+		super.authenticate("AdminBox");
+		Assert.isTrue(this.applicationService.getRatioRejected() == 16.66667);
+	}
+	@Test
+	public void test1258() {
+		final Administrator adminBox = this.administratorService.createFirstAdmin();
+		adminBox.getUserAccount().setUsername("AdminBox");
+		adminBox.getUserAccount().setPassword("AdminBoxPass");
+		adminBox.setName("AdminBox");
+		adminBox.setSurname("AdminBoxSur");
+		final Administrator adminSaveBox = this.administratorService.save(adminBox);
+		super.authenticate("AdminBox");
+		Assert.isTrue(this.applicationService.getRatioUnmodifiable() == 16.66667);
+	}
+
 }

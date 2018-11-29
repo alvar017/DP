@@ -59,7 +59,7 @@ public class ReportServiceTest extends AbstractTest {
 		final Complaint saveComplaint1 = this.complaintService.save(c1);
 		super.unauthenticate();
 
-		final Administrator administrator = this.administratorService.create();
+		final Administrator administrator = this.administratorService.createFirstAdmin();
 		administrator.setName("Ana");
 		administrator.setSurname("navarro");
 		administrator.getUserAccount().setUsername("adminUser");
@@ -86,6 +86,52 @@ public class ReportServiceTest extends AbstractTest {
 
 		Assert.isTrue(this.reportService.findAll().contains(save));
 	}
-	//CARMEN
 
+	@Test
+	public void testUpdate() {
+
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+
+		final FixUp fixUp = this.fixUpService.create();
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+
+		final Complaint c1 = this.complaintService.create();
+		c1.setFixUp(saveFixUp);
+		final Complaint saveComplaint1 = this.complaintService.save(c1);
+		super.unauthenticate();
+
+		final Administrator administrator = this.administratorService.createFirstAdmin();
+		administrator.setName("Ana");
+		administrator.setSurname("navarro");
+		administrator.getUserAccount().setUsername("adminUser");
+		administrator.getUserAccount().setPassword("12345678");
+		final Administrator saveAdministrator = this.administratorService.save(administrator);
+		Assert.isTrue(this.administratorService.findAll().contains(saveAdministrator));
+		super.authenticate("adminUser");
+		final Referee referee = this.refereeService.create();
+		referee.setName("Alvaro");
+		referee.setSurname("alvaro");
+		referee.getUserAccount().setUsername("refereeUser");
+		referee.getUserAccount().setPassword("12345678");
+		final Referee saveReferee = this.refereeService.save(referee);
+		super.authenticate("refereeUser");
+
+		final Boolean refereeBefore = saveComplaint1.getReferee() != null;
+		this.complaintService.setReefereeToAComplaint(saveComplaint1);
+		final Boolean refereeAfter = saveComplaint1.getReferee() != null;
+		Assert.isTrue(refereeAfter != refereeBefore);
+
+		final Report re = this.reportService.create();
+		re.setComplaint(saveComplaint1);
+		final Report save = this.reportService.save(re);
+		save.setDescription("Descripción editada");
+		final Report saveReport = this.reportService.update(save);
+		Assert.isTrue(this.reportService.findAll().contains(saveReport));
+	}
 }
