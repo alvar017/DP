@@ -15,6 +15,7 @@ import javax.persistence.TemporalType;
 public class Phase extends DomainEntity {
 
 	private String	title;
+
 	private String	description;
 	private Date	startDate;
 	private Date	endDate;
@@ -53,7 +54,7 @@ public class Phase extends DomainEntity {
 		this.endDate = endDate;
 	}
 
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	public FixUp getFixUp() {
 		return this.fixUp;
 	}

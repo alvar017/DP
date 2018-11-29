@@ -32,11 +32,11 @@ public class ComplaintService {
 
 		final Complaint res = new Complaint();
 
-		final String attachment = "";
-		final String description = "";
 		final Date moment = LocalDate.now().toDate();
-		moment.setTime(moment.getTime() - 1);
 		final String ticker = this.fixUpService.randomTicker();
+
+		res.setMoment(moment);
+		res.setTicker(ticker);
 
 		return res;
 	}
@@ -85,4 +85,12 @@ public class ComplaintService {
 		return this.complaintRepository.getComplaintFixUpByHandyWorker2(hw);
 	}
 	//CARMEN
+
+	// 35.1 (FRAN)
+	public Collection<Complaint> getComplaintsByCustomer(final int id) {
+
+		return this.complaintRepository.findComplaintsByCustomer(id);
+	}
+	//FRAN
+
 }

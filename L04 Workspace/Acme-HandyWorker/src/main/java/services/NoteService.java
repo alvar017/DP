@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import repositories.NoteRepository;
+import security.Authority;
+import security.LoginService;
+import security.UserAccount;
 import domain.Note;
 
 @Service
@@ -36,17 +39,34 @@ public class NoteService {
 
 	//36.4 (CARMEN) --> Write a note regarding any of the reports that he or shes written (as long as it was
 	//saved in final mode).
+	//35.2 (FRAN)
 	public Note create() {
-		final Note note = new Note();
+		final Note res = new Note();
+		final UserAccount login = LoginService.getPrincipal();
+		final Authority hw = new Authority();
+		hw.setAuthority(Authority.HANDYWORKER);
+		final Authority c = new Authority();
+		hw.setAuthority(Authority.CUSTOMER);
+		final Authority r = new Authority();
+		hw.setAuthority(Authority.REFEREE);
+
+		if (login.getAuthorities().contains(hw))
+			res.setHandyWorker(this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId()));
+		else if (login.getAuthorities().contains(c))
+			res.setCustomer(this.customerService.getCustomerByUserAccountId(login.getId()));
+
+		//El report esta vacío porque se pondrá el valor por defecto en otro create
+		//		if (login.getAuthorities().contains(r)) {	
+		//			res.setReport(this.refereeService.findRefereeByReport(res.getReport()));
+		//		}
 
 		final Date moment = LocalDate.now().toDate();
-		final String commentCustomer = "";
-		final String commentHandyWorker = "";
-		final String commentReferee = "";
+		res.setMoment(moment);
 
-		return note;
+		return res;
 	}
 	//CARMEN
+	//FRAN
 
 	//CARMEN
 	public Note save(final Note note) {
@@ -67,11 +87,37 @@ public class NoteService {
 	}
 	//CARMEN
 
-	//36.5 (CARMEN) --> Write a comment in a note regarding any of the reports that he or shes written.
-	public Note updateRefereeComment(final Note note) {
+	//35.3 (FRAN)
+	//36.5 (CARMEN)
+	//37.5 (CARMEN)
+	public Note update(final Note note) {
 
-		Assert.isTrue(note.getReport().getComplaint().getReferee() != null);
+		final UserAccount login = LoginService.getPrincipal();
+		final Authority hw = new Authority();
+		hw.setAuthority(Authority.HANDYWORKER);
+		final Authority c = new Authority();
+		hw.setAuthority(Authority.CUSTOMER);
+		final Authority r = new Authority();
+		hw.setAuthority(Authority.REFEREE);
+
+		if (this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId()) != null) {
+			Assert.isTrue(note.getHandyWorker().getUserAccount().getId() == login.getId());
+			return this.noteRepository.save(note);
+
+		}
+
+		if (this.customerService.getCustomerByUserAccountId(login.getId()) != null) {
+			Assert.isTrue(note.getCustomer().getUserAccount().getId() == login.getId());
+			return this.noteRepository.save(note);
+		}
 		return this.noteRepository.save(note);
+
+		//El report esta vacío porque se pondrá el valor por defecto en otro create
+		//		if (login.getAuthorities().contains(r)) {	
+		//			res.setReport(this.refereeService.findRefereeByReport(res.getReport()));
+		//		}
+
 	}
+	//FRAN
 	//CARMEN
 }

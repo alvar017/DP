@@ -17,7 +17,7 @@ public class HandyWorker extends Endorsable {
 	private String					make;
 	///////////////////////////////////
 	private Collection<Application>	applications;
-	private Collection<Note>		notes;
+	//	private Collection<Note>		notes;
 	private Collection<Tutorial>	tutorials;
 	private Finder					finder;
 	private Collection<FixUp>		fixUps;
@@ -34,15 +34,15 @@ public class HandyWorker extends Endorsable {
 		this.fixUps = fixUps;
 	}
 
-	@OneToMany
-	@Valid
-	public Collection<Note> getNotes() {
-		return this.notes;
-	}
-
-	public void setNotes(final Collection<Note> notes) {
-		this.notes = notes;
-	}
+	//	@OneToMany
+	//	@Valid
+	//	public Collection<Note> getNotes() {
+	//		return this.notes;
+	//	}
+	//
+	//	public void setNotes(final Collection<Note> notes) {
+	//		this.notes = notes;
+	//	}
 	@OneToMany
 	@Valid
 	public Collection<Tutorial> getTutorials() {

@@ -218,4 +218,37 @@ public class ComplaintServiceTest extends AbstractTest {
 		Assert.isTrue(res.size() == 1);
 	}
 	//CARMEN
+
+	//35.1 (FRAN)
+	@Test
+	public void testFindAll() {
+
+		final Collection<Complaint> all = this.complaintService.findAll();
+		Assert.isTrue(all.size() == 6);
+	}
+	//FRAN
+
+	//35.1 (FRAN)
+	@Test
+	public void testFindOne() {
+
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("customerAuth");
+		customer.getUserAccount().setPassword("123456789");
+		this.customerService.save(customer);
+		super.authenticate("customerAuth");
+
+		final Complaint c = this.complaintService.create();
+		final FixUp fixUp = this.fixUpService.create();
+		final FixUp savedFixUp = this.fixUpService.save(fixUp);
+		c.setFixUp(savedFixUp);
+		final Complaint savedC = this.complaintService.save(c);
+
+		final Complaint one = this.complaintService.findOne(savedC.getId());
+
+		Assert.isTrue(savedC.getId() == one.getId());
+	}
+	//FRAN
 }

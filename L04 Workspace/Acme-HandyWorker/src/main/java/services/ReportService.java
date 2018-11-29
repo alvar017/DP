@@ -64,4 +64,5 @@ public class ReportService {
 		return this.reportRepository.findAll();
 	}
 	//CARMEN
+
 }

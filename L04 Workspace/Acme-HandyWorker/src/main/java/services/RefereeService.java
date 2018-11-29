@@ -16,6 +16,7 @@ import security.Authority;
 import security.LoginService;
 import security.UserAccount;
 import domain.Referee;
+import domain.Report;
 
 @Service
 @Transactional
@@ -72,5 +73,10 @@ public class RefereeService {
 	}
 
 	//Other Methods
+
+	//FRAN CARMEN
+	public Referee findRefereeByReport(final Report re) {
+		return this.refereeRepository.getRefereeByReport(re.getId());
+	}
 
 }

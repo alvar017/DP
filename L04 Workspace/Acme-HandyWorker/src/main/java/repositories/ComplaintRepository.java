@@ -28,4 +28,9 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Integer> {
 
 	@Query("select c from Complaint c where c.referee.id=?1")
 	Collection<Complaint> getComplaintByReferee(Integer idReferee);
+
+	//35.1 (FRAN) 
+	@Query("select f.complaints from FixUp f join f.customer c where c.id=?1")
+	Collection<Complaint> findComplaintsByCustomer(Integer id);
+	//FRAN
 }

@@ -65,4 +65,10 @@ public class HandyWorkerService {
 		return res;
 	}
 
+	//	public HandyWorker getHandyWorkerByUserAccountId(final int userAccountId) {
+	//		HandyWorker res;
+	//		res = this.handyWorkerRepository.findByUserAccountId(userAccountId);
+	//		return res;
+	//	}
+
 }

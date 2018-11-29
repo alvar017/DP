@@ -1,6 +1,7 @@
 
 package domain;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -99,7 +100,7 @@ public class Finder extends DomainEntity {
 	@ManyToMany
 	// FERRETE: @OnetoMany
 	public Collection<FixUp> getFixUps() {
-		return this.fixUps;
+		return new ArrayList<>(this.fixUps);
 	}
 
 	public void setFixUps(final Collection<FixUp> fixUps) {
