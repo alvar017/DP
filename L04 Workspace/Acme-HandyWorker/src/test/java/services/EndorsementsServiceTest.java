@@ -38,7 +38,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 
 
 	@Test
-	public void testSaveEndorsements() {
+	public void testSaveEndorsementsByCustomer() {
 		//Creo el customer al que se le asignara el endorsement
 		final Customer customer = this.customerService.create();
 		customer.setName("Alvaro");
@@ -56,6 +56,33 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
 		endorsement.setEndorsableRec(saveHandyWorker);
+		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
+		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
+	}
+
+	@Test
+	public void testSaveEndorsementsByHandyWorker() {
+		//Creo el customer al que se le asignara el endorsement
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp = this.fixUpService.create();
+		final HandyWorker hw = this.handyWorkerService.create();
+		hw.setName("hw");
+		hw.setSurname("hwsur");
+		hw.getUserAccount().setUsername("dogran2");
+		hw.getUserAccount().setPassword("dogran2");
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(hw);
+		fixUp.setHandyWorker(saveHandyWorker);
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		super.unauthenticate();
+		super.authenticate("dogran2");
+		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setEndorsableRec(saveCustomer);
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
 	}
@@ -200,4 +227,74 @@ public class EndorsementsServiceTest extends AbstractTest {
 		Assert.isTrue(!this.endorsementsService.findAll().contains(saveEndorsement));
 	}
 
+	@Test
+	public void testListingEndorsementsSendToMe() {
+		//Creo el customer al que se le asignara el endorsement
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp = this.fixUpService.create();
+		final HandyWorker hw = this.handyWorkerService.create();
+		hw.setName("hw");
+		hw.setSurname("hwsur");
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(hw);
+		fixUp.setHandyWorker(saveHandyWorker);
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setEndorsableRec(saveHandyWorker);
+		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
+		super.unauthenticate();
+
+		// Creo el otro customer que crea una endorsement
+		final Customer customer2 = this.customerService.create();
+		customer2.setName("Alvaro");
+		customer2.setSurname("alvaro");
+		customer2.getUserAccount().setUsername("dogran2");
+		customer2.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer2 = this.customerService.save(customer2);
+		super.authenticate("dogran2");
+		final FixUp fixUp2 = this.fixUpService.create();
+		final HandyWorker hw2 = this.handyWorkerService.create();
+		hw2.setName("hw");
+		hw2.setSurname("hwsur");
+		final HandyWorker saveHandyWorker2 = this.handyWorkerService.save(hw2);
+		fixUp2.setHandyWorker(saveHandyWorker2);
+		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
+		final Endorsement endorsement2 = this.endorsementsService.create();
+		endorsement2.setEndorsableRec(saveHandyWorker2);
+		final Endorsement saveEndorsement2 = this.endorsementsService.save(endorsement2);
+		Assert.isTrue(this.endorsementsService.findAll().size() == 2);
+		final Collection<Endorsement> endorses = this.endorsementsService.listing();
+		Assert.isTrue(this.endorsementsService.listing().contains(saveEndorsement2));
+	}
+
+	@Test
+	public void testCalificate() {
+		//Creo el customer al que se le asignara el endorsement
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+		final FixUp fixUp = this.fixUpService.create();
+		final HandyWorker hw = this.handyWorkerService.create();
+		hw.setName("hw");
+		hw.setSurname("hwsur");
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(hw);
+		fixUp.setHandyWorker(saveHandyWorker);
+		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setEndorsableRec(saveHandyWorker);
+		endorsement.setComments("bueno rápido servicial");
+		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
+		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
+		this.endorsementsService.calificateUser(saveEndorsement);
+		System.out.println(saveHandyWorker.getCalification());
+	}
 }

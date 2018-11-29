@@ -17,6 +17,7 @@ import javax.validation.Valid;
 public class Endorsable extends Actor {
 
 	private List<Endorsement>	endreferenced, enddone;
+	private Double				calification;
 
 
 	@OneToMany(mappedBy = "endorsableRec")
@@ -37,6 +38,14 @@ public class Endorsable extends Actor {
 
 	public void setEnddone(final List<Endorsement> enddone) {
 		this.enddone = enddone;
+	}
+
+	public Double getCalification() {
+		return this.calification;
+	}
+
+	public void setCalification(final Double calification) {
+		this.calification = calification;
 	}
 
 }

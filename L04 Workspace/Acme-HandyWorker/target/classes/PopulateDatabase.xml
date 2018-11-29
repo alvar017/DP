@@ -1,5 +1,5 @@
-<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidah´ de Sevilla 
-    * * The use of this project is hereby constrained to the conditions of the 
+<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidah´ de Sevilla
+    * * The use of this project is hereby constrained to the conditions of the
     * T<?xml version="1.0" encoding="UTF-8"?>
 DG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
 
@@ -9,8 +9,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     ">
 
-	<bean id="phase" class="domain.Phase">
-    	<property name="title" value="Titulo"/>
+    <bean id="phase" class="domain.Phase">
+        <property name="title" value="Titulo"/>
         <property name="description" value="HolaEx"/>
         <property name="startDate" value="2018/11/10 08:00" />
         <property name="endDate" value="2018/11/10 08:00" />
@@ -65,6 +65,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
 
         <property name="name" value="Ester" />
         <property name="surname" value="Exposito" />
+        <property name="middleName" value="" />
+        <property name="calification" value="0.5" />
         <property name="SocialProfiles">
             <null />
         </property>
@@ -103,7 +105,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="fixUp" ref="fixUp1" />
         <property name="creditCard">
             <null />
-		</property>            
+        </property>            
     </bean>
 
     <bean id="app02" class="domain.Application">
@@ -115,7 +117,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="fixUp" ref="fixUp1" />
                 <property name="creditCard">
             <null />
-		</property> 
+        </property>
     </bean>
 
     <bean id="Franapp01" class="domain.Application">
@@ -127,7 +129,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="fixUp" ref="FranfixUp1" />
                 <property name="creditCard">
             <null />
-		</property> 
+        </property>
     </bean>
 
 
@@ -140,7 +142,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="fixUp" ref="FranfixUp1" />
                 <property name="creditCard">
             <null />
-		</property> 
+        </property>
     </bean>   
     
     <bean id="capp01" class="domain.Application">
@@ -328,6 +330,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
          <property name="name" value="Carmen" />
          <property name="surname" value="Fernández" />
          <property name="middleName" value="" />
+         <property name="calification" value="0.5" />
          <property name="SocialProfiles"><null/></property>
          <property name="photo"><null/></property>
          <property name="mailBoxes"><null/></property>
@@ -373,11 +376,12 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="fixUp" ref="fixUp1" />
     </bean>
     
-    <!-- Customer --> 
+    <!-- Customer -->
     <bean id="ancus01" class="domain.Customer">
         <property name="name" value="David" />
         <property name="surname" value="Martín" />
         <property name="middleName" value="" />
+        <property name="calification" value="0.5" />
         <property name="email" value="david@gmail.com" />
         <property name="SocialProfiles">
             <null />
@@ -399,6 +403,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="name" value="Alvaro" />
         <property name="surname" value="Martín" />
         <property name="middleName" value="" />
+        <property name="calification" value="0.5" />
         <property name="email" value="alvaro@gmail.com" />
         <property name="SocialProfiles">
             <null />
@@ -413,13 +418,14 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endreferenced">
             <null />
         </property>    
-        <property name="fixUps"><null/></property> 
+        <property name="fixUps"><null/></property>
     </bean>
     
         <bean id="ancus03" class="domain.Customer">
         <property name="name" value="María del Gracia" />
         <property name="surname" value="Martín" />
         <property name="middleName" value="" />
+        <property name="calification" value="0.5" />
         <property name="email" value="maria@gmail.com" />
         <property name="SocialProfiles">
             <null />
@@ -436,7 +442,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         </property>   
         <property name="fixUps"><null/></property>   
     </bean>
-<!-- Referee --> 
+<!-- Referee -->
 
 <bean id="Franref01" class="domain.Referee">
         <property name="name" value="Manuel" />
@@ -453,10 +459,10 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>
         <property name="address" value="Calle Pozonegro Número 12" />
-		<property name="isBanned" value="false"/>
-		<property name="isSuspicious" value="false"/>
-		
-		
+        <property name="isBanned" value="false"/>
+        <property name="isSuspicious" value="false"/>
+        
+        
 </bean>
 
 <bean id="Franref02" class="domain.Referee">
@@ -474,8 +480,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>
         <property name="address" value="Calle Pozonegro Número 12" />
-		<property name="isBanned" value="false"/>
-		<property name="isSuspicious" value="false"/>
+        <property name="isBanned" value="false"/>
+        <property name="isSuspicious" value="false"/>
 </bean>
 
 <!-- Reports -->
@@ -489,7 +495,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="notes"><null/></property>
     </bean>
 
-<!-- report --> 
+<!-- report -->
     
     <bean id="anrep01" class="domain.Report">
     
@@ -506,7 +512,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="complaint" ref="com01" />
         <property name="notes"><null/></property>
        </bean>
-    <!-- notes --> 
+    <!-- notes -->
      <bean id="annot01" class="domain.Note">
     
         <property name="moment" value="2017/05/10" />
@@ -559,3 +565,5 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     
     
 </beans>
+
+

@@ -84,6 +84,31 @@ public class MessageServiceTest extends AbstractTest {
 		Assert.isTrue(trashBox.getMessages().contains(message));
 
 	}
+	//FERRETE
+	@Test
+	public void testSuspiciousMessage() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer savedCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+
+		final HandyWorker receiver = this.handyWorkerService.create();
+		receiver.setName("receiver");
+		receiver.setSurname("receiver");
+		receiver.getUserAccount().setUsername("receiver");
+		receiver.getUserAccount().setPassword("receiver");
+
+		final HandyWorker savedReceiver = this.handyWorkerService.save(receiver);
+		final Message message = this.messageService.create();
+		message.setBody("sex");
+		final Message saveMessage = this.messageService.exchangeMessage(message, savedReceiver.getId());
+		//Comprobar que el customer es sospechoso
+		Assert.isTrue(this.customerService.findOne(savedCustomer.getId()).getIsSuspicious() == true);
+	}
+
 	@Test
 	public void testExchangeMessage() {
 		final Administrator sender = this.administratorService.createFirstAdmin();

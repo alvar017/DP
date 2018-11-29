@@ -52,7 +52,7 @@ public class CustomerService {
 		authority.setAuthority(Authority.CUSTOMER);
 		autoridades.add(authority);
 		cuenta.setAuthorities(autoridades);
-
+		customer.setCalification(0.1);
 		customer.setUserAccount(cuenta);
 
 		final Collection<MailBox> boxesDefault = new ArrayList<>();
@@ -140,4 +140,9 @@ public class CustomerService {
 		final Collection<Customer> result = this.customerRepository.betterCustomer();
 		return result;
 	}
+
+	public Collection<Customer> getAllCustomersByHandyWorkers(final int hwId) {
+		return this.customerRepository.getAllCustomersByHandyWorkers(hwId);
+	}
+
 }

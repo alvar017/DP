@@ -2,7 +2,9 @@
 package services;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -31,21 +33,29 @@ public class MessageService {
 	@Autowired
 	ActorService				actorService;
 
+	@Autowired
+	private CustomerService		customerService;
+
+	private final List<String>	spamWords	= Arrays.asList("sex", "viagra", "cialis", "ferrete", "one million", "you've been selected", "Nigeria", "queryfonsiponsypaferrete", "sexo", "un millón", "ha sido seleccionado");
+
 
 	public Message create() {
 		final Collection<MailBox> boxes = new ArrayList<>();
 		final Message m = new Message();
+		m.setBody("");
 		m.setMailBoxes(boxes);
 		return m;
 	}
 
 	public Message exchangeMessage(final Message message, final Integer receiverId) {
+		this.checkSuspicious(message);
 		final MailBox inBoxReceiver = this.mailBoxService.getInBoxActor(receiverId);
 		inBoxReceiver.getMessages().add(message);
 
 		final UserAccount userSender = LoginService.getPrincipal();
 		final Actor sender = this.actorService.getActorByUserId(userSender.getId());
 		final MailBox outBoxReceiver = this.mailBoxService.getOutBoxActor(sender.getId());
+
 		outBoxReceiver.getMessages().add(message);
 
 		return message;
@@ -75,5 +85,11 @@ public class MessageService {
 
 		return message;
 
+	}
+
+	private void checkSuspicious(final Message msg) {
+		for (final String word : this.spamWords)
+			if (msg.getBody().contains(word))
+				this.customerService.getCustomerByUserAccountId(LoginService.getPrincipal().getId()).setIsSuspicious(true);
 	}
 }

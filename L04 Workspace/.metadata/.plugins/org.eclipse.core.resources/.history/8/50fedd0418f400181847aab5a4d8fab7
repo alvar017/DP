@@ -1,0 +1,162 @@
+
+package services;
+
+import java.util.Collection;
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import utilities.AbstractTest;
+import domain.Administrator;
+import domain.Customer;
+import domain.HandyWorker;
+import domain.MailBox;
+import domain.Message;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {
+	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
+})
+@Transactional
+public class MessageServiceTest extends AbstractTest {
+
+	@Autowired
+	private MessageService			messageService;
+
+	@Autowired
+	private CustomerService			customerService;
+
+	@Autowired
+	private HandyWorkerService		handyWorkerService;
+
+	@Autowired
+	private MailBoxService			mailBoxService;
+
+	//	@Autowired
+	//	private UserAccountService		userAccountService;
+
+	@Autowired
+	private AdministratorService	administratorService;
+
+
+	@Test
+	public void testCreateMessage() {
+		final Message m = this.messageService.create();
+		Assert.notNull(m);
+	}
+
+	@Test
+	public void testDelete() {
+		final Customer customBox = this.customerService.create();
+		customBox.setName("customBox");
+		customBox.setSurname("customBox");
+		customBox.getUserAccount().setUsername("customBox");
+		customBox.getUserAccount().setPassword("customBox");
+
+		final Message message = this.messageService.create();
+
+		final Collection<MailBox> mailBoxes = customBox.getMailBoxes();
+		for (final MailBox mailBox : mailBoxes)
+			if (mailBox.getName() == "inBox")
+				mailBox.getMessages().add(message);
+		final Customer customBoxSaved = this.customerService.save(customBox);
+
+		super.authenticate("customBox");
+
+		final Message messageDelete = this.messageService.delete(message);
+
+		MailBox inBox = null;
+		MailBox trashBox = null;
+		final Collection<MailBox> mailBoxesSaved = customBoxSaved.getMailBoxes();
+		for (final MailBox mailBox : mailBoxesSaved)
+			if (mailBox.getName() == "inBox")
+				inBox = mailBox;
+			else if (mailBox.getName() == "trashBox")
+				trashBox = mailBox;
+
+		Assert.isTrue(!inBox.getMessages().contains(message));
+		Assert.isTrue(trashBox.getMessages().contains(message));
+
+	}
+	//FERRETE
+	@Test
+	public void testSuspiciousFixUp() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
+		final Customer savedCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
+
+		final HandyWorker receiver = this.handyWorkerService.create();
+		receiver.setName("receiver");
+		receiver.setSurname("receiver");
+		receiver.getUserAccount().setUsername("receiver");
+		receiver.getUserAccount().setPassword("receiver");
+
+		final HandyWorker savedReceiver = this.handyWorkerService.save(receiver);
+		final Message message = this.messageService.create();
+		message.setBody("sex");
+		final Message saveMessage = this.messageService.exchangeMessage(message, savedReceiver.getId());
+		//Comprobar que el customer está baneado
+		Assert.isTrue(this.customerService.findOne(savedCustomer.getId()).getIsSuspicious() == true);
+	}
+
+	@Test
+	public void testExchangeMessage() {
+		final Administrator sender = this.administratorService.createFirstAdmin();
+		sender.setName("Alvaro");
+		sender.setSurname("alvaro");
+		sender.getUserAccount().setUsername("dogran");
+		sender.getUserAccount().setPassword("123456789");
+		final Administrator saveSender = this.administratorService.save(sender);
+		super.authenticate("dogran");
+
+		final HandyWorker receiver = this.handyWorkerService.create();
+		receiver.setName("receiver");
+		receiver.setSurname("receiver");
+		receiver.getUserAccount().setUsername("receiver");
+		receiver.getUserAccount().setPassword("receiver");
+		final HandyWorker savedReceiver = this.handyWorkerService.save(receiver);
+
+		final Message message = this.messageService.create();
+
+		final Message prueba = this.messageService.exchangeMessage(message, savedReceiver.getId());
+
+		final Collection<MailBox> boxesReceiverCollection = savedReceiver.getMailBoxes();
+		final Collection<MailBox> boxesSenderCollection = saveSender.getMailBoxes();
+
+		final List<MailBox> boxesReceiverList = (List<MailBox>) boxesReceiverCollection;
+		final List<MailBox> boxesSenderList = (List<MailBox>) boxesSenderCollection;
+
+		MailBox inBoxReceiver = this.mailBoxService.create();
+
+		MailBox outBoxSender = this.mailBoxService.create();
+
+		MailBox outBoxReceiver = this.mailBoxService.create();
+
+		for (final MailBox mailBox : boxesReceiverList)
+			if (mailBox.getName() == "inBox")
+				inBoxReceiver = mailBox;
+
+		for (final MailBox mailBox : boxesSenderList)
+			if (mailBox.getName() == "outBox")
+				outBoxSender = mailBox;
+
+		for (final MailBox mailBox : boxesReceiverList)
+			if (mailBox.getName() == "outBox")
+				outBoxReceiver = mailBox;
+
+		Assert.isTrue(inBoxReceiver.getMessages().contains(message));
+		Assert.isTrue(outBoxSender.getMessages().contains(message));
+		Assert.isTrue(!outBoxReceiver.getMessages().contains(message));
+
+	}
+}

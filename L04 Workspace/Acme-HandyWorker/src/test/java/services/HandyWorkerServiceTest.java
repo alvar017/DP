@@ -16,6 +16,7 @@ import org.springframework.util.Assert;
 import utilities.AbstractTest;
 import domain.Administrator;
 import domain.HandyWorker;
+import domain.Tutorial;
 
 @ContextConfiguration(locations = {
 	"classpath:spring/datasource.xml", "classpath:spring/config/packages.xml"
@@ -29,6 +30,9 @@ public class HandyWorkerServiceTest extends AbstractTest {
 
 	@Autowired
 	private AdministratorService	administratorService;
+
+	@Autowired
+	private TutorialService			tutorialService;
 
 
 	@Test
@@ -93,4 +97,26 @@ public class HandyWorkerServiceTest extends AbstractTest {
 
 	}
 
+	@Test
+	public void testFindHWByTutorial() {
+		//CREAR HW
+		final HandyWorker handyWorker = this.handyWorkerService.create();
+		handyWorker.setName("Ferrete");
+		handyWorker.setSurname("Ferrete");
+		handyWorker.getUserAccount().setUsername("dogran");
+		handyWorker.getUserAccount().setPassword("123456789");
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
+		super.authenticate("dogran");
+		//CREAR tutorial
+		final Tutorial tutorial1 = this.tutorialService.create();
+
+		//ASIGNAR HW
+		tutorial1.setHandyWorker(saveHandyWorker);
+
+		//GUARDAR TUTORIALS
+		final Tutorial savedTutorial = this.tutorialService.save(tutorial1);
+
+		Assert.isTrue(this.handyWorkerService.findByTutorial(savedTutorial).getId() == saveHandyWorker.getId());
+
+	}
 }

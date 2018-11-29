@@ -1,6 +1,9 @@
 
 package services;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -87,6 +90,30 @@ public class TutorialServiceTest extends AbstractTest {
 		Assert.isTrue(tutorialSaved.getHandyWorker().equals(saveHandyWorker));
 		this.tutorialService.delete(tutorialSaved);
 		Assert.isTrue(!this.tutorialService.findAll().contains(tutorialSaved));
+	}
+
+	@Test
+	public void testFindAllTutorialsByHW() {
+		//CREAR HW
+		final HandyWorker handyWorker = this.handyWorkerService.create();
+		handyWorker.setName("Ferrete");
+		handyWorker.setSurname("Ferrete");
+		handyWorker.getUserAccount().setUsername("dogran");
+		handyWorker.getUserAccount().setPassword("123456789");
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
+		super.authenticate("dogran");
+		//CREAR tutorial
+		final Tutorial tutorial1 = this.tutorialService.create();
+		final Tutorial tutorial2 = this.tutorialService.create();
+		final Tutorial tutorial3 = this.tutorialService.create();
+		final Tutorial tutorial4 = this.tutorialService.create();
+		//ASIGNAR HW
+		final Collection<Tutorial> tutorials = Arrays.asList(tutorial1, tutorial2, tutorial3, tutorial4);
+		//GUARDAR TUTORIALS
+		saveHandyWorker.setTutorials(tutorials);
+		System.out.println(this.tutorialService.findAllByHW(saveHandyWorker));
+		Assert.isTrue(this.tutorialService.findAllByHW(saveHandyWorker).size() == 4);
+
 	}
 
 }

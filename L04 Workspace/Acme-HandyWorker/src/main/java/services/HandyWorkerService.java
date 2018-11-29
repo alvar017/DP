@@ -18,6 +18,7 @@ import security.UserAccount;
 import domain.Administrator;
 import domain.HandyWorker;
 import domain.MailBox;
+import domain.Tutorial;
 
 @Service
 @Transactional
@@ -49,6 +50,7 @@ public class HandyWorkerService {
 		autoridades.add(authority);
 		cuenta.setAuthorities(autoridades);
 
+		hw.setCalification(0.1);
 		hw.setUserAccount(cuenta);
 
 		final Collection<MailBox> boxesDefault = new ArrayList<>();
@@ -129,4 +131,9 @@ public class HandyWorkerService {
 	public HandyWorker findByUserAccountId(final int id) {
 		return this.handyWorkerRepository.findByUserAccountId(id);
 	}
+
+	public HandyWorker findByTutorial(final Tutorial tutorial) {
+		return tutorial.getHandyWorker();
+	}
+
 }

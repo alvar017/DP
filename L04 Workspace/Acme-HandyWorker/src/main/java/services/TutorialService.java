@@ -59,4 +59,8 @@ public class TutorialService {
 		this.tutorialRepository.delete(tutorial);
 	}
 
+	public Collection<Tutorial> findAllByHW(final HandyWorker hw) {
+		return hw.getTutorials();
+	}
+
 }
