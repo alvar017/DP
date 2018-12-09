@@ -13,6 +13,7 @@ import repositories.ComplaintRepository;
 import security.LoginService;
 import security.UserAccount;
 import domain.Complaint;
+import domain.FixUp;
 import domain.Referee;
 
 @Service
@@ -88,5 +89,9 @@ public class ComplaintService {
 		Assert.isTrue(this.refereeService.findByUserAccountId(login.getId()) != null);
 		final Referee referee = this.refereeService.findByUserAccountId(login.getId());
 		return this.complaintRepository.getComplaintByReferee(referee.getId());
+	}
+
+	public Collection<Complaint> getComplaintByFixUp(final FixUp fixUp) {
+		return this.complaintRepository.getComplaintByFixUp(fixUp.getId());
 	}
 }

@@ -25,7 +25,7 @@
       </header>
       
       <div class="content">
-          <table width="50%" border="1" align="center">
+          <table width="50%" align="center">
   				<TR>
     					<TD ROWSPAN=2><i><strong><spring:message code="customer.showing.details" /></strong></i>
     						<p>
@@ -60,7 +60,17 @@
   				<TR>
     				    <TD><i><strong><spring:message code="customer.showing.attachment" /></strong></i>
         					<p>
-
+								<center><i>Applications</i></center>
+								<jstl:forEach var="application" items="${applications}">
+  										<jstl:out value="${application.applier.name}"></jstl:out>'s application, <jstl:out value="${application.comments}"></jstl:out>
+  										<br>
+  								</jstl:forEach>
+  								<br>
+  								<center><i>Complaints</i></center>
+								<jstl:forEach var="complaint" items="${complaints}">
+  										<jstl:out value="${complaint.ticker}"></jstl:out>, <jstl:out value="${complaint.description}"></jstl:out>
+  										<br>
+  								</jstl:forEach> 
         					</p>
         				</TD>
   				</TR>

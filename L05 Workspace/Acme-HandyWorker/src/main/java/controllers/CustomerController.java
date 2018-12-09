@@ -18,9 +18,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.CategoryService;
+import services.ApplicationService;
+import services.ComplaintService;
+import services.CustomerService;
 import services.FixUpService;
+import domain.Application;
 import domain.Category;
+import domain.Complaint;
 import domain.FixUp;
 
 @Controller
@@ -28,8 +32,13 @@ import domain.FixUp;
 public class CustomerController extends AbstractController {
 
 	@Autowired
-	private FixUpService	fixUpService;
-	private CategoryService	categoryService;
+	private FixUpService		fixUpService;
+	@Autowired
+	private ComplaintService	complaintService;
+	@Autowired
+	private ApplicationService	applicationService;
+	@Autowired
+	private CustomerService		customerService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -60,12 +69,16 @@ public class CustomerController extends AbstractController {
 
 		final FixUp fixUp = this.fixUpService.findOne(463);
 		final Category category = fixUp.getCategory();
+		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
+		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
 		result = new ModelAndView("customer/action-2");
 		result.addObject("fixUp", fixUp);
 		result.addObject("category", category);
 		result.addObject("language", language);
+		result.addObject("applications", applications);
+		result.addObject("complaints", complaints);
 
 		return result;
 	}
