@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.security.access.vote.AuthenticatedVoter"/>
 <fullyQualifiedTypeName name="security.LoginController"/>
 <fullyQualifiedTypeName name="services.CategoryService"/>
 <fullyQualifiedTypeName name="repositories.ApplicationRepository"/>
@@ -40,7 +39,6 @@
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="services.MailBoxService"/>
 <fullyQualifiedTypeName name="services.HandyWorkerService"/>
-<fullyQualifiedTypeName name="domain.Category"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="services.FixUpService"/>
+<fullyQualifiedTypeName name="domain.Category"/>
+<fullyQualifiedTypeName name="org.springframework.context.i18n.LocaleContextHolder"/>
 </qualifiedTypeNameHistroy>

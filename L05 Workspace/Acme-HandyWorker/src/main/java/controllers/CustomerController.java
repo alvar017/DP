@@ -13,11 +13,14 @@ package controllers;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.CategoryService;
 import services.FixUpService;
+import domain.Category;
 import domain.FixUp;
 
 @Controller
@@ -26,6 +29,7 @@ public class CustomerController extends AbstractController {
 
 	@Autowired
 	private FixUpService	fixUpService;
+	private CategoryService	categoryService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -54,7 +58,14 @@ public class CustomerController extends AbstractController {
 	public ModelAndView action2() {
 		ModelAndView result;
 
+		final FixUp fixUp = this.fixUpService.findOne(463);
+		final Category category = fixUp.getCategory();
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
 		result = new ModelAndView("customer/action-2");
+		result.addObject("fixUp", fixUp);
+		result.addObject("category", category);
+		result.addObject("language", language);
 
 		return result;
 	}

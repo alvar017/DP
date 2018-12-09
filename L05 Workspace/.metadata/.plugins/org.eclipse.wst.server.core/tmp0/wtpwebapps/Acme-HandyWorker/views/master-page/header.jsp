@@ -65,7 +65,7 @@
  
   </header><!-- / #main-header -->
 
-<div>
-	<a href="?language=en">en</a> | <a href="?language=es">es</a>
+<div class=language>
+	<a href="?language=en"><img width="20px" src="images/uk.png" alt="en" /></a><a href="?language=es"><img width="20px" src="images/spain.png" alt="en" /></a>
 </div>
 
