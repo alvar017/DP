@@ -7,11 +7,16 @@
  * http://www.tdg-seville.info/License.html
  * 
  */
- 
+
 table {
+	/*
 	border: 1px solid #666;
 	width: 80%;
 	margin: 20px 0 20px 0 !important;
+	*/
+	margin: 0 auto;
+	border-collapse: separate;
+	text-align:center;
 }
 
 th,td {

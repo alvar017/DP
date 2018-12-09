@@ -21,7 +21,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
 <fullyQualifiedTypeName name="services.RefereeService"/>
-<fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="domain.Complaint"/>
 <fullyQualifiedTypeName name="services.PhaseService"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
@@ -29,7 +28,6 @@
 <fullyQualifiedTypeName name="domain.Customer"/>
 <fullyQualifiedTypeName name="domain.Report"/>
 <fullyQualifiedTypeName name="repositories.EndorsementRepository"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="domain.Endorsement"/>
 <fullyQualifiedTypeName name="services.EndorsementsService"/>
 <fullyQualifiedTypeName name="services.WarrantyService"/>
@@ -40,11 +38,9 @@
 <fullyQualifiedTypeName name="repositories.TutorialRepository"/>
 <fullyQualifiedTypeName name="utilities.AbstractTest"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
-<fullyQualifiedTypeName name="services.FixUpService"/>
 <fullyQualifiedTypeName name="services.MailBoxService"/>
 <fullyQualifiedTypeName name="services.HandyWorkerService"/>
 <fullyQualifiedTypeName name="domain.Category"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="domain.Message"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="services.CustomerService"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="domain.FixUp"/>
+<fullyQualifiedTypeName name="services.FixUpService"/>
 </qualifiedTypeNameHistroy>

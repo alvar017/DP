@@ -19,7 +19,7 @@
     <a title="AcmeTitle" href="Aqui pondré la dirección de la master page"><img src="images/logo.png" alt="Logo" /></a>
  
     <nav>
-<ul id="jMenu">
+		<ul id="jMenu">
 		<!-- Do not forget the "fNiv" class for the first level links !! -->
 		<security:authorize access="hasRole('ADMIN')">
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>

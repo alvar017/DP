@@ -10,13 +10,23 @@
 
 package controllers;
 
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.FixUpService;
+import domain.FixUp;
+
 @Controller
 @RequestMapping("/customer")
 public class CustomerController extends AbstractController {
+
+	@Autowired
+	private FixUpService	fixUpService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -30,7 +40,10 @@ public class CustomerController extends AbstractController {
 	public ModelAndView action1() {
 		ModelAndView result;
 
+		final Collection<FixUp> fixUps = this.fixUpService.listing();
+
 		result = new ModelAndView("customer/action-1");
+		result.addObject("fixUps", fixUps);
 
 		return result;
 	}
