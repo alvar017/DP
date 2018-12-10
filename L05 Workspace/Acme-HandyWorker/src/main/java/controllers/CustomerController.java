@@ -49,13 +49,13 @@ public class CustomerController extends AbstractController {
 
 	// Action-1 ---------------------------------------------------------------		
 
-	@RequestMapping("/action-1")
+	@RequestMapping("/listingFixUpTasks")
 	public ModelAndView action1() {
 		ModelAndView result;
 
 		final Collection<FixUp> fixUps = this.fixUpService.listing();
 
-		result = new ModelAndView("customer/action-1");
+		result = new ModelAndView("customer/listingFixUpTasks");
 		result.addObject("fixUps", fixUps);
 
 		return result;
@@ -74,6 +74,26 @@ public class CustomerController extends AbstractController {
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
 		result = new ModelAndView("customer/action-2");
+		result.addObject("fixUp", fixUp);
+		result.addObject("category", category);
+		result.addObject("language", language);
+		result.addObject("applications", applications);
+		result.addObject("complaints", complaints);
+
+		return result;
+	}
+
+	@RequestMapping("fixUp/customer/editFixUpTask")
+	public ModelAndView editFixUpTask() {
+		ModelAndView result;
+
+		final FixUp fixUp = this.fixUpService.findOne(463);
+		final Category category = fixUp.getCategory();
+		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
+		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		result = new ModelAndView("fixUp/customer/editFixUpTask");
 		result.addObject("fixUp", fixUp);
 		result.addObject("category", category);
 		result.addObject("language", language);

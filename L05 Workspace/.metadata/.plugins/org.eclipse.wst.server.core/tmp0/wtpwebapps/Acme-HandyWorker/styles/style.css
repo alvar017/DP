@@ -1,5 +1,14 @@
 .language{text-align: right;}
 
+.lupa{float: right;}
+
+.footer{align: bottom;}
+
+.formularioEdicion{
+	margin: 15px 0;
+	margin-left: 48px;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -20,7 +29,11 @@ h1 {
 
 h2 {
 	margin: 15px 0;
-	margin-left: 30px;
+	margin-left: 48px;
+}
+
+table {
+	margin-left: 63px;
 }
  
 p {

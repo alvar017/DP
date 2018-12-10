@@ -21,13 +21,19 @@
   
     <article>
       <header>
-        <h1><spring:message code="customer.welcome.listing" /><jstl:out value="${fixUp.ticker}"></jstl:out></h1>
+        <h2>
+        	<spring:message code="customer.welcome.listing" />
+        	<jstl:out value="${fixUp.ticker}"></jstl:out>
+        	<a title="AcmeTitle" href="Aqui pondré la dirección de la master page"><img src="images/edit.png" alt="Edit" width="3%"/></a>
+        	<a title="AcmeTitle" href="Aqui pondré la dirección de la master page"><img src="images/delete.png" alt="Delete" width="3%"/></a>
+        </h2>
       </header>
       
       <div class="content">
-          <table width="50%" align="center">
+          <img class="lupa" src="images/lupa.png" alt="Edit" width="19%"/>
+          <table>
   				<TR>
-    					<TD ROWSPAN=2><i><strong><spring:message code="customer.showing.details" /></strong></i>
+    					<TD><i><strong><spring:message code="customer.showing.details" /></strong></i>
     						<p>
     							<spring:message code="customer.showing.createDate" /><jstl:out value="${fixUp.moment}"></jstl:out>
     							<br>
@@ -56,8 +62,8 @@
         				<TD><i><strong><spring:message code="customer.showing.description" /></strong></i>
         					<p><jstl:out value="${fixUp.description}"></jstl:out></p>
         				</TD>
-  				</TR>
-  				<TR>
+  				
+  				
     				    <TD><i><strong><spring:message code="customer.showing.attachment" /></strong></i>
         					<p>
 								<center><i>Applications</i></center>

@@ -16,14 +16,19 @@
       
 <tiles-definitions>
 
-	<definition name="customer/action-1" extends="master.page">	
-		<put-attribute name="title" value="Cliente: Acción 1" />
+	<definition name="customer/listingFixUpTasks" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Listado de reparaciones" />
 		<put-attribute name="body" value="/views/customer/action-1.jsp" />
 	</definition>
 	
 	<definition name="customer/action-2" extends="master.page">	
-		<put-attribute name="title" value="Cliente: Acción 2" />
+		<put-attribute name="title" value="Cliente: Mostrar reparacion" />
 		<put-attribute name="body" value="/views/customer/action-2.jsp" />
+	</definition>
+	
+		<definition name="fixUp/customer/editFixUpTask" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Editar reparación" />
+		<put-attribute name="body" value="/views/customer/edit.jsp" />
 	</definition>
 	
 </tiles-definitions>
