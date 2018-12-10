@@ -28,7 +28,12 @@
   </tr>
   <jstl:forEach var="fixUp" items="${fixUps}">
   	<tr>
+  		<!--
   		<td><jstl:out value="${fixUp.ticker}"></jstl:out></td>
+  		 -->
+  		 <td>
+  		 	<a href="customer/action-2.do?fixUpId=${fixUp.id}"><jstl:out value="${fixUp.ticker}"></jstl:out></a>
+  		 </td>
   		<td><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out></td>
   		<td><jstl:out value="${fixUp.description}"></jstl:out></td>
   	</tr>

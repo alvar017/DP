@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
 import services.ComplaintService;
+import services.CustomerService;
 import services.FixUpService;
 import domain.Application;
 import domain.Category;
@@ -37,6 +38,10 @@ public class CustomerController extends AbstractController {
 	private ComplaintService	complaintService;
 	@Autowired
 	private ApplicationService	applicationService;
+	@Autowired
+	private CustomerService		customerService;
+	@Autowired
+	private RequestParam		req;
 
 
 	// Constructors -----------------------------------------------------------

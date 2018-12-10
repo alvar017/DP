@@ -16,11 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
 import services.ComplaintService;
+import services.CustomerService;
 import services.FixUpService;
 import domain.Application;
 import domain.Category;
@@ -37,6 +37,8 @@ public class CustomerController extends AbstractController {
 	private ComplaintService	complaintService;
 	@Autowired
 	private ApplicationService	applicationService;
+	@Autowired
+	private CustomerService		customerService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -62,11 +64,10 @@ public class CustomerController extends AbstractController {
 	// Action-2 ---------------------------------------------------------------		
 
 	@RequestMapping("/action-2")
-	public ModelAndView action2(@RequestParam("fixUpId") final int fixUpId) {
+	public ModelAndView action2() {
 		ModelAndView result;
 
-		//		final FixUp fixUp = this.fixUpService.findOne(463);
-		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+		final FixUp fixUp = this.fixUpService.findOne(463);
 		final Category category = fixUp.getCategory();
 		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
 		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
@@ -81,6 +82,7 @@ public class CustomerController extends AbstractController {
 
 		return result;
 	}
+
 	@RequestMapping("fixUp/customer/editFixUpTask")
 	public ModelAndView editFixUpTask() {
 		ModelAndView result;
