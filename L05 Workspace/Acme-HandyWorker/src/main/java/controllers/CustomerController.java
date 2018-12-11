@@ -80,26 +80,26 @@ public class CustomerController extends AbstractController {
 	}
 	// Action-2 ---------------------------------------------------------------		
 
-	@RequestMapping("/action-2")
-	public ModelAndView action2(@RequestParam("fixUpId") final int fixUpId) {
-		ModelAndView result;
-
-		//		final FixUp fixUp = this.fixUpService.findOne(463);
-		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
-		final Category category = fixUp.getCategory();
-		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
-		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
-		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
-
-		result = new ModelAndView("customer/action-2");
-		result.addObject("fixUp", fixUp);
-		result.addObject("category", category);
-		result.addObject("language", language);
-		result.addObject("applications", applications);
-		result.addObject("complaints", complaints);
-
-		return result;
-	}
+	//	@RequestMapping("/customer/showFixUp.do")
+	//	public ModelAndView action2(@RequestParam("fixUpId") final int fixUpId) {
+	//		ModelAndView result;
+	//
+	//		//		final FixUp fixUp = this.fixUpService.findOne(463);
+	//		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+	//		final Category category = fixUp.getCategory();
+	//		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
+	//		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
+	//		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+	//
+	//		result = new ModelAndView("fixUp/customer/showFixUp");
+	//		result.addObject("fixUp", fixUp);
+	//		result.addObject("category", category);
+	//		result.addObject("language", language);
+	//		result.addObject("applications", applications);
+	//		result.addObject("complaints", complaints);
+	//
+	//		return result;
+	//	}
 	@RequestMapping("fixUp/customer/editFixUpTask")
 	public ModelAndView editFixUpTask(@RequestParam("fixUpId") final int fixUpId) {
 		ModelAndView result;

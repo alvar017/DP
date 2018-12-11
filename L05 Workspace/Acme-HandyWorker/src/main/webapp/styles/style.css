@@ -4,7 +4,14 @@
 
 .footer{align: bottom;}
 
+.create{text-align: center;}
+
 .formularioEdicion{
+	margin: 15px 0;
+	margin-left: 48px;
+}
+
+.listado{
 	margin: 15px 0;
 	margin-left: 48px;
 }

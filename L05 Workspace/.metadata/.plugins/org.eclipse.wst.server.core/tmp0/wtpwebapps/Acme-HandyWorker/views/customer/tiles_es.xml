@@ -16,24 +16,29 @@
       
 <tiles-definitions>
 
-	<definition name="customer/listingFixUpTasks" extends="master.page">	
+	<definition name="fixUp/customer/listingFixUpTasks" extends="master.page">	
 		<put-attribute name="title" value="Cliente: Listado de reparaciones" />
-		<put-attribute name="body" value="/views/customer/action-1.jsp" />
+		<put-attribute name="body" value="/views/customer/listingFixUps.jsp" />
 	</definition>
 	
 	<definition name="customer/deleteFixUpTask" extends="master.page">	
 		<put-attribute name="title" value="Customer: Listing FixUp Tasks" />
-		<put-attribute name="body" value="/views/customer/action-1.jsp" />
+		<put-attribute name="body" value="/views/customer/listingFixUps.jsp" />
 	</definition>
 	
-	<definition name="customer/action-2" extends="master.page">	
+	<definition name="fixUp/customer/showFixUp" extends="master.page">	
 		<put-attribute name="title" value="Cliente: Mostrar reparacion" />
-		<put-attribute name="body" value="/views/customer/action-2.jsp" />
+		<put-attribute name="body" value="/views/customer/showFixUp.jsp" />
 	</definition>
 	
 		<definition name="fixUp/customer/editFixUpTask" extends="master.page">	
 		<put-attribute name="title" value="Cliente: Editar reparación" />
 		<put-attribute name="body" value="/views/customer/edit.jsp" />
+	</definition>
+	
+	<definition name="fixUp/customer/createFixUpTask" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Crear reparación" />
+		<put-attribute name="body" value="/views/customer/createFixUp.jsp" />
 	</definition>
 	
 </tiles-definitions>

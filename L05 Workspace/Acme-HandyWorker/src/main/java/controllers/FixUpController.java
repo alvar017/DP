@@ -48,6 +48,40 @@ public class FixUpController extends AbstractController {
 		super();
 	}
 
+	@RequestMapping("customer/listingFixUpTasks")
+	public ModelAndView action1() {
+		ModelAndView result;
+		final Collection<FixUp> fixUps = this.fixUpService.listing();
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		result = new ModelAndView("fixUp/customer/listingFixUpTasks");
+		result.addObject("fixUps", fixUps);
+		result.addObject("language", language);
+
+		return result;
+	}
+
+	@RequestMapping("customer/showFixUp")
+	public ModelAndView action2(@RequestParam("fixUpId") final int fixUpId) {
+		ModelAndView result;
+
+		//		final FixUp fixUp = this.fixUpService.findOne(463);
+		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+		final Category category = fixUp.getCategory();
+		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
+		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		result = new ModelAndView("fixUp/customer/showFixUp");
+		result.addObject("fixUp", fixUp);
+		result.addObject("category", category);
+		result.addObject("language", language);
+		result.addObject("applications", applications);
+		result.addObject("complaints", complaints);
+
+		return result;
+	}
+
 	@RequestMapping("customer/editFixUpTask")
 	public ModelAndView editFixUpTask(@RequestParam("id") final int fixUpId) {
 		ModelAndView result;
@@ -68,4 +102,41 @@ public class FixUpController extends AbstractController {
 
 		return result;
 	}
+
+	@RequestMapping("customer/createFixUpTask")
+	public ModelAndView createFixUpTask(@RequestParam("create") final Boolean create) {
+		ModelAndView result;
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		if (create.equals(false)) {
+			result = new ModelAndView("fixUp/customer/createFixUpTask");
+			result.addObject("language", language);
+		} else {
+			System.out.println("He creado un FixUpTask");
+
+			final Collection<FixUp> fixUps = this.fixUpService.listing();
+
+			result = new ModelAndView("customer/listingFixUpTasks");
+			result.addObject("fixUps", fixUps);
+			result.addObject("language", language);
+		}
+
+		return result;
+	}
+
+	@RequestMapping("/customer/deleteFixUpTask")
+	public ModelAndView delete(@RequestParam("id") final int fixUpId, @RequestParam("delete") final String delete) {
+		ModelAndView result;
+		if (delete != null && delete.equals("y")) {
+			final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+			this.fixUpService.delete(fixUp);
+		}
+		final Collection<FixUp> fixUps = this.fixUpService.listing();
+
+		result = new ModelAndView("fixUp/customer/listingFixUpTasks");
+		result.addObject("fixUps", fixUps);
+
+		return result;
+	}
+
 }

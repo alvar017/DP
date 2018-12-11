@@ -43,10 +43,23 @@
 			<form:input path="endDate" /><br>
 			<form:label path="category"><spring:message code="customer.showing.category" /></form:label>
 			<form:input path="category" /><br>
-			<input type="submit" name="name" value="Enviar" />
+			<input type="submit" name="name" value=<spring:message code="send" />/>
 		</form:form>
       </div>
       
     </article> <!-- /article -->
   
   </section> <!-- / #main-content -->
+  
+  		<c:choose>
+    		<c:when test="${language=='English'}">
+        		<form>
+      				<input type="button" value="Back" name="volver atrás2" onclick="history.back()" />
+	  			</form> 
+    		</c:when>    
+    		<c:otherwise>
+		 		<form>
+      				<input type="button" value="Volver" name="volver atrás2" onclick="history.back()" />
+	  			</form>        		
+    		</c:otherwise>
+		</c:choose>
