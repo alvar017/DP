@@ -22,26 +22,14 @@
 <body>
 <div>
 
-<table>
-  <tr>
-    <th>Ticker</th>
-    <th><spring:message code="customer.price" /></th>
-    <th><spring:message code="customer.description" /></th>
-  </tr>
-  <jstl:forEach var="fixUp" items="${fixUps}">
-  	<tr>
-  		<!--
-  		<td><jstl:out value="${fixUp.ticker}"></jstl:out></td>
-  		 -->
-  		 <td>
-  		 	<a href="fixUp/customer/showFixUp.do?fixUpId=${fixUp.id}"><jstl:out value="${fixUp.ticker}"></jstl:out></a>
-  		 </td>
-  		<td><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out></td>
-  		<td><jstl:out value="${fixUp.description}"></jstl:out></td>
-  	</tr>
-  </jstl:forEach> 
-</table>
-
+<display:table name="fixUps" id="row" requestURI="${fixUp/customer/listingFixUpTasks}" pagesize="5" class="displaytag">
+	<display:column titleKey="customer.ticker"> 
+		<a href="fixUp/customer/showFixUp.do?fixUpId=${row.id}">${row.ticker}</a>
+	</display:column>
+	<display:column property="ticker" titleKey="customer.ticker"></display:column>
+	<display:column property="description" titleKey="customer.description"></display:column>
+	<display:column property="maxPrice.quantity" titleKey="customer.price"></display:column>
+</display:table>
 </div>
 
 		<c:choose>
