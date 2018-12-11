@@ -21,7 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
 import services.ComplaintService;
+import services.FinderService;
 import services.FixUpService;
+import services.ReportService;
 import domain.Application;
 import domain.Category;
 import domain.Complaint;
@@ -37,6 +39,10 @@ public class CustomerController extends AbstractController {
 	private ComplaintService	complaintService;
 	@Autowired
 	private ApplicationService	applicationService;
+	@Autowired
+	private ReportService		reportService;
+	@Autowired
+	private FinderService		finderService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -50,7 +56,6 @@ public class CustomerController extends AbstractController {
 	@RequestMapping("/listingFixUpTasks")
 	public ModelAndView action1() {
 		ModelAndView result;
-
 		final Collection<FixUp> fixUps = this.fixUpService.listing();
 
 		result = new ModelAndView("customer/listingFixUpTasks");
@@ -59,6 +64,20 @@ public class CustomerController extends AbstractController {
 		return result;
 	}
 
+	@RequestMapping("/deleteFixUpTask")
+	public ModelAndView delete(@RequestParam("id") final int fixUpId, @RequestParam("delete") final String delete) {
+		ModelAndView result;
+		if (delete != null && delete.equals("y")) {
+			final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+			this.fixUpService.delete(fixUp);
+		}
+		final Collection<FixUp> fixUps = this.fixUpService.listing();
+
+		result = new ModelAndView("customer/listingFixUpTasks");
+		result.addObject("fixUps", fixUps);
+
+		return result;
+	}
 	// Action-2 ---------------------------------------------------------------		
 
 	@RequestMapping("/action-2")
@@ -82,10 +101,11 @@ public class CustomerController extends AbstractController {
 		return result;
 	}
 	@RequestMapping("fixUp/customer/editFixUpTask")
-	public ModelAndView editFixUpTask() {
+	public ModelAndView editFixUpTask(@RequestParam("fixUpId") final int fixUpId) {
 		ModelAndView result;
 
-		final FixUp fixUp = this.fixUpService.findOne(463);
+		//		final FixUp fixUp = this.fixUpService.findOne(463);
+		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
 		final Category category = fixUp.getCategory();
 		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
 		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);

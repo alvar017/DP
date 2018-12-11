@@ -11,6 +11,7 @@ import repositories.FinderRepository;
 import security.LoginService;
 import security.UserAccount;
 import domain.Finder;
+import domain.FixUp;
 import domain.HandyWorker;
 
 @Service
@@ -59,6 +60,9 @@ public class FinderService {
 		final Finder saveFinder = this.finderRepository.save(finder);
 		return saveFinder;
 	}
-	//CARMEN
+	//alvaro
 
+	public Collection<Finder> findFinderOfFixUp(final FixUp fixUp) {
+		return this.finderRepository.findFinderOfFixUp(fixUp.getId());
+	}
 }

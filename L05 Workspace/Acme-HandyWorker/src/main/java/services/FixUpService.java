@@ -20,7 +20,9 @@ import security.UserAccount;
 import domain.Administrator;
 import domain.Category;
 import domain.Customer;
+import domain.Finder;
 import domain.FixUp;
+import domain.Phase;
 import domain.Warranty;
 
 @Service
@@ -41,6 +43,10 @@ public class FixUpService {
 	WarrantyService				warrantyService;
 	@Autowired
 	AdministratorService		administratorService;
+	@Autowired
+	FinderService				finderService;
+	@Autowired
+	PhaseService				phaseService;
 
 	private final List<String>	spamWords	= Arrays.asList("sex", "viagra", "cialis", "ferrete", "one million", "you've been selected", "Nigeria", "queryfonsiponsypaferrete", "sexo", "un millón", "ha sido seleccionado");
 
@@ -91,9 +97,18 @@ public class FixUpService {
 	}
 	public void delete(final FixUp fixUp) {
 		Assert.notNull(this.fixUpRepository.findOne(fixUp.getId()), "La fixUp no existe");
+		final Collection<Finder> finders = this.finderService.findFinderOfFixUp(fixUp);
+		if (finders != null)
+			for (final Finder finder : finders)
+				finder.getFixUps().remove(fixUp);
+		final Collection<Phase> phases = this.phaseService.getPhasesByFixUp(fixUp);
+		if (phases != null)
+			for (final Phase phase : phases) {
+				System.out.println(phase);
+				this.phaseService.deleteByFixUp(phase);
+			}
 		this.fixUpRepository.delete(fixUp);
 	}
-
 	public FixUp update(final FixUp fixUp) {
 		final UserAccount login = LoginService.getPrincipal();
 		Assert.isTrue(login != null);

@@ -13,6 +13,7 @@ import repositories.PhaseRepository;
 import security.Authority;
 import security.LoginService;
 import security.UserAccount;
+import domain.FixUp;
 import domain.Phase;
 
 @Service
@@ -71,4 +72,11 @@ public class PhaseService {
 
 	// Other M
 
+	public Collection<Phase> getPhasesByFixUp(final FixUp fixUp) {
+		return this.phaseRepository.getPhasesByFixUp(fixUp.getId());
+	}
+
+	public void deleteByFixUp(final Phase phase) {
+		this.phaseRepository.delete(phase.getId());
+	}
 }

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
@@ -48,10 +49,11 @@ public class FixUpController extends AbstractController {
 	}
 
 	@RequestMapping("customer/editFixUpTask")
-	public ModelAndView editFixUpTask() {
+	public ModelAndView editFixUpTask(@RequestParam("id") final int fixUpId) {
 		ModelAndView result;
 
-		final FixUp fixUp = this.fixUpService.findOne(463);
+		//		final FixUp fixUp = this.fixUpService.findOne(463);
+		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
 		final Category category = fixUp.getCategory();
 		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
 		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);

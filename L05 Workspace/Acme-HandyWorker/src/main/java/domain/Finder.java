@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -96,7 +97,9 @@ public class Finder extends DomainEntity {
 	}
 
 	@Valid
-	@ManyToMany
+	@ManyToMany(cascade = {
+		CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH
+	})
 	// FERRETE: @OnetoMany
 	public Collection<FixUp> getFixUps() {
 		return this.fixUps;

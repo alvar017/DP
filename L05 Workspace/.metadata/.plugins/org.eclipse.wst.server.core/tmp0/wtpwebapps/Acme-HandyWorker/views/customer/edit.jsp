@@ -29,7 +29,7 @@
       
       <div class="content">
           <img class="lupa" src="images/edit.png" alt="Edit" width="19%"/>
-          <form:form class="formularioEdicion" modelAttribute="fixUp" action="fixUp/customer/editFixUpTask.do">
+          <form:form class="formularioEdicion" method="POST" modelAttribute="fixUp" action="fixUp/customer/editFixUpTask.do">
           	<form:hidden path="id"/>
           	<form:label path="description"><spring:message code="customer.showing.description" /></form:label>
 			<form:textarea path="description" /><br>

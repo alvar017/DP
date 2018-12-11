@@ -1,0 +1,17 @@
+
+package repositories;
+
+import java.util.Collections;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import domain.Phase;
+
+@Repository
+public interface PhaseRepository extends JpaRepository<Phase, Integer> {
+
+	@Query("select hw from HandyWorker hw join hw.userAccount cua where cua.id=?1")
+	Collections<Phase> findByUserAccountId(int userAccountId);
+}

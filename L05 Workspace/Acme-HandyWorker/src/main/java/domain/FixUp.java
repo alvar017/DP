@@ -6,6 +6,7 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -53,7 +54,7 @@ public class FixUp extends DomainEntity {
 		this.handyWorker = handyWorker;
 	}
 
-	@OneToMany(mappedBy = "fixUp")
+	@OneToMany(mappedBy = "fixUp", cascade = CascadeType.ALL)
 	public Collection<Complaint> getComplaints() {
 		return this.complaints;
 	}
@@ -129,7 +130,7 @@ public class FixUp extends DomainEntity {
 		this.warranty = warranty;
 	}
 
-	@OneToMany(mappedBy = "fixUp")
+	@OneToMany(mappedBy = "fixUp", cascade = CascadeType.ALL)
 	@Valid
 	public Collection<Application> getApplications() {
 		return this.applications;

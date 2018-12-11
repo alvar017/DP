@@ -30,6 +30,10 @@ public class ComplaintService {
 	private RefereeService		refereeService;
 
 
+	public void delete(final Complaint complaint) {
+		this.complaintRepository.delete(complaint);
+	}
+
 	public Complaint create() {
 
 		final Complaint res = new Complaint();

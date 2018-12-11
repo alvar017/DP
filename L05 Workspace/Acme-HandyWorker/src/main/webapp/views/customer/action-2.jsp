@@ -24,8 +24,19 @@
         <h2>
         	<spring:message code="customer.welcome.listing" />
         	<jstl:out value="${fixUp.ticker}"></jstl:out>
-        	<a title="AcmeTitle" href="Aqui pondré la dirección de la master page"><img src="images/edit.png" alt="Edit" width="3%"/></a>
-        	<a title="AcmeTitle" href="Aqui pondré la dirección de la master page"><img src="images/delete.png" alt="Delete" width="3%"/></a>
+        	<a title="AcmeTitle" href="fixUp/customer/editFixUpTask.do?id=${fixUp.id}"><img src="images/edit.png" alt="Edit" width="3%"/></a>
+	
+			<script>
+				function confirmar(url) {
+					if(confirm('¿Estas seguro de borrar este FixUp?')) {
+						window.location=url;
+					} else {
+						return false;
+					}	
+				}
+			</script>
+        	
+        	<a onclick="return confirmar('accion.html')" title="AcmeTitle" href="customer/deleteFixUpTask.do?delete=y&id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
         </h2>
       </header>
       

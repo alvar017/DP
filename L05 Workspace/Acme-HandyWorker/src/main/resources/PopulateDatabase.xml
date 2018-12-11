@@ -170,6 +170,12 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="attachment" value="http://www.google.es/" />
         <property name="moment" value="2018/11/29 08:00" />
         <property name="fixUp" ref="fixUp1" />
+        <property name="reports">
+        <list>
+                <ref bean="anrep01"/>
+                <ref bean="anrep02"/>
+        </list>
+        </property> 
     </bean>
 
     <bean id="com02" class="domain.Complaint">
@@ -178,6 +184,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="attachment" value="http://www.google.com/" />
         <property name="moment" value="2018/11/30 08:00" />
         <property name="fixUp" ref="fixUp1" />
+        <property name="reports">
+            <null />
+        </property>
     </bean>
 
     <bean id="Francom01" class="domain.Complaint">
@@ -186,6 +195,11 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="attachment" value="http://www.google.com/Fran1" />
         <property name="moment" value="2018/1/30 08:00" />
         <property name="fixUp" ref="fixUp1" />
+        <property name="reports">
+        <list>
+                <ref bean="Franrep01"/>
+        </list>
+        </property> 
     </bean>
 
 
@@ -196,6 +210,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="attachment" value="http://www.google.com/Fran2" />
         <property name="moment" value="2018/2/30 08:00" />
         <property name="fixUp" ref="fixUp1" />
+        <property name="reports">
+            <null />
+        </property>
     </bean>
 
 
@@ -364,6 +381,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="attachment" value="http://www.google.es/" />
         <property name="moment" value="2018/11/29 08:00" />
         <property name="fixUp" ref="fixUp1" />
+        <property name="reports">
+            <null />
+        </property>
         
         
     </bean>
@@ -374,6 +394,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="attachment" value="http://www.google.com/" />
         <property name="moment" value="2018/11/30 08:00" />
         <property name="fixUp" ref="fixUp1" />
+        <property name="reports">
+            <null />
+        </property>
     </bean>
     
     <!-- Customer -->
@@ -386,6 +409,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="SocialProfiles">
             <null />
         </property>
+        <property name="userAccount" ref="userAccount2" />
         <property name="photo">
             <null />
         </property>
