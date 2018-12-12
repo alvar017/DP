@@ -30,19 +30,21 @@
       <div class="content">
           <img class="lupa" src="images/edit.png" alt="Edit" width="19%"/>
           <form:form class="formularioEdicion" method="POST" modelAttribute="fixUp" action="fixUp/customer/editFixUpTask.do">
-          	<form:hidden path="id"/>
-          	<form:label path="description"><spring:message code="customer.showing.description" /></form:label>
 			<form:textarea path="description" /><br>
 			<form:label path="address"><spring:message code="customer.showing.address" /></form:label>
 			<form:input path="address" /><br>
-			<form:label path="maxPrice"><spring:message code="customer.showing.price" /></form:label>
-			<form:input path="maxPrice" /><br>
+			<form:label path="maxPrice.quantity"><spring:message code="customer.showing.price" /></form:label>
+			<form:input path="maxPrice.quantity" /><br>
 			<form:label path="startDate"><spring:message code="customer.showing.startDate" /></form:label>
 			<form:input path="startDate" /><br>
 			<form:label path="endDate"><spring:message code="customer.showing.endDate" /></form:label>
 			<form:input path="endDate" /><br>
 			<form:label path="category"><spring:message code="customer.showing.category" /></form:label>
-			<form:input path="category" /><br>
+			<form:select path="category" >
+				<form:options items="${categories}" itemLabel="nameES" itemValue="id"/>
+			</form:select><br>
+			<input type="submit" name="name" value=<spring:message code="send" />/>
+
 			<input type="submit" name="name" value=<spring:message code="send" />/>
 		</form:form>
       </div>

@@ -26,9 +26,9 @@
 	<display:column titleKey="customer.ticker"> 
 		<a href="fixUp/customer/showFixUp.do?fixUpId=${row.id}">${row.ticker}</a>
 	</display:column>
-	<display:column property="ticker" titleKey="customer.ticker"></display:column>
 	<display:column property="description" titleKey="customer.description"></display:column>
 	<display:column property="maxPrice.quantity" titleKey="customer.price"></display:column>
+	<display:column property="customer.name" titleKey="customer.price"></display:column>
 </display:table>
 </div>
 

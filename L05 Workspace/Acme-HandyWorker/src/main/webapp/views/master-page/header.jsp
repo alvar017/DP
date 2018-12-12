@@ -40,6 +40,16 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('HANDYWORKER')">
+			<li><a class="fNiv"><spring:message	code="master.page.handyWorker" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="finder/handyWorker/yourFinder.do"><spring:message code="master.page.handyWorker.action.1" /></a></li>
+					<li><a href="finder/handyWorker/editYourFinder.do"><spring:message code="master.page.handyWorker.action.2" /></a></li>					
+				</ul>
+			</li>
+		</security:authorize>
+		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
 		</security:authorize>

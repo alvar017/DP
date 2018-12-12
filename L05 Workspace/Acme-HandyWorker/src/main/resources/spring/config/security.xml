@@ -48,7 +48,10 @@
 		<security:intercept-url pattern="/fixUp/customer/deleteFixUpTask.do" access="hasRole('CUSTOMER')" />  
 		<security:intercept-url pattern="/fixUp/customer/showFixUp.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/fixUp/customer/editFixUpTask.do" access="hasRole('CUSTOMER')" /> 
-		<security:intercept-url pattern="/fixUp/customer/createFixUpTask.do" access="hasRole('CUSTOMER')" /> 
+		<security:intercept-url pattern="/fixUp/customer/createFixUpTask.do" access="hasRole('CUSTOMER')" />
+		
+		<security:intercept-url pattern="/finder/handyWorker/yourFinder.do" access="hasRole('HANDYWORKER')" /> 
+		<security:intercept-url pattern="/finder/handyWorker/editYourFinder.do" access="hasRole('HANDYWORKER')" />  
 
 		<security:intercept-url pattern="/profile/action-1.do" access="isAuthenticated()" /> 
 		<security:intercept-url pattern="/profile/action-2.do" access="isAuthenticated()" /> 

@@ -1,11 +1,13 @@
 
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import repositories.FinderRepository;
 import security.LoginService;
@@ -54,11 +56,27 @@ public class FinderService {
 
 	//37.1 (CARMEN)--> HandyWorker: Change the filters of his or her finder.
 	public Finder update(final Finder finder) {
-		final UserAccount login = LoginService.getPrincipal();
-		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
 
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		Assert.isTrue(this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId()) != null);
+		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
+		Assert.isTrue(hw.getFinder().equals(finder));
+		Assert.isTrue(this.findOne(finder.getId()) != null);
 		final Finder saveFinder = this.finderRepository.save(finder);
 		return saveFinder;
+	}
+	//CARMEN
+
+	public Collection<Finder> yourFinder() {
+		final UserAccount login = LoginService.getPrincipal();
+		//		Assert.isTrue(login != null);
+		Assert.isTrue(this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId()) != null);
+		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
+		final Collection<Finder> finder = new ArrayList<>();
+		finder.add(hw.getFinder());
+
+		return finder;
 	}
 	//alvaro
 

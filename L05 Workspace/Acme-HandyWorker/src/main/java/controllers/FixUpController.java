@@ -12,16 +12,20 @@ package controllers;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
+import services.CategoryService;
 import services.ComplaintService;
-import services.CustomerService;
 import services.FixUpService;
 import domain.Application;
 import domain.Category;
@@ -39,7 +43,7 @@ public class FixUpController extends AbstractController {
 	@Autowired
 	private ApplicationService	applicationService;
 	@Autowired
-	private CustomerService		customerService;
+	private CategoryService		categoryService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -82,15 +86,17 @@ public class FixUpController extends AbstractController {
 		return result;
 	}
 
-	@RequestMapping("customer/editFixUpTask")
+	@RequestMapping(value = "customer/editFixUpTask", method = RequestMethod.GET)
 	public ModelAndView editFixUpTask(@RequestParam("id") final int fixUpId) {
 		ModelAndView result;
 
 		//		final FixUp fixUp = this.fixUpService.findOne(463);
 		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+		System.out.println("Customer del FixUp: " + fixUp.getCustomer() + " " + fixUp);
 		final Category category = fixUp.getCategory();
 		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
 		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
+		final Collection<Category> categories = this.categoryService.findAll();
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
 		result = new ModelAndView("fixUp/customer/editFixUpTask");
@@ -99,6 +105,24 @@ public class FixUpController extends AbstractController {
 		result.addObject("language", language);
 		result.addObject("applications", applications);
 		result.addObject("complaints", complaints);
+		result.addObject("categories", categories);
+
+		return result;
+	}
+
+	@RequestMapping(value = "customer/editFixUpTask", method = RequestMethod.POST)
+	public ModelAndView editFixUpTasksave(@Valid final FixUp fixUp, final BindingResult binding) {
+		ModelAndView result;
+
+		System.out.println(binding.getFieldErrors());
+		System.out.println(fixUp + " " + fixUp.getCustomer());
+		this.fixUpService.save(fixUp);
+
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		result = new ModelAndView("fixUp/customer/listingFixUpTasks");
+		System.out.println(binding.getFieldErrors());
+		result.addObject("language", language);
 
 		return result;
 	}
