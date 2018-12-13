@@ -21,8 +21,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.FinderService;
 import services.FixUpService;
+import domain.Category;
 import domain.Finder;
 import domain.FixUp;
+import domain.Warranty;
 
 @Controller
 @RequestMapping("/finder")
@@ -46,7 +48,7 @@ public class FinderController extends AbstractController {
 	@RequestMapping(value = "/handyWorker/yourFinder")
 	public ModelAndView action1() {
 		ModelAndView result;
-		final Collection<Finder> finder = this.finderService.yourFinder();
+		final Finder finder = this.finderService.yourFinder();
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
 		result = new ModelAndView("finder/handyWorker/yourFinder");
@@ -64,13 +66,16 @@ public class FinderController extends AbstractController {
 
 		final Finder finder = this.finderService.findOne(finderId);
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
-
 		final Collection<FixUp> fixUp = this.fixUpService.showAllFixUpbyFinder(finderId);
+		final Category category = finder.getCategory();
+		final Warranty warranty = finder.getWarranty();
 
 		result = new ModelAndView("finder/handyWorker/editYourFinder");
 		result.addObject("finder", finder);
 		result.addObject("fixUp", fixUp);
 		result.addObject("language", language);
+		result.addObject("category", category);
+		result.addObject("warranty", warranty);
 
 		return result;
 	}

@@ -21,7 +21,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     
     <bean id="userAccount4" class="security.UserAccount">
         <property name="username" value="handyWorker" />
-        <property name="password" value="91ec1f9324753048c0096d036a694f86" />
+        <property name="password" value="c0d552cb3d9e82b876e3031945305576" />
         <property name="authorities">
             <list>
                 <bean class="security.Authority">

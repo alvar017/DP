@@ -1,0 +1,54 @@
+# messages_es.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+customer.action.1	= Aquí están todos sus arreglos
+customer.action.2	= Reparación: 
+customer.price	= Precio
+customer.description	= Descripción
+customer.welcome.listing = Reparación:
+customer.showing.details = Detalles del Fix-Up Task
+customer.showing.createDate = Fecha de creación: 
+customer.showing.address = Dirección: 
+customer.showing.price = Precio máximo: 
+customer.showing.startDate = Fecha de inicio: 
+customer.showing.endDate = Fecha de finalización: 
+customer.showing.handyWorker = Trabajador asignado:
+customer.showing.description = Descripción  
+customer.showing.attachment = Adjuntos
+customer.showing.category = Categoría: 
+customer.welcome.edit = Edición de reparación: 
+customer.createFixUp = Crear
+customer.showing.applications = Aplicaciones:
+customer.showing.complaints = Quejas: 
+send = Enviar 
+customer.ticker = Ticker 
+
+customer.editApplication = Editar
+customer.listApplication = Lista de aplicaciones1
+application.moment = Momento de creación
+application.state = Estado
+application.offered = Precio
+application.comments = Comentarios
+application.creditCard = Tarjeta de crédito
+application.fixUp = FixUp
+application.handyWorker = Trabajador práctico
+application.save = Guardar
+application.cancel = Cancelar
+application.create = Crear aplicación
+
+register.customer= Cliente
+
+customer.name = Nombre:
+customer.surname = Apellidos:
+customer.middlename = Segundo Nombre:
+customer.email= Correo Electrónico:
+customer.username = Nombre de usuario:
+customer.password = Contraseña:
+customer.address = Dirección:
+customer.image = Imagen: 
+customer.create= Registrar

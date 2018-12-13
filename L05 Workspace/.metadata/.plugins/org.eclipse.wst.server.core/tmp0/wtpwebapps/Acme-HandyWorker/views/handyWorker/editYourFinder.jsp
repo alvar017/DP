@@ -26,15 +26,12 @@
       <header>
         <h2>
         	<spring:message code="handyWorker.edit" />
-        	<jstl:out value="${fixUp.ticker}"></jstl:out>
         </h2>
       </header>
       
       <div class="content">
-          <form:form class="formularioEdicion" method="POST" modelAttribute="fixUp" action="handyWorker/action-2.do">
-          	<form:hidden path="id"/>
-          	<form:label path="fixUps"><spring:message code="handyWorker.showing.fixUps" /></form:label>
-			<form:textarea path="fixUps" /><br>
+          <form:form class="formularioEdicion" method="POST" modelAttribute="finder" action="finder/handyWorker/editYourFinder.do">
+          	
 			<form:label path="keyword"><spring:message code="handyWorker.showing.keyword" /></form:label>
 			<form:input path="keyword" /><br>
 			<form:label path="minPrice"><spring:message code="handyWorker.showing.minPrice" /></form:label>

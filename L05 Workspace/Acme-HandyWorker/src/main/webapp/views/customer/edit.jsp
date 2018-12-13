@@ -44,8 +44,6 @@
 				<form:options items="${categories}" itemLabel="nameES" itemValue="id"/>
 			</form:select><br>
 			<input type="submit" name="name" value=<spring:message code="send" />/>
-
-			<input type="submit" name="name" value=<spring:message code="send" />/>
 		</form:form>
       </div>
       

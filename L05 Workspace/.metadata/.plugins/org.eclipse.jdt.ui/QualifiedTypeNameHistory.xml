@@ -37,7 +37,6 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="services.FixUpService"/>
-<fullyQualifiedTypeName name="domain.Category"/>
 <fullyQualifiedTypeName name="org.springframework.context.i18n.LocaleContextHolder"/>
 <fullyQualifiedTypeName name="services.ApplicationService"/>
 <fullyQualifiedTypeName name="services.CustomerService"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="domain.Category"/>
 </qualifiedTypeNameHistroy>

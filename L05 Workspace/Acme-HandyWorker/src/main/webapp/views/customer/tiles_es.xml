@@ -41,4 +41,40 @@
 		<put-attribute name="body" value="/views/customer/createFixUp.jsp" />
 	</definition>
 	
+		<definition name="application/customer/editApplication" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Editar aplicación" />
+		<put-attribute name="body" value="/views/customer/editApplication.jsp" />
+	</definition>
+	
+	<definition name="application/customer/listApplications" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Lista de aplicaciones" />
+		<put-attribute name="body" value="/views/customer/listApplication.jsp" />
+	</definition>
+	
+	<definition name="customer/create" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Registro" />
+		<put-attribute name="body" value="/views/customer/registerAsCustomer.jsp" />
+	</definition>
+	
+		<!-- Complaint -->
+	<definition name="complaint/customer/list.do" extends="master.page">
+		<put-attribute name="title" value="Cliente: Lista de Quejas"></put-attribute>
+		<put-attribute name="body" value="/views/customer/complaintList.jsp"></put-attribute>
+	</definition>
+
+	<definition name="complaint/customer/edit.do" extends="master.page">
+		<put-attribute name="title" value="Cliente: Editar Queja"></put-attribute>
+		<put-attribute name="body" value="/views/customer/complaintEdit.jsp"></put-attribute>
+	</definition>
+
+	<definition name="complaint/customer/create.do" extends="master.page">
+		<put-attribute name="title" value="Cliente: Crear Queja"></put-attribute>
+		<put-attribute name="body" value="/views/customer/complaintCreate.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/customer/show.do" extends="master.page">
+		<put-attribute name="title" value="Cliente: Mostrar Queja"></put-attribute>
+		<put-attribute name="body" value="/views/customer/complaintShow.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>

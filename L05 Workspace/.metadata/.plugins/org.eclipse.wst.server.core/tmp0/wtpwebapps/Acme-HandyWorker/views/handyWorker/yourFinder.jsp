@@ -18,13 +18,12 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<p><spring:message code="handyWorker.action.1" /></p>
+<h2><spring:message code="handyWorker.action.1" /></h2>
 
 <body>
 	
-<table>
+<table border=1 cellspacing=0 cellpadding=2 bordercolor="666633">
   <tr>
-  	<th>image</th>
     <th><spring:message code="finder.maxPrice" /></th>
    	<th><spring:message code="finder.minPrice" /></th>
    	<th><spring:message code="finder.keyword" /></th>
@@ -35,11 +34,9 @@
    	<th><spring:message code="finder.category" /></th>
    	<th><spring:message code="finder.fixUps" /></th>
   </tr>
-  <jstl:forEach var="finder" items="${finder}">
-  	<tr>
-	  	<td><a title="AcmeTitle" href="finder/handyWorker/editYourFinder.do?finderId=${finder.id}">doaloa</a></td>
+   <tr>
   		<td><jstl:out value="${finder.maxPrice}"></jstl:out></td>
-  		<td><jstl:out value="${finder.minPrice}"></jstl:out></td>
+ 		<td><jstl:out value="${finder.minPrice}"></jstl:out></td>
   		<td><jstl:out value="${finder.keyword}"></jstl:out></td>
   		<td><jstl:out value="${finder.startDate}"></jstl:out></td>
   		<td><jstl:out value="${finder.date}"></jstl:out></td>
@@ -50,10 +47,10 @@
   	 		<td>
   				<jstl:out value="${fixUp.ticker}"></jstl:out>
 			</td>
-		</jstl:forEach>  					
-  	</tr>
-  </jstl:forEach> 
+		</jstl:forEach> 
+</tr>
 </table>
+<a title="AcmeTitle" href="finder/handyWorker/editYourFinder.do?finderId=${finder.id}"><img src="images/edit.png" alt="Edit" width="3%"/></a>
 
 <c:choose>
     		<c:when test="${language=='English'}">

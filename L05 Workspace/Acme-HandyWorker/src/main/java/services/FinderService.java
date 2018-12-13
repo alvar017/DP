@@ -1,7 +1,6 @@
 
 package services;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,15 +67,13 @@ public class FinderService {
 	}
 	//CARMEN
 
-	public Collection<Finder> yourFinder() {
+	public Finder yourFinder() {
 		final UserAccount login = LoginService.getPrincipal();
 		//		Assert.isTrue(login != null);
 		Assert.isTrue(this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId()) != null);
 		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
-		final Collection<Finder> finder = new ArrayList<>();
-		finder.add(hw.getFinder());
 
-		return finder;
+		return hw.getFinder();
 	}
 	//alvaro
 
