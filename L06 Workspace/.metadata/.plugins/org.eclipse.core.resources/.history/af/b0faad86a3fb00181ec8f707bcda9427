@@ -1,0 +1,21 @@
+# messages.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+customer.action.1	= Here are all your FixUps
+customer.action.2	= Fix-Up Task:
+customer.price	= Price
+customer.description	= Description
+customer.welcome.listing = Fix-Up Task: 
+customer.showing.details = Fix-Up Task's details
+customer.showing.createDate = Creation date: 
+customer.showing.address = Address: 
+customer.showing.price = Max price: 
+customer.showing.startDate = Start date: 
+customer.showing.endDate = End date: 
+customer.showing.handyWorker = Assigned Handy-Worker: 
+customer.showing.description = Description

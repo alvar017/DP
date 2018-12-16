@@ -1,0 +1,111 @@
+
+package domain;
+
+import java.util.Collection;
+import java.util.Date;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+
+@Entity
+@Access(AccessType.PROPERTY)
+public class Finder extends DomainEntity {
+
+	private String		keyword;
+	private Date		date;
+	private Warranty	warranty;
+	private Double		minPrice;
+	private Double		maxPrice;
+	private Category	category;
+	private Date		startDate;
+	private Date		endDate;
+
+
+	@ManyToOne(optional = true)
+	public Warranty getWarranty() {
+		return this.warranty;
+	}
+
+	public void setWarranty(final Warranty warranty) {
+		this.warranty = warranty;
+	}
+
+	public Double getMinPrice() {
+		return this.minPrice;
+	}
+
+	public void setMinPrice(final Double minPrice) {
+		this.minPrice = minPrice;
+	}
+
+	public Double getMaxPrice() {
+		return this.maxPrice;
+	}
+
+	public void setMaxPrice(final Double maxPrice) {
+		this.maxPrice = maxPrice;
+	}
+	@ManyToOne(optional = true)
+	public Category getCategory() {
+		return this.category;
+	}
+
+	public void setCategory(final Category category) {
+		this.category = category;
+	}
+
+	public Date getStartDate() {
+		return this.startDate;
+	}
+
+	public void setStartDate(final Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return this.endDate;
+	}
+
+	public void setEndDate(final Date endDate) {
+		this.endDate = endDate;
+	}
+
+
+	///////////////////////////////AÑADIR LOS DE FRRETE-Checked V
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	private Collection<FixUp>	fixUps;
+
+
+	public String getKeyword() {
+		return this.keyword;
+	}
+
+	public void setKeyword(final String keyword) {
+		this.keyword = keyword;
+	}
+
+	public Date getDate() {
+		return this.date;
+	}
+
+	public void setDate(final Date date) {
+		this.date = date;
+	}
+
+	@Valid
+	@ManyToMany(cascade = CascadeType.REMOVE)
+	// FERRETE: @OnetoMany
+	public Collection<FixUp> getFixUps() {
+		return this.fixUps;
+	}
+
+	public void setFixUps(final Collection<FixUp> fixUps) {
+		this.fixUps = fixUps;
+	}
+
+}
