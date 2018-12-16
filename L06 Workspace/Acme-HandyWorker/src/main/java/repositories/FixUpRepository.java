@@ -16,6 +16,9 @@ public interface FixUpRepository extends JpaRepository<FixUp, Integer> {
 	@Query("select f from FixUp f join f.customer fc where fc.id=?1")
 	Collection<FixUp> findFixUpsByCustomer(Integer id);
 
+	@Query("select f from FixUp f where f.handyWorker.id=?1")
+	Collection<FixUp> findFixUpsByHandyWoker(Integer id);
+
 	//	@Query("select f.fixUp from HandyWorker h join h.finder f where h.id=?1")
 	//	Collection<FixUp> findFixUpsOfFinderByHandyWorker(Integer id);
 

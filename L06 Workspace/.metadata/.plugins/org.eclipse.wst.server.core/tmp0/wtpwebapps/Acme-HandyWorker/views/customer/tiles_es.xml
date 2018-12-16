@@ -16,7 +16,7 @@
       
 <tiles-definitions>
 
-	<definition name="fixUp/customer/listingFixUpTasks" extends="master.page">	
+	<definition name="fixUp/customer/list" extends="master.page">	
 		<put-attribute name="title" value="Cliente: Listado de reparaciones" />
 		<put-attribute name="body" value="/views/customer/listingFixUps.jsp" />
 	</definition>

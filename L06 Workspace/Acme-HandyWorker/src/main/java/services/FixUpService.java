@@ -22,6 +22,7 @@ import domain.Category;
 import domain.Customer;
 import domain.Finder;
 import domain.FixUp;
+import domain.HandyWorker;
 import domain.Phase;
 import domain.Warranty;
 
@@ -37,6 +38,8 @@ public class FixUpService {
 	//Supporting services ------------------
 	@Autowired
 	private CustomerService		customerService;
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
 	@Autowired
 	CategoryService				categoryService;
 	@Autowired
@@ -251,6 +254,12 @@ public class FixUpService {
 		return this.fixUpRepository.findAll();
 	}
 
+	public Collection<FixUp> findAllByHWLogger() {
+
+		final UserAccount user = LoginService.getPrincipal();
+		final HandyWorker hw = this.handyWorkerService.findByUserAccountId(user.getId());
+		return this.fixUpRepository.findFixUpsByHandyWoker(hw.getId());
+	}
 	//73.2 (CARMEN) --> Display the fix-up tasks in his or her finder.
 	public Collection<FixUp> showAllFixUpbyFinder(final int finderId) {
 		return this.fixUpRepository.findFixUpsOfFinderByHandyWorker(finderId);

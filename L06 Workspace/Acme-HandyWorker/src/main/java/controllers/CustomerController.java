@@ -53,31 +53,31 @@ public class CustomerController extends AbstractController {
 
 	// Action-1 ---------------------------------------------------------------		
 
-	@RequestMapping("/listingFixUpTasks")
-	public ModelAndView action1() {
-		ModelAndView result;
-		final Collection<FixUp> fixUps = this.fixUpService.listing();
-
-		result = new ModelAndView("customer/listingFixUpTasks");
-		result.addObject("fixUps", fixUps);
-
-		return result;
-	}
-
-	@RequestMapping("/deleteFixUpTask")
-	public ModelAndView delete(@RequestParam("id") final int fixUpId, @RequestParam("delete") final String delete) {
-		ModelAndView result;
-		if (delete != null && delete.equals("y")) {
-			final FixUp fixUp = this.fixUpService.findOne(fixUpId);
-			this.fixUpService.delete(fixUp);
-		}
-		final Collection<FixUp> fixUps = this.fixUpService.listing();
-
-		result = new ModelAndView("customer/listingFixUpTasks");
-		result.addObject("fixUps", fixUps);
-
-		return result;
-	}
+	//	@RequestMapping("/listingFixUpTasks")
+	//	public ModelAndView action1() {
+	//		ModelAndView result;
+	//		final Collection<FixUp> fixUps = this.fixUpService.listing();
+	//
+	//		result = new ModelAndView("customer/listingFixUpTasks");
+	//		result.addObject("fixUps", fixUps);
+	//
+	//		return result;
+	//	}
+	//
+	//	@RequestMapping("/deleteFixUpTask")
+	//	public ModelAndView delete(@RequestParam("id") final int fixUpId, @RequestParam("delete") final String delete) {
+	//		ModelAndView result;
+	//		if (delete != null && delete.equals("y")) {
+	//			final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+	//			this.fixUpService.delete(fixUp);
+	//		}
+	//		final Collection<FixUp> fixUps = this.fixUpService.listing();
+	//
+	//		result = new ModelAndView("customer/listingFixUpTasks");
+	//		result.addObject("fixUps", fixUps);
+	//
+	//		return result;
+	//	}
 	// Action-2 ---------------------------------------------------------------		
 
 	//	@RequestMapping("/customer/showFixUp.do")
