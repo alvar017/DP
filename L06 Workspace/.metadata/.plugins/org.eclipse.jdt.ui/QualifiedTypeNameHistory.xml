@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="repositories.AdministratorRepository"/>
 <fullyQualifiedTypeName name="domain.Referee"/>
 <fullyQualifiedTypeName name="services.AdmnistratorService"/>
 <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
@@ -58,6 +57,7 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="domain.Category"/>
-<fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="domain.FixUp"/>
 </qualifiedTypeNameHistroy>

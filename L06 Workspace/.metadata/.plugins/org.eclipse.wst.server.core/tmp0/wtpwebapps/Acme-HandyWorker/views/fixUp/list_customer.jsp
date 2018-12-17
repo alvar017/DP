@@ -17,17 +17,18 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<p class="create"><input type="button" value=<spring:message code="customer.createFixUp" /> id="buttonFixUp" name="buttonFixUp"  onclick="location.href='fixUp/customer/createFixUpTask.do?create=false';"/></p>
+<p class="create"><input type="button" value=<spring:message code="customer.createFixUp" /> id="buttonFixUp" name="buttonFixUp"  onclick="location.href='fixUp/customer/create.do';"/></p>
 <p><spring:message code="customer.action.1" /></p>
 <body>
 <div>
 <security:authorize access="hasRole('CUSTOMER')">
 <display:table name="fixUps" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 	<display:column titleKey="customer.ticker"> 
-		<a href="fixUp/customer/showFixUp.do?fixUpId=${row.id}">${row.ticker}</a>
+		<a href="fixUp/customer/show.do?fixUpId=${row.id}">${row.ticker}</a>
 	</display:column>
 	<display:column property="description" titleKey="customer.description"></display:column>
 	<display:column property="maxPrice.quantity" titleKey="customer.price"></display:column>
+	<display:column property="handyWorker.name" titleKey="handyWorker.nameHW"></display:column>
 </display:table>
 </security:authorize>
 </div>

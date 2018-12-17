@@ -10,24 +10,15 @@
 
 package controllers;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
 import services.ComplaintService;
 import services.FinderService;
 import services.FixUpService;
 import services.ReportService;
-import domain.Application;
-import domain.Category;
-import domain.Complaint;
-import domain.FixUp;
 
 @Controller
 @RequestMapping("/customer")
@@ -100,24 +91,24 @@ public class CustomerController extends AbstractController {
 	//
 	//		return result;
 	//	}
-	@RequestMapping("fixUp/customer/editFixUpTask")
-	public ModelAndView editFixUpTask(@RequestParam("fixUpId") final int fixUpId) {
-		ModelAndView result;
-
-		//		final FixUp fixUp = this.fixUpService.findOne(463);
-		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
-		final Category category = fixUp.getCategory();
-		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
-		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
-		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
-
-		result = new ModelAndView("fixUp/customer/editFixUpTask");
-		result.addObject("fixUp", fixUp);
-		result.addObject("category", category);
-		result.addObject("language", language);
-		result.addObject("applications", applications);
-		result.addObject("complaints", complaints);
-
-		return result;
-	}
+	//	@RequestMapping("fixUp/customer/editFixUpTask")
+	//	public ModelAndView editFixUpTask(@RequestParam("fixUpId") final int fixUpId) {
+	//		ModelAndView result;
+	//
+	//		//		final FixUp fixUp = this.fixUpService.findOne(463);
+	//		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+	//		final Category category = fixUp.getCategory();
+	//		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
+	//		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
+	//		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+	//
+	//		result = new ModelAndView("fixUp/customer/editFixUpTask");
+	//		result.addObject("fixUp", fixUp);
+	//		result.addObject("category", category);
+	//		result.addObject("language", language);
+	//		result.addObject("applications", applications);
+	//		result.addObject("complaints", complaints);
+	//
+	//		return result;
+	//	}
 }

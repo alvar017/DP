@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="fixUp/customer/list" extends="master.page">	
+		<put-attribute name="title" value="Customer: Listing FixUp Tasks" />
+		<put-attribute name="body" value="/views/fixUp/list_customer.jsp" />
+	</definition>
+	
+	<definition name="fixUp/handyWorker/list" extends="master.page">	
+		<put-attribute name="title" value="HandyWorker: Listing FixUp Tasks" />
+		<put-attribute name="body" value="/views/fixUp/list_handyWorker.jsp" />
+	</definition>
+	
+	<definition name="fixUp/customer/show" extends="master.page">	
+		<put-attribute name="title" value="Customer: Showing FixUp Task" />
+		<put-attribute name="body" value="/views/fixUp/show_customer.jsp" />
+	</definition>
+
+	<definition name="fixUp/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="HandyWorker: Showing FixUp Task" />
+		<put-attribute name="body" value="/views/fixUp/show_handyWorker.jsp" />
+	</definition>	
+</tiles-definitions>

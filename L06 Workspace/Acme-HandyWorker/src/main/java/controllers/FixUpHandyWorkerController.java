@@ -17,12 +17,14 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ApplicationService;
 import services.CategoryService;
 import services.ComplaintService;
 import services.FixUpService;
+import domain.Category;
 import domain.FixUp;
 
 @Controller
@@ -57,6 +59,23 @@ public class FixUpHandyWorkerController extends AbstractController {
 		result.addObject("myFixUps", myFixUps);
 		result.addObject("language", language);
 		result.addObject("requestURI", "fixUp/handyWorker/list.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/show", method = RequestMethod.GET)
+	public ModelAndView show(@RequestParam("fixUpId") final int fixUpId) {
+		ModelAndView result;
+
+		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+		final Category category = fixUp.getCategory();
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		result = new ModelAndView("fixUp/handyWorker/show");
+		result.addObject("fixUp", fixUp);
+		result.addObject("category", category);
+		result.addObject("language", language);
+		result.addObject("requestURI", "fixUp/handyWorker/show.do");
 
 		return result;
 	}
