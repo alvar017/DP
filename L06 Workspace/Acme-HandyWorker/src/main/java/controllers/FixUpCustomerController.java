@@ -12,9 +12,13 @@ package controllers;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -105,6 +109,47 @@ public class FixUpCustomerController extends AbstractController {
 		return result;
 	}
 
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public ModelAndView edit(@RequestParam("id") final int fixUpId) {
+		ModelAndView result;
+
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		FixUp fixUp;
+
+		fixUp = this.fixUpService.findOne(fixUpId);
+		Assert.notNull(fixUp);
+
+		result = this.createEditModelAndView(fixUp);
+		result.addObject("language", language);
+
+		return result;
+	}
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	public ModelAndView save(@Valid final FixUp fixUp, final BindingResult binding) {
+		ModelAndView result;
+
+		if (binding.hasErrors()) {
+			System.out.println("El error pasa por aquí alvaro (IF de save())");
+			System.out.println(binding);
+			result = this.createEditModelAndView(fixUp);
+		} else
+			try {
+				System.out.println("El error pasa por aquí alvaro (TRY de save())");
+				System.out.println(binding);
+				this.fixUpService.save(fixUp);
+				result = new ModelAndView("redirect:list.do");
+			} catch (final Throwable oops) {
+				System.out.println("El error pasa por aquí alvaro (CATCH de save())");
+				System.out.println(binding);
+				System.out.println(binding);
+				result = this.createEditModelAndView(fixUp, "fixUp.commit.error");
+			}
+
+		return result;
+	}
+
 	private ModelAndView createEditModelAndView(final FixUp fixUp) {
 		ModelAndView result;
 		final Collection<Warranty> warranties = this.warrantyService.findAll();
@@ -115,6 +160,21 @@ public class FixUpCustomerController extends AbstractController {
 		result.addObject("fixUp", fixUp);
 		result.addObject("warranties", warranties);
 		result.addObject("categories", categories);
+
+		return result;
+	}
+
+	private ModelAndView createEditModelAndView(final FixUp fixUp, final String messageCode) {
+		ModelAndView result;
+		final Collection<Warranty> warranties = this.warrantyService.findAll();
+		final Collection<Category> categories = this.categoryService.findAll();
+
+		result = new ModelAndView("fixUp/customer/edit");
+
+		result.addObject("fixUp", fixUp);
+		result.addObject("warranties", warranties);
+		result.addObject("categories", categories);
+		result.addObject("message", messageCode);
 
 		return result;
 	}
