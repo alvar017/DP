@@ -7,20 +7,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import repositories.CustomerRepository;
-import domain.Customer;
+import repositories.WarrantyRepository;
+import domain.Warranty;
 
 @Component
 @Transactional
-public class StringToCustomerConverter implements Converter<String, Customer> {
+public class StringToCustomerConverter implements Converter<String, Warranty> {
 
 	@Autowired
-	CustomerRepository	customerRepository;
+	WarrantyRepository	warrantyRepository;
 
 
 	@Override
-	public Customer convert(final String text) {
-		Customer result;
+	public Warranty convert(final String text) {
+		Warranty result;
 		int id;
 
 		try {
@@ -29,7 +29,7 @@ public class StringToCustomerConverter implements Converter<String, Customer> {
 				result = null;
 			} else {
 				id = Integer.valueOf(text);
-				result = this.customerRepository.findOne(id);
+				result = this.warrantyRepository.findOne(id);
 				System.out.println("Error en StringToCustomerConverter ELSE: " + result);
 			}
 		} catch (final Throwable oops) {

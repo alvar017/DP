@@ -34,6 +34,13 @@
           <form:form class="formularioEdicion" method="POST" modelAttribute="fixUp" action="fixUp/customer/edit.do">
           	<form:hidden path="customer"/>
           	<form:hidden path="ticker"/>
+          	<form:hidden path="handyWorker"/>
+          	
+          	
+          	<form:hidden path="moment"/>
+          	
+          	<form:hidden path="applications"/>
+          	<form:hidden path="complaints"/>
           	<form:label path="description"><spring:message code="customer.showing.description" /></form:label>
 			<form:textarea path="description" /><br>
 			<form:label path="address"><spring:message code="customer.showing.address" /></form:label>
@@ -41,8 +48,9 @@
 			<!--
 			<form:label path="maxPrice.quantity"><spring:message code="customer.showing.price" /></form:label>
 			<form:input path="maxPrice.quantity" /><br>
+			--> 
 			<form:label path="startDate"><spring:message code="customer.showing.startDate" /></form:label>
-			<form:input path="startDate" /><br>
+			<form:input type="date" path="startDate" /><br>
 			<form:label path="endDate"><spring:message code="customer.showing.endDate" /></form:label>
 			<form:input path="endDate" /><br>
 			<form:label path="warranty"><spring:message code="customer.showing.warranty" /></form:label>
@@ -53,7 +61,6 @@
 			<form:select path="category" >
 				<form:options items="${categories}" itemLabel="nameES" itemValue="id"/>
 			</form:select><br>
-			-->
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
       </div>

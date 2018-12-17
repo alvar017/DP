@@ -47,32 +47,37 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpCustomerController.java" partName="FixUpCustomerController.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java" title="FixUpCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4488" selectionTopPixel="1396"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" partName="edit.jsp" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp" title="edit.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1342" selectionTopPixel="386"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToCustomerConverter.java" partName="StringToCustomerConverter.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/converters/StringToCustomerConverter.java" title="StringToCustomerConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToCustomerConverter.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/converters/StringToCustomerConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="490" selectionTopPixel="200"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerToStringConverter.java" partName="CustomerToStringConverter.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/converters/CustomerToStringConverter.java" title="CustomerToStringConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/CustomerToStringConverter.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/converters/CustomerToStringConverter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="602" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToComplaintConverter.java" partName="StringToComplaintConverter.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/converters/StringToComplaintConverter.java" title="StringToComplaintConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToComplaintConverter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/converters/StringToComplaintConverter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="521" selectionTopPixel="259"/>
 </editor>
 <editor id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="converters.xml" partName="converters.xml" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/resources/spring/config/converters.xml" title="converters.xml" tooltip="Acme-HandyWorker/src/main/resources/spring/config/converters.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/resources/spring/config/converters.xml"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpService.java" partName="FixUpService.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/services/FixUpService.java" title="FixUpService.java" tooltip="Acme-HandyWorker/src/main/java/services/FixUpService.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/services/FixUpService.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="849" selectionTopPixel="840"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToApplicationConverter.java" partName="StringToApplicationConverter.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/converters/StringToApplicationConverter.java" title="StringToApplicationConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToApplicationConverter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/converters/StringToApplicationConverter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="884" selectionTopPixel="259"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUp.java" partName="FixUp.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/domain/FixUp.java" title="FixUp.java" tooltip="Acme-HandyWorker/src/main/java/domain/FixUp.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1950" selectionTopPixel="994"/>
+</editor>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" partName="edit.jsp" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp" title="edit.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1417" selectionTopPixel="458"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpCustomerController.java" partName="FixUpCustomerController.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java" title="FixUpCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1356" selectionTopPixel="1590"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Finder.java" partName="Finder.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/domain/Finder.java" title="Finder.java" tooltip="Acme-HandyWorker/src/main/java/domain/Finder.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/domain/Finder.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="492" selectionTopPixel="1110"/>
 </editor>
 </editors>
 <views>
@@ -116,7 +121,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.wst.server.ui.ServersView" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jst.j2ee.J2EEPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jst.j2ee.internal.perspective.J2EEPerspective" id="org.eclipse.jst.j2ee.J2EEPerspective" label="Java EE"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -204,7 +209,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24943651" ratioLeft="332" ratioRight="999" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.73887813" ratioLeft="382" ratioRight="135" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.wst.server.ui.ServersView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
@@ -334,163 +339,168 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/FixUpToStringConverter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/StringToFixUpConverter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/CustomerToStringConverter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/StringToCustomerConverter.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/StringToFixUpConverter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/fixUp/show_customer.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/fixUp/messages.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/fixUp/messages_es.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/ComplaintToStringConverter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/StringToComplaintConverter.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-HandyWorker/src/main/resources/spring/config/converters.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/ApplicationToStringConverter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/StringToApplicationConverter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/converters/StringToHandyWorkerConverter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/Finder.java"/>
 </editors>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position/>
+<item historyLabel="show_customer.jsp" index="2">
+<position info="not_deleted" x="2997" y="23"/>
 </item>
-<item historyLabel="StringToFixUpConverter.java" index="3">
-<position info="not_deleted" x="866" y="0"/>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
 </item>
-<item historyLabel="StringToFixUpConverter.java" index="3">
+<item historyLabel="show_customer.jsp" index="2">
+<position info="not_deleted" x="3540" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
+</item>
+<item historyLabel="show_customer.jsp" index="2">
+<position info="not_deleted" x="2665" y="25"/>
+</item>
+<item historyLabel="messages.properties" index="3">
+<position info="not_deleted" x="690" y="0"/>
+</item>
+<item historyLabel="messages_es.properties" index="4">
+<position info="not_deleted" x="711" y="0"/>
+</item>
+<item historyLabel="show_customer.jsp" index="2">
+<position info="not_deleted" x="2665" y="25"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
+</item>
+<item historyLabel="show_customer.jsp" index="2">
+<position info="not_deleted" x="2767" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1339" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1339" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1345" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
+</item>
+<item historyLabel="show_customer.jsp" index="2">
+<position info="not_deleted" x="2767" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1345" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1345" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1345" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1051" y="0"/>
+</item>
+<item historyLabel="show_customer.jsp" index="2">
+<position info="not_deleted" x="2767" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1521" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="966" y="10"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1521" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="966" y="10"/>
+</item>
+<item historyLabel="messages_es.properties" index="4">
+<position info="not_deleted" x="711" y="0"/>
+</item>
+<item historyLabel="ComplaintToStringConverter.java" index="5">
 <position info="not_deleted" x="636" y="0"/>
 </item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position info="not_deleted" x="5799" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position info="not_deleted" x="5811" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="edit.jsp" index="0">
-<position info="not_deleted" x="1259" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="edit.jsp" index="0">
-<position info="not_deleted" x="1634" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="edit.jsp" index="0">
-<position info="not_deleted" x="2537" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position info="not_deleted" x="4262" y="0"/>
-</item>
-<item historyLabel="FixUpToStringConverter.java" index="2">
-<position/>
-</item>
-<item historyLabel="CustomerToStringConverter.java" index="4">
-<position/>
-</item>
-<item historyLabel="FixUpToStringConverter.java" index="2">
-<position/>
-</item>
-<item historyLabel="StringToFixUpConverter.java" index="3">
-<position info="not_deleted" x="636" y="0"/>
-</item>
-<item historyLabel="StringToFixUpConverter.java" index="3">
-<position info="not_deleted" x="608" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="StringToFixUpConverter.java" index="6">
-<position/>
-</item>
-<item historyLabel="FixUpToStringConverter.java" index="2">
-<position/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="651" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="753" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="1078" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position info="not_deleted" x="4262" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position info="not_deleted" x="4222" y="0"/>
-</item>
-<item historyLabel="FixUpToStringConverter.java" index="2">
-<position/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position info="not_deleted" x="3790" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="1078" y="0"/>
-</item>
-<item historyLabel="FixUpToStringConverter.java" index="2">
-<position/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="1078" y="0"/>
-</item>
-<item historyLabel="StringToFixUpConverter.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="1078" y="0"/>
-</item>
-<item historyLabel="CustomerToStringConverter.java" index="4">
-<position info="not_deleted" x="517" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="1078" y="0"/>
-</item>
-<item historyLabel="FixUpToStringConverter.java" index="2">
-<position info="not_deleted" x="358" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="1076" y="0"/>
-</item>
-<item historyLabel="CustomerToStringConverter.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="CustomerToStringConverter.java" index="4">
-<position info="not_deleted" x="600" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="708" y="0"/>
-</item>
-<item historyLabel="CustomerToStringConverter.java" index="4">
-<position info="not_deleted" x="424" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="490" y="0"/>
-</item>
-<item historyLabel="CustomerToStringConverter.java" index="4">
-<position info="not_deleted" x="602" y="0"/>
-</item>
-<item historyLabel="StringToCustomerConverter.java" index="5">
-<position info="not_deleted" x="490" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="1">
-<position info="not_deleted" x="4488" y="0"/>
+<item historyLabel="StringToComplaintConverter.java" index="6">
+<position info="not_deleted" x="521" y="0"/>
 </item>
 <item historyLabel="converters.xml" index="7">
-<position info="not_deleted" x="0" y="0"/>
+<position info="not_deleted" x="1373" y="0"/>
+</item>
+<item historyLabel="ApplicationToStringConverter.java" index="8">
+<position info="not_deleted" x="650" y="0"/>
 </item>
 <item historyLabel="converters.xml" index="7">
-<position info="not_deleted" x="1008" y="0"/>
+<position info="not_deleted" x="1373" y="0"/>
 </item>
-<item active="true" historyLabel="edit.jsp" index="0">
-<position info="not_deleted" x="2537" y="0"/>
+<item historyLabel="StringToApplicationConverter.java" index="9">
+<position info="not_deleted" x="884" y="0"/>
+</item>
+<item historyLabel="converters.xml" index="7">
+<position info="not_deleted" x="1373" y="0"/>
+</item>
+<item historyLabel="converters.xml" index="7">
+<position info="not_deleted" x="1503" y="0"/>
+</item>
+<item historyLabel="StringToHandyWorkerConverter.java" index="10">
+<position info="not_deleted" x="1183" y="0"/>
+</item>
+<item historyLabel="converters.xml" index="7">
+<position info="not_deleted" x="1503" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="2055" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="2013" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="2055" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="2013" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1956" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1950" y="0"/>
+</item>
+<item historyLabel="FixUpCustomerController.java" index="11">
+<position info="not_deleted" x="1356" y="0"/>
+</item>
+<item historyLabel="FixUp.java" index="1">
+<position info="not_deleted" x="1950" y="0"/>
+</item>
+<item historyLabel="FixUpCustomerController.java" index="11">
+<position info="not_deleted" x="1356" y="0"/>
+</item>
+<item historyLabel="edit.jsp" index="0">
+<position info="not_deleted" x="1417" y="0"/>
+</item>
+<item active="true" historyLabel="Finder.java" index="12">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -517,26 +527,38 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpService.java" tooltip="Acme-HandyWorker/src/main/java/services/FixUpService.java">
-<persistable path="/Acme-HandyWorker/src/main/java/services/FixUpService.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Finder.java" tooltip="Acme-HandyWorker/src/main/java/domain/Finder.java">
+<persistable path="/Acme-HandyWorker/src/main/java/domain/Finder.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java">
+<persistable path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUp.java" tooltip="Acme-HandyWorker/src/main/java/domain/FixUp.java">
+<persistable path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToHandyWorkerConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToHandyWorkerConverter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/converters/StringToHandyWorkerConverter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HandyWorkerToStringConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/HandyWorkerToStringConverter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/converters/HandyWorkerToStringConverter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToApplicationConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToApplicationConverter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/converters/StringToApplicationConverter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationToStringConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/ApplicationToStringConverter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/converters/ApplicationToStringConverter.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="converters.xml" tooltip="Acme-HandyWorker/src/main/resources/spring/config/converters.xml">
 <persistable path="/Acme-HandyWorker/src/main/resources/spring/config/converters.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerToStringConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/CustomerToStringConverter.java">
-<persistable path="/Acme-HandyWorker/src/main/java/converters/CustomerToStringConverter.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToComplaintConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToComplaintConverter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/converters/StringToComplaintConverter.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpToStringConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/FixUpToStringConverter.java">
-<persistable path="/Acme-HandyWorker/src/main/java/converters/FixUpToStringConverter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToFixUpConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToFixUpConverter.java">
-<persistable path="/Acme-HandyWorker/src/main/java/converters/StringToFixUpConverter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToCustomerConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToCustomerConverter.java">
-<persistable path="/Acme-HandyWorker/src/main/java/converters/StringToCustomerConverter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/CustomerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/CustomerController.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ComplaintToStringConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/ComplaintToStringConverter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/converters/ComplaintToStringConverter.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/messages_es.properties">
 <persistable path="/Acme-HandyWorker/src/main/webapp/views/fixUp/messages_es.properties"/>
@@ -544,23 +566,11 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/messages.properties">
 <persistable path="/Acme-HandyWorker/src/main/webapp/views/fixUp/messages.properties"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles.xml" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/tiles.xml">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/fixUp/tiles.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUp.java" tooltip="Acme-HandyWorker/src/main/java/domain/FixUp.java">
-<persistable path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="show_customer.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/show_customer.jsp">
 <persistable path="/Acme-HandyWorker/src/main/webapp/views/fixUp/show_customer.jsp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="security.xml" tooltip="Acme-HandyWorker/src/main/resources/spring/config/security.xml">
-<persistable path="/Acme-HandyWorker/src/main/resources/spring/config/security.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="list_customer.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/list_customer.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/fixUp/list_customer.jsp"/>
 </file>
 </mruList>
 </workbench>

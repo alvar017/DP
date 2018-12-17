@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="services.WarrantyService"/>
 <fullyQualifiedTypeName name="domain.Warranty"/>
 <fullyQualifiedTypeName name="services.AdministratorService"/>
 <fullyQualifiedTypeName name="domain.Administrator"/>
@@ -40,8 +39,6 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="domain.Category"/>
-<fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
 <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
 <fullyQualifiedTypeName name="org.springframework.cglib.core.Converter"/>
+<fullyQualifiedTypeName name="domain.Category"/>
+<fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
+<fullyQualifiedTypeName name="domain.HandyWorker"/>
 </qualifiedTypeNameHistroy>

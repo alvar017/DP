@@ -14,7 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -70,13 +71,13 @@ public class FixUp extends DomainEntity {
 	public void setTicker(final String ticker) {
 		this.ticker = ticker;
 	}
-	@Past
+
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getMoment() {
 		return this.moment;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
 	public void setMoment(final Date moment) {
 		this.moment = moment;
 	}

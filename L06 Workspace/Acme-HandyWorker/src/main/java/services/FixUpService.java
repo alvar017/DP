@@ -73,6 +73,7 @@ public class FixUpService {
 		//		final Warranty saveWaranty = this.warrantyService.save(warranty);
 		//		fixUp.setWarranty(saveWaranty);
 		fixUp.setDescription("");
+		fixUp.setMoment(LocalDate.now().toDate());
 		return fixUp;
 
 	}

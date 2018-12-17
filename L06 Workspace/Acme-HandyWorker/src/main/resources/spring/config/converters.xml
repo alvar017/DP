@@ -24,6 +24,16 @@
 		-->
 		<bean class="converters.CustomerToStringConverter"></bean>
 		<bean class="converters.StringToCustomerConverter"></bean>
+		<bean class="converters.WarrantyToStringConverter"></bean>
+		<bean class="converters.StringToWarrantyConverter"></bean>
+		<bean class="converters.CategoryToStringConverter"></bean>
+		<bean class="converters.StringToCategoryConverter"></bean>
+		<bean class="converters.ComplaintToStringConverter"></bean>
+		<bean class="converters.StringToComplaintConverter"></bean>
+		<bean class="converters.ApplicationToStringConverter"></bean>
+		<bean class="converters.StringToApplicationConverter"></bean>
+		<bean class="converters.HandyWorkerToStringConverter"></bean>
+		<bean class="converters.StringToHandyWorkerConverter"></bean>
 	</util:list>
 	
 </beans>
