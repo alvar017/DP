@@ -39,9 +39,7 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="org.hibernate.engine.config.spi.ConfigurationService.Converter"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
@@ -50,7 +48,6 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="repositories.FixUpRepository"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="antlr.StringUtils"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="domain.Category"/>
 <fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="domain.FixUp"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 </qualifiedTypeNameHistroy>

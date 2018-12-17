@@ -126,7 +126,27 @@ public class FixUpCustomerController extends AbstractController {
 		return result;
 	}
 
-	@RequestMapping(value = "/edit", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("id") final int fixUpId) {
+		ModelAndView result;
+
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+		System.out.println("FixUp encontrado: " + fixUp);
+		Assert.notNull(fixUp);
+
+		try {
+			this.fixUpService.delete(fixUp);
+			result = new ModelAndView("redirect:list.do");
+		} catch (final Exception e) {
+			result = this.createEditModelAndView(fixUp, "fixUp.commit.error");
+		}
+
+		result.addObject("language", language);
+		return result;
+	}
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final FixUp fixUp, final BindingResult binding) {
 		ModelAndView result;
 

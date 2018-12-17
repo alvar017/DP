@@ -24,8 +24,8 @@
         		<h2>
         			<spring:message code="customer.welcome.listing" />
         			<jstl:out value="${fixUp.ticker}"></jstl:out>
-        			<a title="AcmeTitle" href="fixUp/customer/edit.do?id=${fixUp.id}"><img src="images/edit.png" alt="Edit" width="3%"/></a>
-	
+        			<a title="AcmeTitle" href="fixUp/customer/edit.do?params=${fixUp.id}"><img src="images/edit.png" alt="Edit" width="3%"/></a>
+
 					<script>
 						function confirmarEN(url) {
 							if(confirm('Are you sure?')) {
@@ -44,13 +44,17 @@
 							}	
 						}
 					</script>
-			
+
+  
 			   		<c:choose>
     					<c:when test="${language=='English'}">
-        					<a onclick="return confirmarEN('accion.html')" title="AcmeTitle" href="fixUp/customer/deleteFixUpTask.do?delete=y&id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a> 
+
+        					<a onclick="return confirmarEN('accion.html')" title="AcmeTitle" href="fixUp/customer/delete.do?id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
     					</c:when>    
     					<c:otherwise>
-        					<a onclick="return confirmarES('accion.html')" title="AcmeTitle" href="fixUp/customer/deleteFixUpTask.do?delete=y&id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
+    						
+        					<a onclick="return confirmarES('accion.html')" title="AcmeTitle" href="fixUp/customer/delete.do?id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
+        					
     					</c:otherwise>
 					</c:choose>
         		</h2>
