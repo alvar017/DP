@@ -25,15 +25,15 @@ public class StringToCategoryConverter implements Converter<String, Category> {
 
 		try {
 			if (StringUtils.isEmpty(text)) {
-				System.out.println("Error en StringToCustomerConverter IF: " + text);
+				System.out.println("Error en StringToCategoryConverter IF: " + text);
 				result = null;
 			} else {
 				id = Integer.valueOf(text);
 				result = this.categoryRepository.findOne(id);
-				System.out.println("Error en StringToCustomerConverter ELSE: " + result);
+				System.out.println("Error en StringToCategoryConverter ELSE: " + result);
 			}
 		} catch (final Throwable oops) {
-			System.out.println("Error en StringToCustomerConverter CATCH: " + oops);
+			System.out.println("Error en StringToCategoryConverter CATCH: " + oops);
 			throw new IllegalArgumentException(oops);
 		}
 		return result;

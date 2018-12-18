@@ -25,15 +25,15 @@ public class StringToApplicationConverter implements Converter<String, Applicati
 
 		try {
 			if (StringUtils.isEmpty(text)) {
-				System.out.println("Error en StringToCustomerConverter IF: " + text);
+				System.out.println("Error en StringToApplicationConverter IF: " + text);
 				result = null;
 			} else {
 				id = Integer.valueOf(text);
 				result = this.applicationRepository.findOne(id);
-				System.out.println("Error en StringToCustomerConverter ELSE: " + result);
+				System.out.println("Error en StringToApplicationConverter ELSE: " + result);
 			}
 		} catch (final Throwable oops) {
-			System.out.println("Error en StringToCustomerConverter CATCH: " + oops);
+			System.out.println("Error en StringToApplicationConverter CATCH: " + oops);
 			throw new IllegalArgumentException(oops);
 		}
 		return result;

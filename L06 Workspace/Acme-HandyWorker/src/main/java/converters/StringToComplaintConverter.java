@@ -25,15 +25,15 @@ public class StringToComplaintConverter implements Converter<String, Complaint> 
 
 		try {
 			if (StringUtils.isEmpty(text)) {
-				System.out.println("Error en StringToCustomerConverter IF: " + text);
+				System.out.println("Error en StringToComplaintConverter IF: " + text);
 				result = null;
 			} else {
 				id = Integer.valueOf(text);
 				result = this.complaintRepository.findOne(id);
-				System.out.println("Error en StringToCustomerConverter ELSE: " + result);
+				System.out.println("Error en StringToComplaintConverter ELSE: " + result);
 			}
 		} catch (final Throwable oops) {
-			System.out.println("Error en StringToCustomerConverter CATCH: " + oops);
+			System.out.println("Error en StringToComplaintConverter CATCH: " + oops);
 			throw new IllegalArgumentException(oops);
 		}
 		return result;

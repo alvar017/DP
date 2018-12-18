@@ -25,15 +25,15 @@ public class StringToHandyWorkerConverter implements Converter<String, HandyWork
 
 		try {
 			if (StringUtils.isEmpty(text)) {
-				System.out.println("Error en StringToCustomerConverter IF: " + text);
+				System.out.println("Error en StringToHandyWorkerConverter IF: " + text);
 				result = null;
 			} else {
 				id = Integer.valueOf(text);
 				result = this.handyWorkerRepository.findOne(id);
-				System.out.println("Error en StringToCustomerConverter ELSE: " + result);
+				System.out.println("Error en StringToHandyWorkerConverter ELSE: " + result);
 			}
 		} catch (final Throwable oops) {
-			System.out.println("Error en StringToCustomerConverter CATCH: " + oops);
+			System.out.println("Error en StringToHandyWorkerConverter CATCH: " + oops);
 			throw new IllegalArgumentException(oops);
 		}
 		return result;

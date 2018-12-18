@@ -7,7 +7,6 @@ import java.util.Date;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -63,7 +62,7 @@ public class FixUp extends DomainEntity {
 	public void setComplaints(final Collection<Complaint> complaints) {
 		this.complaints = complaints;
 	}
-	@Column(unique = true)
+
 	public String getTicker() {
 		return this.ticker;
 	}
@@ -105,7 +104,9 @@ public class FixUp extends DomainEntity {
 	public void setMaxPrice(final Money maxPrice) {
 		this.maxPrice = maxPrice;
 	}
+
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -113,7 +114,9 @@ public class FixUp extends DomainEntity {
 	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
+
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getEndDate() {
 		return this.endDate;
 	}

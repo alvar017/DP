@@ -24,7 +24,7 @@
         		<h2>
         			<spring:message code="customer.welcome.listing" />
         			<jstl:out value="${fixUp.ticker}"></jstl:out>
-        			<a title="AcmeTitle" href="fixUp/customer/edit.do?params=${fixUp.id}"><img src="images/edit.png" alt="Edit" width="3%"/></a>
+        			<a title="AcmeTitle" href="fixUp/customer/edit.do?id=${fixUp.id}"><img src="images/edit.png" alt="Edit" width="3%"/></a>
 
 					<script>
 						function confirmarEN(url) {
@@ -69,7 +69,7 @@
     							
     				<tr><td><spring:message code="customer.showing.address" /><jstl:out value="${fixUp.address}"></jstl:out></td></tr>
     							
-    				<tr><td><spring:message code="customer.showing.warranty" /><jstl:out value="${fixUp.warranty}"></jstl:out></td></tr>			
+    				<tr><td><spring:message code="customer.showing.warranty" /><jstl:out value="${fixUp.warranty.title}"></jstl:out></td></tr>			
     							
     				<tr><td><spring:message code="customer.showing.price" /><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out></td></tr>
 

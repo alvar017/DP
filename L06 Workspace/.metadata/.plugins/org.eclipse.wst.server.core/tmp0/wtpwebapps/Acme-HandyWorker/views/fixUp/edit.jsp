@@ -35,7 +35,7 @@
           	<form:hidden path="customer"/>
           	<form:hidden path="ticker"/>
           	<form:hidden path="handyWorker"/>
-          	
+          	<form:hidden path="version"/>
           	
           	<form:hidden path="moment"/>
           	

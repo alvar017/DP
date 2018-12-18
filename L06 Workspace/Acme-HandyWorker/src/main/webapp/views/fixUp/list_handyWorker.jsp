@@ -38,7 +38,7 @@
 <security:authorize access="hasRole('HANDYWORKER')">
 <display:table name="myFixUps" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 	<display:column titleKey="customer.ticker"> 
-		<a href="fixUp/customer/showFixUp.do?fixUpId=${row.id}">${row.ticker}</a>
+		<a href="fixUp/handyWorker/show.do?fixUpId=${row.id}">${row.ticker}</a>
 	</display:column>
 	<display:column property="description" titleKey="customer.description"></display:column>
 	<display:column property="maxPrice.quantity" titleKey="customer.price"></display:column>
