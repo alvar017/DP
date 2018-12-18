@@ -36,6 +36,7 @@
           	<form:hidden path="ticker"/>
           	<form:hidden path="handyWorker"/>
           	<form:hidden path="version"/>
+          	<form:hidden path="id"/>
           	
           	<form:hidden path="moment"/>
           	
@@ -45,10 +46,12 @@
 			<form:textarea path="description" /><br>
 			<form:label path="address"><spring:message code="customer.showing.address" /></form:label>
 			<form:input path="address" /><br>
-			<!--
+			
 			<form:label path="maxPrice.quantity"><spring:message code="customer.showing.price" /></form:label>
-			<form:input path="maxPrice.quantity" /><br>
-			--> 
+			<form:input type="number" path="maxPrice.quantity" /><br>	
+			<form:label path="maxPrice.currency"><spring:message code="customer.showing.currency" /></form:label>
+			<form:input path="maxPrice.currency" /><br>
+			 
 			<form:label path="startDate"><spring:message code="customer.showing.startDate" /></form:label>
 			<form:input type="date" path="startDate" /><br>
 			<form:label path="endDate"><spring:message code="customer.showing.endDate" /></form:label>
@@ -69,15 +72,6 @@
   
   </section> <!-- / #main-content -->
   
-  		<c:choose>
-    		<c:when test="${language=='English'}">
-        		<form>
-      				<input type="button" value="Back" name="volver atrás2" onclick="history.back()" />
-	  			</form> 
-    		</c:when>    
-    		<c:otherwise>
-		 		<form>
-      				<input type="button" value="Volver" name="volver atrás2" onclick="history.back()" />
-	  			</form>        		
-    		</c:otherwise>
-		</c:choose>
+				<form>
+					<input type="button" value=<spring:message code="back" /> name="back" onclick="history.back()" />
+				</form>
