@@ -43,27 +43,39 @@
           	<form:hidden path="applications"/>
           	<form:hidden path="complaints"/>
           	<form:label path="description"><spring:message code="customer.showing.description" /></form:label>
-			<form:textarea path="description" /><br>
+			<form:textarea path="description" />
+			<form:errors cssClass="error" path="description"/><br>
 			<form:label path="address"><spring:message code="customer.showing.address" /></form:label>
-			<form:input path="address" /><br>
-			
+			<form:input path="address" />
+			<form:errors cssClass="error" path="address"/><br>
 			<form:label path="maxPrice.quantity"><spring:message code="customer.showing.price" /></form:label>
-			<form:input type="number" path="maxPrice.quantity" /><br>	
+			<form:input type="number" path="maxPrice.quantity" />
+			<form:errors cssClass="error" path="maxPrice.quantity"/><br>
 			<form:label path="maxPrice.currency"><spring:message code="customer.showing.currency" /></form:label>
+			<!--  
 			<form:input path="maxPrice.currency" /><br>
-			 
+			-->
+			<form:select path="maxPrice.currency" >
+				<form:option value="EUR"></form:option>
+				<form:option value="DOL"></form:option>
+			</form:select>
+			<form:errors cssClass="error" path="maxPrice.currency"/><br>
 			<form:label path="startDate"><spring:message code="customer.showing.startDate" /></form:label>
-			<form:input type="date" path="startDate" /><br>
+			<form:input type="date" path="startDate" />
+			<form:errors cssClass="error" path="startDate"/><br>
 			<form:label path="endDate"><spring:message code="customer.showing.endDate" /></form:label>
-			<form:input path="endDate" /><br>
+			<form:input path="endDate" />
+			<form:errors cssClass="error" path="endDate"/><br>
 			<form:label path="warranty"><spring:message code="customer.showing.warranty" /></form:label>
 			<form:select path="warranty" >
 				<form:options items="${warranties}" itemLabel="title" itemValue="id"/>
-			</form:select><br>
+			</form:select>
+			<form:errors cssClass="error" path="warranty"/><br>
 			<form:label path="category"><spring:message code="customer.showing.category" /></form:label>
 			<form:select path="category" >
 				<form:options items="${categories}" itemLabel="nameES" itemValue="id"/>
-			</form:select><br>
+			</form:select>
+			<form:errors cssClass="error" path="category"/><br>
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
       </div>

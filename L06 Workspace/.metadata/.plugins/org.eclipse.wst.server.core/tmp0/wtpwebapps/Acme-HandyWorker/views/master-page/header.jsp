@@ -16,7 +16,7 @@
 
 <header id="main-header">
     
-    <a title="AcmeTitle" href="Aqui pondré la dirección de la master page"><img src="images/logo.png" alt="Logo" /></a>
+    <a title="AcmeTitle" href=""><img src="images/logo.png" alt="Logo" /></a>
  
     <nav>
 		<ul id="jMenu">
@@ -62,10 +62,7 @@
 			        (<security:authentication property="principal.username" />)
 				</a>
 				<ul>
-					<li class="arrow"></li>
-					<li><a href="profile/action-1.do"><spring:message code="master.page.profile.action.1" /></a></li>
-					<li><a href="profile/action-2.do"><spring:message code="master.page.profile.action.2" /></a></li>
-					<li><a href="profile/action-3.do"><spring:message code="master.page.profile.action.3" /></a></li>					
+					<li class="arrow"></li>					
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
 				</ul>
 			</li>

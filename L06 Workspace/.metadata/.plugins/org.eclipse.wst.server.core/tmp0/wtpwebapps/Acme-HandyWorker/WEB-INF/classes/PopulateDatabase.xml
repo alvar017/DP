@@ -265,8 +265,18 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     <!-- Warranty -->
 
     <bean id="war01" class="domain.Warranty">
-
         <property name="title" value="warranty1" />
+        <property name="isFinal" value="True" />
+        <property name="terms">
+            <null />
+        </property>
+        <property name="laws">
+            <null />
+        </property>
+    </bean>
+        <bean id="war02" class="domain.Warranty">
+
+        <property name="title" value="warranty2" />
         <property name="isFinal" value="True" />
         <property name="terms">
             <null />

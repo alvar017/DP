@@ -27,36 +27,16 @@
         			<a title="AcmeTitle" href="fixUp/customer/edit.do?id=${fixUp.id}"><img src="images/edit.png" alt="Edit" width="3%"/></a>
 
 					<script>
-						function confirmarEN(url) {
-							if(confirm('Are you sure?')) {
+					 	var abc="<spring:message code="customer.confirm"/>";
+						function confirmar(url) {
+							if(confirm(abc)) {
 								window.location=url;
 							} else {
 								return false;
 							}	
 						}
 					</script>
-					<script>
-						function confirmarES(url) {
-							if(confirm('¿Estas seguro?')) {
-								window.location=url;
-							} else {
-								return false;
-							}	
-						}
-					</script>
-
-  
-			   		<c:choose>
-    					<c:when test="${language=='English'}">
-
-        					<a onclick="return confirmarEN('accion.html')" title="AcmeTitle" href="fixUp/customer/delete.do?id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
-    					</c:when>    
-    					<c:otherwise>
-    						
-        					<a onclick="return confirmarES('accion.html')" title="AcmeTitle" href="fixUp/customer/delete.do?id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
-        					
-    					</c:otherwise>
-					</c:choose>
+					<a onclick="return confirmar('accion.html')" title="AcmeTitle" href="fixUp/customer/delete.do?id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
         		</h2>
       		</header>
       
