@@ -161,12 +161,12 @@ public class FixUpCustomerController extends AbstractController {
 				this.fixUpService.save(fixUp);
 				result = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
-				System.out.println("El error pasa por aquí alvaro (CATCH de save())");
-				System.out.println(binding);
+				System.out.println("El error: ");
+				System.out.println(oops);
 				System.out.println(binding);
 				result = this.createEditModelAndView(fixUp, "fixUp.commit.error");
-			}
 
+			}
 		return result;
 	}
 

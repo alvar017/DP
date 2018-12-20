@@ -55,6 +55,7 @@ public class FixUp extends DomainEntity {
 	}
 
 	@OneToMany(mappedBy = "fixUp", cascade = CascadeType.ALL)
+	@Valid
 	public Collection<Complaint> getComplaints() {
 		return this.complaints;
 	}

@@ -81,7 +81,7 @@ public class Complaint extends DomainEntity {
 	public void setReports(final Collection<Report> reports) {
 		this.reports = reports;
 	}
-	@ManyToOne(optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(optional = false)
 	public FixUp getFixUp() {
 		return this.fixUp;
 	}
