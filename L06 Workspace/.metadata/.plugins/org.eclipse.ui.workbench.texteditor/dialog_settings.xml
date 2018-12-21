@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="war01" key="selection"/>
+		<item value="else" key="selection"/>
 		<list key="findhistory">
+			<item value="else if"/>
+			<item value="else"/>
+			<item value="getm"/>
+			<item value="getmo"/>
+			<item value="not"/>
+			<item value="spring"/>
+			<item value="oo"/>
 			<item value="war01"/>
-			<item value="domain.warra"/>
-			<item value="getfi"/>
-			<item value="getcom"/>
-			<item value="getapp"/>
-			<item value="complaint"/>
-			<item value="check"/>
-			<item value="if"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

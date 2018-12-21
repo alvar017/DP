@@ -97,7 +97,23 @@ public class FixUpService {
 	}
 	public FixUp save(final FixUp fixUp) {
 		this.checkSuspicious(fixUp);
+		Assert.isTrue(!this.checkStartDateEndDate(fixUp.getStartDate(), fixUp.getEndDate()), "fixUp.wrongDate");
+		Assert.isTrue(!this.checkMomentDate(fixUp.getStartDate(), fixUp.getMoment()), "fixUp.wrongMomentDate");
 		return this.fixUpRepository.save(fixUp);
+	}
+
+	private Boolean checkStartDateEndDate(final Date startDate, final Date endDate) {
+		Boolean res = true;
+		if (startDate != null && endDate != null && startDate.before(endDate))
+			res = false;
+		return res;
+	}
+
+	private Boolean checkMomentDate(final Date startDate, final Date moment) {
+		Boolean res = true;
+		if (startDate != null && moment != null && moment.before(startDate))
+			res = false;
+		return res;
 	}
 	public void delete(final FixUp fixUp) {
 		Assert.notNull(this.fixUpRepository.findOne(fixUp.getId()), "La fixUp no existe");

@@ -13,7 +13,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -74,6 +76,7 @@ public class FixUp extends DomainEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+	@NotNull
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -82,6 +85,7 @@ public class FixUp extends DomainEntity {
 		this.moment = moment;
 	}
 
+	@NotEmpty
 	public String getDescription() {
 		return this.description;
 	}
@@ -90,6 +94,7 @@ public class FixUp extends DomainEntity {
 		this.description = description;
 	}
 
+	@NotEmpty
 	public String getAddress() {
 		return this.address;
 	}
@@ -108,6 +113,7 @@ public class FixUp extends DomainEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+	@NotNull
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -118,6 +124,7 @@ public class FixUp extends DomainEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+	@NotNull
 	public Date getEndDate() {
 		return this.endDate;
 	}

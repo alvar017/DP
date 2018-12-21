@@ -27,7 +27,9 @@
 		<a href="fixUp/customer/show.do?fixUpId=${row.id}">${row.ticker}</a>
 	</display:column>
 	<display:column property="description" titleKey="customer.description"></display:column>
-	<display:column property="maxPrice.quantity" titleKey="customer.price"></display:column>
+	<display:column titleKey="customer.price"> 
+		<jstl:out value="${row.maxPrice.quantity}"></jstl:out><jstl:out value="${row.maxPrice.currency}"></jstl:out>
+	</display:column>
 	<display:column property="handyWorker.name" titleKey="handyWorker.nameHW"></display:column>
 </display:table>
 </security:authorize>

@@ -24,7 +24,7 @@
         		<h2>
         			<spring:message code="customer.welcome.listing" />
         			<jstl:out value="${fixUp.ticker}"></jstl:out>
-        			<a title="AcmeTitle" href="application/handyWorker/applyFixUp.do?id=${fixUp.id}"><img src="images/diana.png" alt="Apply" width="3%"/></a>
+        			<a title="AcmeTitle" href="application/handyWorker/create.do?id=${fixUp.id}"><img src="images/diana.png" alt="Apply" width="3%"/></a>
         		</h2>
       		</header>
       

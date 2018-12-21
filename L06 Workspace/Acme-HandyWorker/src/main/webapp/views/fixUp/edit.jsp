@@ -43,13 +43,13 @@
           	<form:hidden path="applications"/>
           	<form:hidden path="complaints"/>
           	<form:label path="description"><spring:message code="customer.showing.description" /></form:label>
-			<form:textarea path="description" />
+			<form:textarea path="description" required="required"/>
 			<form:errors cssClass="error" path="description"/><br>
 			<form:label path="address"><spring:message code="customer.showing.address" /></form:label>
-			<form:input path="address" />
+			<form:input path="address" required="required"/>
 			<form:errors cssClass="error" path="address"/><br>
 			<form:label path="maxPrice.quantity"><spring:message code="customer.showing.price" /></form:label>
-			<form:input type="number" path="maxPrice.quantity" />
+			<form:input type="number" path="maxPrice.quantity" required="required"/>
 			<form:errors cssClass="error" path="maxPrice.quantity"/><br>
 			<form:label path="maxPrice.currency"><spring:message code="customer.showing.currency" /></form:label>
 			<!--  
@@ -61,10 +61,10 @@
 			</form:select>
 			<form:errors cssClass="error" path="maxPrice.currency"/><br>
 			<form:label path="startDate"><spring:message code="customer.showing.startDate" /></form:label>
-			<form:input type="date" path="startDate" />
+			<form:input type="date" path="startDate" required="required"/>
 			<form:errors cssClass="error" path="startDate"/><br>
 			<form:label path="endDate"><spring:message code="customer.showing.endDate" /></form:label>
-			<form:input path="endDate" />
+			<form:input path="endDate" required="required"/>
 			<form:errors cssClass="error" path="endDate"/><br>
 			<form:label path="warranty"><spring:message code="customer.showing.warranty" /></form:label>
 			<form:select path="warranty" >
