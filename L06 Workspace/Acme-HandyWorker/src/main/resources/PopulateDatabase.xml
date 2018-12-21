@@ -609,6 +609,108 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         </property>          
     </bean>
     
+    <!-- TUTORIALS -->
+    
+    <bean id="tutorial1" class="domain.Tutorial">
+        <property name="title" value="titulo1" />
+        <property name="summary" value="summary1" />
+        <property name="picture" value="https://assets.trome.pe/files/ec_article_multimedia_gallery/uploads/2018/04/17/5ad609d27c1a7.jpeg" />
+        <property name="moment" value="2018/11/29 08:00" />
+        <property name="handyWorker" ref="han01"/>
+        <property name="sponsorships"><null/></property>
+        <property name="sections" >
+            <list>
+                <ref bean="section1"/>
+                <ref bean="section2"/>
+                <ref bean="section3"/>
+            </list>        
+        </property>         
+    </bean>
+    
+    <bean id="tutorial2" class="domain.Tutorial">
+        <property name="title" value="titulo2" />
+        <property name="summary" value="summary2" />
+        <property name="moment" value="2018/11/29 08:00" />
+        <property name="picture" value="https://assets.trome.pe/files/ec_article_multimedia_gallery/uploads/2018/04/17/5ad609d27c1a7.jpeg" />
+        <property name="handyWorker" ref="han01"/>
+        <property name="sponsorships"><null/></property> 
+        <property name="sections"><null/></property>      
+    </bean>
+    
+    <bean id="tutorial3" class="domain.Tutorial">
+        <property name="title" value="titulo3" />
+        <property name="summary" value="summary3" />
+        <property name="picture" value="https://assets.trome.pe/files/ec_article_multimedia_gallery/uploads/2018/04/17/5ad609d27c1a7.jpeg" />
+        <property name="moment" value="2018/11/29 08:00" />
+        <property name="handyWorker" ref="han01"/>
+        <property name="sponsorships">
+            <list>
+                <ref bean="sponsorship1"/>
+            </list>
+        </property>
+        <property name="sections"><null/></property>      
+    </bean>
+    
+    <!-- SECTIONS -->
+    
+    <bean id="section1" class="domain.Section">
+        <property name="title" value="titulo1" />
+        <property name="text" value="some text" />
+        <property name="number" value="3" />
+        <property name="picture" value="http://www.giroreformas.com/wp-content/uploads/2013/03/alicatado-cocina.jpg"/>       
+    </bean>
+    <bean id="section2" class="domain.Section">
+        <property name="title" value="titulo2" />
+        <property name="text" value="some text" />
+        <property name="number" value="1" />
+        <property name="picture" value="http://www.giroreformas.com/wp-content/uploads/2013/03/alicatado-cocina.jpg"/>       
+    </bean>
+    <bean id="section3" class="domain.Section">
+        <property name="title" value="titulo3" />
+        <property name="text" value="some text" />
+        <property name="number" value="2" />
+        <property name="picture" value="http://www.giroreformas.com/wp-content/uploads/2013/03/alicatado-cocina.jpg"/>       
+    </bean>
+    
+    <bean id="sponsorship1" class="domain.Sponsorship">
+        <property name="banner" value="https://assets.trome.pe/files/ec_article_multimedia_gallery/uploads/2018/04/17/5ad609d27c1a7.jpeg" />
+        <property name="target" value="target" />
+        <property name="sponsor" ref="sponsor1"/>
+        <property name="creditCard"><null/></property> 
+        <property name="tutorial" ref="tutorial1"/>     
+    </bean>
+    
+    <bean id="sponsor1" class="domain.Sponsor">
+        <property name="name" value="Pepe" />
+        <property name="surname" value="Villuela" />
+        <property name="middleName" value="" />
+        <property name="email" value="villuelux@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="userAccount" ref="userAccount5" />
+        <property name="photo">
+            <null />
+        </property>
+        <property name="sponsorships">
+            <list>
+                <ref bean="sponsorship1"/>
+            </list>
+        </property>
+        <property name="address" value="Calle Chota Número 12" />
+    </bean>
+    
+    <bean id="userAccount5" class="security.UserAccount">
+        <property name="username" value="sponsor" />
+        <property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="SPONSOR" />
+                </bean>
+            </list>
+        </property>
+    </bean>   
     
 </beans>
 

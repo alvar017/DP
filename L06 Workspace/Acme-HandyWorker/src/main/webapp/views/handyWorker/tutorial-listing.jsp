@@ -22,15 +22,16 @@
 <body>
 <div>
 	<security:authorize access="hasRole('HANDYWORKER')">
-	<display:table name="tutorials" id="row" requestURI="tutorial/handyWorker/listing.do" pagesize="5" class="displaytag">
-		
-		<display:column property="<spring:message code= 'tutorial.title'/>" titleKey="fixUp.ticker" sortable="true"/>
-		<display:column property="<spring:message code= 'tutorial.moment'/>" titleKey="tutorial.moment" sortable="true" format="{0,date,dd/MM/yyyy HH:mm}"/>
-		<display:column property="<spring:message code= 'tutorial.summary'/>" titleKey="tutorial.summary" sortable="true"/>
-		<display:column property="<spring:message code= 'tutorial.sponsor'/>" titleKey="tutorial.sponsor" sortable="false"/>
+	<display:table name="tutorials" id="row" requestURI="${requesURI }" pagesize="5" class="displaytag">
+		<display:column titleKey="tutorial.title"> <a href="tutorial/handyWorker/show.do?tutorialId=${row.id}">${row.title }</a></display:column>
+		<display:column property="moment" titleKey="tutorial.moment" format="{0,date,dd/MM/yyyy HH:mm}"/>
+		<display:column property="summary" titleKey="tutorial.summary"/>
 		<display:column> <a href="tutorial/handyWorker/edit.do?tutorialId=${row.id}"><spring:message code="tutorial.edit"/></a></display:column>
+		
 			
 	</display:table>
+	<a href="tutorial/handyWorker/create.do" ><input type="button" value="<spring:message code='create'></spring:message>"></a>
+	
 	</security:authorize>
 </div>
 </body>

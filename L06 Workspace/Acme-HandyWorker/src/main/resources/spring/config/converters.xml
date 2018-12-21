@@ -38,6 +38,12 @@
 		<bean class="converters.FixUpToStringConverter"></bean>
 		<bean class="converters.StringToFixUpConverter"></bean>
 		<!-- ANTONIO -->
+		<!-- FERRETE -->
+		<bean class="converters.SponsorshipToStringConverter"></bean>
+		<bean class="converters.SectionToStringConverter"></bean>
+		<bean class="converters.StringToSectionConverter"></bean>
+		<bean class="converters.StringToSponsorshipConverter"></bean>
+		<!-- FERRETE -->
 	</util:list>
 	
 </beans>

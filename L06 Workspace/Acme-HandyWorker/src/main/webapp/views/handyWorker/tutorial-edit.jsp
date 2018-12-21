@@ -22,24 +22,30 @@
     <article>
       <header>
         <h2>
-        	<spring:message code="application.welcome.edit" />
+        	<spring:message code="tutorial.welcome.edit" />
         </h2>
       </header>
       
       <div class="content">
-          <form:form class="formularioEdicion" modelAttribute="tutorial" action="tutorial/handyWorker/edit.do">
+          <form:form class="formularioEdicion" method="POST" modelAttribute="tutorial" action="tutorial/handyWorker/edit.do">
           	<form:hidden path="id"/>
           	<form:hidden path="version"/>
+          	<form:hidden path="sponsorships"/>
+          	<form:hidden path="handyWorker"/>
+          	<form:hidden path="sections"/>
+          	<form:hidden path="moment"/>
+          	
           	<form:label path="title"><spring:message code="tutorial.title" /></form:label>
-			<form:textarea path="title" /><br>
+			<form:textarea path="title" />
+			<form:errors path="title"/><br>
 			<form:label path="summary"><spring:message code="tutorial.summary" /></form:label>
-			<form:textarea path="summary" /><br>
-			<form:label path="moment"><spring:message code="tutorial.moment" /></form:label>
-			<form:input path="moment" /><br>
-			<form:label path="image"><spring:message code="tutorial.image" /></form:label>
-			<form:input path="image" /><br>
-			<input type="submit" name="name" value="<spring:message code="submit"/>" />
-			<a name="cancel" href="tutorial/handyWorker/list.do" value="<spring:message code="cancel"/>" />
+			<form:textarea path="summary" />
+			<form:errors path="summary"/><br>
+			<form:label path="picture"><spring:message code="tutorial.image" /></form:label>
+			<form:input path="picture" />
+			<form:errors path="picture"/><br>
+			<input type="submit" name="save" value="<spring:message code="submit"/>" />
+			<input type="button" name="cancel" onclick="javascript:relativeRedir('tutorial/handyWorker/list.do')" value="<spring:message code="cancel"/>"/>
 		</form:form>
       </div>
       

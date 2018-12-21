@@ -8,12 +8,14 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -27,7 +29,7 @@ public class Tutorial extends DomainEntity {
 	private HandyWorker				handyWorker;
 
 
-	@OneToOne(optional = false)
+	@ManyToOne(optional = false)
 	public HandyWorker getHandyWorker() {
 		return this.handyWorker;
 	}
@@ -36,6 +38,7 @@ public class Tutorial extends DomainEntity {
 		this.handyWorker = handyWorker;
 	}
 
+	@NotBlank
 	public String getTitle() {
 		return this.title;
 	}
@@ -44,6 +47,7 @@ public class Tutorial extends DomainEntity {
 		this.title = title;
 	}
 
+	@NotBlank
 	public String getSummary() {
 		return this.summary;
 	}
@@ -52,6 +56,7 @@ public class Tutorial extends DomainEntity {
 		this.summary = summary;
 	}
 
+	@NotBlank
 	@URL
 	public String getPicture() {
 		return this.picture;
@@ -62,6 +67,7 @@ public class Tutorial extends DomainEntity {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	public Date getMoment() {
 		return this.moment;
 	}

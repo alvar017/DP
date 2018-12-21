@@ -17,18 +17,35 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	
-  <p><spring:message code="tutorial.show" /></p>
+  
 <body>
 <div>
+	<jstl:if test="${requestScope.sponsorships.size()}>0" ><jstl:if test="${requestScope.randomSponsorship.banner}"> </jstl:if></jstl:if>
+	
+</div>
+<div>
 	<security:authorize access="hasRole('HANDYWORKER')">
-	<display:table name="tutorials" id="row" requestURI="tutorial/handyWorker/show.do" pagesize="5" class="displaytag">
+	<div>
+	<p><spring:message code="tutorial.show" /></p>
+	<display:table name="tutorial" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 		<jstl:set var="tutorialId" value="${row.id}"/>
-		<display:column property="<spring:message code= 'tutorial.title'/>" titleKey="tutorial.title" sortable="true"/>
-		<display:column property="<spring:message code= 'tutorial.title'/>" titleKey="tutorial.title" sortable="true"/>
-		<display:column property="<spring:message code= 'tutorial.moment'/>" titleKey="tutorial.moment" sortable="true" format="{0,date,dd/MM/yyyy HH:mm}"/>
-		<display:column property="<spring:message code= 'tutorial.summary'/>" titleKey="tutorial.summary" sortable="false"/>
-		<display:column property="<spring:message code= 'tutorial.sponsor'/>" titleKey="tutorial.sponsor" sortable="false"/>
+		<display:column property="title" titleKey="tutorial.title"/>
+		<display:column property="moment" titleKey="tutorial.moment" format="{0,date,dd/MM/yyyy HH:mm}"/>
+		<display:column property="summary" titleKey="tutorial.summary"/>
+	</display:table>
+	</div>	
+	<p><spring:message code="sponsor.show" /></p>
+		<div>
+	
+	<display:table list="requestScope.sponsorships" name="sponsorhips" id="row" requestURI="${requestURI }" pagesize="5" class="displaytag">
 		
+		<display:column property="target" titleKey="sponsor.name"/>
+		
+			
+	</display:table>
+	</div>
+	
+	<%--	
 		<script>
 				function confirmarEN(url) {
 					if(confirm('Are you sure?')) {
@@ -56,23 +73,25 @@
         				<display:column><a onclick="return confirmarES('accion.html')" title="AcmeTitle" href="fixUp/customer/deleteFixUpTask.do?delete=y&id=${fixUp.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a></display:column>
     				</c:otherwise>
 				</c:choose>
+				
 		
 		<display:column> <a href="tutorial/handyWorker/edit.do?tutorialId=${row.id}"><spring:message code="tutorial.edit"/></a></display:column>
 			
-	</display:table>
+	</display:table> --%>
 	
 	<div>
-	<div>
-	<display:table name="sections" id="row" requestURI="section/handyWorker/listing.do" pagesize="5" class="displaytag">
+	<p><spring:message code="section.show" /></p>
+	<display:table list="requestScope.sections" name="sections" id="row" requestURI="${requestURI }" pagesize="5" class="displaytag">
 		
-		<display:column property="<spring:message code= 'section.title'/>" titleKey="section.title" sortable="true"/>
-		<display:column property="<spring:message code= 'section.text'/>" titleKey="section.text" sortable="false"/>
-		<display:column property="<spring:message code= 'section.number'/>" titleKey="section.number" sortable="true"/>
+		<display:column property="title" titleKey="section.title"/>
+		<display:column property="text" titleKey="section.text"/>
+		<display:column property="number" titleKey="section.number"/>
 			
 	</display:table>
-	
+	</div>
 	<div>
 		<a href="tutorial/handyWorker/list.do" ><input type="button" value="<spring:message code='cancel'></spring:message>"></a>
+		<a href="tutorial/handyWorker/delete.do?tutorialId=${requestScope.tutorial.id }" onclick="return confirm('<spring:message code='delete'></spring:message>');"><input type="button" value="<spring:message code='delete'></spring:message>"></a>
 	</div>
 	</security:authorize>
 </div>
