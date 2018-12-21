@@ -53,8 +53,9 @@
 		<security:intercept-url pattern="/fixUp/customer/edit.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/fixUp/customer/create.do" access="hasRole('CUSTOMER')" />
 		
-		<security:intercept-url pattern="/finder/handyWorker/yourFinder.do" access="hasRole('HANDYWORKER')" /> 
-		<security:intercept-url pattern="/finder/handyWorker/editYourFinder.do" access="hasRole('HANDYWORKER')" />  
+		<security:intercept-url pattern="/finder/handyWorker/list.do" access="hasRole('HANDYWORKER')" /> 
+		<security:intercept-url pattern="/finder/handyWorker/edit.do" access="hasRole('HANDYWORKER')" />  
+		<security:intercept-url pattern="/finder/handyWorker/create.do" access="hasRole('HANDYWORKER')" />
 
 		<security:intercept-url pattern="/profile/action-1.do" access="isAuthenticated()" /> 
 		<security:intercept-url pattern="/profile/action-2.do" access="isAuthenticated()" /> 
