@@ -71,6 +71,14 @@
 		<!-- Ferrete -->
 		<security:intercept-url pattern="/tutorial/handyWorker/**" access="hasRole('HANDYWORKER')" />
 		<!-- Ferrete -->
+		<!-- Fran -->
+		<security:intercept-url pattern="/complaint/customer/list.do" access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/complaint/customer/show.do" access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/complaint/customer/edit.do" access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/complaint/customer/save.do" access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/complaint/customer/delete.do" access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/complaint/customer/create.do" access="hasRole('CUSTOMER')" />
+		<!-- Fran -->
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 
 		<security:form-login 

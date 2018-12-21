@@ -36,7 +36,8 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="fixUp/customer/list.do"><spring:message code="master.page.customer.action.1" /></a></li>
-					<li><a href="application/customer/list.do"><spring:message code="master.page.customer.list.application" /></a></li>					
+					<li><a href="application/customer/list.do"><spring:message code="master.page.customer.list.application" /></a></li>
+					<li><a href="complaint/customer/list.do"><spring:message code="master.page.customer.complaint" /></a></li>					
 				</ul>
 			</li>
 		</security:authorize>

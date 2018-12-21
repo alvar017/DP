@@ -13,6 +13,7 @@ import repositories.ComplaintRepository;
 import security.LoginService;
 import security.UserAccount;
 import domain.Complaint;
+import domain.Customer;
 import domain.FixUp;
 import domain.Referee;
 
@@ -28,6 +29,8 @@ public class ComplaintService {
 	private HandyWorkerService	handyWorkerService;
 	@Autowired
 	private RefereeService		refereeService;
+	@Autowired
+	private CustomerService		customerService;
 
 
 	public void delete(final Complaint complaint) {
@@ -97,5 +100,13 @@ public class ComplaintService {
 
 	public Collection<Complaint> getComplaintByFixUp(final FixUp fixUp) {
 		return this.complaintRepository.getComplaintByFixUp(fixUp.getId());
+	}
+
+	public Collection<Complaint> listing() {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		return this.complaintRepository.getComplaintByCustomer(customer.getId());
 	}
 }

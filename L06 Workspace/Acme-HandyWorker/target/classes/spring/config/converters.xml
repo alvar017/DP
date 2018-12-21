@@ -44,6 +44,10 @@
 		<bean class="converters.StringToSectionConverter"></bean>
 		<bean class="converters.StringToSponsorshipConverter"></bean>
 		<!-- FERRETE -->
+		<!-- FRAN -->
+		<bean class="converters.RefereeToStringConverter"></bean>
+		<bean class="converters.StringToRefereeConverter"></bean>
+		<!-- FRAN -->
 	</util:list>
 	
 </beans>
