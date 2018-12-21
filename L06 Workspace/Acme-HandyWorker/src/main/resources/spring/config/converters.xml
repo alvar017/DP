@@ -34,6 +34,10 @@
 		<bean class="converters.StringToApplicationConverter"></bean>
 		<bean class="converters.HandyWorkerToStringConverter"></bean>
 		<bean class="converters.StringToHandyWorkerConverter"></bean>
+		<!-- ANTONIO -->
+		<bean class="converters.FixUpToStringConverter"></bean>
+		<bean class="converters.StringToFixUpConverter"></bean>
+		<!-- ANTONIO -->
 	</util:list>
 	
 </beans>

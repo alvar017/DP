@@ -28,6 +28,7 @@
 		<value>/views/handyWorker/messages</value>
 		<value>/views/profile/messages</value>
 		<value>/views/fixUp/messages</value>
+		<value>/views/application/messages</value>
 	</util:list>
 
 </beans>

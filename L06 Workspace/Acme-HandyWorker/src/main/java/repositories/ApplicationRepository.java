@@ -72,4 +72,6 @@ public interface ApplicationRepository extends JpaRepository<Application, Intege
 	@Query("select sqrt(sum(b.quantity*b.quantity)/count(b.quantity)-(avg(b.quantity)*avg(b.quantity))) from Application a join a.offered b")
 	Double desviationPriceApp();
 
+	@Query("select a from Application a join a.applier h where h.id=?1")
+	Collection<Application> findAllByHandyWorker(int handyWorkerId);
 }

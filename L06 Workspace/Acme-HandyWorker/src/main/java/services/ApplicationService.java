@@ -3,6 +3,7 @@ package services;
 
 import java.util.Collection;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,6 +43,7 @@ public class ApplicationService {
 		final UserAccount login = LoginService.getPrincipal();
 		final HandyWorker handyWorker = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
 		application.setApplier(handyWorker);
+		application.setMoment(LocalDate.now().toDate());
 		return application;
 
 	}
@@ -186,5 +188,9 @@ public class ApplicationService {
 		Assert.notNull(a);
 		final Double result = this.applicationRepository.desviationPriceApp();
 		return result;
+	}
+
+	public Collection<Application> findAllByHandyWorker(final int id) {
+		return this.applicationRepository.findAllByHandyWorker(id);
 	}
 }

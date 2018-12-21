@@ -59,6 +59,15 @@
 		<security:intercept-url pattern="/profile/action-1.do" access="isAuthenticated()" /> 
 		<security:intercept-url pattern="/profile/action-2.do" access="isAuthenticated()" /> 
 		<security:intercept-url pattern="/profile/action-3.do" access="isAuthenticated()" /> 
+		
+		<!-- Antonio -->
+		<security:intercept-url pattern="/application/handyWorker/list.do" access="hasRole('HANDYWORKER')" /> 
+		<security:intercept-url pattern="/application/handyWorker/create.do" access="hasRole('HANDYWORKER')" /> 
+		<security:intercept-url pattern="/application/handyWorker/edit.do" access="hasRole('HANDYWORKER')" />
+		
+		<security:intercept-url pattern="/application/customer/list.do" access="hasRole('CUSTOMER')" /> 
+		<security:intercept-url pattern="/application/customer/edit.do" access="hasRole('CUSTOMER')" />
+		<!-- Antonio -->
 	
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 

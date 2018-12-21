@@ -9,13 +9,43 @@ import javax.persistence.Embeddable;
 @Access(AccessType.PROPERTY)
 public class CreditCard {
 
+	private String	name;
+	// cambio 18/12/2018
+	private String	brand;
 	private String	number;
+	private Integer	cvv;
 
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(final String name) {
+		this.name = name;
+	}
+
+	public String getBrand() {
+		return this.brand;
+	}
+
+	public void setBrand(final String brand) {
+		this.brand = brand;
+	}
 
 	public String getNumber() {
 		return this.number;
 	}
+
 	public void setNumber(final String number) {
 		this.number = number;
 	}
+
+	public Integer getCvv() {
+		return this.cvv;
+	}
+
+	public void setCvv(final Integer cvv) {
+		this.cvv = cvv;
+	}
+
 }

@@ -35,7 +35,8 @@
 			<li><a class="fNiv"><spring:message	code="master.page.customer" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="fixUp/customer/list.do"><spring:message code="master.page.customer.action.1" /></a></li>					
+					<li><a href="fixUp/customer/list.do"><spring:message code="master.page.customer.action.1" /></a></li>
+					<li><a href="application/customer/list.do"><spring:message code="master.page.customer.list.application" /></a></li>					
 				</ul>
 			</li>
 		</security:authorize>
@@ -46,7 +47,8 @@
 					<li class="arrow"></li>
 					<li><a href="fixUp/handyWorker/list.do"><spring:message code="master.page.customer.action.1" /></a></li>
 					<li><a href="finder/handyWorker/yourFinder.do"><spring:message code="master.page.handyWorker.action.1" /></a></li>
-					<li><a href="finder/handyWorker/editYourFinder.do"><spring:message code="master.page.handyWorker.action.2" /></a></li>					
+					<li><a href="finder/handyWorker/editYourFinder.do"><spring:message code="master.page.handyWorker.action.2" /></a></li>
+					<li><a href="application/handyWorker/list.do"><spring:message code="master.page.handyWorker.list.application" /></a></li>					
 				</ul>
 			</li>
 		</security:authorize>
