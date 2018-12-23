@@ -1,0 +1,90 @@
+# messages.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+customer.action.1	= Here are all your FixUps
+customer.action.2	= Fix-Up Task:
+customer.price	= Price
+customer.description	= Description
+customer.welcome.listing = Fix-Up Task: 
+customer.showing.details = Fix-Up Task's details
+customer.showing.createDate = Creation date: 
+customer.showing.address = Address: 
+customer.showing.price = Max price: 
+customer.showing.currency = Currency: 
+customer.showing.moment = Date of creation: 
+customer.showing.warranty = Warranty: 
+customer.showing.startDate = Start date: 
+customer.showing.endDate = End date: 
+customer.showing.handyWorker = Assigned Handy-Worker: 
+customer.showing.description = Description
+customer.showing.attachment = Attachment
+customer.showing.category = Category: 
+customer.welcome.edit = Edit FixUp Task: 
+customer.createFixUp = Create
+customer.showing.applications = Applications: 
+customer.showing.complaints = Complaints: 
+customer.name2 = Customer's name
+send = Send 
+customer.ticker = Ticker 
+
+customer.editApplication = Edit
+customer.listApplication = List of applications
+application.moment = Moment of creation
+application.state = State
+application.offered = Price
+application.comments = Comments
+application.creditCard = Credit Card
+application.fixUp = FixUp
+application.handyWorker = HandyWorker
+application.save = Save
+application.cancel = Cancel
+application.create = Create application
+application.applier.name = Applier's name
+
+register.customer= Customer
+
+customer.name = Name:
+customer.surname = Surname:
+customer.middlename = MiddleName:
+customer.email= Email:
+customer.username = User Name:
+customer.password = Pass:
+customer.address = Address:
+customer.image = Image: 
+customer.create = Register
+
+#button
+button.cancel = Cancel
+button.reset = Reset
+button.back = Back
+button.save = Save
+button.create = Create
+button.edit = Edit
+#complaint
+complaint.ticker = Ticker:
+complaint.moment = Moment:
+complaint.description = Description:
+complaint.save = Submit
+complaint.referee = Referee
+complaint.fixUp = FixUp
+
+handyWorker.allFixUp = Listing all fixUps
+handyWorker.allMyFixUp = Listing all my fixUps
+handyWorker.nameHW = HandyWorker's name
+
+customer.showing.warranty = Warranty: 
+
+back = Back
+
+fixUp.commit.error = Error
+customer.confirm = Are you sure?
+fixUp.wrongDate = The start date can not be after the end date.
+fixUp.wrongMomentDate = The creation date can not be after the start date.
+fixUp.emptyDescription = Description can not be empty
+fixUp.emptyAdress = Address can not be empty
+fixUp.emptyPrice = Price can not be empty

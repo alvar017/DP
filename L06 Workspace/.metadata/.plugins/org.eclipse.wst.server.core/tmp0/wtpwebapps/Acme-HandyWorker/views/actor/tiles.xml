@@ -31,4 +31,9 @@
 		<put-attribute name="body" value="/views/actor/createMessage.jsp" />
 	</definition>
 	
+	<definition name="actor/administrator/list" extends="master.page">	
+		<put-attribute name="title" value="Admin: Suspicius actors" />
+		<put-attribute name="body" value="/views/actor/list.jsp" />
+	</definition>
+	
 </tiles-definitions>

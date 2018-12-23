@@ -77,4 +77,11 @@ public class ReportService {
 		return this.reportRepository.findAll();
 	}
 
+	public Report findOne(final int id) {
+
+		final Report result = this.reportRepository.findOne(id);
+		Assert.notNull(result);
+		return result;
+	}
+
 }

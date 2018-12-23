@@ -79,11 +79,24 @@ public class FinderHandyWorkerController extends AbstractController {
 		return result;
 	}
 
+	//create----------------------------------------------------
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+
+		ModelAndView res;
+		Finder finder;
+
+		finder = this.finderService.create();
+		res = this.createEditModelAndView(finder);
+
+		return res;
+	}
+
 	//edit--------------------------------------------------------------
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView edit(@RequestParam("finderId") final int finderId) {
-		ModelAndView result = null;
+		ModelAndView result;
 
 		System.out.println("Carmen: Entro en edit");
 
@@ -104,6 +117,7 @@ public class FinderHandyWorkerController extends AbstractController {
 
 		return result;
 	}
+
 	//save ---------------------	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Finder finder, final BindingResult binding) {
@@ -150,42 +164,14 @@ public class FinderHandyWorkerController extends AbstractController {
 		return result;
 	}
 
-	//create------------------------
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView create() {
-		ModelAndView result;
-
-		final UserAccount user = LoginService.getPrincipal();
-		final HandyWorker hw = this.handyWorkerService.findByUserAccountId(user.getId());
-
-		if (hw.getFinder() != null) {
-			System.out.println("Carmen: Ya tienes un finder");
-			result = this.edit(hw.getFinder().getId());
-		}
-
-		System.out.println("Carmen: Entreamos en el create");
-		final Collection<Category> category = this.categoryService.findAll();
-		final Collection<Warranty> warranty = this.warrantyService.findAll();
-
-		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
-
-		Finder finder;
-
-		finder = this.finderService.create();
-
-		result = this.createEditModelAndView(finder);
-		result.addObject("language", language);
-		result.addObject("warranty", warranty);
-		result.addObject("category", category);
-
-		return result;
-	}
-
 	//others---------------------------
 	private ModelAndView createEditModelAndView(final Finder finder) {
 		ModelAndView result;
 
 		System.out.println("Carmen:!Puedo entrar en createEditModelAndWiew de finder¡");
+
+		final UserAccount user = LoginService.getPrincipal();
+		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(user.getId());
 
 		result = new ModelAndView("finder/handyWorker/edit");
 

@@ -37,11 +37,12 @@
 				modelAttribute="finder" action="finder/handyWorker/edit.do">
 
 				<form:hidden path="id" />
-				<form:hidden path="version" />				
+				<form:hidden path="version" />		
+				<form:hidden path="date" />				
+						
 				
 				<form:label path="keyword"><spring:message code="handyWorker.showing.keyword" /></form:label>
 				<form:input path="keyword" /><br>
-				</br>
 				
 				<form:label path="category"><spring:message code="handyWorker.showing.category" /></form:label>
 				<form:select path="category" >
@@ -77,12 +78,6 @@
 					<spring:message code="handyWorker.showing.endDate" />
 				</form:label>
 				<form:input type="date" path="endDate" />
-
-				<form:label path="date">
-					<spring:message code="handyWorker.showing.date" />
-				</form:label>
-				<form:input type="date" path="date" />
-
 
 				<input type="submit" name="save"
 					value=<spring:message code="hw.send" /> />

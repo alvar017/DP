@@ -15,6 +15,7 @@ import security.UserAccount;
 import domain.Complaint;
 import domain.Customer;
 import domain.FixUp;
+import domain.HandyWorker;
 import domain.Referee;
 
 @Service
@@ -73,8 +74,10 @@ public class ComplaintService {
 	}
 
 	////
-	public Collection<Complaint> getAllComplaintsByHandyWorker(final int hw) {
-		return this.complaintRepository.getComplaintFixUpByHandyWorker2(hw);
+	public Collection<Complaint> getAllComplaintsByHandyWorker() {
+		final UserAccount user = LoginService.getPrincipal();
+		final HandyWorker hw = this.handyWorkerService.findByUserAccountId(user.getId());
+		return this.complaintRepository.getComplaintFixUpByHandyWorker2(hw.getId());
 	}
 
 	public Collection<Complaint> getComplaintWithoutReferee() {

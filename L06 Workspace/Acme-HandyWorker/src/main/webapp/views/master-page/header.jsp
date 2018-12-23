@@ -25,7 +25,7 @@
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="administrator/action-1.do"><spring:message code="master.page.administrator.action.1" /></a></li>
+					<li><a href="actor/administrator/list.do"><spring:message code="master.page.administrator.action.1" /></a></li>
 					<li><a href="administrator/action-2.do"><spring:message code="master.page.administrator.action.2" /></a></li>					
 				</ul>
 			</li>
@@ -47,9 +47,11 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="fixUp/handyWorker/list.do"><spring:message code="master.page.customer.action.1" /></a></li>
-					<li><a href="finder/handyWorker/list.do"><spring:message code="master.page.handyWorker.action.1" /></a></li>
+					<li><a href="finder/handyWorker/list.do"><spring:message code="master.page.handyWorker.finder" /></a></li>
 					<li><a href="application/handyWorker/list.do"><spring:message code="master.page.handyWorker.list.application" /></a></li>
-					<li><a href="tutorial/handyWorker/list.do"><spring:message code="master.page.handyWorker.tutorial" /></a></li>						
+					<li><a href="tutorial/handyWorker/list.do"><spring:message code="master.page.handyWorker.tutorial" /></a></li>	
+					<li><a href="complaint/handyWorker/list.do"><spring:message code="master.page.handyWorker.complaint" /></a></li>									
+										
 				</ul>
 			</li>
 		</security:authorize>

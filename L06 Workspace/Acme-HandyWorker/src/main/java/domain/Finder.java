@@ -10,7 +10,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -59,6 +63,8 @@ public class Finder extends DomainEntity {
 		this.category = category;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -67,6 +73,8 @@ public class Finder extends DomainEntity {
 		this.startDate = startDate;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getEndDate() {
 		return this.endDate;
 	}
@@ -88,6 +96,8 @@ public class Finder extends DomainEntity {
 		this.keyword = keyword;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getDate() {
 		return this.date;
 	}

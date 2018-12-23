@@ -30,6 +30,19 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             </list>
         </property>
     </bean>
+    
+    <bean id="userAccount6" class="security.UserAccount">
+        <property name="username" value="handyWorker1" />
+        <property name="password" value="c0d552cb3d9e82b876e3031945305576" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="HANDYWORKER" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
 
     <bean id="userAccount1" class="security.UserAccount">
         <property name="username" value="admin" />
@@ -71,6 +84,24 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     </bean>
 
     <!-- Other domain beans come here -->
+
+ <bean id="adm01" class="domain.Administrator">
+
+        <property name="name" value="Laura" />
+        <property name="surname" value="Exposito" />
+        <property name="middleName" value="" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle Aguditas Número 12" />
+        <property name="userAccount" ref= "userAccount1"/>
+    </bean>
 
     <!-- HandyWorker -->
     <bean id="han01" class="domain.HandyWorker">
@@ -365,6 +396,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     </bean>
     
     <bean id="chan01" class="domain.HandyWorker">
+         <property name="userAccount" ref= "userAccount6"/>
+    
        
          <property name="name" value="Carmen" />
          <property name="surname" value="Fernández" />
@@ -423,6 +456,10 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     
     <!-- Customer -->
     <bean id="ancus01" class="domain.Customer">
+            <property name="isSuspicious" value="true"/>
+                   <property name="isBanned" value="true"/>
+            
+
         <property name="name" value="David" />
         <property name="surname" value="Martín" />
         <property name="middleName" value="" />

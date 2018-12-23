@@ -223,7 +223,7 @@ public class ComplaintServiceTest extends AbstractTest {
 		c.setFixUp(saveFixUp1);
 		final Complaint cSave = this.complaintService.save(c);
 
-		final Collection<Complaint> res = this.complaintService.getAllComplaintsByHandyWorker(saveHandyWorker.getId());
+		final Collection<Complaint> res = this.complaintService.getAllComplaintsByHandyWorker();
 		Assert.isTrue(res.size() == 1);
 	}
 	//CARMEN
