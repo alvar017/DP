@@ -25,28 +25,24 @@
   	pagesize="5" class="displaytag" >
   	
   	<display:column titleKey="customer.editApplication"> 
-		<a href="application/customer/edit.do?applicationId=${row.id}">Edit</a>
+		<a href="application/customer/edit.do?applicationId=${row.id}"><spring:message code="customer.editApplication" /></a>
 	</display:column>
-  	<display:column property="fixUp.ticker" titleKey="application.fixUp"/>
-  	<display:column property="applier.name" titleKey="application.applier"/>
-  	<display:column property="state" titleKey="application.state"/>
+	<display:column titleKey="application.show"> 
+		<a href="application/customer/show.do?applicationId=${row.id}"><spring:message code="application.show" /></a>
+	</display:column>
+	<display:column titleKey="application.fixUp"> 
+		<a href="fixUp/customer/show.do?fixUpId=${row.fixUp.id}">${row.fixUp.ticker}</a>
+	</display:column>
+  	<display:column property="applier.name" titleKey="application.applier"/>	
+  	
   	<display:column property="offered.quantity" titleKey="application.offered"/>
   	<display:column property="comments" titleKey="application.comments"/>
   	<display:column property="creditCard.number" titleKey="application.creditCard"/>
   		
   	</display:table>
   	
-  	<c:choose>
-    		<c:when test="${language=='English'}">
-        		<form>
-      				<input type="button" value="Back" name="volver atrás2" onclick="history.back()" />
-	  			</form> 
-    		</c:when>    
-    		<c:otherwise>
-		 		<form>
-      				<input type="button" value="Volver" name="volver atrás2" onclick="history.back()" />
-	  			</form>        		
-    		</c:otherwise>
-		</c:choose>
+	<form>
+		<input type="button" value=<spring:message code="back" /> name="back" onclick="history.back()" />
+	</form>
   	  	
 </body>

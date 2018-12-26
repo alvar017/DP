@@ -14,6 +14,7 @@ import security.LoginService;
 import security.UserAccount;
 import domain.Administrator;
 import domain.Application;
+import domain.CreditCard;
 import domain.Customer;
 import domain.FixUp;
 import domain.HandyWorker;
@@ -33,6 +34,12 @@ public class ApplicationService {
 
 	@Autowired
 	private AdministratorService	administratorService;
+
+	@Autowired
+	private CustomerService			customerService;
+
+	@Autowired
+	private FixUpService			fixUpService;
 
 
 	//Simple CRUD Methods ------------------
@@ -74,11 +81,36 @@ public class ApplicationService {
 		final Application originalApplication = this.findOne(application.getId());
 		if (originalApplication.getState() != null && originalApplication.getState() == true)
 			//			if (true)
-			Assert.isTrue(application.getCreditCard() != null);
-		else
-			Assert.isTrue(application.getComments() != null);
+			Assert.isTrue(application.getCreditCard() != null, "application.error.creditCard");
 		final Application saveApplication = this.applicationRepository.save(application);
 		return saveApplication;
+	}
+
+	public Application updateCustomer(final Application application) {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		final int idLogin = login.getId();
+		final Customer customer = this.customerService.getCustomerByUserAccountId(idLogin);
+		Assert.isTrue(customer.equals(application.getFixUp().getCustomer()));
+		final Application originalApplication = this.findOne(application.getId());
+		if (originalApplication.getState() != null && originalApplication.getState() == true) {
+			//			if (true)
+			Assert.isTrue(this.checkCreditCard(application.getCreditCard()), "application.error.creditCard");
+			System.out.println("Intento actualizar hw");
+			final FixUp fixUp = application.getFixUp();
+			Assert.isTrue(fixUp != null);
+			fixUp.setHandyWorker(application.getApplier());
+			this.fixUpService.save(fixUp);
+		}
+		final Application saveApplication = this.applicationRepository.save(application);
+		return saveApplication;
+	}
+
+	private Boolean checkCreditCard(final CreditCard creditCard) {
+		Boolean res = true;
+		if (creditCard.getBrand().trim().isEmpty() || creditCard.getName().trim().isEmpty() || creditCard.getNumber().trim().isEmpty())
+			res = false;
+		return res;
 	}
 	//Other Methods
 
@@ -87,6 +119,15 @@ public class ApplicationService {
 		Assert.isTrue(login != null);
 		final int idLogin = login.getId();
 		Assert.isTrue(c.getUserAccount().getId() == idLogin);
+		return this.applicationRepository.findAllByCustomer(c.getId());
+	}
+
+	public Collection<Application> findAllByCustomerLogger() {
+		final UserAccount login = LoginService.getPrincipal();
+		Assert.isTrue(login != null);
+		final int idLogin = login.getId();
+		final Customer c = this.customerService.getCustomerByUserAccountId(idLogin);
+		Assert.isTrue(c != null);
 		return this.applicationRepository.findAllByCustomer(c.getId());
 	}
 

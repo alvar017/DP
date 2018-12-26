@@ -328,8 +328,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="The Handy Worker has to repair a pipeline" />
         <property name="address" value="Avenida Reina Mercedes Nº23" />
         <property name="maxPrice" ref="mon01" />
-        <property name="startDate" value="2018/11/18 08:00" />
-        <property name="endDate" value="2018/11/30 08:00" />
+        <property name="startDate" value="2019/11/18 08:00" />
+        <property name="endDate" value="2019/11/30 08:00" />
         <property name="warranty" ref="war01" />
 
         <property name="category" ref="cat01" />
@@ -347,8 +347,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="Description 3" />
         <property name="address" value="Avenida Reina Mercedes Nº23" />
         <property name="maxPrice" ref="mon02" />
-        <property name="startDate" value="2018/3/18 08:00" />
-        <property name="endDate" value="2018/3/30 08:00" />
+        <property name="startDate" value="2019/3/18 08:00" />
+        <property name="endDate" value="2019/3/30 08:00" />
         <property name="warranty" ref="war01" />
 
 
@@ -366,8 +366,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="The Handy Worker has to repair a engine" />
         <property name="address" value="Lora del Río N5" />
         <property name="maxPrice" ref="mon03"/>
-        <property name="startDate" value="2018/11/18 08:00"/>
-        <property name="endDate" value="2018/11/13 08:00"/>
+        <property name="startDate" value="2019/11/18 08:00"/>
+        <property name="endDate" value="2019/11/13 08:00"/>
         <property name="warranty" ref="war01"/>
 
         <property name="category" ref="ccat01"/>
@@ -383,8 +383,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="description" value="The Handy Worker has to repair a engine" />
         <property name="address" value="Lora del Río N6" />
         <property name="maxPrice" ref="mon03"/>
-        <property name="startDate" value="2018/11/18 08:00"/>
-        <property name="endDate" value="2018/11/13 08:00"/>
+        <property name="startDate" value="2019/11/18 08:00"/>
+        <property name="endDate" value="2019/11/13 08:00"/>
         <property name="warranty" ref="war01"/>
 
         <property name="category" ref="ccat01"/>

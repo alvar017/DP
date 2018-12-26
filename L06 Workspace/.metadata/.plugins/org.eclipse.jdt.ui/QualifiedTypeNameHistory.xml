@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="domain.Actor"/>
-<fullyQualifiedTypeName name="services.ActorService"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
 <fullyQualifiedTypeName name="services.FinderService"/>
@@ -45,12 +43,9 @@
 <fullyQualifiedTypeName name="org.hibernate.annotations.NotFound"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotEmpty"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
-<fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.internal.util.logging.Log"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="domain.Report"/>
-<fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="domain.Referee"/>
 <fullyQualifiedTypeName name="services.ReportService"/>
 <fullyQualifiedTypeName name="domain.Note"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="controllers.NoteHandyWorkerController"/>
 <fullyQualifiedTypeName name="services.HandyWorkerService"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="domain.CreditCard"/>
+<fullyQualifiedTypeName name="domain.FixUp"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
+<fullyQualifiedTypeName name="javax.validation.constraints.Future"/>
 </qualifiedTypeNameHistroy>

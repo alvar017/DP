@@ -61,10 +61,10 @@
 			</form:select>
 			<form:errors cssClass="error" path="maxPrice.currency"/><br>
 			<form:label path="startDate"><spring:message code="customer.showing.startDate" /></form:label>
-			<form:input type="date" path="startDate" required="required"/>
+			<form:input type="date" path="startDate" required="required" placeholder="yyyy/MM/dd HH:mm"/>
 			<form:errors cssClass="error" path="startDate"/><br>
 			<form:label path="endDate"><spring:message code="customer.showing.endDate" /></form:label>
-			<form:input path="endDate" required="required"/>
+			<form:input path="endDate" required="required" placeholder="yyyy/MM/dd HH:mm"/>
 			<form:errors cssClass="error" path="endDate"/><br>
 			<form:label path="warranty"><spring:message code="customer.showing.warranty" /></form:label>
 			<form:select path="warranty" >
