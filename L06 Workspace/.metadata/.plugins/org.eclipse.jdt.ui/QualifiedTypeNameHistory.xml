@@ -54,10 +54,10 @@
 <fullyQualifiedTypeName name="domain.Customer"/>
 <fullyQualifiedTypeName name="domain.Actor"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
-<fullyQualifiedTypeName name="services.ActorService"/>
-<fullyQualifiedTypeName name="security.LoginService"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="domain.SocialProfile"/>
 <fullyQualifiedTypeName name="controllers.HandyWorkerController"/>
+<fullyQualifiedTypeName name="security.LoginService"/>
+<fullyQualifiedTypeName name="services.ActorService"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 </qualifiedTypeNameHistroy>

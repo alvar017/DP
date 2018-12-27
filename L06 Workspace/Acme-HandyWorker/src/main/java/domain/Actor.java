@@ -79,7 +79,7 @@ public class Actor extends DomainEntity {
 	}
 
 	@Valid
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<SocialProfile> getSocialProfiles() {
 		return this.socialProfiles;
 	}

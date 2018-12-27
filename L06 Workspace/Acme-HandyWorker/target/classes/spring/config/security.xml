@@ -52,8 +52,11 @@
 		<security:intercept-url pattern="/actor/show.do" access="isAuthenticated()" />
 		<security:intercept-url pattern="/handyWorker/edit.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/socialProfile/handyWorker/edit.do" access="hasRole('HANDYWORKER')"/>
+		<security:intercept-url pattern="/socialProfile/handyWorker/delete.do" access="hasRole('HANDYWORKER')"/>
+		<security:intercept-url pattern="/socialProfile/handyWorker/create.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/socialProfile/actor/edit.do" access="isAuthenticated()"/>
 		<security:intercept-url pattern="/socialProfile/actor/create.do" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/socialProfile/actor/delete.do" access="isAuthenticated()"/>
 		<!-- ALVARO -->
 
 		<security:intercept-url pattern="/fixUp/customer/list.do" access="hasRole('CUSTOMER')" />

@@ -11,7 +11,8 @@ import org.springframework.util.Assert;
 
 import repositories.SocialProfileRepository;
 import security.LoginService;
-import domain.Actor;
+import domain.Customer;
+import domain.HandyWorker;
 import domain.SocialProfile;
 
 @Service
@@ -23,6 +24,12 @@ public class SocialProfilelService {
 
 	@Autowired
 	private ActorService			actorService;
+
+	@Autowired
+	private HandyWorkerService		handyWorkerService;
+
+	@Autowired
+	private CustomerService			customerService;
 
 
 	public SocialProfile create() {
@@ -44,10 +51,21 @@ public class SocialProfilelService {
 	}
 
 	public void delete(final SocialProfile socialProfile) {
-		final int userAccountId = LoginService.getPrincipal().getId();
-		final Actor actor = this.actorService.findOne(userAccountId);
-		Assert.isTrue(actor.getSocialProfiles().contains(socialProfile));
-		Assert.isTrue(socialProfile != null);
+		final Integer idUserAccount = LoginService.getPrincipal().getId();
+		Assert.notNull(idUserAccount);
+		if (this.handyWorkerService.findByUserAccountId(idUserAccount) != null) {
+			final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(idUserAccount);
+			Assert.isTrue(handyWorker != null);
+			Assert.isTrue(handyWorker.getSocialProfiles().contains(socialProfile));
+			handyWorker.getSocialProfiles().remove(socialProfile);
+			this.handyWorkerService.save(handyWorker);
+		} else if (this.customerService.getCustomerByUserAccountId(idUserAccount) != null) {
+			final Customer customer = this.customerService.getCustomerByUserAccountId(idUserAccount);
+			Assert.isTrue(customer != null);
+			Assert.isTrue(customer.getSocialProfiles().contains(socialProfile));
+			customer.getSocialProfiles().remove(socialProfile);
+			this.customerService.save(customer);
+		}
 		this.socialProfileRepository.delete(socialProfile);
 	}
 

@@ -35,6 +35,9 @@
 										<display:column titleKey="button.edit"> 
 											<a href="socialProfile/actor/edit.do?socialProfileId=${row.id}"><spring:message code="button.edit" /></a>
 										</display:column>
+										<display:column titleKey="delete"> 
+											<a href="socialProfile/actor/delete.do?socialProfileId=${row.id}"><spring:message code="delete" /></a>
+										</display:column>
 										<display:column property="nick" titleKey="actor.nick" ></display:column>
 										<display:column property="link" titleKey="actor.link"></display:column>
 										<display:column property="name" titleKey="actor.name" ></display:column>

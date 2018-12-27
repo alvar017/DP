@@ -22,7 +22,7 @@
 				<img class="lupa" src="images/lupa.png" alt="Luga" width="19%"/>
 					<table>
 								<tr><td><spring:message code="actor.name" /><jstl:out value="${handyWorker.name}"></jstl:out></td></tr>
-								<tr><td><spring:message code="actor.name" /><jstl:out value="${handyWorker.name}"></jstl:out></td></tr>
+								<tr><td><spring:message code="handyWorker.make" /><jstl:out value="${handyWorker.make}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.address" /><jstl:out value="${handyWorker.address}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.surname" /><jstl:out value="${handyWorker.surname}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.middleName" /><jstl:out value="${handyWorker.middleName}"></jstl:out></td></tr>
@@ -31,11 +31,14 @@
 								<tr><td><spring:message code="actor.username" /><jstl:out value="${handyWorker.userAccount.username}"></jstl:out></td></tr>
 								<tr><td>
 									<p><spring:message code="actor.socialProfiles" /></p>
-									<p><input type="button" value=<spring:message code="actor.createSocialProfile" /> id="buttonSocialProfile" name="buttonSocialProfile"  onclick="location.href='socialProfile/actor/create.do';"/></p>
+									<p><input type="button" value=<spring:message code="actor.createSocialProfile" /> id="buttonSocialProfile" name="buttonSocialProfile"  onclick="location.href='socialProfile/handyWorker/create.do';"/></p>
 									<display:table name="socialProfiles" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 										<display:column titleKey="button.edit"> 
 											<a href="socialProfile/handyWorker/edit.do?socialProfileId=${row.id}"><spring:message code="button.edit" /></a>
 										</display:column>
+										<display:column titleKey="delete"> 
+											<a href="socialProfile/handyWorker/delete.do?socialProfileId=${row.id}"><spring:message code="delete" /></a>
+										</display:column>										
 										<display:column property="nick" titleKey="actor.nick" ></display:column>
 										<display:column property="link" titleKey="actor.link"></display:column>
 										<display:column property="name" titleKey="actor.name" ></display:column>

@@ -109,4 +109,30 @@ public class SocialProfileaHandyWorkerController extends AbstractController {
 			}
 		return result;
 	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("socialProfileId") final int socialProfileId) {
+		ModelAndView result;
+
+		final SocialProfile socialProfile = this.socialProfileService.findOne(socialProfileId);
+		System.out.println("socialProfileId encontrado: " + socialProfileId);
+		Assert.notNull(socialProfileId, "socialProfile.null");
+
+		try {
+			this.socialProfileService.delete(socialProfile);
+
+			final int userLoggin = LoginService.getPrincipal().getId();
+			final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
+			Assert.isTrue(handyWorker != null);
+			result = new ModelAndView("handyWorker/show");
+			result.addObject("handyWorker", handyWorker);
+			result.addObject("socialProfiles", handyWorker.getSocialProfiles());
+			result.addObject("requestURI", "handyWorker/show.do");
+		} catch (final Throwable oops) {
+			System.out.println("Error al borrar socialProfile desde hw: ");
+			System.out.println(oops);
+			result = new ModelAndView("handyWorker/show");
+		}
+		return result;
+	}
 }

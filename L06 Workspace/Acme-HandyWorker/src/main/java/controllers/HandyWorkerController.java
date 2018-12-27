@@ -66,7 +66,7 @@ public class HandyWorkerController extends AbstractController {
 		result = new ModelAndView("handyWorker/show");
 		result.addObject("handyWorker", handyWorker);
 		result.addObject("socialProfiles", handyWorker.getSocialProfiles());
-		result.addObject("requestURI", "actor/show.do");
+		result.addObject("requestURI", "handyWorker/show.do");
 
 		return result;
 	}

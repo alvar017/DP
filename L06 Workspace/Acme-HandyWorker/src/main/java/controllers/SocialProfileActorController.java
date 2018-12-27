@@ -110,4 +110,32 @@ public class SocialProfileActorController extends AbstractController {
 			}
 		return result;
 	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("socialProfileId") final int socialProfileId) {
+		ModelAndView result;
+
+		final SocialProfile socialProfile = this.socialProfileService.findOne(socialProfileId);
+		System.out.println("socialProfileId encontrado: " + socialProfileId);
+		Assert.notNull(socialProfileId, "socialProfile.null");
+
+		try {
+			Assert.isTrue(socialProfile != null);
+			this.socialProfileService.delete(socialProfile);
+
+			final int userLoggin = LoginService.getPrincipal().getId();
+			final Actor actor = this.actorService.getActorByUserId(userLoggin);
+			Assert.isTrue(actor != null);
+			result = new ModelAndView("actor/show");
+			final Actor savedActor = this.actorService.save(actor);
+			result.addObject("actor", savedActor);
+			result.addObject("socialProfiles", savedActor.getSocialProfiles());
+			result.addObject("requestURI", "actor/show.do");
+		} catch (final Throwable oops) {
+			System.out.println("Error al borrar socialProfile desde actor: ");
+			System.out.println(oops);
+			result = new ModelAndView("actor/show");
+		}
+		return result;
+	}
 }
