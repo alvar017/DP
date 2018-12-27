@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="services.FixUpService"/>
-<fullyQualifiedTypeName name="org.springframework.context.i18n.LocaleContextHolder"/>
 <fullyQualifiedTypeName name="services.ApplicationService"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="domain.Application"/>
@@ -49,15 +47,17 @@
 <fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Future"/>
 <fullyQualifiedTypeName name="utilities.HashPassword"/>
-<fullyQualifiedTypeName name="controllers.HandyWorkerController"/>
 <fullyQualifiedTypeName name="services.HandyWorkerService"/>
 <fullyQualifiedTypeName name="domain.Tutorial"/>
 <fullyQualifiedTypeName name="security.UserAccountRepository"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-<fullyQualifiedTypeName name="domain.SocialProfile"/>
 <fullyQualifiedTypeName name="domain.Customer"/>
-<fullyQualifiedTypeName name="domain.HandyWorker"/>
-<fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="domain.Actor"/>
+<fullyQualifiedTypeName name="security.UserAccount"/>
+<fullyQualifiedTypeName name="services.ActorService"/>
+<fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="domain.SocialProfile"/>
+<fullyQualifiedTypeName name="controllers.HandyWorkerController"/>
+<fullyQualifiedTypeName name="domain.HandyWorker"/>
 </qualifiedTypeNameHistroy>

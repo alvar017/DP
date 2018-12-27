@@ -112,6 +112,7 @@ public class ActorController extends AbstractController {
 					customer.getUserAccount().setUsername(actor.getUserAccount().getUsername());
 					customer.getUserAccount().setPassword(actor.getUserAccount().getPassword());
 					this.customerService.save(customer);
+					result = new ModelAndView("redirect:show.do");
 				} else if (this.handyWorkerService.findOne(handyWorker.getId()) != null) {
 					//					final HandyWorker handyWorker = this.handyWorkerService.findOne(actor.getId());
 					handyWorker.setName(actor.getName());
@@ -124,9 +125,11 @@ public class ActorController extends AbstractController {
 					handyWorker.getUserAccount().setPassword(actor.getUserAccount().getPassword());
 					handyWorker.setMake(make);
 					this.handyWorkerService.save(handyWorker);
-				} else
+					result = new ModelAndView("handyWorker/show");
+				} else {
 					this.actorService.save(actor);
-				result = new ModelAndView("welcome/index");
+					result = new ModelAndView("redirect:show.do");
+				}
 			} catch (final Throwable oops) {
 				System.out.println("El error: ");
 				System.out.println(oops);

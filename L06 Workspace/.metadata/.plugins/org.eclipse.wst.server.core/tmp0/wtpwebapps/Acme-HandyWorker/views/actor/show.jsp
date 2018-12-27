@@ -28,16 +28,18 @@
 								<tr><td><spring:message code="actor.email" /><jstl:out value="${actor.email}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.photo" /><jstl:out value="${actor.photo}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.username" /><jstl:out value="${actor.userAccount.username}"></jstl:out></td></tr>
-								<tr><td><spring:message code="actor.password" /><jstl:out value="${actor.userAccount.password}"></jstl:out></td></tr>
-								<tr><td><spring:message code="actor.ban" /><jstl:out value="${actor.isBanned}"></jstl:out></td></tr>
 								<tr><td>
 									<p><spring:message code="actor.socialProfiles" /></p>
+									<p><input type="button" value=<spring:message code="actor.createSocialProfile" /> id="buttonSocialProfile" name="buttonSocialProfile"  onclick="location.href='socialProfile/actor/create.do';"/></p>
 									<display:table name="socialProfiles" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
-										<display:column property="nick" titleKey="actor.name" ></display:column>
-										<display:column property="link" titleKey="actor.address"></display:column>
-										<display:column property="name" titleKey="actor.surname" ></display:column>
+										<display:column titleKey="button.edit"> 
+											<a href="socialProfile/actor/edit.do?socialProfileId=${row.id}"><spring:message code="button.edit" /></a>
+										</display:column>
+										<display:column property="nick" titleKey="actor.nick" ></display:column>
+										<display:column property="link" titleKey="actor.link"></display:column>
+										<display:column property="name" titleKey="actor.name" ></display:column>
 									</display:table>
-								<tr><td>
+								</td></tr>
 					</table>
 			</div>
 

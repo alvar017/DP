@@ -31,7 +31,7 @@
     	<form:form class="formularioEdicion" method="POST" modelAttribute="actor" action="actor/edit.do">
           	<form:hidden path="id"/>
           	<form:hidden path="version"/>
-          	
+          	<form:hidden path="socialProfiles"/>
           	<form:hidden path="isBanned"/>
           	<form:hidden path="isSuspicious"/>
           	
@@ -67,6 +67,8 @@
 			<form:password path="userAccount.password" required="required"/>
 			<form:errors cssClass="error" path="userAccount.password"/><br>
 			
+			<form:hidden path="userAccount.id"/>
+			<form:hidden path="userAccount.version"/>
 			<form:hidden path="userAccount.authorities"/>
 			<form:hidden path="userAccount.isBanned"/>
 			<form:hidden path="userAccount.isSuspicious"/>

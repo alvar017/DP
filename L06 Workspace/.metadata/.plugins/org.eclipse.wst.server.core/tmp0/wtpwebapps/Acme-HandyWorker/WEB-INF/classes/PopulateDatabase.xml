@@ -456,17 +456,18 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     
     <!-- Customer -->
     <bean id="ancus01" class="domain.Customer">
-            <property name="isSuspicious" value="true"/>
-                   <property name="isBanned" value="true"/>
-            
-
+        <property name="isSuspicious" value="true"/>
+        <property name="isBanned" value="true"/>
         <property name="name" value="David" />
         <property name="surname" value="Martín" />
         <property name="middleName" value="" />
         <property name="calification" value="0.5" />
         <property name="email" value="david@gmail.com" />
         <property name="SocialProfiles">
-            <null />
+            <list>
+                <ref bean="socialProfile1"/>
+                <ref bean="socialProfile2"/>
+            </list>  
         </property>
         <property name="userAccount" ref="userAccount2" />
         <property name="photo">
@@ -747,7 +748,19 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
                 </bean>
             </list>
         </property>
-    </bean>   
+    </bean>
+    
+    <bean id="socialProfile1" class="domain.SocialProfile">
+        <property name="nick" value="alvar017" />
+        <property name="link" value="https://www.twitter.es/" />
+		<property name="name" value="Twitter" />
+    </bean>
+    
+        <bean id="socialProfile2" class="domain.SocialProfile">
+        <property name="nick" value="d0gran" />
+        <property name="link" value="https://www.instagram.es/" />
+		<property name="name" value="Instagram" />
+    </bean>    
     
 </beans>
 

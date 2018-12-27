@@ -15,6 +15,10 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
        
 <tiles-definitions>
+	<definition name="handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="Handy Worker: Show Profile" />
+		<put-attribute name="body" value="/views/handyWorker/show.jsp" />
+	</definition>
 
 	<definition name="finder/handyWorker/yourFinder" extends="master.page">	
 		<put-attribute name="title" value="Handy Worker: Action 1" />

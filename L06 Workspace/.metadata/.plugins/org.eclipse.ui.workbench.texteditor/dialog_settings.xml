@@ -13,26 +13,26 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Shot" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
-			<item value="shot"/>
-			<item value="username"/>
-			<item value="save"/>
-			<item value="handy"/>
-			<item value="fixU"/>
-			<item value="finder"/>
-			<item value="actor"/>
 			<item value="customer"/>
+			<item value="actor"/>
+			<item value="button"/>
+			<item value="createso"/>
+			<item value="redi"/>
+			<item value="surname"/>
+			<item value="address"/>
+			<item value="edit"/>
 		</list>
 		<list key="replacehistory">
+			<item value="nick"/>
+			<item value="link"/>
 			<item value="handyWorker"/>
 			<item value="customer"/>
 			<item value="actor"/>
 			<item value="curriculum"/>
 			<item value="Curriculum"/>
 			<item value="finder"/>
-			<item value="Finder"/>
-			<item value="Tutorial"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

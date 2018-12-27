@@ -56,6 +56,21 @@ public class HandyWorkerController extends AbstractController {
 		return result;
 	}
 
+	@RequestMapping(value = "/show", method = RequestMethod.GET)
+	public ModelAndView list() {
+		ModelAndView result;
+		final int userLoggin = LoginService.getPrincipal().getId();
+		final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
+		Assert.isTrue(handyWorker != null);
+
+		result = new ModelAndView("handyWorker/show");
+		result.addObject("handyWorker", handyWorker);
+		result.addObject("socialProfiles", handyWorker.getSocialProfiles());
+		result.addObject("requestURI", "actor/show.do");
+
+		return result;
+	}
+
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final HandyWorker handyWorker, final BindingResult binding) {
 		ModelAndView result;
