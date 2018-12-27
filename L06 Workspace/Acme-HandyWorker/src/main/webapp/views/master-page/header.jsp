@@ -58,6 +58,13 @@
 		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
+			<li><a class="fNiv"><spring:message	code="master.page.createUser" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="customer/create.do"><spring:message code="master.page.createUser.customer" /></a></li>
+					<li><a href="handyWorker/create.do"><spring:message code="master.page.createUser.handyWorker" /></a></li>
+				</ul>
+			</li>
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">
@@ -69,6 +76,25 @@
 				<ul>
 					<li class="arrow"></li>					
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
+					<security:authorize access="hasRole('CUSTOMER')">
+						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('ADMIN')">
+						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('REFEREE')">
+						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('SPONSOR')">
+						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('HANDYWORKER')">			
+						<li><a href="handyWorker/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+					</security:authorize>
 				</ul>
 			</li>
 		</security:authorize>

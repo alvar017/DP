@@ -38,6 +38,12 @@
 		</div>
 	</jstl:if>
 	
+	<jstl:if test="${createAccount == true}">
+		<div class="error">
+			<spring:message code="security.register" />
+		</div>
+	</jstl:if>
+	
 	<input type="submit" value="<spring:message code="security.login" />" />
 	
 </form:form>

@@ -27,66 +27,55 @@
       </header>
       
       <div class="content">
-		<form action="customer/create.do?create=true" method="post">
-    		<div>
-        		<label for="name"><spring:message code="customer.name" /></label>
-        		<input type="text" id="name" />
-    		</div>
     		
-    		<div>
-        		<label for="middlename"><spring:message code="customer.middlename" /></label>
-        		<input type="text" id="middlename" />
-    		</div>
-    		
-    		<div>
-        		<label for="surname"><spring:message code="customer.surname" /></label>
-        		<input type="text" id="surname" />
-    		</div>
-    		    		
-    		<div>
-        		<label for="address"><spring:message code="customer.Address" /></label>
-        		<input type="text" id="address2" />
-    		</div>
-    		
-    		<div>
-        		<label for="email"><spring:message code="customer.email" /></label>
-        		<input type="text" id="email" />
-    		</div>
-    		
-    		<div>
-    		    <label for="username"><spring:message code="customer.username" /></label>
-        		<input type="text" id="username" />
-    		</div>
-    		
-    		<div>
-    		    <label for="password"><spring:message code="customer.password" /></label>
-        		<input type="text" id="password" />
-    		</div>
-    		
-    		<div>
-    		    <label for="photo"><spring:message code="customer.photo" /></label>
-        		<input type="text" id="make" />
-    		</div>
-    		
-    		<div class="button">
-        		<button type="submit"><spring:message code="customer.create" /></button>
-    		</div>
-    		
-    		</form>
+    	<form:form class="formularioEdicion" method="POST" modelAttribute="customer" action="customer/create.do">
+          	<form:hidden path="id"/>
+          	<form:hidden path="version"/>
+          	<form:hidden path="socialProfiles"/>
+          	<form:hidden path="isBanned"/>
+          	<form:hidden path="isSuspicious"/>
+          	
+          	<form:label path="name"><spring:message code="customer.name" /></form:label>
+			<form:input path="name" required="required"/>
+			<form:errors cssClass="error" path="name"/><br>
+			
+			<form:label path="address"><spring:message code="customer.address" /></form:label>
+			<form:input path="address" required="required"/>
+			<form:errors cssClass="error" path="address"/><br>
+			
+			<form:label path="surname"><spring:message code="customer.surname" /></form:label>
+			<form:input path="surname" required="required"/>
+			<form:errors cssClass="error" path="surname"/><br>
+			
+			<form:label path="middleName"><spring:message code="customer.middleName" /></form:label>
+			<form:input path="middleName" required="required"/>
+			<form:errors cssClass="error" path="middleName"/><br>
+			
+			<form:label path="email"><spring:message code="customer.email" /></form:label>
+			<form:input path="email" required="required"/>
+			<form:errors cssClass="error" path="email"/><br>
+			
+			<form:label path="photo"><spring:message code="customer.photo" /></form:label>
+			<form:input path="photo" required="required"/>
+			<form:errors cssClass="error" path="photo"/><br>
+			
+			<form:label path="userAccount.username"><spring:message code="customer.username" /></form:label>
+			<form:input path="userAccount.username" required="required"/>
+			<form:errors cssClass="error" path="userAccount.username"/><br>
+			
+			<form:label path="userAccount.password"><spring:message code="customer.password" /></form:label>
+			<form:password path="userAccount.password" required="required"/>
+			<form:errors cssClass="error" path="userAccount.password"/><br>
+			
+			<form:hidden path="userAccount.authorities"/>
+			<form:hidden path="userAccount.isBanned"/>
+			<form:hidden path="userAccount.isSuspicious"/>
+			
+			<input type="submit" name="save" value=<spring:message code="send" />/>
+		</form:form>
       </div>
       
- 	</article> <!-- /article -->
-      		<c:choose>
-    		<c:when test="${language=='English'}">
-        		<form>
-      				<input type="button" value="Back" name="volver atrás2" onclick="history.back()" />
-	  			</form> 
-    		</c:when>    
-    		<c:otherwise>
-		 		<form>
-      				<input type="button" value="Volver" name="volver atrás2" onclick="history.back()" />
-	  			</form>        		
-    		</c:otherwise>
-		</c:choose>
+ 	</article>
+
   
-  </section> <!-- / #main-content -->
+  </section>

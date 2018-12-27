@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="security.UserAccount"/>
-<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-<fullyQualifiedTypeName name="services.FinderService"/>
-<fullyQualifiedTypeName name="domain.Tutorial"/>
-<fullyQualifiedTypeName name="services.TutorialService"/>
-<fullyQualifiedTypeName name="domain.Message"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="services.FixUpService"/>
 <fullyQualifiedTypeName name="org.springframework.context.i18n.LocaleContextHolder"/>
 <fullyQualifiedTypeName name="services.ApplicationService"/>
@@ -38,26 +31,33 @@
 <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
 <fullyQualifiedTypeName name="org.springframework.cglib.core.Converter"/>
 <fullyQualifiedTypeName name="domain.Category"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.NotFound"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotEmpty"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.internal.util.logging.Log"/>
-<fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="domain.Report"/>
 <fullyQualifiedTypeName name="domain.Referee"/>
 <fullyQualifiedTypeName name="services.ReportService"/>
 <fullyQualifiedTypeName name="domain.Note"/>
-<fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="controllers.NoteHandyWorkerController"/>
-<fullyQualifiedTypeName name="services.HandyWorkerService"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="domain.CreditCard"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Future"/>
+<fullyQualifiedTypeName name="utilities.HashPassword"/>
+<fullyQualifiedTypeName name="controllers.HandyWorkerController"/>
+<fullyQualifiedTypeName name="services.HandyWorkerService"/>
+<fullyQualifiedTypeName name="domain.Tutorial"/>
+<fullyQualifiedTypeName name="security.UserAccountRepository"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="domain.SocialProfile"/>
+<fullyQualifiedTypeName name="domain.Customer"/>
+<fullyQualifiedTypeName name="domain.HandyWorker"/>
+<fullyQualifiedTypeName name="security.LoginService"/>
+<fullyQualifiedTypeName name="domain.Actor"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 </qualifiedTypeNameHistroy>

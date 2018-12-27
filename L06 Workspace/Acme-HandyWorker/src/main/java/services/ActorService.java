@@ -91,4 +91,8 @@ public class ActorService {
 	public Actor save(final Actor actor) {
 		return this.actorRepository.save(actor);
 	}
+
+	public Actor findOneByUserAccountId(final int idUserAccount) {
+		return this.actorRepository.findByUserAccountId(idUserAccount);
+	}
 }

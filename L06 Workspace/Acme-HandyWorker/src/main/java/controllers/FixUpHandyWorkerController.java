@@ -20,9 +20,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import services.ApplicationService;
-import services.CategoryService;
-import services.ComplaintService;
 import services.FixUpService;
 import domain.Category;
 import domain.FixUp;
@@ -32,13 +29,7 @@ import domain.FixUp;
 public class FixUpHandyWorkerController extends AbstractController {
 
 	@Autowired
-	private FixUpService		fixUpService;
-	@Autowired
-	private ComplaintService	complaintService;
-	@Autowired
-	private ApplicationService	applicationService;
-	@Autowired
-	private CategoryService		categoryService;
+	private FixUpService	fixUpService;
 
 
 	// Constructors -----------------------------------------------------------

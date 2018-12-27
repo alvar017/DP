@@ -10,30 +10,25 @@
 
 package controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import javax.validation.Valid;
 
-import services.ApplicationService;
-import services.ComplaintService;
-import services.FinderService;
-import services.FixUpService;
-import services.ReportService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import services.CustomerService;
+import domain.Customer;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController extends AbstractController {
 
 	@Autowired
-	private FixUpService		fixUpService;
-	@Autowired
-	private ComplaintService	complaintService;
-	@Autowired
-	private ApplicationService	applicationService;
-	@Autowired
-	private ReportService		reportService;
-	@Autowired
-	private FinderService		finderService;
+	private CustomerService	customerService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -42,73 +37,45 @@ public class CustomerController extends AbstractController {
 		super();
 	}
 
-	// Action-1 ---------------------------------------------------------------		
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		ModelAndView result;
 
-	//	@RequestMapping("/listingFixUpTasks")
-	//	public ModelAndView action1() {
-	//		ModelAndView result;
-	//		final Collection<FixUp> fixUps = this.fixUpService.listing();
-	//
-	//		result = new ModelAndView("customer/listingFixUpTasks");
-	//		result.addObject("fixUps", fixUps);
-	//
-	//		return result;
-	//	}
-	//
-	//	@RequestMapping("/deleteFixUpTask")
-	//	public ModelAndView delete(@RequestParam("id") final int fixUpId, @RequestParam("delete") final String delete) {
-	//		ModelAndView result;
-	//		if (delete != null && delete.equals("y")) {
-	//			final FixUp fixUp = this.fixUpService.findOne(fixUpId);
-	//			this.fixUpService.delete(fixUp);
-	//		}
-	//		final Collection<FixUp> fixUps = this.fixUpService.listing();
-	//
-	//		result = new ModelAndView("customer/listingFixUpTasks");
-	//		result.addObject("fixUps", fixUps);
-	//
-	//		return result;
-	//	}
-	// Action-2 ---------------------------------------------------------------		
+		Customer customer;
 
-	//	@RequestMapping("/customer/showFixUp.do")
-	//	public ModelAndView action2(@RequestParam("fixUpId") final int fixUpId) {
-	//		ModelAndView result;
-	//
-	//		//		final FixUp fixUp = this.fixUpService.findOne(463);
-	//		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
-	//		final Category category = fixUp.getCategory();
-	//		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
-	//		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
-	//		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
-	//
-	//		result = new ModelAndView("fixUp/customer/showFixUp");
-	//		result.addObject("fixUp", fixUp);
-	//		result.addObject("category", category);
-	//		result.addObject("language", language);
-	//		result.addObject("applications", applications);
-	//		result.addObject("complaints", complaints);
-	//
-	//		return result;
-	//	}
-	//	@RequestMapping("fixUp/customer/editFixUpTask")
-	//	public ModelAndView editFixUpTask(@RequestParam("fixUpId") final int fixUpId) {
-	//		ModelAndView result;
-	//
-	//		//		final FixUp fixUp = this.fixUpService.findOne(463);
-	//		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
-	//		final Category category = fixUp.getCategory();
-	//		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
-	//		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
-	//		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
-	//
-	//		result = new ModelAndView("fixUp/customer/editFixUpTask");
-	//		result.addObject("fixUp", fixUp);
-	//		result.addObject("category", category);
-	//		result.addObject("language", language);
-	//		result.addObject("applications", applications);
-	//		result.addObject("complaints", complaints);
-	//
-	//		return result;
-	//	}
+		customer = this.customerService.create();
+
+		result = new ModelAndView("customer/create");
+
+		result.addObject("customer", customer);
+
+		return result;
+	}
+
+	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
+	public ModelAndView save(@Valid final Customer customer, final BindingResult binding) {
+		ModelAndView result;
+
+		if (binding.hasErrors()) {
+			System.out.println("El error pasa por aquí alvaro (IF de save())");
+			System.out.println(binding);
+			result = new ModelAndView("customer/create");
+		} else
+			try {
+				System.out.println("El error pasa por aquí alvaro (TRY de save())");
+				System.out.println(binding);
+				final String password = customer.getUserAccount().getPassword();
+				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				final String hashPassword = encoder.encodePassword(password, null);
+				customer.getUserAccount().setPassword(hashPassword);
+				this.customerService.save(customer);
+				result = new ModelAndView("redirect:welcome/index");
+			} catch (final Throwable oops) {
+				System.out.println("El error: ");
+				System.out.println(oops);
+				System.out.println(binding);
+				result = new ModelAndView("customer/create");
+			}
+		return result;
+	}
 }

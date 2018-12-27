@@ -23,6 +23,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
@@ -32,9 +33,12 @@ import domain.DomainEntity;
 @Access(AccessType.PROPERTY)
 public class UserAccount extends DomainEntity implements UserDetails {
 
+	@Autowired
+	private UserAccountRepository	userAccountRepository;
+
 	// Constructors -----------------------------------------------------------
 
-	private static final long	serialVersionUID	= 7254823034213841482L;
+	private static final long		serialVersionUID	= 7254823034213841482L;
 
 
 	public UserAccount() {
@@ -143,4 +147,15 @@ public class UserAccount extends DomainEntity implements UserDetails {
 		this.isSuspicious = isSuspicious;
 	}
 
+	public UserAccount findOne(final int id) {
+		final UserAccount result = this.userAccountRepository.findOne(id);
+		Assert.notNull(result);
+		return result;
+	}
+
+	//	public UserAccount findByUsername(final String username) {
+	//		final UserAccount result = this.userAccountRepository.findByUsername(username);
+	//		Assert.notNull(result);
+	//		return result;
+	//	}
 }
