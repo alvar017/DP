@@ -79,6 +79,15 @@
 		<security:intercept-url pattern="/note/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/actor/administrator/list.do" access="hasRole('ADMIN')" />  		  				  
 		<security:intercept-url pattern="/actor/administrator/edit.do" access="hasRole('ADMIN')" />  		  				   		  				  
+		<security:intercept-url pattern="/referee/administrator/list.do" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/referee/administrator/create.do" access="hasRole('ADMIN')" />
+		<security:intercept-url pattern="/referee/administrator/save.do" access="hasRole('ADMIN')" />
+		
+		<security:intercept-url pattern="/complaint/administrator/showD.do " access="hasRole('ADMIN')" />	  				  
+		<security:intercept-url pattern="/note/administrator/showD.do " access="hasRole('ADMIN')" />	  				  
+		<security:intercept-url pattern="/fixUp/administrator/showD.do " access="hasRole('ADMIN')" />	  				  
+		<security:intercept-url pattern="/customer/administrator/showD.do " access="hasRole('ADMIN')" />	  				  
+		<security:intercept-url pattern="/handyWorker/administrator/showD.do " access="hasRole('ADMIN')" />
 		<!-- CARMEN -->
 
 		<security:intercept-url pattern="/profile/action-1.do" access="isAuthenticated()" /> 

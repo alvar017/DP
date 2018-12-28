@@ -97,7 +97,6 @@ public class HandyWorkerService {
 		return this.handyWorkerRepository.save(hw);
 	}
 
-	//---------------MARI------------------
 	//UN HANDYWORKER MODIFICA SOLO SUS DATOS
 	public HandyWorker update(final HandyWorker handyWorker) {
 		Assert.isTrue(LoginService.getPrincipal().getId() == handyWorker.getUserAccount().getId()); //UN ACTOR SOLO PUEDE MODIFICICAR SUS DATOS 9.2
@@ -136,4 +135,14 @@ public class HandyWorkerService {
 		return tutorial.getHandyWorker();
 	}
 
+	public Collection<HandyWorker> getTopThreeHandyWorker() {
+		final Collection<HandyWorker> list = this.handyWorkerRepository.getTopThreeHandyWorker();
+		if (list.size() < 3)
+			return list;
+		else {
+			final List<HandyWorker> hw = new ArrayList<>(list);
+			hw.subList(0, 2);
+			return hw;
+		}
+	}
 }

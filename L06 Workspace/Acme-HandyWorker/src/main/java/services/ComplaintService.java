@@ -3,6 +3,8 @@ package services;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -111,5 +113,23 @@ public class ComplaintService {
 		Assert.isTrue(this.customerService.getCustomerByUserAccountId(login.getId()) != null);
 		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
 		return this.complaintRepository.getComplaintByCustomer(customer.getId());
+	}
+
+	public Map<String, Double> computeStatistics() {
+		Map<String, Double> result;
+		double minComplaintFx, maxComplaintFx, avComplaintFx, sdComplaintFx;
+
+		minComplaintFx = this.complaintRepository.getMinComplaintPerFixUp();
+		maxComplaintFx = this.complaintRepository.getMaxComplaintPerFixUp();
+		avComplaintFx = this.complaintRepository.getAverageComplaintPerFixUp();
+		sdComplaintFx = this.complaintRepository.getStandardDeviationFixUp();
+
+		result = new HashMap<String, Double>();
+		result.put("min.complaint.fx", minComplaintFx);
+		result.put("max.complaint.fx", maxComplaintFx);
+		result.put("av.complaint.fx", avComplaintFx);
+		result.put("sd.complaint.fx", sdComplaintFx);
+
+		return result;
 	}
 }

@@ -147,4 +147,15 @@ public class CustomerService {
 		return this.customerRepository.getAllCustomersByHandyWorkers(hwId);
 	}
 
+	//AÑADIDO
+	public Collection<Customer> getTopThreeCustomers() {
+		Collection<Customer> list = this.customerRepository.getTopThreeCustomers();
+		final List<Customer> customers = new ArrayList<>(list);
+		if (customers.size() <= 3)
+			customers.subList(0, customers.size() - 1);
+		else
+			customers.subList(0, 2);
+		list = customers;
+		return list;
+	}
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>
+	<definition name="handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="Handy Worker: Mostrar perfil" />
+		<put-attribute name="body" value="/views/handyWorker/show.jsp" />
+	</definition>
+
+	<definition name="finder/handyWorker/yourFinder" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Acción 1" />
+		<put-attribute name="body" value="/views/handyWorker/yourFinder.jsp" />
+	</definition>
+	
+	<definition name="finder/handyWorker/editYourFinder" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Acción 2" />
+		<put-attribute name="body" value="/views/handyWorker/editYourFinder.jsp" />
+	</definition>
+	
+	<definition name="handyworker/create" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: registrar" />
+		<put-attribute name="body" value="/views/handyWorker/create_handyWorker.jsp" />
+	</definition>
+	
+	<definition name="handyWorker/edit" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Editar perfil" />
+		<put-attribute name="body" value="/views/handyWorker/edit.jsp" />
+	</definition>
+	
+	<definition name="tutorial/handyWorker/list" extends="master.page">	
+		<put-attribute name="title" value="Tutoriales" />
+		<put-attribute name="body" value="/views/handyWorker/tutorial-listing.jsp" />
+	</definition>
+	
+	<definition name="tutorial/handyWorker/edit" extends="master.page">	
+		<put-attribute name="title" value="Editar Tutorial" />
+		<put-attribute name="body" value="/views/handyWorker/tutorial-edit.jsp" />
+	</definition>
+	
+	<definition name="tutorial/handyWorker/create" extends="master.page">	
+		<put-attribute name="title" value="Crear Tutorial" />
+		<put-attribute name="body" value="/views/handyWorker/tutorial-edit.jsp" />
+	</definition>
+	
+	<definition name="tutorial/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="Detalles del tutorial" />
+		<put-attribute name="body" value="/views/handyWorker/tutorial-show.jsp" />
+	</definition>
+</tiles-definitions>

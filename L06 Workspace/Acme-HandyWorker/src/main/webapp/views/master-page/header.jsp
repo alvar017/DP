@@ -26,7 +26,8 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="actor/administrator/list.do"><spring:message code="master.page.administrator.action.1" /></a></li>
-					<li><a href="administrator/action-2.do"><spring:message code="master.page.administrator.action.2" /></a></li>					
+					<li><a href="referee/administrator/list.do"><spring:message code="master.page.administrator.action.3" /></a></li>
+					<li><a href="complaint/administrator/showD.do"><spring:message code="master.page.administrator.action.2" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
@@ -82,6 +83,7 @@
 					</security:authorize>
 					<security:authorize access="hasRole('ADMIN')">
 						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+						<li><a href="complaint/administrator/showD.do"><spring:message code="master.page.administrator.action.2" /></a></li>
 						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
 					</security:authorize>
 					<security:authorize access="hasRole('REFEREE')">

@@ -22,4 +22,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	@Query("select hwfc from HandyWorker hw join hw.fixUps hwf join hwf.customer hwfc where hw.id=?1")
 	Collection<Customer> getAllCustomersByHandyWorkers(int customerId);
 
+	@Query("select cu from Customer cu join cu.fixUps f where f.complaints.size > 0 order by f.complaints.size desc")
+	Collection<Customer> getTopThreeCustomers();
 }

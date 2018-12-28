@@ -5,7 +5,9 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -282,5 +284,17 @@ public class FixUpService {
 		return this.fixUpRepository.findFixUpsOfFinderByHandyWorker(finderId);
 	}
 	//(CARMEN)
+	//AÑADIDO
+	public Map<String, Double> computeStatistics() {
+		Map<String, Double> result;
+		double ratioFx;
 
+		ratioFx = this.fixUpRepository.getRatioFixUpComplaint();
+
+		result = new HashMap<String, Double>();
+
+		result.put("ratio.fx", ratioFx);
+
+		return result;
+	}
 }

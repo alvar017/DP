@@ -3,6 +3,8 @@ package services;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -127,22 +129,22 @@ public class NoteService {
 	//CARMEN
 
 	//AÑADIDO
-	//	public Map<String, Double> computeStatistics2() {
-	//		Map<String, Double> result;
-	//		double minNoteFx, maxNoteFx, avNoteFx, sdNoteFx;
-	//
-	//		minNoteFx = this.noteRepository.getMinNotesPerFixUp();
-	//		maxNoteFx = this.noteRepository.getMaxNotesPerFixUp();
-	//		avNoteFx = this.noteRepository.getAvgNotesPerFixUp();
-	//		sdNoteFx = this.noteRepository.getStandardDeviationNotesPerFixUp();
-	//
-	//		result = new HashMap<String, Double>();
-	//		result.put("min.note.fx", minNoteFx);
-	//		result.put("max.note.fx", maxNoteFx);
-	//		result.put("av.note.fx", avNoteFx);
-	//		result.put("sd.note.fx", sdNoteFx);
-	//
-	//		return result;
-	//	}
+	public Map<String, Double> computeStatistics2() {
+		Map<String, Double> result;
+		double minNoteFx, maxNoteFx, avNoteFx, sdNoteFx;
+
+		minNoteFx = this.noteRepository.getMinNotesPerFixUp();
+		maxNoteFx = this.noteRepository.getMaxNotesPerFixUp();
+		avNoteFx = this.noteRepository.getAvgNotesPerFixUp();
+		sdNoteFx = this.noteRepository.getStandardDeviationNotesPerFixUp();
+
+		result = new HashMap<String, Double>();
+		result.put("min.note.fx", minNoteFx);
+		result.put("max.note.fx", maxNoteFx);
+		result.put("av.note.fx", avNoteFx);
+		result.put("sd.note.fx", sdNoteFx);
+
+		return result;
+	}
 
 }

@@ -27,6 +27,19 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Integer> {
 	@Query("select c from Complaint c where c.referee=null")
 	Collection<Complaint> getComplaintWithoutReferee(Integer id);
 
+	//AÑADIDO
+	@Query("select f.complaints.size from FixUp f where (f.complaints.size=(select min(f1.complaints.size) from FixUp f1))")
+	Integer getMinComplaintPerFixUp();
+
+	@Query("select f.complaints.size from FixUp f where (f.complaints.size=(select max(f1.complaints.size) from FixUp f1))")
+	Integer getMaxComplaintPerFixUp();
+
+	@Query("select avg(f.complaints.size)from FixUp f")
+	Double getAverageComplaintPerFixUp();
+
+	@Query("select sqrt(sum(f.complaints.size*f.complaints.size)/count(f)-(avg(f.complaints.size)*avg(f.complaints.size))) from FixUp f")
+	Double getStandardDeviationFixUp();
+
 	@Query("select c from Complaint c where c.referee.id=?1")
 	Collection<Complaint> getComplaintByReferee(Integer idReferee);
 

@@ -20,4 +20,7 @@ public interface HandyWorkerRepository extends JpaRepository<HandyWorker, Intege
 
 	@Query("select h from HandyWorker h where((select count(a) from HandyWorker hw join hw.applications a where(a.state=1 and hw.id=h.id)) >=((select count(a.state)/2.0 from HandyWorker h join h.applications a where (a.state=1)) * 1.1))")
 	Collection<HandyWorker> betterHandyWorker();
+
+	@Query("select distinct hw from HandyWorker hw join hw.fixUps f order by f.complaints.size desc")
+	Collection<HandyWorker> getTopThreeHandyWorker();
 }

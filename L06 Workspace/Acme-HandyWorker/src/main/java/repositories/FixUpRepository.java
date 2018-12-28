@@ -65,4 +65,7 @@ public interface FixUpRepository extends JpaRepository<FixUp, Integer> {
 	@Query("select f.fixUps from HandyWorker h join h.finder f where f.id=?1")
 	Collection<FixUp> findFixUpsOfFinderByHandyWorker(Integer Fid);
 
+	//AÑADIDO
+	@Query("select ((select count(f) from FixUp f where f.complaints.size > 0)/count(f))*1.0 from FixUp f")
+	Double getRatioFixUpComplaint();
 }
