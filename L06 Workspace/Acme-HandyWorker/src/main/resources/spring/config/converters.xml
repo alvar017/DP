@@ -48,6 +48,8 @@
 		<bean class="converters.StringToFinderConverter" />
 		<bean class="converters.CurriculumToStringConverter" />
 		<bean class="converters.StringToCurriculumConverter" />
+		<bean class="converters.ReportToStringConverter" />
+		<bean class="converters.StringToReportConverter" />
 		<!-- ANTONIO -->
 		<bean class="converters.FixUpToStringConverter"></bean>
 		<bean class="converters.StringToFixUpConverter"></bean>
@@ -62,6 +64,8 @@
 		<bean class="converters.RefereeToStringConverter"></bean>
 		<bean class="converters.StringToRefereeConverter"></bean>
 		<!-- FRAN -->
+		<bean class="converters.NoteToStringConverter"></bean>
+		<bean class="converters.StringToNoteConverter"></bean>
 	</util:list>
 	
 </beans>

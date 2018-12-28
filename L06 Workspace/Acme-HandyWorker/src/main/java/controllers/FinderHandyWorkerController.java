@@ -18,10 +18,10 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
@@ -84,39 +84,51 @@ public class FinderHandyWorkerController extends AbstractController {
 	public ModelAndView create() {
 
 		ModelAndView res;
+
+		final Collection<Category> category = this.categoryService.findAll();
+		final Collection<Warranty> warranty = this.warrantyService.findAll();
+
 		Finder finder;
 
 		finder = this.finderService.create();
+
+		final UserAccount user = LoginService.getPrincipal();
+		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(user.getId());
+		hw.setFinder(finder);
+
 		res = this.createEditModelAndView(finder);
+
+		res.addObject("category", category);
+		res.addObject("warranty", warranty);
 
 		return res;
 	}
 
 	//edit--------------------------------------------------------------
 
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("finderId") final int finderId) {
-		ModelAndView result;
-
-		System.out.println("Carmen: Entro en edit");
-
-		final Collection<Category> category = this.categoryService.findAll();
-		final Collection<Warranty> warranty = this.warrantyService.findAll();
-
-		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
-
-		final Finder finder = this.finderService.yourFinder();
-
-		result = this.createEditModelAndView(finder);
-
-		result.addObject("language", language);
-		result.addObject("category", category);
-		result.addObject("warranty", warranty);
-
-		System.out.println("Carmen: Salgo de edit");
-
-		return result;
-	}
+	//	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	//	public ModelAndView edit(@RequestParam("finderId") final int finderId) {
+	//		ModelAndView result;
+	//
+	//		System.out.println("Carmen: Entro en edit");
+	//
+	//		final Collection<Category> category = this.categoryService.findAll();
+	//		final Collection<Warranty> warranty = this.warrantyService.findAll();
+	//
+	//		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+	//
+	//		final Finder finder = this.finderService.yourFinder();
+	//
+	//		result = this.createEditModelAndView(finder);
+	//
+	//		result.addObject("language", language);
+	//		result.addObject("category", category);
+	//		result.addObject("warranty", warranty);
+	//
+	//		System.out.println("Carmen: Salgo de edit");
+	//
+	//		return result;
+	//	}
 
 	//save ---------------------	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
@@ -151,10 +163,36 @@ public class FinderHandyWorkerController extends AbstractController {
 
 				finder.setFixUps(fixUps);
 
-				this.finderService.save(finder);
+				System.out.println(finder.getId());
+				final Finder finderSave = this.finderService.save(finder);
+
+				//				final UserAccount userLogger = LoginService.getPrincipal();
+				//				final HandyWorker hwLogger = this.handyWorkerService.getHandyWorkerByUserAccountId(userLogger.getId());
+				//				hwLogger.setFinder(finder);
+				//
+				//				System.out.println(hwLogger.getFinder().getFixUps());
+				//
+				//				System.out.println("Finder id" + hwLogger.getFinder().getId());
+				//
+				//				this.handyWorkerService.save(hwLogger);ç
+
+				final UserAccount user = LoginService.getPrincipal();
+				final HandyWorker handyWorker = this.handyWorkerService.getHandyWorkerByUserAccountId(user.getId());
+				Assert.isTrue(handyWorker != null);
+				if (handyWorker.getFinder() != null) {
+					handyWorker.getSocialProfiles().remove(finder);
+					handyWorker.setFinder(finderSave);
+				} else
+					handyWorker.setFinder(finderSave);
+				final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
+
+				System.out.println("Hw" + savedHandyWorker.getFixUps());
+
 				System.out.println("Carmen: !PUEDO GUARDAR¡");
 				System.out.println("Busqueda de fixUps nuevos" + finder.getFixUps());
 				result = new ModelAndView("redirect:list.do");
+
+				result.addObject("handyWorker", savedHandyWorker);
 			} catch (final Throwable oops) {
 				System.out.println("Carmen: !NO PUEDO GUARDAR¡");
 				System.out.println("finder error:" + oops);
@@ -169,9 +207,6 @@ public class FinderHandyWorkerController extends AbstractController {
 		ModelAndView result;
 
 		System.out.println("Carmen:!Puedo entrar en createEditModelAndWiew de finder¡");
-
-		final UserAccount user = LoginService.getPrincipal();
-		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(user.getId());
 
 		result = new ModelAndView("finder/handyWorker/edit");
 

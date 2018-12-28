@@ -41,11 +41,13 @@
 				<form:hidden path="commentReferee" />	
 				<form:hidden path="customer" />	
 				<form:hidden path="report" />	
-				
+				<form:hidden path="handyWorker" />
+				<form:hidden path="moment" />	
+	
 				<form:label path="commentHandyWorker"><spring:message code="handyWorker.showing.commentHandyWorker" /></form:label>
 				<form:textarea path="commentHandyWorker" required="required"/>			
 
-				<input type="submit" name="save"
+				<input type="submit" name="save" 
 					value=<spring:message code="hw.send" /> />
 
 			</form:form>

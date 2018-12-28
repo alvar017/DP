@@ -60,7 +60,10 @@
 </table>
 </div>
 
-<a title="AcmeTitle" href="finder/handyWorker/edit.do?finderId=${finder.id}"><img src="images/edit.png" alt="Edit" width="3%"/></a>
+
+
+<a title="AcmeTitle" href="finder/handyWorker/create.do"><img src="images/edit.png" alt="Create" width="3%"/></a>
+	  
 
 <c:choose>
     		<c:when test="${language=='English'}">

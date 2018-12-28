@@ -21,6 +21,17 @@
 		<put-attribute name="body" value="/views/note/create.jsp" />
 	</definition>
 	
+		<definition name="note/administrator/showD" extends="master.page">
+		<put-attribute name="title" value="Administrador: Estadísticas"></put-attribute>
+		<put-attribute name="body" value="/views/note/showD.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="note/administrator/show" extends="master.page">
+		<put-attribute name="title" value="Administrador: Nota create"></put-attribute>
+		<put-attribute name="body" value="/views/note/show.jsp"></put-attribute>
+	</definition>
+
+	
 	
 </tiles-definitions>
 	

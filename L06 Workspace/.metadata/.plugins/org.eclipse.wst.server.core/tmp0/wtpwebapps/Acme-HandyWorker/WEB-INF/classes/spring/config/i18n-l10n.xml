@@ -33,7 +33,8 @@
 		<value>/views/finder/messages</value>
 		<value>/views/report/messages</value>	
 		<value>/views/actor/messages</value>
-		<value>/views/socialProfile/messages</value>		
+		<value>/views/socialProfile/messages</value>
+		<value>/views/note/messages</value>		
 			
 	</util:list>
 

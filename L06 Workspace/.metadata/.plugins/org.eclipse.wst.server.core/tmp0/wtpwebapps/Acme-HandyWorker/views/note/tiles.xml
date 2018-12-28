@@ -16,10 +16,24 @@
        
 <tiles-definitions>
 
+
 	<definition name="note/handyWorker/create" extends="master.page">	
 		<put-attribute name="title" value="HandyWorker: Create note" />
 		<put-attribute name="body" value="/views/note/create.jsp" />
 	</definition>
+	
+
+	
+		<definition name="note/administrator/showD" extends="master.page">
+		<put-attribute name="title" value="Administrator: Show Dashboard"></put-attribute>
+		<put-attribute name="body" value="/views/note/showD.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="note/administrator/show" extends="master.page">
+		<put-attribute name="title" value="Administrator: Create note"></put-attribute>
+		<put-attribute name="body" value="/views/note/show.jsp"></put-attribute>
+	</definition>
+
 	
 	
 </tiles-definitions>

@@ -22,7 +22,7 @@
 				<img class="lupa" src="images/lupa.png" alt="Luga" width="19%"/>
 				<table>
 				
-					<tr><td><strong><spring:message code="handyWorker.welcome.show" /></strong></td></tr>
+					<tr><td><strong><spring:message code="handyWorker.welcome.show1" /></strong></td></tr>
     						
     				<tr><td><spring:message code="handyWorker.showing.attachment" /><jstl:out value="${report.attachment}"></jstl:out></td></tr>
     						   							
@@ -40,14 +40,10 @@
 
     				   		<div>
 								<security:authorize access="hasRole('HANDYWORKER')">
-									<display:table name="notes" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
-									
-									<display:column titleKey="note.information" >
-										<a href="note/handyWorker/show.do?noteId=${row.id}"><spring:message code="note.information" /></a>
-									</display:column>
-									
+									<display:table name="note" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
+										<display:column property="commentHandyWorker" titleKey="note.comment"></display:column>
 										<display:column property="moment" titleKey="note.moment"></display:column>
-										<display:column property="customer" titleKey="note.customer"></display:column>
+										
 									</display:table>
 								</security:authorize>
 							</div>
@@ -55,7 +51,7 @@
   						</td></tr>
           			</table>
       			</div>
-      <a title="AcmeTitle" href="report/handyWorker/create.do"><img src="images/edit.png" alt="Create" width="3%"/></a>
+      <a title="AcmeTitle" href="note/handyWorker/create.do?reportId=${report.id}""><img src="images/edit.png" alt="Edit" width="3%"/></a>
       
 				<form>
 					<input type="button" value=<spring:message code="back" /> name="back" onclick="history.back()" />

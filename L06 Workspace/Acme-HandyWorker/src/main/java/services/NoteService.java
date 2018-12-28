@@ -16,6 +16,7 @@ import security.Authority;
 import security.LoginService;
 import security.UserAccount;
 import domain.Note;
+import domain.Report;
 
 @Service
 @Transactional
@@ -42,26 +43,30 @@ public class NoteService {
 	//35.2 (FRAN)
 	public Note create() {
 		final Note res = new Note();
-		final UserAccount login = LoginService.getPrincipal();
-		final Authority hw = new Authority();
-		hw.setAuthority(Authority.HANDYWORKER);
-		final Authority c = new Authority();
-		hw.setAuthority(Authority.CUSTOMER);
-		final Authority r = new Authority();
-		hw.setAuthority(Authority.REFEREE);
+		//		final UserAccount login = LoginService.getPrincipal();
+		//		final Authority hw = new Authority();
+		//		hw.setAuthority(Authority.HANDYWORKER);
+		//		final Authority c = new Authority();
+		//		hw.setAuthority(Authority.CUSTOMER);
+		//		final Authority r = new Authority();
+		//		hw.setAuthority(Authority.REFEREE);
+		//
+		//		if (login.getAuthorities().contains(hw))
+		//			res.setCommentHandyWorker("");
+		//		else if (login.getAuthorities().contains(c))
+		//			res.setCustomer(this.customerService.getCustomerByUserAccountId(login.getId()));
+		//
+		//		//El report esta vacío porque se pondrá el valor por defecto en otro create
+		//		//        if (login.getAuthorities().contains(r)) {    
+		//		//            res.setReport(this.refereeService.findRefereeByReport(res.getReport()));
+		//		//        }
 
-		if (login.getAuthorities().contains(hw))
-			res.setHandyWorker(this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId()));
-		else if (login.getAuthorities().contains(c))
-			res.setCustomer(this.customerService.getCustomerByUserAccountId(login.getId()));
-
-		//El report esta vacío porque se pondrá el valor por defecto en otro create
-		//        if (login.getAuthorities().contains(r)) {    
-		//            res.setReport(this.refereeService.findRefereeByReport(res.getReport()));
-		//        }
+		final Report report = new Report();
 
 		final Date moment = LocalDate.now().toDate();
+
 		res.setMoment(moment);
+		res.setReport(report);
 
 		return res;
 	}
@@ -70,7 +75,7 @@ public class NoteService {
 
 	//CARMEN
 	public Note save(final Note note) {
-		Assert.isTrue(note.getReport() != null);
+		//Assert.isTrue(note.getReport() != null);
 		return this.noteRepository.save(note);
 	}
 	//CARMEN
@@ -120,4 +125,24 @@ public class NoteService {
 	}
 	//FRAN
 	//CARMEN
+
+	//AÑADIDO
+	//	public Map<String, Double> computeStatistics2() {
+	//		Map<String, Double> result;
+	//		double minNoteFx, maxNoteFx, avNoteFx, sdNoteFx;
+	//
+	//		minNoteFx = this.noteRepository.getMinNotesPerFixUp();
+	//		maxNoteFx = this.noteRepository.getMaxNotesPerFixUp();
+	//		avNoteFx = this.noteRepository.getAvgNotesPerFixUp();
+	//		sdNoteFx = this.noteRepository.getStandardDeviationNotesPerFixUp();
+	//
+	//		result = new HashMap<String, Double>();
+	//		result.put("min.note.fx", minNoteFx);
+	//		result.put("max.note.fx", maxNoteFx);
+	//		result.put("av.note.fx", avNoteFx);
+	//		result.put("sd.note.fx", sdNoteFx);
+	//
+	//		return result;
+	//	}
+
 }
