@@ -58,6 +58,30 @@
         			<tr><td><jstl:out value="${fixUp.description}"></jstl:out></td></tr>
 					
           			</table>
+          			
+          			<div>
+	<h2><spring:message code="workplan.show" /></h2>
+	<display:table list="requestScope.workplan" name="workplan" id="row" requestURI="${requestURI }" pagesize="5" class="displaytag">
+		
+		<display:column property="title" titleKey="phase.title"/>
+		<display:column property="description" titleKey="phase.description"/>
+		<display:column property="startDate" titleKey="phase.startDate" format="{0,date,dd/MM/yyyy HH:mm}"/>
+		<display:column property="endDate" titleKey="phase.endDate" format="{0,date,dd/MM/yyyy HH:mm}"/>
+		<jstl:if test="${checkHW}" >
+  			<display:column titleKey="edit"> 
+				<a href="workplan/handyWorker/edit.do?phaseId=${row.id}"><spring:message code="edit"/></a>
+			</display:column>
+			<display:column titleKey="delete"> 
+				<a href="workplan/handyWorker/delete.do?phaseId=${row.id}" onclick="return confirm('<spring:message code='confirm.delete'></spring:message>');"><spring:message code="delete"/></a>
+			</display:column>
+  		</jstl:if>
+			
+	</display:table>
+		<jstl:if test="${checkHW}" >
+		
+			                                <a href="workplan/handyWorker/create.do?fixUpId=${fixUp.id}"><spring:message code="phase.create"/></a>
+		</jstl:if>
+	</div>
       			</div>
       
 				<form>

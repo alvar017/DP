@@ -105,6 +105,11 @@
 		<!-- Antonio -->
 		<!-- Ferrete -->
 		<security:intercept-url pattern="/tutorial/handyWorker/**" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/workplan/handyWorker/edit.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/workplan/handyWorker/create.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/workplan/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/workplan/handyWorker/delete.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/customer/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
 		<!-- Ferrete -->
 		<!-- Fran -->
 		<security:intercept-url pattern="/complaint/customer/list.do" access="hasRole('CUSTOMER')" />

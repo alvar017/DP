@@ -30,10 +30,13 @@
   	<display:column property="offered.quantity" titleKey="application.offered"/>
   	<display:column property="comments" titleKey="application.comments"/>
   	<display:column property="creditCard.number" titleKey="application.creditCard"/>
-  	
+  	<jstl:if test="${row.state}" >
+  		<display:column titleKey="handyWorker.editApplication"> 
+			<a href="workplan/handyWorker/create.do?fixUpId=${row.fixUp.id}"><spring:message code="workplan.create"/></a>
+		</display:column>
+  	</jstl:if>
   	</display:table>
   	
-	<p class="create"><input type="button" value=<spring:message code="handyWorker.createApplication" /> id="buttonApplication" name="buttonApplication"  onclick="location.href='application/handyWorker/create.do';"/></p>
   		
   		<c:choose>
     		<c:when test="${language=='English'}">

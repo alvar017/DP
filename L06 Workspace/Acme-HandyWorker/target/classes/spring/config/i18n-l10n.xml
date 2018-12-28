@@ -36,6 +36,7 @@
 		<value>/views/socialProfile/messages</value>
 		<value>/views/note/messages</value>
 		<value>/views/referee/messages</value>				
+		<value>/views/workplan/messages</value>
 			
 	</util:list>
 

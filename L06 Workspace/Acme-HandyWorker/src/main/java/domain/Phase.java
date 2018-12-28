@@ -10,6 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Access(AccessType.PROPERTY)
 public class Phase extends DomainEntity {
@@ -22,6 +25,7 @@ public class Phase extends DomainEntity {
 	private FixUp	fixUp;
 
 
+	@NotBlank
 	public String getTitle() {
 		return this.title;
 	}
@@ -38,6 +42,7 @@ public class Phase extends DomainEntity {
 		this.description = description;
 	}
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getStartDate() {
 		return this.startDate;
 	}
@@ -46,6 +51,7 @@ public class Phase extends DomainEntity {
 		this.startDate = startDate;
 	}
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getEndDate() {
 		return this.endDate;
 	}

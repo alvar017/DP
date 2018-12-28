@@ -20,16 +20,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.LoginService;
+import security.UserAccount;
 import services.FixUpService;
+import services.HandyWorkerService;
+import services.PhaseService;
 import domain.Category;
 import domain.FixUp;
+import domain.HandyWorker;
+import domain.Phase;
 
 @Controller
 @RequestMapping("/fixUp/handyWorker")
 public class FixUpHandyWorkerController extends AbstractController {
 
 	@Autowired
-	private FixUpService	fixUpService;
+	private FixUpService		fixUpService;
+
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
+
+	@Autowired
+	private PhaseService		phaseService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -59,13 +71,25 @@ public class FixUpHandyWorkerController extends AbstractController {
 		ModelAndView result;
 
 		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+		//NUEVO
+		final UserAccount login = LoginService.getPrincipal();
+
+		final HandyWorker logged = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
+		final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+		System.out.println("checkHW: " + checkHW);
+		//======================================
 		final Category category = fixUp.getCategory();
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+		final Collection<Phase> workplan = this.phaseService.getPhasesByFixUp(fixUp);
 
 		result = new ModelAndView("fixUp/handyWorker/show");
 		result.addObject("fixUp", fixUp);
 		result.addObject("category", category);
 		result.addObject("language", language);
+		//NUEVO
+		result.addObject("workplan", workplan);
+		result.addObject("checkHW", checkHW);
+		//========================================
 		result.addObject("requestURI", "fixUp/handyWorker/show.do");
 
 		return result;

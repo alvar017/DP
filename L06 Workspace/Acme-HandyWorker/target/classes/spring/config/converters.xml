@@ -50,6 +50,8 @@
 		<bean class="converters.StringToCurriculumConverter" />
 		<bean class="converters.ReportToStringConverter" />
 		<bean class="converters.StringToReportConverter" />
+		<bean class="converters.PhaseToStringConverter" />
+		<bean class="converters.StringToPhaseConverter" />
 		<!-- ANTONIO -->
 		<bean class="converters.FixUpToStringConverter"></bean>
 		<bean class="converters.StringToFixUpConverter"></bean>

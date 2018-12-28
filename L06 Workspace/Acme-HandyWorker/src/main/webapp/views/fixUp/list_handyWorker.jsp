@@ -27,7 +27,9 @@
 	</display:column>
 	<display:column property="description" titleKey="customer.description"></display:column>
 	<display:column property="maxPrice.quantity" titleKey="customer.price"></display:column>
-	<display:column property="customer.name" titleKey="customer.name2"></display:column>
+	<display:column titleKey="customer.name2">
+		<a href="customer/handyWorker/show.do?customerId=${row.customer.id}">${row.customer.name}</a>
+	</display:column>
 	<display:column property="handyWorker.name" titleKey="handyWorker.nameHW"></display:column>
 </display:table>
 </security:authorize>

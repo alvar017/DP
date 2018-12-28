@@ -107,6 +107,48 @@
   </header><!-- / #main-header -->
 
 <div class=language>
-	<a href="?language=en"><img width="20px" src="images/uk.png" alt="en" /></a><a href="?language=es"><img width="20px" src="images/spain.png" alt="en" /></a>
+	<img width="20px" src="images/uk.png" alt="en" onClick="changeLangEn()"/><img width="20px" src="images/spain.png" alt="es" onClick="changeLangEs()"/>
 </div>
+
+<script type="text/javascript">
+function changeLangEs(){
+	var cpage=window.location.href;
+		if(cpage.includes("language=en")){
+			cpage=cpage.replace("language=en", "language=es");
+		}else if(cpage.includes("language=es")){
+			
+		}else if(cpage.includes("?")){
+			cpage=window.location.href+"&language=es";
+		}else{
+			cpage=window.location.href+"?language=es";
+		}
+		window.location.href = cpage;
+		
+	
+	
+	}
+
+</script>
+
+<script type="text/javascript">
+function changeLangEn(){
+	var cpage=window.location.href;
+		if(cpage.includes("language=es")){
+			cpage=cpage.replace("language=es", "language=en");
+		}else if(cpage.includes("language=en")){
+			
+		}else if(cpage.includes("?")){
+			cpage=window.location.href+"&language=en";
+			
+		}else{
+			cpage=window.location.href+"?language=en";
+		}
+		window.location.href = cpage;
+		
+	
+	
+	}
+</script>
+
+
 

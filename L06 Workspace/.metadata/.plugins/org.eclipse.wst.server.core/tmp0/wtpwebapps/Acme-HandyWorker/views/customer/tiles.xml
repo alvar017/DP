@@ -81,4 +81,10 @@
 		<put-attribute name="title" value="Administrator: Show Dashboard"></put-attribute>
 		<put-attribute name="body" value="/views/customer/showD.jsp"></put-attribute>
 	</definition>
+	
+		<!-- AÑADIDOS FERRETE -->
+	<definition name="customer/handyWorker/show" extends="master.page">
+		<put-attribute name="title" value="Customer Details"></put-attribute>
+		<put-attribute name="body" value="/views/customer/customerShowHandyWorker.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>
