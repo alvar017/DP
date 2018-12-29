@@ -81,12 +81,22 @@
 	</definition>
 	
 	<definition name="endorserRecord/handyWorker/create" extends="master.page">	
-		<put-attribute name="title" value="Handy Worker: Crear un registro Endorser" />
+		<put-attribute name="title" value="Trabajador: Crear un registro Endorser" />
 		<put-attribute name="body" value="/views/handyWorker/edit_endorserRecord.jsp" />
 	</definition>
 	
 	<definition name="endorserRecord/handyWorker/edit" extends="master.page">	
-		<put-attribute name="title" value="Handy Worker: Editar un registro Endorser" />
+		<put-attribute name="title" value="Trabajador: Editar un registro Endorser" />
 		<put-attribute name="body" value="/views/handyWorker/edit_endorserRecord.jsp" />
+	</definition>
+	
+		<definition name="professionalRecord/handyWorker/create" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Crear informe profesional" />
+		<put-attribute name="body" value="/views/handyWorker/edit_professionalRecord.jsp" />
+	</definition>
+	
+	<definition name="professionalRecord/handyWorker/edit" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Editar informe profesional" />
+		<put-attribute name="body" value="/views/handyWorker/edit_professionalRecord.jsp" />
 	</definition>
 </tiles-definitions>

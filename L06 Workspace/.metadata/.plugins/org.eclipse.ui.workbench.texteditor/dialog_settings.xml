@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="17" key="DIALOG_Y_ORIGIN"/>
-		<item value="362" key="DIALOG_HEIGHT"/>
 		<item value="1064" key="DIALOG_X_ORIGIN"/>
+		<item value="362" key="DIALOG_HEIGHT"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
 		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="mic"/>
+			<item value="mis"/>
+			<item value="getm"/>
+			<item value="getEn"/>
+			<item value="endorserRecord"/>
+			<item value="EndorserRecord"/>
 			<item value="getmi"/>
 			<item value="curriculum.title"/>
-			<item value="miscellaneousRecord"/>
-			<item value="EndorserRecord"/>
-			<item value="requesturi"/>
-			<item value="request"/>
-			<item value="socialProfile"/>
-			<item value="curriculum.photo"/>
 		</list>
 		<list key="replacehistory">
+			<item value="professionalRecord"/>
 			<item value="endorserRecord"/>
+			<item value="professional"/>
 			<item value="EndorserRecord"/>
 			<item value="miscellaneousRecord"/>
 			<item value="sponsor"/>
 			<item value="administrator"/>
 			<item value="mailBox"/>
-			<item value="mailBolx"/>
-			<item value="Sponsor"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
