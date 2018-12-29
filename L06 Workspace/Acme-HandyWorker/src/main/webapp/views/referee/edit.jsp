@@ -31,6 +31,7 @@
     	<form:form class="formularioEdicion" method="POST" modelAttribute="referee" action="referee/edit.do">
           	<form:hidden path="id"/>
           	<form:hidden path="version"/>
+          	<form:hidden path="mailBoxes"/>
           	
           	<form:label path="name"><spring:message code="referee.name" /></form:label>
 			<form:input path="name" required="required"/>

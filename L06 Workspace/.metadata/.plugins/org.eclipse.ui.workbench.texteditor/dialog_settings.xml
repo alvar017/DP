@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="17" key="DIALOG_Y_ORIGIN"/>
-		<item value="1064" key="DIALOG_X_ORIGIN"/>
 		<item value="362" key="DIALOG_HEIGHT"/>
+		<item value="1064" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="domain.Refe" key="selection"/>
+		<item value="sponsor" key="selection"/>
 		<list key="findhistory">
+			<item value="customer"/>
+			<item value="Cliente"/>
+			<item value="master.page.createUser."/>
 			<item value="domain.refe"/>
 			<item value="domain.cus"/>
 			<item value="ref=s"/>
 			<item value="domain.referee"/>
 			<item value="refer"/>
-			<item value="domain.ref"/>
-			<item value="show"/>
-			<item value="handyWorker"/>
 		</list>
 		<list key="replacehistory">
+			<item value="sponsor"/>
+			<item value="Sponsor"/>
 			<item value="referee"/>
 			<item value="nick"/>
 			<item value="link"/>
 			<item value="handyWorker"/>
 			<item value="customer"/>
 			<item value="actor"/>
-			<item value="curriculum"/>
-			<item value="Curriculum"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

@@ -34,6 +34,7 @@
           	<form:hidden path="socialProfiles"/>
           	<form:hidden path="isBanned"/>
           	<form:hidden path="isSuspicious"/>
+          	<form:hidden path="mailBoxes"/>
           	
           	<form:label path="name"><spring:message code="customer.name" /></form:label>
 			<form:input path="name" required="required"/>

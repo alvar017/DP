@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>
+
+	<definition name="fixUp/customer/list" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Listado de reparaciones" />
+		<put-attribute name="body" value="/views/customer/listingFixUps.jsp" />
+	</definition>
+	
+	<definition name="customer/deleteFixUpTask" extends="master.page">	
+		<put-attribute name="title" value="Customer: Listing FixUp Tasks" />
+		<put-attribute name="body" value="/views/customer/listingFixUps.jsp" />
+	</definition>
+	
+	<definition name="fixUp/customer/showFixUp" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Mostrar reparacion" />
+		<put-attribute name="body" value="/views/customer/showFixUp.jsp" />
+	</definition>
+	
+		<definition name="fixUp/customer/editFixUpTask" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Editar reparación" />
+		<put-attribute name="body" value="/views/customer/edit.jsp" />
+	</definition>
+	
+	<definition name="fixUp/customer/createFixUpTask" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Crear reparación" />
+		<put-attribute name="body" value="/views/customer/createFixUp.jsp" />
+	</definition>
+	
+		<definition name="application/customer/editApplication" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Editar aplicación" />
+		<put-attribute name="body" value="/views/customer/editApplication.jsp" />
+	</definition>
+	
+	<definition name="application/customer/listApplications" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Lista de aplicaciones" />
+		<put-attribute name="body" value="/views/customer/listApplication.jsp" />
+	</definition>
+	
+	<definition name="customer/create" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Registro" />
+		<put-attribute name="body" value="/views/customer/registerAsCustomer.jsp" />
+	</definition>
+	
+		<!-- Complaint -->
+	<definition name="complaint/customer/list.do" extends="master.page">
+		<put-attribute name="title" value="Cliente: Lista de Quejas"></put-attribute>
+		<put-attribute name="body" value="/views/customer/complaintList.jsp"></put-attribute>
+	</definition>
+
+	<definition name="complaint/customer/edit.do" extends="master.page">
+		<put-attribute name="title" value="Cliente: Editar Queja"></put-attribute>
+		<put-attribute name="body" value="/views/customer/complaintEdit.jsp"></put-attribute>
+	</definition>
+
+	<definition name="complaint/customer/create.do" extends="master.page">
+		<put-attribute name="title" value="Cliente: Crear Queja"></put-attribute>
+		<put-attribute name="body" value="/views/customer/complaintCreate.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/customer/show.do" extends="master.page">
+		<put-attribute name="title" value="Cliente: Mostrar Queja"></put-attribute>
+		<put-attribute name="body" value="/views/customer/complaintShow.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="customer/administrator/showD" extends="master.page">
+		<put-attribute name="title" value="Administrador: Mostrar estadísticas"></put-attribute>
+		<put-attribute name="body" value="/views/customer/showD.jsp"></put-attribute>
+	</definition>
+	
+		<!-- AÑADIDOS FERRETE -->
+	<definition name="customer/handyWorker/show" extends="master.page">
+		<put-attribute name="title" value="Customer Details"></put-attribute>
+		<put-attribute name="body" value="/views/customer/customerShowHandyWorker.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

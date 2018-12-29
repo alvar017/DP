@@ -91,8 +91,6 @@ public class SponsorService {
 	}
 
 	public Sponsor save(final Sponsor sp) {
-		final UserAccount userA = this.actorService.getUserByActorId(sp.getId());
-		Assert.isTrue(userA == null);
 		return this.sponsorRepository.save(sp);
 	}
 
@@ -100,6 +98,10 @@ public class SponsorService {
 		final UserAccount a = sponsor.getUserAccount();
 		Assert.isTrue(a.getUsername() == null);
 		return this.sponsorRepository.save(sponsor);
+	}
+
+	public Sponsor findByUserAccountId(final int userAccountId) {
+		return this.sponsorRepository.findByUserAccountId(userAccountId);
 	}
 
 	//	public Sponsor getSponsorByUserAccountId(final int userAccountId) {

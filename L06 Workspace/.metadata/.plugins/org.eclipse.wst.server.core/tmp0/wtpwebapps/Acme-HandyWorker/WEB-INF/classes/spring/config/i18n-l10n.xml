@@ -37,6 +37,7 @@
 		<value>/views/note/messages</value>
 		<value>/views/referee/messages</value>				
 		<value>/views/workplan/messages</value>
+		<value>/views/sponsor/messages</value>
 			
 	</util:list>
 

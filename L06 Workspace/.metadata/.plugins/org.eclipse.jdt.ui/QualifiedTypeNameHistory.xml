@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="domain.Application"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="org.junit.runner.Request"/>
@@ -58,6 +57,7 @@
 <fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="services.ActorService"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="services.AdministratorService"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 </qualifiedTypeNameHistroy>

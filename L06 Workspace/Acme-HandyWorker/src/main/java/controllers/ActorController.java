@@ -19,27 +19,35 @@ import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import services.ActorService;
+import services.AdministratorService;
 import services.CustomerService;
 import services.HandyWorkerService;
+import services.RefereeService;
+import services.SponsorService;
 import domain.Actor;
 import domain.Customer;
-import domain.HandyWorker;
+import domain.Sponsor;
 
 @Controller
 @RequestMapping("/actor")
 public class ActorController extends AbstractController {
 
 	@Autowired
-	private ActorService		actorService;
+	private ActorService			actorService;
 	@Autowired
-	private CustomerService		customerService;
+	private CustomerService			customerService;
 	@Autowired
-	private HandyWorkerService	handyWorkerService;
+	private HandyWorkerService		handyWorkerService;
+	@Autowired
+	private RefereeService			refereeService;
+	@Autowired
+	private AdministratorService	administratorService;
+	@Autowired
+	private SponsorService			sponsorService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -82,7 +90,7 @@ public class ActorController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView save(@Valid final HandyWorker handyWorker, @Valid final Actor actor, final BindingResult binding, @RequestParam(required = false) final String make) {
+	public ModelAndView save(@Valid final Actor actor, final BindingResult binding) {
 		ModelAndView result;
 
 		if (binding.hasErrors()) {
@@ -111,25 +119,28 @@ public class ActorController extends AbstractController {
 					customer.setPhoto(actor.getPhoto());
 					customer.getUserAccount().setUsername(actor.getUserAccount().getUsername());
 					customer.getUserAccount().setPassword(actor.getUserAccount().getPassword());
+					customer.setMailBoxes(actor.getMailBoxes());
 					this.customerService.save(customer);
 					result = new ModelAndView("redirect:show.do");
-				} else if (this.handyWorkerService.findOne(handyWorker.getId()) != null) {
-					//					final HandyWorker handyWorker = this.handyWorkerService.findOne(actor.getId());
-					handyWorker.setName(actor.getName());
-					handyWorker.setAddress(actor.getAddress());
-					handyWorker.setSurname(actor.getSurname());
-					handyWorker.setMiddleName(actor.getMiddleName());
-					handyWorker.setEmail(actor.getEmail());
-					handyWorker.setPhoto(actor.getPhoto());
-					handyWorker.getUserAccount().setUsername(actor.getUserAccount().getUsername());
-					handyWorker.getUserAccount().setPassword(actor.getUserAccount().getPassword());
-					handyWorker.setMake(make);
-					this.handyWorkerService.save(handyWorker);
-					result = new ModelAndView("handyWorker/show");
-				} else {
-					this.actorService.save(actor);
+				} else if (this.sponsorService.findByUserAccountId(actor.getUserAccount().getId()) != null) {
+					final String password = actor.getUserAccount().getPassword();
+					final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+					final String hashPassword = encoder.encodePassword(password, null);
+					actor.getUserAccount().setPassword(hashPassword);
+					final Sponsor sponsor = this.sponsorService.findOne(actor.getId());
+					sponsor.setName(actor.getName());
+					sponsor.setAddress(actor.getAddress());
+					sponsor.setSurname(actor.getSurname());
+					sponsor.setMiddleName(actor.getMiddleName());
+					sponsor.setEmail(actor.getEmail());
+					sponsor.setPhoto(actor.getPhoto());
+					sponsor.getUserAccount().setUsername(actor.getUserAccount().getUsername());
+					sponsor.getUserAccount().setPassword(actor.getUserAccount().getPassword());
+					sponsor.setMailBoxes(actor.getMailBoxes());
+					this.sponsorService.save(sponsor);
 					result = new ModelAndView("redirect:show.do");
-				}
+				} else
+					result = new ModelAndView("redirect:show.do");
 			} catch (final Throwable oops) {
 				System.out.println("El error: ");
 				System.out.println(oops);

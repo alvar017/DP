@@ -64,6 +64,7 @@
 					<li class="arrow"></li>
 					<li><a href="customer/create.do"><spring:message code="master.page.createUser.customer" /></a></li>
 					<li><a href="handyWorker/create.do"><spring:message code="master.page.createUser.handyWorker" /></a></li>
+					<li><a href="sponsor/create.do"><spring:message code="master.page.createUser.sponsor" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
@@ -82,7 +83,7 @@
 						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
 					</security:authorize>
 					<security:authorize access="hasRole('ADMIN')">
-						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+						<li><a href="administrator/edit.do"><spring:message code="master.page.editProfile" /></a></li>
 						<li><a href="complaint/administrator/showD.do"><spring:message code="master.page.administrator.action.2" /></a></li>
 						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
 					</security:authorize>
@@ -91,7 +92,7 @@
 						<li><a href="referee/show.do"><spring:message code="master.page.showProfile" /></a></li>
 					</security:authorize>
 					<security:authorize access="hasRole('SPONSOR')">
-						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+						<li><a href="sponsor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
 						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
 					</security:authorize>
 					<security:authorize access="hasRole('HANDYWORKER')">			

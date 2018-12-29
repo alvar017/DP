@@ -38,6 +38,7 @@
           	<form:hidden path="applications"/>
           	<form:hidden path="isBanned"/>
           	<form:hidden path="isSuspicious"/>
+          	<form:hidden path="mailBoxes"/>
           	
           	<form:label path="name"><spring:message code="handyWorker.name" /></form:label>
 			<form:input path="name" required="required"/>

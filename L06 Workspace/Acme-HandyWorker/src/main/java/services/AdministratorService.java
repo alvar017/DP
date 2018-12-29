@@ -131,7 +131,6 @@ public class AdministratorService {
 	}
 
 	public Administrator save(final Administrator ad) {
-		Assert.isTrue(!this.adminRepository.exists(ad.getId()));
 		return this.adminRepository.save(ad);
 	}
 

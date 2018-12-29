@@ -39,6 +39,7 @@
           	<form:hidden path="finder"/>
           	<form:hidden path="fixUps"/>
           	<form:hidden path="curriculum"/>
+          	<form:hidden path="mailBoxes"/>
           	
           	<form:label path="name"><spring:message code="handyWorker.name" /></form:label>
 			<form:input path="name" required="required"/>
@@ -76,6 +77,8 @@
 			<form:password path="userAccount.password" required="required"/>
 			<form:errors cssClass="error" path="userAccount.password"/><br>
 			
+			<form:hidden path="userAccount.id"/>
+			<form:hidden path="userAccount.version"/>
 			<form:hidden path="userAccount.authorities"/>
 			<form:hidden path="userAccount.isBanned"/>
 			<form:hidden path="userAccount.isSuspicious"/>

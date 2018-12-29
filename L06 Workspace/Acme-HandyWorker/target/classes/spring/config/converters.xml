@@ -52,6 +52,8 @@
 		<bean class="converters.StringToReportConverter" />
 		<bean class="converters.PhaseToStringConverter" />
 		<bean class="converters.StringToPhaseConverter" />
+		<bean class="converters.MailBoxToStringConverter" />
+		<bean class="converters.StringToMailBoxConverter" />
 		<!-- ANTONIO -->
 		<bean class="converters.FixUpToStringConverter"></bean>
 		<bean class="converters.StringToFixUpConverter"></bean>
