@@ -8,8 +8,10 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.URL;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -53,6 +55,8 @@ public class ProfessionalRecord extends DomainEntity {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+	@NotNull
 	public Date getStart() {
 		return this.start;
 	}
@@ -61,6 +65,9 @@ public class ProfessionalRecord extends DomainEntity {
 		this.start = start;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+	@NotNull
 	public Date getEnd() {
 		return this.end;
 	}

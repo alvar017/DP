@@ -1,24 +1,27 @@
 
 package domain;
 
+import java.util.Collection;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 @Access(AccessType.PROPERTY)
 public class Curriculum extends DomainEntity {
 
-	private String				ticker;
+	private String							ticker;
 	///////////////////////////
-	private MiscellaneousRecord	misrec;
-	private EndorserRecord		endrec;
-	private PersonalRecord		perrec;
-	private ProfessionalRecord	prorec;
-	private EducationalRecord	edurec;
-	private HandyWorker			owner;
+	private Collection<MiscellaneousRecord>	misrec;
+	private Collection<EndorserRecord>		endrec;
+	private PersonalRecord					perrec;
+	private Collection<ProfessionalRecord>	prorec;
+	private Collection<EducationalRecord>	edurec;
 
 
 	@Column(unique = true)
@@ -30,25 +33,25 @@ public class Curriculum extends DomainEntity {
 		this.ticker = ticker;
 	}
 
-	@OneToOne(optional = false)
-	public MiscellaneousRecord getMisrec() {
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<MiscellaneousRecord> getMisrec() {
 		return this.misrec;
 	}
 
-	public void setMisrec(final MiscellaneousRecord misrec) {
+	public void setMisrec(final Collection<MiscellaneousRecord> misrec) {
 		this.misrec = misrec;
 	}
 
-	@OneToOne(optional = false)
-	public EndorserRecord getEndrec() {
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<EndorserRecord> getEndrec() {
 		return this.endrec;
 	}
 
-	public void setEndrec(final EndorserRecord endrec) {
+	public void setEndrec(final Collection<EndorserRecord> endrec) {
 		this.endrec = endrec;
 	}
 
-	@OneToOne(optional = false)
+	@OneToOne(optional = true)
 	public PersonalRecord getPerrec() {
 		return this.perrec;
 	}
@@ -57,31 +60,21 @@ public class Curriculum extends DomainEntity {
 		this.perrec = perrec;
 	}
 
-	@OneToOne(optional = false)
-	public ProfessionalRecord getProrec() {
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<ProfessionalRecord> getProrec() {
 		return this.prorec;
 	}
 
-	public void setProrec(final ProfessionalRecord prorec) {
+	public void setProrec(final Collection<ProfessionalRecord> prorec) {
 		this.prorec = prorec;
 	}
 
-	@OneToOne(optional = false)
-	public EducationalRecord getEdurec() {
+	@OneToMany(cascade = CascadeType.ALL)
+	public Collection<EducationalRecord> getEdurec() {
 		return this.edurec;
 	}
 
-	public void setEdurec(final EducationalRecord edurec) {
+	public void setEdurec(final Collection<EducationalRecord> edurec) {
 		this.edurec = edurec;
-	}
-
-	@OneToOne(optional = false)
-	public HandyWorker getOwner() {
-		return this.owner;
-	}
-
-	@OneToOne(optional = false)
-	public void setOwner(final HandyWorker owner) {
-		this.owner = owner;
 	}
 }

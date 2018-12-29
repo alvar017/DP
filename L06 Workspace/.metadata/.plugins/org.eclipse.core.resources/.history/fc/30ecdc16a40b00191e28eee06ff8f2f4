@@ -1,0 +1,127 @@
+# messages_es.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+handyWorker.action.1	= Tus búsqueda
+curriculum.ticker = Ticker
+finder.maxPrice = Precio máximo
+finder.minPrice = Precio máximo
+finder.keyword = Palabra clave
+finder.startDate = Fecha de inicia
+finder.date = Fecha
+finder.endDate = Fecha fin
+finder.fixUps = Tareas
+finder.category = Categoría
+finder.warranty = Garantía
+
+handyWorker.edit = Edita tus búsquedas
+hw.send = Aceptar
+
+handyWorker.showing.fixUps = Tareas
+handyWorker.showing.keyword = Palabra clave
+handyWorker.showing.minPrice = Precio mínimo
+handyWorker.showing.maxPrice = Precio máximo
+handyWorker.showing.startDate = Fecha inicio
+handyWorker.showing.date = Fecha
+handyWorker.showing.endDate =  Fecha fin
+handyWorker.showing.category = Categoría
+handyWorker.showing.warranty = Garantía
+
+handyWorker.editApplication = Editar
+handyWorker.createApplication = Crear aplicación
+handyWorker.listApplication = Lista de aplicaciones
+
+application.moment = Momento de creación
+application.offered = Precio
+application.comments = Comentarios
+application.creditCard = Tarjeta de crédito
+application.fixUp = FixUp
+application.cancel = Cancelar
+application.create = Crear aplicación
+application.save = Guardar
+
+handyWorker.make = Marca:
+handyworker.name = Nombre:
+handyworker.surname = Apellidos:
+handyworker.middleName = Segundo Nombre:
+handyworker.email= Correo Electrónico:
+handyworker.username = Nombre de usuario:
+handyworker.password = Contraseña:
+handyworker.address = Dirección:
+handyworker.photo = Imagen:
+handyworker.phone = Teléfono:   
+handyworker.create= Registrar
+
+#General
+submit=Enviar
+cancel=Cancelar
+delete=Eliminar
+create=Crear
+
+#Tutorial
+tutorial.show=Detalles
+tutorial.edit=Editar
+tutorial.welcome.edit=Editando Tutorial
+tutorial.listing.welcome=Tus Tutoriales
+tutorial.summary=Resumen
+tutorial.ticker=ID
+tutorial.title=Título
+tutorial.moment=Fecha de Creación
+tutorial.image=Imagen
+tutorial.commit.error=Hay algunos errores en los valores introducidos. Por favor, introdúzcalos nuevamente
+sponsor.name=Sponsor
+sponsor.show=Sponsors:
+
+#Section
+section.number=Número
+section.title=Título
+section.text=Descripción
+section.show=Sections:
+
+
+#HandyWorker
+hanyWorker.action.1	= Todas las tareas disponibles
+hanyWorker.action.2	= Solicitudes
+
+#FixUp
+fixUp.ticker= ID
+fixUp.startDate= Fecha Inicio
+fixUp.endDate= Fecha Fin
+fixUp.customer= Cliente
+
+#Applications¡
+application.moment=Fecha Creación
+aplication.offered=Cantidad Ofertada
+aplication.fixUp= Tarea
+application.state= Estado
+application.welcome.edit=Editando Solicitud
+application.comments=Comentarios
+
+register.handyWorker = Registro reparador
+
+administrator.indicator4 = Trabajadores tops
+hw.name = Nombre
+hw.email = Email
+
+curriculum.misrec = Registro Misceláneo
+curriculum.nick = Nick
+curriculum.link = Link
+curriculum.comments = Comentarios
+curriculum.endrec = Registro de endoso
+curriculum.createEndrec = Crear registro de endoso
+curriculum.linkedIn = LinkedIn
+curriculum.perrec = Registro personal
+curriculum.createPerrec = Crear Registro Personal
+curriculum.photo = Foto
+curriculum.prorec = Registro Profesional
+curriculum.createProrec = Crear Registro Profesional
+curriculum.company = Compañía
+curriculum.role = Rol
+curriculum.start = Fecha de inicio
+curriculum.end = Fecha de fin
+curriculum.edurec = Registro de Estudios
+curriculum.createEdurec = Create registro de estudios

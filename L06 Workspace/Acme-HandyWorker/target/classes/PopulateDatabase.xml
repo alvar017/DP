@@ -142,13 +142,111 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>
         <property name="finder" ref ="fin01" />
-        <property name="curriculum">
-            <null />
-        </property>
+        <property name="curriculum" ref = "cur01"/>
         <property name="applications"><null/></property>
         <property name="fixUps"><null/></property>
     </bean>
+    
+    <bean id="cur01" class="domain.Curriculum">
+        <property name="ticker" value="29122018ADO23D" />
+        <property name="misrec">
+        	<list>
+                <ref bean="misrec01"/>
+                <ref bean="misrec02"/>
+        	</list>
+        </property>
+        <property name="endrec">
+        	<list>
+                <ref bean="endrec01"/>
+                <ref bean="endrec02"/>
+        	</list>
+        </property>
+        <property name="perrec" ref="perrec01" />
+        <property name="prorec">
+        	<list>
+                <ref bean="prorec01"/>
+                <ref bean="prorec02"/>
+        	</list>
+        </property>
+        <property name="edurec">
+        	<list>
+                <ref bean="edurec01"/>
+                <ref bean="edurec02"/>
+        	</list>
+        </property>
+    </bean>
+    
+    <bean id="misrec01" class="domain.MiscellaneousRecord">
+        <property name="title" value="Titulo 1" />
+        <property name="link" value="https://www.google.es/" />
+        <property name="comments" value="Comentario 1" />
+    </bean>
+    
+    <bean id="misrec02" class="domain.MiscellaneousRecord">
+        <property name="title" value="Titulo 2" />
+        <property name="link" value="https://www.google2.es/" />
+        <property name="comments" value="Comentario 2" />
+    </bean>
+    
+    <bean id="endrec01" class="domain.EndorserRecord">
+        <property name="title" value="Titulo 1" />
+        <property name="email" value="alvarodelaflor@gmail.com" />
+        <property name="phone" value="+34665381121" />
+        <property name="linkedIn" value="https://www.linkedIn.es/" />
+        <property name="comments" value="Comentario 1" />
+    </bean>
+    
+    <bean id="endrec02" class="domain.EndorserRecord">
+        <property name="title" value="Titulo 2" />
+        <property name="email" value="alvarodelaflor2@gmail.com" />
+        <property name="phone" value="+34665381122" />
+        <property name="linkedIn" value="https://www.linkedIn2.es/" />
+        <property name="comments" value="Comentario 2" />
+    </bean>
+    
+    <bean id="perrec01" class="domain.PersonalRecord">
+        <property name="name" value="Name 1" />
+        <property name="photo" value="https://www.photo1.es/" />
+        <property name="email" value="alvarodelaflor2@gmail.com" />
+        <property name="phone" value="+34665381122" />
+        <property name="linkedIn" value="https://www.linkedIn1.es/" />
+    </bean>
 
+    <bean id="prorec01" class="domain.ProfessionalRecord">
+        <property name="company" value="Company 1" />
+        <property name="role" value="Role 1" />
+        <property name="link" value="https://www.google.es/" />
+        <property name="comments" value="Comentario 1" />
+        <property name="start" value="2018/01/10 08:00"/>
+        <property name="end" value="2018/01/10 08:01"/>
+    </bean>
+
+    <bean id="prorec02" class="domain.ProfessionalRecord">
+        <property name="company" value="Company 2" />
+        <property name="role" value="Role 2" />
+        <property name="link" value="https://www.google2.es/" />
+        <property name="comments" value="Comentario 2" />
+        <property name="start" value="2028/01/10 08:00"/>
+        <property name="end" value="2028/01/10 08:01"/>
+    </bean>
+    
+    <bean id="edurec01" class="domain.EducationalRecord">
+        <property name="diploma" value="Diploma 1" />
+        <property name="awardedBy" value="Honor 1" />
+        <property name="link" value="https://www.google1.es/" />
+        <property name="comments" value="Comentario 1" />
+        <property name="start" value="2018/01/10 08:00"/>
+        <property name="end" value="2018/01/10 08:01"/>
+    </bean>
+    
+    <bean id="edurec02" class="domain.EducationalRecord">
+        <property name="diploma" value="Diploma 2" />
+        <property name="awardedBy" value="Honor 2" />
+        <property name="link" value="https://www.google2.es/" />
+        <property name="comments" value="Comentario 2" />
+        <property name="start" value="2028/01/10 08:00"/>
+        <property name="end" value="2028/01/10 08:01"/>
+    </bean>
     <!-- Application -->
 
     <bean id="app01" class="domain.Application">

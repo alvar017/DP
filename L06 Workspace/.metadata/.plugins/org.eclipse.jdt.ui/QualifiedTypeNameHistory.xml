@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="domain.Application"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="org.junit.runner.Request"/>
 <fullyQualifiedTypeName name="org.springframework.web.context.request.RequestAttributes"/>
@@ -9,7 +8,6 @@
 <fullyQualifiedTypeName name="domain.Finder"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.Cascade"/>
 <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
-<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
@@ -39,7 +37,6 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="controllers.NoteHandyWorkerController"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="domain.CreditCard"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="services.AdministratorService"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="domain.MiscellaneousRecord"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 </qualifiedTypeNameHistroy>

@@ -66,7 +66,7 @@
 		<security:intercept-url pattern="/socialProfile/referee/edit.do" access="hasRole('REFEREE')"/>
 		<security:intercept-url pattern="/socialProfile/referee/create.do" access="hasRole('REFEREE')"/>
 		<!-- ALVARO -->
-
+		<security:intercept-url pattern="/curriculum/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/fixUp/customer/list.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/fixUp/handyWorker/list.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/fixUp/customer/delete.do" access="hasRole('CUSTOMER')" />  

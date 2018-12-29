@@ -98,6 +98,7 @@
 					<security:authorize access="hasRole('HANDYWORKER')">			
 						<li><a href="handyWorker/edit.do"><spring:message code="master.page.editProfile" /></a></li>
 						<li><a href="handyWorker/show.do"><spring:message code="master.page.showProfile" /></a></li>
+						<li><a href="curriculum/handyWorker/show.do"><spring:message code="master.page.showCurriculum" /></a></li>
 					</security:authorize>
 				</ul>
 			</li>
