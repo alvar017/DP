@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="17" key="DIALOG_Y_ORIGIN"/>
-		<item value="1064" key="DIALOG_X_ORIGIN"/>
 		<item value="362" key="DIALOG_HEIGHT"/>
+		<item value="1064" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="get" key="selection"/>
 		<list key="findhistory">
+			<item value="get"/>
+			<item value="pro"/>
+			<item value="professionalRecord"/>
 			<item value="mic"/>
 			<item value="mis"/>
 			<item value="getm"/>
 			<item value="getEn"/>
 			<item value="endorserRecord"/>
-			<item value="EndorserRecord"/>
-			<item value="getmi"/>
-			<item value="curriculum.title"/>
 		</list>
 		<list key="replacehistory">
+			<item value="educationalRecord"/>
+			<item value="EducationalRecord"/>
+			<item value="Educational"/>
 			<item value="professionalRecord"/>
 			<item value="endorserRecord"/>
 			<item value="professional"/>
 			<item value="EndorserRecord"/>
 			<item value="miscellaneousRecord"/>
-			<item value="sponsor"/>
-			<item value="administrator"/>
-			<item value="mailBox"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
