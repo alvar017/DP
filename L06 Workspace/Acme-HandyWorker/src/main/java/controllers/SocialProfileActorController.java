@@ -121,13 +121,14 @@ public class SocialProfileActorController extends AbstractController {
 
 		try {
 			Assert.isTrue(socialProfile != null);
-			this.socialProfileService.delete(socialProfile);
 
 			final int userLoggin = LoginService.getPrincipal().getId();
 			final Actor actor = this.actorService.getActorByUserId(userLoggin);
 			Assert.isTrue(actor != null);
+			actor.getSocialProfiles().remove(socialProfile);
 			result = new ModelAndView("actor/show");
 			final Actor savedActor = this.actorService.save(actor);
+			this.socialProfileService.delete(socialProfile);
 			result.addObject("actor", savedActor);
 			result.addObject("socialProfiles", savedActor.getSocialProfiles());
 			result.addObject("requestURI", "actor/show.do");
@@ -135,6 +136,10 @@ public class SocialProfileActorController extends AbstractController {
 			System.out.println("Error al borrar socialProfile desde actor: ");
 			System.out.println(oops);
 			result = new ModelAndView("actor/show");
+			final int userLoggin = LoginService.getPrincipal().getId();
+			final Actor actor = this.actorService.getActorByUserId(userLoggin);
+			result.addObject("actor", actor);
+			result.addObject("socialProfiles", actor.getSocialProfiles());
 		}
 		return result;
 	}

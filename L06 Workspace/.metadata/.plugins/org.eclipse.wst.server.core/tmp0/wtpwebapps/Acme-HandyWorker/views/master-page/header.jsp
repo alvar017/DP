@@ -87,8 +87,8 @@
 						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
 					</security:authorize>
 					<security:authorize access="hasRole('REFEREE')">
-						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
-						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
+						<li><a href="referee/edit.do"><spring:message code="master.page.editProfile" /></a></li>
+						<li><a href="referee/show.do"><spring:message code="master.page.showProfile" /></a></li>
 					</security:authorize>
 					<security:authorize access="hasRole('SPONSOR')">
 						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>

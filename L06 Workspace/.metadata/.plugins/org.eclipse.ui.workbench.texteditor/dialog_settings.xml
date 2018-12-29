@@ -13,18 +13,19 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="referee" key="selection"/>
+		<item value="domain.Refe" key="selection"/>
 		<list key="findhistory">
-			<item value="referee"/>
-			<item value="action"/>
-			<item value="customer"/>
-			<item value="delete"/>
+			<item value="domain.refe"/>
+			<item value="domain.cus"/>
+			<item value="ref=s"/>
+			<item value="domain.referee"/>
+			<item value="refer"/>
+			<item value="domain.ref"/>
 			<item value="show"/>
-			<item value="make"/>
-			<item value="social"/>
-			<item value="fixup"/>
+			<item value="handyWorker"/>
 		</list>
 		<list key="replacehistory">
+			<item value="referee"/>
 			<item value="nick"/>
 			<item value="link"/>
 			<item value="handyWorker"/>
@@ -32,7 +33,6 @@
 			<item value="actor"/>
 			<item value="curriculum"/>
 			<item value="Curriculum"/>
-			<item value="finder"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

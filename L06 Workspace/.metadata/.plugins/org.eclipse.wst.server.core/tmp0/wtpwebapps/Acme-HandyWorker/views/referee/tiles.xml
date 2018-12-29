@@ -26,5 +26,13 @@
 		<put-attribute name="body" value="/views/referee/create.jsp" />
 	</definition>
 	
+	<definition name="referee/edit" extends="master.page">	
+		<put-attribute name="title" value="Referee: Edit Profile" />
+		<put-attribute name="body" value="/views/referee/edit.jsp" />
+	</definition>
 	
+	<definition name="referee/show" extends="master.page">	
+		<put-attribute name="title" value="Referee: Show Profile" />
+		<put-attribute name="body" value="/views/referee/show.jsp" />
+	</definition>
 </tiles-definitions>

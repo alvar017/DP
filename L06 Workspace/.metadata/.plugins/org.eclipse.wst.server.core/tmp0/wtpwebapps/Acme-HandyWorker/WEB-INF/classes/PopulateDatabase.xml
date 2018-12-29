@@ -43,6 +43,18 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         </property>
     </bean>
     
+   	<bean id="userAccount10" class="security.UserAccount">
+        <property name="username" value="referee" />
+        <property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="REFEREE" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
 
     <bean id="userAccount1" class="security.UserAccount">
         <property name="username" value="admin" />
@@ -534,7 +546,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="middleName" value="" />
         <property name="email" value="manuel@gmail.com" />
         <property name="SocialProfiles">
-            <null />
+            <list>
+                <ref bean="socialProfile3"/>
+            </list>  
         </property>
         <property name="photo">
             <null />
@@ -542,13 +556,14 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="mailBoxes">
             <null />
         </property>
+        <property name="userAccount" ref= "userAccount10"/>
         <property name="address" value="Calle Pozonegro Número 12" />
         <property name="isBanned" value="false"/>
         <property name="isSuspicious" value="false"/>
         
         
 </bean>
-
+<!--  
 <bean id="Franref02" class="domain.Referee">
         <property name="name" value="Manuel" />
         <property name="surname" value="Rojo" />
@@ -567,7 +582,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="isBanned" value="false"/>
         <property name="isSuspicious" value="false"/>
 </bean>
-
+-->
 <!-- Reports -->
 
 <bean id="Franrep01" class="domain.Report">
@@ -756,11 +771,17 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
 		<property name="name" value="Twitter" />
     </bean>
     
-        <bean id="socialProfile2" class="domain.SocialProfile">
+     <bean id="socialProfile2" class="domain.SocialProfile">
         <property name="nick" value="d0gran" />
         <property name="link" value="https://www.instagram.es/" />
 		<property name="name" value="Instagram" />
-    </bean>    
+    </bean>
+    
+    <bean id="socialProfile3" class="domain.SocialProfile">
+        <property name="nick" value="d0gran" />
+        <property name="link" value="https://www.instagram.es/" />
+		<property name="name" value="Instagram" />
+    </bean>     
     
 </beans>
 
