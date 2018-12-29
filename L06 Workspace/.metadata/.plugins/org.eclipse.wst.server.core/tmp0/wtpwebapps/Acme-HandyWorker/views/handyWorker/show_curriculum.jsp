@@ -32,7 +32,7 @@
 										<display:column titleKey="delete"> 
 											<a href="miscellaneousRecord/handyWorker/delete.do?miscellaneousRecordId=${row.id}"><spring:message code="delete" /></a>
 										</display:column>										
-										<display:column property="title" titleKey="curriculum.nick" ></display:column>
+										<display:column property="title" titleKey="curriculum.title" ></display:column>
 										<display:column property="link" titleKey="curriculum.link"></display:column>
 										<display:column property="comments" titleKey="curriculum.comments" ></display:column>
 									</display:table>

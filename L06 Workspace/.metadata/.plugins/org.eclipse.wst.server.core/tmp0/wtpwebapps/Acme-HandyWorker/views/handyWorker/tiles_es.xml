@@ -69,4 +69,14 @@
 		<put-attribute name="title" value="Trabajador: Mostrar Curriculum"></put-attribute>
 		<put-attribute name="body" value="/views/handyWorker/show_curriculum.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="miscellaneousRecord/handyWorker/create" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Editar registro miscelaneo" />
+		<put-attribute name="body" value="/views/handyWorker/edit_miscellaneousRecord.jsp" />
+	</definition>
+	
+	<definition name="miscellaneousRecord/handyWorker/edit" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Editar Registro miscelaneo" />
+		<put-attribute name="body" value="/views/handyWorker/edit_miscellaneousRecord.jsp" />
+	</definition>
 </tiles-definitions>
