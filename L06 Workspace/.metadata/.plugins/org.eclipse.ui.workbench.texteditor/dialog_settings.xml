@@ -13,26 +13,26 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="handyWorker.name" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="getmi"/>
+			<item value="curriculum.title"/>
+			<item value="miscellaneousRecord"/>
+			<item value="EndorserRecord"/>
+			<item value="requesturi"/>
+			<item value="request"/>
+			<item value="socialProfile"/>
 			<item value="curriculum.photo"/>
-			<item value="handyWorker.name"/>
-			<item value="curriculum"/>
-			<item value="phone"/>
-			<item value="mod"/>
-			<item value="administrator"/>
-			<item value="assert"/>
-			<item value="referee"/>
 		</list>
 		<list key="replacehistory">
+			<item value="endorserRecord"/>
+			<item value="EndorserRecord"/>
+			<item value="miscellaneousRecord"/>
 			<item value="sponsor"/>
 			<item value="administrator"/>
 			<item value="mailBox"/>
 			<item value="mailBolx"/>
 			<item value="Sponsor"/>
-			<item value="referee"/>
-			<item value="nick"/>
-			<item value="link"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

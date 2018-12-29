@@ -128,7 +128,6 @@ public class MiscellaneousRecordController extends AbstractController {
 			Assert.isTrue(handyWorker != null);
 			final Curriculum curriculum = handyWorker.getCurriculum();
 			Assert.notNull(curriculum, "curriculum.null");
-			handyWorker.getSocialProfiles().remove(miscellaneousRecord);
 			final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
 			this.miscellaneousRecordService.delete(miscellaneousRecord);
 			result = new ModelAndView("curriculum/handyWorker/show");

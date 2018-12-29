@@ -79,4 +79,14 @@
 		<put-attribute name="title" value="Handy Worker: Edit Miscellaneous Record" />
 		<put-attribute name="body" value="/views/handyWorker/edit_miscellaneousRecord.jsp" />
 	</definition>
+	
+	<definition name="endorserRecord/handyWorker/create" extends="master.page">	
+		<put-attribute name="title" value="Handy Worker: Create Endorser Record" />
+		<put-attribute name="body" value="/views/handyWorker/edit_endorserRecord.jsp" />
+	</definition>
+	
+	<definition name="endorserRecord/handyWorker/edit" extends="master.page">	
+		<put-attribute name="title" value="Handy Worker: Edit Endorser Record" />
+		<put-attribute name="body" value="/views/handyWorker/edit_endorserRecord.jsp" />
+	</definition>
 </tiles-definitions>

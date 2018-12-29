@@ -47,7 +47,7 @@
 										<display:column titleKey="delete"> 
 											<a href="endorserRecord/handyWorker/delete.do?endorserRecordId=${row.id}"><spring:message code="delete" /></a>
 										</display:column>										
-										<display:column property="title" titleKey="curriculum.nick" ></display:column>
+										<display:column property="title" titleKey="curriculum.title" ></display:column>
 										<display:column property="email" titleKey="handyWorker.email"></display:column>
 										<display:column property="phone" titleKey="handyworker.phone" ></display:column>
 										<display:column property="linkedIn" titleKey="curriculum.linkedIn"></display:column>
