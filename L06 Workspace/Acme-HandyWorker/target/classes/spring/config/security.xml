@@ -77,6 +77,9 @@
 		<security:intercept-url pattern="/educationalRecord/handyWorker/create.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/educationalRecord/handyWorker/edit.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/educationalRecord/handyWorker/delete.do" access="hasRole('HANDYWORKER')"/>
+		<security:intercept-url pattern="/personalRecord/handyWorker/create.do" access="hasRole('HANDYWORKER')"/>
+		<security:intercept-url pattern="/personalRecord/handyWorker/edit.do" access="hasRole('HANDYWORKER')"/>
+		<security:intercept-url pattern="/personalRecord/handyWorker/delete.do" access="hasRole('HANDYWORKER')"/>
 		<!-- ALVARO -->
 		<security:intercept-url pattern="/curriculum/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/fixUp/customer/list.do" access="hasRole('CUSTOMER')" />
