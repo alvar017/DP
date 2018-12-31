@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -18,7 +21,7 @@ public class Endorsement extends DomainEntity {
 	private String		comments;
 	////////////////////////////////////
 	private Endorsable	endorsableSender;
-	private Endorsable	endorsableRec;
+	private Endorsable	endorsableReceiver;
 
 
 	@ManyToOne(optional = false)
@@ -30,15 +33,17 @@ public class Endorsement extends DomainEntity {
 		this.endorsableSender = endorsableSender;
 	}
 	@ManyToOne(optional = false)
-	public Endorsable getEndorsableRec() {
-		return this.endorsableRec;
+	public Endorsable getendorsableReceiver() {
+		return this.endorsableReceiver;
 	}
 
-	public void setEndorsableRec(final Endorsable endorsableRec) {
-		this.endorsableRec = endorsableRec;
+	public void setendorsableReceiver(final Endorsable endorsableReceiver) {
+		this.endorsableReceiver = endorsableReceiver;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+	@NotNull
 	public Date getMoment() {
 		return this.moment;
 	}

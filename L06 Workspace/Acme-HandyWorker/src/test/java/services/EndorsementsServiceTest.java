@@ -55,7 +55,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
-		endorsement.setEndorsableRec(saveHandyWorker);
+		endorsement.setendorsableReceiver(saveHandyWorker);
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
 	}
@@ -82,7 +82,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		super.unauthenticate();
 		super.authenticate("dogran2");
 		final Endorsement endorsement = this.endorsementsService.create();
-		endorsement.setEndorsableRec(saveCustomer);
+		endorsement.setendorsableReceiver(saveCustomer);
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
 	}
@@ -105,7 +105,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
-		endorsement.setEndorsableRec(saveHandyWorker);
+		endorsement.setendorsableReceiver(saveHandyWorker);
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		super.unauthenticate();
 
@@ -125,7 +125,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp2.setHandyWorker(saveHandyWorker2);
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
 		final Endorsement endorsement2 = this.endorsementsService.create();
-		endorsement2.setEndorsableRec(saveHandyWorker2);
+		endorsement2.setendorsableReceiver(saveHandyWorker2);
 		final Endorsement saveEndorsement2 = this.endorsementsService.save(endorsement2);
 		Assert.isTrue(this.endorsementsService.findAll().size() == 2);
 		final Collection<Endorsement> endorses = this.endorsementsService.listing();
@@ -150,7 +150,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
-		endorsement.setEndorsableRec(saveHandyWorker);
+		endorsement.setendorsableReceiver(saveHandyWorker);
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		super.unauthenticate();
 
@@ -170,7 +170,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp2.setHandyWorker(saveHandyWorker2);
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
 		final Endorsement endorsement2 = this.endorsementsService.create();
-		endorsement2.setEndorsableRec(saveHandyWorker2);
+		endorsement2.setendorsableReceiver(saveHandyWorker2);
 		final Endorsement saveEndorsement2 = this.endorsementsService.save(endorsement2);
 		Assert.isTrue(this.endorsementsService.findAll().size() == 2);
 		final Collection<Endorsement> endorses = this.endorsementsService.listing();
@@ -196,7 +196,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
-		endorsement.setEndorsableRec(saveHandyWorker);
+		endorsement.setendorsableReceiver(saveHandyWorker);
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		saveEndorsement.setComments("ddad");
 		final Endorsement updateEndorsement = this.endorsementsService.update(saveEndorsement);
@@ -220,7 +220,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
-		endorsement.setEndorsableRec(saveHandyWorker);
+		endorsement.setendorsableReceiver(saveHandyWorker);
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
 		this.endorsementsService.delete(saveEndorsement);
@@ -245,7 +245,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
-		endorsement.setEndorsableRec(saveHandyWorker);
+		endorsement.setendorsableReceiver(saveHandyWorker);
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		super.unauthenticate();
 
@@ -265,7 +265,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp2.setHandyWorker(saveHandyWorker2);
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
 		final Endorsement endorsement2 = this.endorsementsService.create();
-		endorsement2.setEndorsableRec(saveHandyWorker2);
+		endorsement2.setendorsableReceiver(saveHandyWorker2);
 		final Endorsement saveEndorsement2 = this.endorsementsService.save(endorsement2);
 		Assert.isTrue(this.endorsementsService.findAll().size() == 2);
 		final Collection<Endorsement> endorses = this.endorsementsService.listing();
@@ -290,7 +290,7 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
-		endorsement.setEndorsableRec(saveHandyWorker);
+		endorsement.setendorsableReceiver(saveHandyWorker);
 		endorsement.setComments("bueno rápido servicial");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));

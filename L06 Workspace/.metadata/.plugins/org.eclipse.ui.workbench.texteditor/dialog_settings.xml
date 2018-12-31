@@ -13,26 +13,26 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="phone" key="selection"/>
+		<item value="redirect" key="selection"/>
 		<list key="findhistory">
-			<item value="phone"/>
-			<item value="professional"/>
-			<item value="get"/>
-			<item value="pro"/>
-			<item value="professionalRecord"/>
-			<item value="mic"/>
-			<item value="mis"/>
-			<item value="getm"/>
+			<item value="redirect"/>
+			<item value="redi"/>
+			<item value="customer"/>
+			<item value="application"/>
+			<item value="null"/>
+			<item value="endreferenced"/>
+			<item value="referee"/>
+			<item value="socialProfile"/>
 		</list>
 		<list key="replacehistory">
-			<item value="personal"/>
-			<item value="educationalRecord"/>
-			<item value="EducationalRecord"/>
-			<item value="Educational"/>
-			<item value="professionalRecord"/>
-			<item value="endorserRecord"/>
-			<item value="professional"/>
-			<item value="EndorserRecord"/>
+			<item value="endorsable"/>
+			<item value="endorsement"/>
+			<item value="endorsementReceiver"/>
+			<item value="customer"/>
+			<item value="setendorsableReceiver"/>
+			<item value="setEndorsableReceiver"/>
+			<item value="endorsableReceiver"/>
+			<item value="EndorsementSender"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

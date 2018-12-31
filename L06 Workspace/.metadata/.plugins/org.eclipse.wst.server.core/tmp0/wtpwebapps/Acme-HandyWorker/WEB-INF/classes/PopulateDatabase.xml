@@ -135,7 +135,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="make" value="make1" />
         <property name="userAccount" ref= "userAccount4"/>
 
-        <property name="endreferenced">
+        <property name="endorsementReceiver">
             <null />
         </property>
         <property name="tutorials">
@@ -519,7 +519,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
          <property name="address" value="Castillo de Constantina N5" />
         <property name="make" value="cmake1" />
 
-        <property name="endreferenced"><null/></property>
+        <property name="endorsementReceiver"><null/></property>
         <property name="tutorials"><null/></property>
         <property name="finder"><null/></property>
         <property name="curriculum"><null/></property>    
@@ -587,7 +587,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>
         <property name="address" value="Calle Pozoblanco Número 12" />
-        <property name="endreferenced">
+        <property name="endorsementReceiver">
             <null />
         </property>
         <property name="fixUps"><null/></property>
@@ -609,7 +609,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>
         <property name="address" value="Calle PozoRojo Número 15" />
-        <property name="endreferenced">
+        <property name="endorsementReceiver">
             <null />
         </property>    
         <property name="fixUps"><null/></property>
@@ -631,7 +631,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>
         <property name="address" value="Calle Pozoverde Número 12" />
-        <property name="endreferenced">
+        <property name="endorsementReceiver">
             <null />
         </property>   
         <property name="fixUps"><null/></property>   

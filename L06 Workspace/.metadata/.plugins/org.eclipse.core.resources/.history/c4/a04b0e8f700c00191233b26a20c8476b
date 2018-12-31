@@ -1,0 +1,52 @@
+
+package domain;
+
+import java.util.List;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
+
+@Entity
+@Access(AccessType.PROPERTY)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Endorsable extends Actor {
+
+	private List<Endorsement>	endorsementReceiver, enddone;
+	private Double				calification;
+
+
+	@OneToMany(mappedBy = "endorsableRec", cascade = CascadeType.ALL)
+	@Valid
+	public List<Endorsement> getEndreferenced() {
+		return this.endorsementReceiver;
+	}
+
+	public void setEndreferenced(final List<Endorsement> endreferenced) {
+		this.endorsementReceiver = endreferenced;
+	}
+
+	@OneToMany(mappedBy = "endorsableSender", cascade = CascadeType.ALL)
+	@Valid
+	public List<Endorsement> getEnddone() {
+		return this.enddone;
+	}
+
+	public void setEnddone(final List<Endorsement> enddone) {
+		this.enddone = enddone;
+	}
+
+	public Double getCalification() {
+		return this.calification;
+	}
+
+	public void setCalification(final Double calification) {
+		this.calification = calification;
+	}
+
+}

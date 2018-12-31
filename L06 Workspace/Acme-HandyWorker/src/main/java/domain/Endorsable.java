@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -16,28 +17,28 @@ import javax.validation.Valid;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Endorsable extends Actor {
 
-	private List<Endorsement>	endreferenced, enddone;
+	private List<Endorsement>	endorsementReceiver, endorsementSender;
 	private Double				calification;
 
 
-	@OneToMany(mappedBy = "endorsableRec")
+	@OneToMany(mappedBy = "endorsableReceiver", cascade = CascadeType.ALL)
 	@Valid
-	public List<Endorsement> getEndreferenced() {
-		return this.endreferenced;
+	public List<Endorsement> getEndorsementReceiver() {
+		return this.endorsementReceiver;
 	}
 
-	public void setEndreferenced(final List<Endorsement> endreferenced) {
-		this.endreferenced = endreferenced;
+	public void setEndorsementReceiver(final List<Endorsement> endorsementReceiver) {
+		this.endorsementReceiver = endorsementReceiver;
 	}
 
-	@OneToMany(mappedBy = "endorsableSender")
+	@OneToMany(mappedBy = "endorsableSender", cascade = CascadeType.ALL)
 	@Valid
-	public List<Endorsement> getEnddone() {
-		return this.enddone;
+	public List<Endorsement> getEndorsementSender() {
+		return this.endorsementSender;
 	}
 
-	public void setEnddone(final List<Endorsement> enddone) {
-		this.enddone = enddone;
+	public void setEndorsementSender(final List<Endorsement> endorsementSender) {
+		this.endorsementSender = endorsementSender;
 	}
 
 	public Double getCalification() {

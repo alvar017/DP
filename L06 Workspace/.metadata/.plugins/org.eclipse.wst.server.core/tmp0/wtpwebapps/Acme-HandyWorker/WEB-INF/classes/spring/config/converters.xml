@@ -54,6 +54,8 @@
 		<bean class="converters.StringToPhaseConverter" />
 		<bean class="converters.MailBoxToStringConverter" />
 		<bean class="converters.StringToMailBoxConverter" />
+		<bean class="converters.EndorsableToStringConverter" />
+		<bean class="converters.StringToEndorsableConverter" />
 		<!-- ANTONIO -->
 		<bean class="converters.FixUpToStringConverter"></bean>
 		<bean class="converters.StringToFixUpConverter"></bean>
