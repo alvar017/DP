@@ -123,12 +123,9 @@ public class FixUpCustomerController extends AbstractController {
 
 		fixUp = this.fixUpService.findOne(fixUpId);
 		Assert.notNull(fixUp);
-		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
-			result = new ModelAndView("redirect:list.do");
-		else {
-			result = this.createEditModelAndView(fixUp);
-			result.addObject("language", language);
-		}
+
+		result = this.createEditModelAndView(fixUp);
+		result.addObject("language", language);
 
 		return result;
 	}

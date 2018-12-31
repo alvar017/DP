@@ -75,23 +75,22 @@ public class FixUpCustomerController extends AbstractController {
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
 	public ModelAndView show(@RequestParam("fixUpId") final int fixUpId) {
 		ModelAndView result;
-		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
-		Assert.notNull(fixUp, "fixUp.nul");
+
 		//		final FixUp fixUp = this.fixUpService.findOne(463);
+		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+		final Category category = fixUp.getCategory();
+		final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
+		final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
+		Assert.isTrue(LoginService.getPrincipal().getId() == fixUp.getCustomer().getUserAccount().getId());
 
-		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
-			result = new ModelAndView("redirect:list.do");
-		else {
-			final Category category = fixUp.getCategory();
-			final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
-			final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
-
-			result = new ModelAndView("fixUp/customer/show");
-			result.addObject("fixUp", fixUp);
-			result.addObject("category", category);
-			result.addObject("applications", applications);
-			result.addObject("complaints", complaints);
-			result.addObject("requestURI", "fixUp/customer/show.do");
+		result = new ModelAndView("fixUp/customer/show");
+		result.addObject("fixUp", fixUp);
+		result.addObject("category", category);
+		result.addObject("applications", applications);
+		result.addObject("complaints", complaints);
+		result.addObject("requestURI", "fixUp/customer/show.do");
+		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId()) {
+			new ModelAndView("redirect:list.do");	
 		}
 
 		return result;
@@ -123,12 +122,9 @@ public class FixUpCustomerController extends AbstractController {
 
 		fixUp = this.fixUpService.findOne(fixUpId);
 		Assert.notNull(fixUp);
-		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
-			result = new ModelAndView("redirect:list.do");
-		else {
-			result = this.createEditModelAndView(fixUp);
-			result.addObject("language", language);
-		}
+
+		result = this.createEditModelAndView(fixUp);
+		result.addObject("language", language);
 
 		return result;
 	}

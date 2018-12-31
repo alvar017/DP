@@ -119,7 +119,6 @@ public class FixUpService {
 	}
 	public void delete(final FixUp fixUp) {
 		Assert.notNull(this.fixUpRepository.findOne(fixUp.getId()), "La fixUp no existe");
-		Assert.isTrue(LoginService.getPrincipal().getId() == fixUp.getCustomer().getUserAccount().getId());
 		final Collection<Finder> finders = this.finderService.findFinderOfFixUp(fixUp);
 		if (finders != null)
 			for (final Finder finder : finders)

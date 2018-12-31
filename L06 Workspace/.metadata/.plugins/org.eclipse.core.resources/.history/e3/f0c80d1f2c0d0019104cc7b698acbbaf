@@ -79,9 +79,9 @@ public class FixUpCustomerController extends AbstractController {
 		Assert.notNull(fixUp, "fixUp.nul");
 		//		final FixUp fixUp = this.fixUpService.findOne(463);
 
-		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
-			result = new ModelAndView("redirect:list.do");
-		else {
+		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId()) {
+			new ModelAndView("redirect:list.do");
+		} else {
 			final Category category = fixUp.getCategory();
 			final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
 			final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
@@ -123,12 +123,9 @@ public class FixUpCustomerController extends AbstractController {
 
 		fixUp = this.fixUpService.findOne(fixUpId);
 		Assert.notNull(fixUp);
-		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
-			result = new ModelAndView("redirect:list.do");
-		else {
-			result = this.createEditModelAndView(fixUp);
-			result.addObject("language", language);
-		}
+
+		result = this.createEditModelAndView(fixUp);
+		result.addObject("language", language);
 
 		return result;
 	}
