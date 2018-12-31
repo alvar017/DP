@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import services.CustomerService;
+import services.EndorsableService;
 import services.EndorsementService;
 import services.HandyWorkerService;
 import domain.Customer;
@@ -39,6 +40,8 @@ public class EndorsementCustomerController extends AbstractController {
 
 	@Autowired
 	private EndorsementService	endorsementService;
+	@Autowired
+	private EndorsableService	endorsableService;
 	@Autowired
 	private CustomerService		customerService;
 	@Autowired
@@ -105,14 +108,21 @@ public class EndorsementCustomerController extends AbstractController {
 				Assert.isTrue(endorsement != null, "endorsement.null");
 				final Endorsement saveEndorsement = this.endorsementService.save(endorsement);
 				result = new ModelAndView("redirect:show.do");
-				result.addObject("requestURI", "endorsement/customer/show.do");
+				if (this.customerService.getCustomerByUserAccountId(LoginService.getPrincipal().getId()) != null) {
+					result.addObject("deleteURL", "endorsement/customer/delete.do?endorsementId");
+					result.addObject("requestURI", "endorsement/customer/show.do");
+				} else {
+					result.addObject("deleteURL", "endorsement/handyWorker/delete.do?endorsementId");
+					result.addObject("requestURI", "endorsement/handyWorker/show.do");
+				}
+
 			} catch (final Throwable oops) {
 				System.out.println("El error es en endorsementController: ");
 				System.out.println(oops);
 				System.out.println(oops.getMessage());
 				System.out.println(oops.getLocalizedMessage());
 				System.out.println(binding);
-				result = new ModelAndView("endorsement/customer/edit");
+				result = new ModelAndView("redirect:show.do");
 			}
 		return result;
 	}
@@ -125,11 +135,14 @@ public class EndorsementCustomerController extends AbstractController {
 		Assert.notNull(endorsementId, "endorsement.null");
 
 		try {
+			endorsement.getEndorsableSender().getEndorsementSender().remove(endorsement);
+			endorsement.getendorsableReceiver().getEndorsementReceiver().remove(endorsement);
+			final Endorsable saveEndorsableSender = this.endorsableService.save(endorsement.getendorsableReceiver());
+			final Endorsable savaEndrosableReceiver = this.endorsableService.save(endorsement.getendorsableReceiver());
 			this.endorsementService.delete(endorsement);
-			final Endorsable endorsable = endorsement.getEndorsableSender();
-			result = new ModelAndView("endorsement/customer/show");
-			result.addObject("endorsable", endorsable);
-			result.addObject("requestURI", "redirect:show.do");
+			result = new ModelAndView("redirect:show.do");
+			result.addObject("endorsable", saveEndorsableSender);
+			result.addObject("requestURI", "endorsement/customer/show");
 		} catch (final Throwable oops) {
 			System.out.println("Error al borrar endorsement desde hw: ");
 			System.out.println(oops);
@@ -149,12 +162,18 @@ public class EndorsementCustomerController extends AbstractController {
 			final Collection<Endorsement> endorsementSend = this.endorsementService.getEndorsementSender(handyWorker.getId());
 			result.addObject("endorsementSend", endorsementSend);
 			result.addObject("requestURI", "endorsement/handyWorker/show.do");
+			result.addObject("deleteURL", "endorsement/handyWorker/delete.do?endorsementId");
+			result.addObject("editURL", "endorsement/handyWorker/edit.do?endorsementId");
 		} else {
 			Assert.notNull(customer, "customer.null");
 			result = new ModelAndView("endorsement/customer/show");
 			final Collection<Endorsement> endorsementSend = this.endorsementService.getEndorsementSender(customer.getId());
+			final Collection<Endorsement> endorsementReceived = this.endorsableService.getendorsableByUserAccountId(userLoggin).getEndorsementReceiver();
 			result.addObject("endorsementSend", endorsementSend);
-			result.addObject("requestURI", "endorsement/handyWorker/show.do");
+			result.addObject("endorsementReceived", endorsementReceived);
+			result.addObject("requestURI", "endorsement/customer/show.do");
+			result.addObject("deleteURL", "endorsement/customer/delete.do?endorsementId");
+			result.addObject("editURL", "endorsement/customer/edit.do?endorsementId");
 		}
 
 		return result;

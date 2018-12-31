@@ -32,6 +32,8 @@
       <div class="content">
           <img class="lupa" src="images/edit.png" alt="Edit" width="19%"/>
           <form:form class="formularioEdicion" method="POST" modelAttribute="endorsement" action="endorsement/customer/edit.do">
+          	<form:hidden path="id"/>
+          	<form:hidden path="version"/>
           	<form:hidden path="moment"/>
           	<form:hidden path="endorsableSender"/>  
           	<form:hidden path="endorsableReceiver"/>           	

@@ -45,6 +45,9 @@
 	<display:column property="description" titleKey="customer.description"></display:column>
 	<display:column property="maxPrice.quantity" titleKey="customer.price"></display:column>
 	<display:column property="customer.name" titleKey="customer.name2"></display:column>
+		<display:column titleKey="valorar"> 
+			<a href="endorsement/handyWorker/create.do?receiverId=${row.customer.id}"><spring:message code="valorar" /></a>
+		</display:column>
 </display:table>
 </security:authorize>
 </div>

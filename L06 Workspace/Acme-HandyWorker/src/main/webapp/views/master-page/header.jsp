@@ -52,7 +52,8 @@
 					<li><a href="finder/handyWorker/list.do"><spring:message code="master.page.handyWorker.finder" /></a></li>
 					<li><a href="application/handyWorker/list.do"><spring:message code="master.page.handyWorker.list.application" /></a></li>
 					<li><a href="tutorial/handyWorker/list.do"><spring:message code="master.page.handyWorker.tutorial" /></a></li>	
-					<li><a href="complaint/handyWorker/list.do"><spring:message code="master.page.handyWorker.complaint" /></a></li>									
+					<li><a href="complaint/handyWorker/list.do"><spring:message code="master.page.handyWorker.complaint" /></a></li>
+					<li><a href="endorsement/handyWorker/show.do"><spring:message code="master.page.handyWorker.endorsement" /></a></li>									
 										
 				</ul>
 			</li>

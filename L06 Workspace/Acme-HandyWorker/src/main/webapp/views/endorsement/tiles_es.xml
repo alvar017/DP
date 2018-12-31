@@ -30,4 +30,19 @@
 		<put-attribute name="title" value="Cliente: Editar valoración" />
 		<put-attribute name="body" value="/views/endorsement/edit.jsp" />
 	</definition>
+	
+	<definition name="endorsement/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Mostrar valoraciones" />
+		<put-attribute name="body" value="/views/endorsement/show.jsp" />
+	</definition>
+	
+	<definition name="endorsement/handyWorker/create" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Crear valoración" />
+		<put-attribute name="body" value="/views/endorsement/edit_handyWorker.jsp" />
+	</definition>
+	
+	<definition name="endorsement/handyWorker/edit" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Editar valoración" />
+		<put-attribute name="body" value="/views/endorsement/edit_handyWorker.jsp" />
+	</definition>
 </tiles-definitions>

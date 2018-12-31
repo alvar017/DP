@@ -48,8 +48,6 @@
 <fullyQualifiedTypeName name="controllers.HandyWorkerController"/>
 <fullyQualifiedTypeName name="domain.Curriculum"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
-<fullyQualifiedTypeName name="security.LoginService"/>
-<fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="javax.jws.HandlerChain"/>
 <fullyQualifiedTypeName name="domain.Endorsement"/>
 <fullyQualifiedTypeName name="domain.Endorsable"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="domain.HandyWorker"/>
+<fullyQualifiedTypeName name="security.LoginService"/>
 </qualifiedTypeNameHistroy>

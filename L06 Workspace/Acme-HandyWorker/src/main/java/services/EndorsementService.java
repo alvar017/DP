@@ -58,16 +58,6 @@ public class EndorsementService {
 		Assert.notNull(endorsable);
 		Assert.isTrue(endorsement.getEndorsableSender().equals(endorsable));
 		endorsementSaved = this.endorsementRepository.save(endorsement);
-		if (endorsable.getEndorsementSender().contains(endorsable)) {
-			endorsable.getEndorsementSender().remove(endorsable);
-			endorsable.getEndorsementSender().add(endorsementSaved);
-			endorsable.getEndorsementReceiver().remove(endorsable);
-			endorsable.getEndorsementReceiver().add(endorsementSaved);
-		} else {
-			endorsable.getEndorsementSender().add(endorsementSaved);
-			endorsable.getEndorsementReceiver().add(endorsementSaved);
-		}
-		this.endorsableService.save(endorsable);
 		return endorsementSaved;
 	}
 	public Collection<Endorsement> findAll() {

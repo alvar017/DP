@@ -83,6 +83,7 @@
 		<security:intercept-url pattern="/endorsement/handyWorker/create.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/endorsement/handyWorker/edit.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/endorsement/handyWorker/delete.do" access="hasRole('HANDYWORKER')"/>
+		<security:intercept-url pattern="/endorsement/handyWorker/show.do" access="hasRole('HANDYWORKER')"/>
 		<security:intercept-url pattern="/endorsement/customer/create.do" access="hasRole('CUSTOMER')"/>
 		<security:intercept-url pattern="/endorsement/customer/edit.do" access="hasRole('CUSTOMER')"/>
 		<security:intercept-url pattern="/endorsement/customer/delete.do" access="hasRole('CUSTOMER')"/>
