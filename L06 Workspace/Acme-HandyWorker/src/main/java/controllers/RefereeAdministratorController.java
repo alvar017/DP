@@ -19,10 +19,12 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.UserAccountRepository;
 import services.RefereeService;
 import domain.Referee;
 
@@ -31,7 +33,9 @@ import domain.Referee;
 public class RefereeAdministratorController extends AbstractController {
 
 	@Autowired
-	private RefereeService	refereeService;
+	private RefereeService			refereeService;
+	@Autowired
+	private UserAccountRepository	userAccountService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -78,6 +82,23 @@ public class RefereeAdministratorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Referee referee, final BindingResult binding) {
 		ModelAndView result;
+		if (referee.getUserAccount().getPassword().length() < 5 || referee.getUserAccount().getPassword().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.password", "error.userAccount.password");
+		}
+
+		if (referee.getUserAccount().getUsername().length() < 5 || referee.getUserAccount().getUsername().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username");
+		}
+
+		if (this.userAccountService.findByUsername(referee.getUserAccount().getUsername()) != null) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
 
 		if (binding.hasErrors()) {
 			System.out.println("Carmen: Hay errores");

@@ -16,10 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.UserAccountRepository;
 import services.CustomerService;
 import domain.Customer;
 
@@ -28,7 +30,9 @@ import domain.Customer;
 public class CustomerController extends AbstractController {
 
 	@Autowired
-	private CustomerService	customerService;
+	private CustomerService			customerService;
+	@Autowired
+	private UserAccountRepository	userAccountService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -55,11 +59,29 @@ public class CustomerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Customer customer, final BindingResult binding) {
 		ModelAndView result;
+		if (customer.getUserAccount().getPassword().length() < 5 || customer.getUserAccount().getPassword().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.password", "error.userAccount.password");
+		}
+
+		if (customer.getUserAccount().getUsername().length() < 5 || customer.getUserAccount().getUsername().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username");
+		}
+		if (this.userAccountService.findByUsername(customer.getUserAccount().getUsername()) != null) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
 
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);
 			result = new ModelAndView("customer/create");
+			result.addObject("binding", binding);
+			result.addObject("customer", customer);
 		} else
 			try {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
@@ -69,7 +91,7 @@ public class CustomerController extends AbstractController {
 				final String hashPassword = encoder.encodePassword(password, null);
 				customer.getUserAccount().setPassword(hashPassword);
 				this.customerService.save(customer);
-				result = new ModelAndView("redirect:welcome/index");
+				result = new ModelAndView("welcome/index");
 			} catch (final Throwable oops) {
 				System.out.println("El error: ");
 				System.out.println(oops);

@@ -65,7 +65,7 @@
 			<form:errors cssClass="error" path="userAccount.username"/><br>
 			
 			<form:label path="userAccount.password"><spring:message code="customer.password" /></form:label>
-			<form:password path="userAccount.password" required="required"/>
+			<form:password path="userAccount.password" required="required"  />
 			<form:errors cssClass="error" path="userAccount.password"/><br>
 			
 			<form:hidden path="userAccount.authorities"/>

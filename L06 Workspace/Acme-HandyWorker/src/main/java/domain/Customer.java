@@ -35,5 +35,4 @@ public class Customer extends Endorsable {
 	//	public void setNotes(final Collection<Note> notes) {
 	//		this.notes = notes;
 	//	}
-
 }

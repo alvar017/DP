@@ -153,9 +153,8 @@ public class UserAccount extends DomainEntity implements UserDetails {
 		return result;
 	}
 
-	//	public UserAccount findByUsername(final String username) {
-	//		final UserAccount result = this.userAccountRepository.findByUsername(username);
-	//		Assert.notNull(result);
-	//		return result;
-	//	}
+	public UserAccount findByUsername(final String username) {
+		final UserAccount result = this.userAccountRepository.findByUsername(username);
+		return result;
+	}
 }

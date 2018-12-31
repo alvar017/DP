@@ -34,17 +34,14 @@
 <fullyQualifiedTypeName name="utilities.HashPassword"/>
 <fullyQualifiedTypeName name="services.HandyWorkerService"/>
 <fullyQualifiedTypeName name="domain.Tutorial"/>
-<fullyQualifiedTypeName name="security.UserAccountRepository"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="domain.Actor"/>
-<fullyQualifiedTypeName name="security.UserAccount"/>
 <fullyQualifiedTypeName name="domain.SocialProfile"/>
 <fullyQualifiedTypeName name="services.ActorService"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="services.AdministratorService"/>
 <fullyQualifiedTypeName name="domain.MiscellaneousRecord"/>
 <fullyQualifiedTypeName name="repositories.MiscellaneousRecordRepository"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="controllers.HandyWorkerController"/>
 <fullyQualifiedTypeName name="domain.Curriculum"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
@@ -57,7 +54,10 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
+<fullyQualifiedTypeName name="security.UserAccount"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="security.UserAccountRepository"/>
 <fullyQualifiedTypeName name="security.LoginService"/>
 </qualifiedTypeNameHistroy>

@@ -17,11 +17,13 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
+import security.UserAccountRepository;
 import services.SponsorService;
 import domain.Sponsor;
 
@@ -30,7 +32,9 @@ import domain.Sponsor;
 public class SponsorController extends AbstractController {
 
 	@Autowired
-	private SponsorService	sponsorService;
+	private SponsorService			sponsorService;
+	@Autowired
+	private UserAccountRepository	userAccountService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -57,6 +61,23 @@ public class SponsorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Sponsor sponsor, final BindingResult binding) {
 		ModelAndView result;
+		if (sponsor.getUserAccount().getPassword().length() < 5 || sponsor.getUserAccount().getPassword().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.password", "error.userAccount.password");
+		}
+
+		if (sponsor.getUserAccount().getUsername().length() < 5 || sponsor.getUserAccount().getUsername().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username");
+		}
+
+		if (!this.userAccountService.findByUsername(sponsor.getUserAccount().getUsername()).equals(sponsor.getUserAccount())) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
 
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
@@ -101,7 +122,23 @@ public class SponsorController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView saveEdit(@Valid final Sponsor sponsor, final BindingResult binding) {
 		ModelAndView result;
+		if (sponsor.getUserAccount().getPassword().length() < 5 || sponsor.getUserAccount().getPassword().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.password", "error.userAccount.password");
+		}
 
+		if (sponsor.getUserAccount().getUsername().length() < 5 || sponsor.getUserAccount().getUsername().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username");
+		}
+
+		if (!this.userAccountService.findByUsername(sponsor.getUserAccount().getUsername()).equals(sponsor.getUserAccount())) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);

@@ -17,11 +17,13 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
+import security.UserAccountRepository;
 import services.HandyWorkerService;
 import domain.HandyWorker;
 
@@ -30,7 +32,9 @@ import domain.HandyWorker;
 public class HandyWorkerController extends AbstractController {
 
 	@Autowired
-	private HandyWorkerService	handyWorkerService;
+	private HandyWorkerService		handyWorkerService;
+	@Autowired
+	private UserAccountRepository	userAccountService;
 
 
 	//	@Autowired
@@ -74,7 +78,22 @@ public class HandyWorkerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final HandyWorker handyWorker, final BindingResult binding) {
 		ModelAndView result;
+		if (handyWorker.getUserAccount().getPassword().length() < 5 || handyWorker.getUserAccount().getPassword().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.password", "error.userAccount.password");
+		}
 
+		if (handyWorker.getUserAccount().getUsername().length() < 5 || handyWorker.getUserAccount().getUsername().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username");
+		}
+		if (this.userAccountService.findByUsername(handyWorker.getUserAccount().getUsername()) != null) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);
@@ -120,7 +139,22 @@ public class HandyWorkerController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView saveEdit(@Valid final HandyWorker handyWorker, final BindingResult binding) {
 		ModelAndView result;
+		if (handyWorker.getUserAccount().getPassword().length() < 5 || handyWorker.getUserAccount().getPassword().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.password", "error.userAccount.password");
+		}
 
+		if (handyWorker.getUserAccount().getUsername().length() < 5 || handyWorker.getUserAccount().getUsername().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username");
+		}
+		if (!this.userAccountService.findByUsername(handyWorker.getUserAccount().getUsername()).equals(handyWorker.getUserAccount())) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);
