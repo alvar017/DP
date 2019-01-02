@@ -16,6 +16,7 @@ import javax.validation.Valid;
 
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
@@ -28,10 +29,12 @@ import security.LoginService;
 import services.CustomerService;
 import services.EndorsableService;
 import services.EndorsementService;
+import services.FixUpService;
 import services.HandyWorkerService;
 import domain.Customer;
 import domain.Endorsable;
 import domain.Endorsement;
+import domain.FixUp;
 import domain.HandyWorker;
 
 @Controller
@@ -46,6 +49,8 @@ public class EndorsementCustomerController extends AbstractController {
 	private CustomerService		customerService;
 	@Autowired
 	private HandyWorkerService	handyWorkerService;
+	@Autowired
+	private FixUpService		fixUpService;
 
 
 	//	@Autowired
@@ -57,7 +62,7 @@ public class EndorsementCustomerController extends AbstractController {
 		super();
 	}
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView create(@RequestParam("receiverId") final int receiverId) {
+	public ModelAndView create(@RequestParam(value = "receiverId", defaultValue = "-1") final int receiverId) {
 		ModelAndView result;
 
 		Endorsement endorsement;
@@ -68,29 +73,42 @@ public class EndorsementCustomerController extends AbstractController {
 		Assert.notNull(userAccountId);
 		final Customer customer = this.customerService.getCustomerByUserAccountId(userAccountId);
 		final HandyWorker handyWorker = this.handyWorkerService.findOne(receiverId);
-		Assert.isTrue(customer != null && handyWorker != null);
-		endorsement.setendorsableReceiver(handyWorker);
-		endorsement.setEndorsableSender(customer);
-		endorsement.setMoment(LocalDate.now().toDate());
+		if (customer != null && handyWorker == null) {
+			final Collection<FixUp> fixUps = this.fixUpService.listing();
+			final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
-		result = new ModelAndView("endorsement/customer/edit");
+			result = new ModelAndView("fixUp/customer/list");
+			result.addObject("fixUps", fixUps);
+			result.addObject("language", language);
+			result.addObject("requestURI", "fixUp/customer/list.do");
+		} else {
+			Assert.isTrue(customer != null && handyWorker != null);
+			endorsement.setendorsableReceiver(handyWorker);
+			endorsement.setEndorsableSender(customer);
+			endorsement.setMoment(LocalDate.now().toDate());
 
-		result.addObject("endorsement", endorsement);
+			result = new ModelAndView("endorsement/customer/edit");
+
+			result.addObject("endorsement", endorsement);
+		}
 
 		return result;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("endorsementId") final int endorsementId) {
+	public ModelAndView edit(@RequestParam(value = "endorsementId", defaultValue = "-1") final int endorsementId) {
 		ModelAndView result;
 
 		final Endorsement endorsement;
-		Assert.isTrue(this.endorsementService.findOne(endorsementId) != null);
 		endorsement = this.endorsementService.findOne(endorsementId);
+		if (endorsement == null || endorsement.getEndorsableSender().getUserAccount().getId() != LoginService.getPrincipal().getId())
+			result = new ModelAndView("redirect:show.do");
+		else {
+			Assert.isTrue(this.endorsementService.findOne(endorsementId) != null);
+			result = new ModelAndView("endorsement/customer/edit");
 
-		result = new ModelAndView("endorsement/customer/edit");
-
-		result.addObject("endorsement", endorsement);
+			result.addObject("endorsement", endorsement);
+		}
 
 		return result;
 	}
@@ -127,27 +145,29 @@ public class EndorsementCustomerController extends AbstractController {
 		return result;
 	}
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("endorsementId") final int endorsementId) {
+	public ModelAndView delete(@RequestParam(value = "endorsementId", defaultValue = "-1") final int endorsementId) {
 		ModelAndView result;
 
 		final Endorsement endorsement = this.endorsementService.findOne(endorsementId);
 		System.out.println("endorsementId encontrado: " + endorsementId);
-		Assert.notNull(endorsementId, "endorsement.null");
-
-		try {
-			endorsement.getEndorsableSender().getEndorsementSender().remove(endorsement);
-			endorsement.getendorsableReceiver().getEndorsementReceiver().remove(endorsement);
-			final Endorsable saveEndorsableSender = this.endorsableService.save(endorsement.getendorsableReceiver());
-			final Endorsable savaEndrosableReceiver = this.endorsableService.save(endorsement.getendorsableReceiver());
-			this.endorsementService.delete(endorsement);
+		if (endorsement == null || endorsement.getEndorsableSender().getUserAccount().getId() != LoginService.getPrincipal().getId())
 			result = new ModelAndView("redirect:show.do");
-			result.addObject("endorsable", saveEndorsableSender);
-			result.addObject("requestURI", "endorsement/customer/show");
-		} catch (final Throwable oops) {
-			System.out.println("Error al borrar endorsement desde hw: ");
-			System.out.println(oops);
-			result = new ModelAndView("redirect:show.do");
-		}
+		else
+			try {
+				Assert.notNull(endorsementId, "endorsement.null");
+				endorsement.getEndorsableSender().getEndorsementSender().remove(endorsement);
+				endorsement.getendorsableReceiver().getEndorsementReceiver().remove(endorsement);
+				final Endorsable saveEndorsableSender = this.endorsableService.save(endorsement.getendorsableReceiver());
+				final Endorsable savaEndrosableReceiver = this.endorsableService.save(endorsement.getendorsableReceiver());
+				this.endorsementService.delete(endorsement);
+				result = new ModelAndView("redirect:show.do");
+				result.addObject("endorsable", saveEndorsableSender);
+				result.addObject("requestURI", "endorsement/customer/show");
+			} catch (final Throwable oops) {
+				System.out.println("Error al borrar endorsement desde hw: ");
+				System.out.println(oops);
+				result = new ModelAndView("redirect:show.do");
+			}
 		return result;
 	}
 

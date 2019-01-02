@@ -18,6 +18,30 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     </bean>
 
     <!-- User accounts -->
+
+    <bean id="alvaro" class="security.UserAccount">
+        <property name="username" value="handyWorkeralvaro" />
+        <property name="password" value="c0d552cb3d9e82b876e3031945305576" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="HANDYWORKER" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
+        <bean id="antonio" class="security.UserAccount">
+        <property name="username" value="handyWorkerantonio" />
+        <property name="password" value="c0d552cb3d9e82b876e3031945305576" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="HANDYWORKER" />
+                </bean>
+            </list>
+        </property>
+    </bean>
     
     <bean id="userAccount4" class="security.UserAccount">
         <property name="username" value="handyWorker" />
@@ -613,6 +637,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
             <null />
         </property>    
         <property name="fixUps"><null/></property>
+        <property name="userAccount" ref= "alvaro"/>
     </bean>
     
         <bean id="ancus03" class="domain.Customer">
@@ -634,7 +659,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endorsementReceiver">
             <null />
         </property>   
-        <property name="fixUps"><null/></property>   
+        <property name="fixUps"><null/></property>
+        <property name="userAccount" ref= "antonio"/>
     </bean>
 <!-- Referee -->
 

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.LoginService;
 import services.ApplicationService;
 import domain.Application;
 
@@ -59,21 +60,27 @@ public class ApplicationCustomerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
-	public ModelAndView show(@RequestParam("applicationId") final int applicationId) {
+	public ModelAndView show(@RequestParam(value = "applicationId", defaultValue = "-1") final int applicationId) {
 		ModelAndView result;
 
 		//		final FixUp fixUp = this.fixUpService.findOne(463);
 		final Application application = this.applicationService.findOne(applicationId);
-		Assert.notNull(application);
+		if (application == null || application.getFixUp().getCustomer().getUserAccount().getId() != LoginService.getPrincipal().getId()) {
+			final Collection<Application> applications = this.applicationService.findAllByCustomerLogger();
+			result = new ModelAndView("application/customer/list");
+			result.addObject("applications", applications);
+			result.addObject("requestURI", "application/customer/list.do");
+		} else {
+			Assert.notNull(application);
 
-		final String color = this.chooseColor(application);
-		System.out.println("Color: " + color);
+			final String color = this.chooseColor(application);
+			System.out.println("Color: " + color);
 
-		result = new ModelAndView("application/customer/show");
-		result.addObject("color", color);
-		result.addObject("application", application);
-		result.addObject("requestURI", "application/customer/show.do");
-
+			result = new ModelAndView("application/customer/show");
+			result.addObject("color", color);
+			result.addObject("application", application);
+			result.addObject("requestURI", "application/customer/show.do");
+		}
 		return result;
 	}
 
@@ -88,13 +95,20 @@ public class ApplicationCustomerController extends AbstractController {
 		return res;
 	}
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int applicationId) {
+	public ModelAndView edit(@RequestParam(value = "applicationId", defaultValue = "-1") final int applicationId) {
 		ModelAndView result;
 		Application application;
 
 		application = this.applicationService.findOne(applicationId);
-		Assert.notNull(application);
-		result = this.createEditModelAndView(application);
+		if (application == null || application.getFixUp().getCustomer().getUserAccount().getId() != LoginService.getPrincipal().getId()) {
+			final Collection<Application> applications = this.applicationService.findAllByCustomerLogger();
+			result = new ModelAndView("application/customer/list");
+			result.addObject("applications", applications);
+			result.addObject("requestURI", "application/customer/list.do");
+		} else {
+			Assert.notNull(application);
+			result = this.createEditModelAndView(application);
+		}
 		return result;
 	}
 

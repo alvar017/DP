@@ -89,7 +89,6 @@ public class HandyWorkerService {
 
 	public HandyWorker findOne(final int id) {
 		final HandyWorker result = this.handyWorkerRepository.findOne(id);
-		Assert.notNull(result);
 		return result;
 	}
 

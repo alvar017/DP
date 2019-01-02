@@ -73,15 +73,15 @@ public class FixUpCustomerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
-	public ModelAndView show(@RequestParam("fixUpId") final int fixUpId) {
+	public ModelAndView show(@RequestParam(value = "fixUpId", defaultValue = "-1") final int fixUpId) {
 		ModelAndView result;
 		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
-		Assert.notNull(fixUp, "fixUp.nul");
 		//		final FixUp fixUp = this.fixUpService.findOne(463);
 
-		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
+		if (this.fixUpService.findOne(fixUpId) == null || LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
 			result = new ModelAndView("redirect:list.do");
 		else {
+			Assert.notNull(fixUp, "fixUp.nul");
 			final Category category = fixUp.getCategory();
 			final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
 			final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
@@ -114,7 +114,7 @@ public class FixUpCustomerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("id") final int fixUpId) {
+	public ModelAndView edit(@RequestParam(value = "id", defaultValue = "-1") final int fixUpId) {
 		ModelAndView result;
 
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
@@ -122,10 +122,10 @@ public class FixUpCustomerController extends AbstractController {
 		FixUp fixUp;
 
 		fixUp = this.fixUpService.findOne(fixUpId);
-		Assert.notNull(fixUp);
-		if (LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
+		if (this.fixUpService.findOne(fixUpId) == null || LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
 			result = new ModelAndView("redirect:list.do");
 		else {
+			Assert.notNull(fixUp);
 			result = this.createEditModelAndView(fixUp);
 			result.addObject("language", language);
 		}
@@ -134,22 +134,26 @@ public class FixUpCustomerController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("id") final int fixUpId) {
+	public ModelAndView delete(@RequestParam(value = "id", defaultValue = "-1") final int fixUpId) {
 		ModelAndView result;
 
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
 		System.out.println("FixUp encontrado: " + fixUp);
-		Assert.notNull(fixUp, "fixUp.null");
-
-		try {
-			this.fixUpService.delete(fixUp);
+		if (this.fixUpService.findOne(fixUpId) == null || LoginService.getPrincipal().getId() != fixUp.getCustomer().getUserAccount().getId())
 			result = new ModelAndView("redirect:list.do");
-		} catch (final Exception e) {
-			result = this.createEditModelAndView(fixUp, "fixUp.commit.error");
-		}
+		else {
+			Assert.notNull(fixUp, "fixUp.null");
 
-		result.addObject("language", language);
+			try {
+				this.fixUpService.delete(fixUp);
+				result = new ModelAndView("redirect:list.do");
+			} catch (final Exception e) {
+				result = this.createEditModelAndView(fixUp, "fixUp.commit.error");
+			}
+
+			result.addObject("language", language);
+		}
 		return result;
 	}
 

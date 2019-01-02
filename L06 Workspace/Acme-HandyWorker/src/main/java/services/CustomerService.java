@@ -93,9 +93,7 @@ public class CustomerService {
 	}
 
 	public Customer findOne(final int id) {
-
 		final Customer result = this.customerRepository.findOne(id);
-		Assert.notNull(result);
 		return result;
 	}
 

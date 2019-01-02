@@ -13,26 +13,26 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="show" key="selection"/>
+		<item value="customer" key="selection"/>
 		<list key="findhistory">
-			<item value="show"/>
-			<item value="already"/>
-			<item value="find"/>
 			<item value="customer"/>
-			<item value="endor"/>
-			<item value="endro"/>
-			<item value="redirect"/>
-			<item value="redi"/>
+			<item value="endorsement/customer/edit"/>
+			<item value="125"/>
+			<item value="175"/>
+			<item value="100"/>
+			<item value="250"/>
+			<item value="800"/>
+			<item value="value"/>
 		</list>
 		<list key="replacehistory">
+			<item value="110"/>
+			<item value="125"/>
+			<item value="175"/>
+			<item value="100"/>
+			<item value="250"/>
 			<item value="endorsable"/>
 			<item value="endorsement"/>
 			<item value="endorsementReceiver"/>
-			<item value="customer"/>
-			<item value="setendorsableReceiver"/>
-			<item value="setEndorsableReceiver"/>
-			<item value="endorsableReceiver"/>
-			<item value="EndorsementSender"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

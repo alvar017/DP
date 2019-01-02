@@ -114,6 +114,7 @@ nav ul li a {
 			
 nav ul li a:hover {
 	background: #0b76a6;
+	width: 110px; /*Aquí va el ancho de la Celda*/
 }
 	
 #main-footer {

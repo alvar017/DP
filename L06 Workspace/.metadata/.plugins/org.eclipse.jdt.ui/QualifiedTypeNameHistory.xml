@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
 <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="org.hibernate.engine.config.spi.ConfigurationService.Converter"/>
@@ -29,7 +28,6 @@
 <fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="controllers.NoteHandyWorkerController"/>
 <fullyQualifiedTypeName name="domain.CreditCard"/>
-<fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Future"/>
 <fullyQualifiedTypeName name="utilities.HashPassword"/>
 <fullyQualifiedTypeName name="services.HandyWorkerService"/>
@@ -56,8 +54,10 @@
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="security.UserAccountRepository"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="domain.FixUp"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="services.FixUpService"/>
 <fullyQualifiedTypeName name="security.LoginService"/>
 </qualifiedTypeNameHistroy>

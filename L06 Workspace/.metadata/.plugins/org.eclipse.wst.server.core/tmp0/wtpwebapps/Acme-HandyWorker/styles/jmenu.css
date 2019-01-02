@@ -42,9 +42,11 @@
 	z-index: 9999;
 	padding: 0;
 	margin: 0;
+	width: 110px; /*Aquí va el ancho de la Celda*/
 }
 
 .jMenu li ul li {
+	width: 110px; /*Aquí va el ancho de la Celda*/
 	background-color: #322f32;
 	display: block;
 	border-bottom: 1px solid #484548;
@@ -52,6 +54,7 @@
 }
 
 .jMenu li ul li.arrow {
+	width: 110px; /*Aquí va el ancho de la Celda*/
 	background-color: #322f32;
 	background-image: url('../images/arrow_down.png');
 	background-repeat: no-repeat;
@@ -63,6 +66,7 @@
 }
 
 .jMenu li ul li a {
+	width: 110px; /*Aquí va el ancho de la Celda*/
 	font-size: 11px;
 	text-transform: none;
 	padding: 7px;
@@ -73,6 +77,7 @@
 }
 
 .jMenu li ul li a.isParent {
+	width: 110px; /*Aquí va el ancho de la Celda*/
 	background-color: #3a3a3a;
 	background-image: url('../images/arrow_right.png');
 	background-repeat: no-repeat;
@@ -81,6 +86,7 @@
 }
 
 .jMenu li ul li a:hover {
+	width: 110px; /*Aquí va el ancho de la Celda*/
 	background-color: #514c52;
 	border-top: 1px solid #322f32;
 	border-bottom: 1px solid #322f32;
