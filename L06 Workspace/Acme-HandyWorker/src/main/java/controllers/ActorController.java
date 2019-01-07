@@ -68,6 +68,8 @@ public class ActorController extends AbstractController {
 		Assert.isTrue(actor != null);
 
 		result = new ModelAndView("actor/show");
+		if (this.customerService.getCustomerByUserAccountId(userLoggin) != null)
+			result.addObject("score", this.customerService.getCustomerByUserAccountId(userLoggin).getCalification());
 		result.addObject("actor", actor);
 		result.addObject("socialProfiles", actor.getSocialProfiles());
 		result.addObject("requestURI", "actor/show.do");

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="72" version="2.0">
+<workbench progressCount="70" version="2.0">
 <workbenchAdvisor/>
 <window height="675" maximized="true" width="965" x="-1" y="3">
 <fastViewData fastViewLocation="1024">
@@ -16,10 +16,10 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="124" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jpt.jpa.ui.internal.editors.PersistenceEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="88" y="22"/>
-<coolItem id="org.eclipse.jst.jsp.core.jspsource.source" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jst.jsp.core.jspsource.source" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.m2e.editor.MavenPomEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="98" y="22"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
@@ -45,13 +45,33 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EducationalRecordController.java" partName="EducationalRecordController.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/controllers/EducationalRecordController.java" title="EducationalRecordController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/EducationalRecordController.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/controllers/EducationalRecordController.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7135" selectionTopPixel="1027"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EndorsementsService.java" partName="EndorsementsService.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/services/EndorsementsService.java" title="EndorsementsService.java" tooltip="Acme-HandyWorker/src/main/java/services/EndorsementsService.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/services/EndorsementsService.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7358" selectionTopPixel="2142"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jst.jsp.core.jspsource.source" name="show.jsp" partName="show.jsp" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/webapp/views/handyWorker/show.jsp" title="show.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/handyWorker/show.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/webapp/views/handyWorker/show.jsp"/>
+<editorState selectionHorizontalPixel="344" selectionLength="0" selectionOffset="1420" selectionTopPixel="333"/>
+</editor>
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="header.jsp" partName="header.jsp" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/webapp/views/master-page/header.jsp" title="header.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/master-page/header.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/webapp/views/master-page/header.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="49" selectionOffset="1318" selectionTopPixel="425"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" partName="messages_es.properties" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages_es.properties" title="messages_es.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/handyWorker/messages_es.properties" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages_es.properties"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4276" selectionTopPixel="2050"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Endorsable.java" partName="Endorsable.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/domain/Endorsable.java" title="Endorsable.java" tooltip="Acme-HandyWorker/src/main/java/domain/Endorsable.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/domain/Endorsable.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="572" selectionTopPixel="85"/>
 </editor>
 </editors>
 <views>
@@ -331,145 +351,175 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/SocialProfileActorController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/SocialProfileaHandyWorkerController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/SocialProfileRefereeController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/SocialProfileRefereeController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/MiscellaneousRecordController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/EndorsementHandyWorkerController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/EndorserRecordController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/PersonalRecordController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/ProfessionalRecordController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/EducationalRecordController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/services/EndorsementsService.java"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-HandyWorker/C:\/Program Files\/Java\/jdk1.7.0_13\/jre\/lib\/rt.jar&lt;java.lang(String.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/Endorsable.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/actor/show.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/handyWorker/show.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/master-page/header.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/master-page/messages.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/actor/messages.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/actor/messages_es.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/services/ActorService.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/ActorController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages.properties"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages_es.properties"/>
 </editors>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="2">
-<position/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="2">
-<position/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="2">
-<position info="not_deleted" x="2244" y="0"/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position info="not_deleted" x="4803" y="0"/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position info="not_deleted" x="1137" y="0"/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position info="not_deleted" x="5140" y="0"/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position info="not_deleted" x="1137" y="0"/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position info="not_deleted" x="4685" y="673"/>
-</item>
-<item historyLabel="SocialProfileActorController.java" index="0">
-<position info="not_deleted" x="5140" y="0"/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="2">
-<position/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position info="not_deleted" x="1131" y="0"/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="2">
-<position info="not_deleted" x="4828" y="0"/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position info="not_deleted" x="1131" y="0"/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="2">
-<position info="not_deleted" x="4736" y="0"/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position info="not_deleted" x="1131" y="0"/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="2">
-<position info="not_deleted" x="5025" y="0"/>
-</item>
-<item historyLabel="SocialProfileaHandyWorkerController.java" index="1">
-<position info="not_deleted" x="5318" y="0"/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="3">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="SocialProfileRefereeController.java" index="3">
-<position info="not_deleted" x="5025" y="0"/>
-</item>
-<item historyLabel="MiscellaneousRecordController.java" index="4">
-<position/>
-</item>
-<item historyLabel="MiscellaneousRecordController.java" index="4">
-<position/>
-</item>
-<item historyLabel="MiscellaneousRecordController.java" index="4">
-<position/>
-</item>
-<item historyLabel="MiscellaneousRecordController.java" index="4">
-<position/>
-</item>
-<item historyLabel="MiscellaneousRecordController.java" index="4">
-<position/>
-</item>
-<item historyLabel="EndorsementHandyWorkerController.java" index="5">
+<item historyLabel="EndorsementHandyWorkerController.java" index="1">
 <position info="not_deleted" x="1395" y="0"/>
 </item>
-<item historyLabel="EndorserRecordController.java" index="6">
+<item historyLabel="EndorserRecordController.java" index="2">
 <position info="not_deleted" x="4" y="0"/>
 </item>
-<item historyLabel="EndorserRecordController.java" index="6">
+<item historyLabel="EndorserRecordController.java" index="2">
 <position info="not_deleted" x="5034" y="483"/>
 </item>
-<item historyLabel="PersonalRecordController.java" index="7">
+<item historyLabel="PersonalRecordController.java" index="3">
 <position info="not_deleted" x="4" y="0"/>
 </item>
-<item historyLabel="PersonalRecordController.java" index="7">
+<item historyLabel="PersonalRecordController.java" index="3">
 <position info="not_deleted" x="5632" y="0"/>
 </item>
-<item historyLabel="MiscellaneousRecordController.java" index="4">
+<item historyLabel="MiscellaneousRecordController.java" index="0">
 <position info="not_deleted" x="2210" y="549"/>
 </item>
-<item historyLabel="ProfessionalRecordController.java" index="8">
+<item historyLabel="ProfessionalRecordController.java" index="4">
 <position info="not_deleted" x="5221" y="499"/>
 </item>
-<item active="true" historyLabel="EducationalRecordController.java" index="9">
+<item historyLabel="EducationalRecordController.java" index="5">
+<position info="not_deleted" x="7135" y="0"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="8793" y="0"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="7360" y="0"/>
+</item>
+<item historyLabel="String.class" index="7">
+<position info="not_deleted" x="3638" y="6"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="7356" y="0"/>
+</item>
+<item historyLabel="Endorsable.java" index="8">
+<position info="not_deleted" x="455" y="10"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="7356" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="header.jsp" index="11">
+<position info="not_deleted" x="1318" y="49"/>
+</item>
+<item historyLabel="show.jsp" index="9">
+<position info="not_deleted" x="1371" y="0"/>
+</item>
+<item historyLabel="messages.properties" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="9">
+<position info="not_deleted" x="1371" y="0"/>
+</item>
+<item historyLabel="messages.properties" index="13">
+<position info="not_deleted" x="1414" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="9">
+<position info="not_deleted" x="1371" y="0"/>
+</item>
+<item historyLabel="messages_es.properties" index="14">
+<position info="not_deleted" x="1541" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="9">
+<position info="not_deleted" x="1371" y="0"/>
+</item>
+<item historyLabel="ActorService.java" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="9">
+<position info="not_deleted" x="1371" y="0"/>
+</item>
+<item historyLabel="ActorController.java" index="16">
 <position info="not_deleted" x="4" y="0"/>
+</item>
+<item historyLabel="ActorController.java" index="16">
+<position info="not_deleted" x="2248" y="0"/>
+</item>
+<item historyLabel="ActorController.java" index="16">
+<position/>
+</item>
+<item historyLabel="ActorController.java" index="16">
+<position/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="7356" y="0"/>
+</item>
+<item historyLabel="ActorController.java" index="16">
+<position info="not_deleted" x="2405" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="9">
+<position info="not_deleted" x="1240" y="186"/>
+</item>
+<item historyLabel="ActorController.java" index="16">
+<position info="not_deleted" x="2405" y="0"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="7356" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="10">
+<position info="not_deleted" x="1420" y="0"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="8799" y="12"/>
+</item>
+<item historyLabel="show.jsp" index="10">
+<position info="not_deleted" x="1443" y="24"/>
+</item>
+<item historyLabel="messages.properties" index="17">
+<position info="not_deleted" x="4069" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="10">
+<position info="not_deleted" x="1443" y="24"/>
+</item>
+<item historyLabel="messages_es.properties" index="18">
+<position info="not_deleted" x="4276" y="0"/>
+</item>
+<item historyLabel="show.jsp" index="10">
+<position info="not_deleted" x="1443" y="24"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="8799" y="12"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="8787" y="0"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="7358" y="0"/>
+</item>
+<item historyLabel="Endorsable.java" index="8">
+<position info="not_deleted" x="572" y="12"/>
+</item>
+<item historyLabel="EndorsementsService.java" index="6">
+<position info="not_deleted" x="7358" y="0"/>
+</item>
+<item active="true" historyLabel="show.jsp" index="10">
+<position info="not_deleted" x="1443" y="24"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -489,50 +539,50 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Endorsable.java" tooltip="Acme-HandyWorker/src/main/java/domain/Endorsable.java">
+<persistable path="/Acme-HandyWorker/src/main/java/domain/Endorsable.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/handyWorker/messages_es.properties">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages_es.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/handyWorker/messages.properties">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActorController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/ActorController.java">
+<persistable path="/Acme-HandyWorker/src/main/java/controllers/ActorController.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActorService.java" tooltip="Acme-HandyWorker/src/main/java/services/ActorService.java">
+<persistable path="/Acme-HandyWorker/src/main/java/services/ActorService.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/actor/messages_es.properties">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/actor/messages_es.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/actor/messages.properties">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/actor/messages.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/master-page/messages.properties">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/master-page/messages.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="header.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/master-page/header.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/master-page/header.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="show.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/handyWorker/show.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/handyWorker/show.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="show.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/actor/show.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/actor/show.jsp"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="String.class" tooltip="java.lang.String">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-HandyWorker/C:\/Program Files\/Java\/jdk1.7.0_13\/jre\/lib\/rt.jar&lt;java.lang(String.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EndorsementsService.java" tooltip="Acme-HandyWorker/src/main/java/services/EndorsementsService.java">
+<persistable path="/Acme-HandyWorker/src/main/java/services/EndorsementsService.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EducationalRecordController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/EducationalRecordController.java">
 <persistable path="/Acme-HandyWorker/src/main/java/controllers/EducationalRecordController.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ProfessionalRecordController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/ProfessionalRecordController.java">
 <persistable path="/Acme-HandyWorker/src/main/java/controllers/ProfessionalRecordController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MiscellaneousRecordController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/MiscellaneousRecordController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/MiscellaneousRecordController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PersonalRecordController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/PersonalRecordController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/PersonalRecordController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EndorserRecordController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/EndorserRecordController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/EndorserRecordController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EndorsementHandyWorkerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/EndorsementHandyWorkerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/EndorsementHandyWorkerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SocialProfileaHandyWorkerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/SocialProfileaHandyWorkerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/SocialProfileaHandyWorkerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SocialProfileRefereeController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/SocialProfileRefereeController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/SocialProfileRefereeController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SocialProfileActorController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/SocialProfileActorController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/SocialProfileActorController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EndorsementCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/EndorsementCustomerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/EndorsementCustomerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginController.java" tooltip="Acme-HandyWorker/src/main/java/security/LoginController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/security/LoginController.java"/>
-</file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="RepositoryFactoryBeanSupport.class" tooltip="org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Acme-HandyWorker/C:\/Documents and Settings\/Student\/.m2\/repository\/org\/springframework\/data\/spring-data-commons\/1.6.3.RELEASE\/spring-data-commons-1.6.3.RELEASE.jar&lt;org.springframework.data.repository.core.support(RepositoryFactoryBeanSupport.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AbstractController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/AbstractController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/AbstractController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/ApplicationCustomerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/ApplicationCustomerController.java"/>
 </file>
 </mruList>
 </workbench>

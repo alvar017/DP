@@ -24,6 +24,9 @@
 								<tr><td><spring:message code="actor.name" /><jstl:out value="${actor.name}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.address" /><jstl:out value="${actor.address}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.surname" /><jstl:out value="${actor.surname}"></jstl:out></td></tr>
+								<security:authorize access="hasRole('CUSTOMER')">
+									<tr><td><spring:message code="score" /><jstl:out value="${score}"></jstl:out></td></tr>
+								</security:authorize>
 								<tr><td><spring:message code="actor.middleName" /><jstl:out value="${actor.middleName}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.email" /><jstl:out value="${actor.email}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.photo" /><jstl:out value="${actor.photo}"></jstl:out></td></tr>
