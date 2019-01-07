@@ -55,7 +55,7 @@
 		<put-attribute name="title" value="Cliente: Registro" />
 		<put-attribute name="body" value="/views/customer/registerAsCustomer.jsp" />
 	</definition>
-		
+	
 		<!-- Complaint -->
 	<definition name="complaint/customer/list.do" extends="master.page">
 		<put-attribute name="title" value="Cliente: Lista de Quejas"></put-attribute>
