@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="customer" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="miscellaneousRecordService"/>
+			<item value="requi"/>
+			<item value="required"/>
 			<item value="customer"/>
 			<item value="endorsement/customer/edit"/>
 			<item value="125"/>
 			<item value="175"/>
 			<item value="100"/>
-			<item value="250"/>
-			<item value="800"/>
-			<item value="value"/>
 		</list>
 		<list key="replacehistory">
 			<item value="110"/>

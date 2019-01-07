@@ -32,7 +32,6 @@
 <fullyQualifiedTypeName name="utilities.HashPassword"/>
 <fullyQualifiedTypeName name="services.HandyWorkerService"/>
 <fullyQualifiedTypeName name="domain.Tutorial"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="domain.Actor"/>
 <fullyQualifiedTypeName name="domain.SocialProfile"/>
 <fullyQualifiedTypeName name="services.ActorService"/>
@@ -52,12 +51,13 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
 <fullyQualifiedTypeName name="security.UserAccountRepository"/>
 <fullyQualifiedTypeName name="org.springframework.util.Assert"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="services.FixUpService"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="security.LoginService"/>
 </qualifiedTypeNameHistroy>

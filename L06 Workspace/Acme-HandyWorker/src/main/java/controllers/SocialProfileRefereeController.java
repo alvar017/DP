@@ -61,17 +61,19 @@ public class SocialProfileRefereeController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("socialProfileId") final int socialProfileId) {
+	public ModelAndView edit(@RequestParam(value = "socialProfileId", defaultValue = "-1") final int socialProfileId) {
 		ModelAndView result;
+		if (this.socialProfileService.findOne(socialProfileId) == null || !this.refereeService.findByUserAccountId(LoginService.getPrincipal().getId()).getSocialProfiles().contains(this.socialProfileService.findOne(socialProfileId)))
+			result = new ModelAndView("welcome/index");
+		else {
+			final SocialProfile socialProfile;
+			Assert.isTrue(this.socialProfileService.findOne(socialProfileId) != null);
+			socialProfile = this.socialProfileService.findOne(socialProfileId);
 
-		final SocialProfile socialProfile;
-		Assert.isTrue(this.socialProfileService.findOne(socialProfileId) != null);
-		socialProfile = this.socialProfileService.findOne(socialProfileId);
+			result = new ModelAndView("socialProfile/referee/edit");
 
-		result = new ModelAndView("socialProfile/referee/edit");
-
-		result.addObject("socialProfile", socialProfile);
-
+			result.addObject("socialProfile", socialProfile);
+		}
 		return result;
 	}
 
@@ -111,28 +113,38 @@ public class SocialProfileRefereeController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("socialProfileId") final int socialProfileId) {
+	public ModelAndView delete(@RequestParam(value = "socialProfileId", defaultValue = "-1") final int socialProfileId) {
 		ModelAndView result;
-
-		final SocialProfile socialProfile = this.socialProfileService.findOne(socialProfileId);
-		System.out.println("socialProfileId encontrado: " + socialProfileId);
-		Assert.notNull(socialProfileId, "socialProfile.null");
-
-		try {
+		if (this.socialProfileService.findOne(socialProfileId) == null || !this.refereeService.findByUserAccountId(LoginService.getPrincipal().getId()).getSocialProfiles().contains(this.socialProfileService.findOne(socialProfileId))) {
+			System.out.println("socialProfileId encontrado: " + socialProfileId);
 			final int userLoggin = LoginService.getPrincipal().getId();
 			final Referee referee = this.refereeService.findByUserAccountId(userLoggin);
 			Assert.isTrue(referee != null);
-			referee.getSocialProfiles().remove(socialProfile);
-			this.refereeService.save(referee);
-			this.socialProfileService.delete(socialProfile);
 			result = new ModelAndView("referee/show");
 			result.addObject("referee", referee);
 			result.addObject("socialProfiles", referee.getSocialProfiles());
 			result.addObject("requestURI", "referee/show.do");
-		} catch (final Throwable oops) {
-			System.out.println("Error al borrar socialProfile desde hw: ");
-			System.out.println(oops);
-			result = new ModelAndView("referee/show");
+		} else {
+			final SocialProfile socialProfile = this.socialProfileService.findOne(socialProfileId);
+			System.out.println("socialProfileId encontrado: " + socialProfileId);
+			Assert.notNull(socialProfileId, "socialProfile.null");
+
+			try {
+				final int userLoggin = LoginService.getPrincipal().getId();
+				final Referee referee = this.refereeService.findByUserAccountId(userLoggin);
+				Assert.isTrue(referee != null);
+				referee.getSocialProfiles().remove(socialProfile);
+				this.refereeService.save(referee);
+				this.socialProfileService.delete(socialProfile);
+				result = new ModelAndView("referee/show");
+				result.addObject("referee", referee);
+				result.addObject("socialProfiles", referee.getSocialProfiles());
+				result.addObject("requestURI", "referee/show.do");
+			} catch (final Throwable oops) {
+				System.out.println("Error al borrar socialProfile desde hw: ");
+				System.out.println(oops);
+				result = new ModelAndView("referee/show");
+			}
 		}
 		return result;
 	}

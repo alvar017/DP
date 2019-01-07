@@ -65,16 +65,25 @@ public class MiscellaneousRecordController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("miscellaneousRecordId") final int miscellaneousRecordId) {
+	public ModelAndView edit(@RequestParam(value = "miscellaneousRecordId", defaultValue = "-1") final int miscellaneousRecordId) {
 		ModelAndView result;
 
+		final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId());
 		final MiscellaneousRecord miscellaneousRecord;
-		Assert.isTrue(this.miscellaneousRecordService.findOne(miscellaneousRecordId) != null);
-		miscellaneousRecord = this.miscellaneousRecordService.findOne(miscellaneousRecordId);
+		if (this.miscellaneousRecordService.findOne(miscellaneousRecordId) == null || handyWorker == null || handyWorker.getCurriculum() == null || handyWorker.getCurriculum().getMisrec() == null
+			|| !this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getCurriculum().getMisrec().contains(this.miscellaneousRecordService.findOne(miscellaneousRecordId))) {
+			result = new ModelAndView("curriculum/handyWorker/show");
+			result.addObject("handyWorker", handyWorker);
+			result.addObject("curriculum", handyWorker.getCurriculum());
+			result.addObject("requestURI", "curriculum/handyWorker/show.do");
+		} else {
+			Assert.isTrue(this.miscellaneousRecordService.findOne(miscellaneousRecordId) != null);
+			miscellaneousRecord = this.miscellaneousRecordService.findOne(miscellaneousRecordId);
 
-		result = new ModelAndView("miscellaneousRecord/handyWorker/edit");
+			result = new ModelAndView("miscellaneousRecord/handyWorker/edit");
 
-		result.addObject("miscellaneousRecord", miscellaneousRecord);
+			result.addObject("miscellaneousRecord", miscellaneousRecord);
+		}
 
 		return result;
 	}
@@ -115,30 +124,39 @@ public class MiscellaneousRecordController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("miscellaneousRecordId") final int miscellaneousRecordId) {
+	public ModelAndView delete(@RequestParam(value = "miscellaneousRecordId", defaultValue = "-1") final int miscellaneousRecordId) {
 		ModelAndView result;
-
-		final MiscellaneousRecord miscellaneousRecord = this.miscellaneousRecordService.findOne(miscellaneousRecordId);
-		System.out.println("miscellaneousRecordId encontrado: " + miscellaneousRecordId);
-		Assert.notNull(miscellaneousRecordId, "socialProfile.null");
-
-		try {
-			final int userLoggin = LoginService.getPrincipal().getId();
-			final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
-			Assert.isTrue(handyWorker != null);
-			final Curriculum curriculum = handyWorker.getCurriculum();
-			Assert.notNull(curriculum, "curriculum.null");
-			final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
-			this.miscellaneousRecordService.delete(miscellaneousRecord);
+		final HandyWorker handyWorker2 = this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId());
+		if (this.miscellaneousRecordService.findOne(miscellaneousRecordId) == null || handyWorker2 == null || handyWorker2.getCurriculum() == null || handyWorker2.getCurriculum().getMisrec() == null
+			|| !this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getCurriculum().getMisrec().contains(this.miscellaneousRecordService.findOne(miscellaneousRecordId))) {
 			result = new ModelAndView("curriculum/handyWorker/show");
-			result.addObject("handyWorker", savedHandyWorker);
-			result.addObject("curriculum", savedHandyWorker.getCurriculum());
+			result.addObject("handyWorker", handyWorker2);
+			result.addObject("curriculum", handyWorker2.getCurriculum());
 			result.addObject("requestURI", "curriculum/handyWorker/show.do");
-		} catch (final Throwable oops) {
-			System.out.println("Error al borrar miscellaneousRecord desde hw: ");
-			System.out.println(oops);
-			result = new ModelAndView("curriculum/handyWorker/show");
+		} else {
+			final MiscellaneousRecord miscellaneousRecord = this.miscellaneousRecordService.findOne(miscellaneousRecordId);
+			System.out.println("miscellaneousRecordId encontrado: " + miscellaneousRecordId);
+			Assert.notNull(miscellaneousRecordId, "socialProfile.null");
+
+			try {
+				final int userLoggin = LoginService.getPrincipal().getId();
+				final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
+				Assert.isTrue(handyWorker != null);
+				final Curriculum curriculum = handyWorker.getCurriculum();
+				Assert.notNull(curriculum, "curriculum.null");
+				final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
+				this.miscellaneousRecordService.delete(miscellaneousRecord);
+				result = new ModelAndView("curriculum/handyWorker/show");
+				result.addObject("handyWorker", savedHandyWorker);
+				result.addObject("curriculum", savedHandyWorker.getCurriculum());
+				result.addObject("requestURI", "curriculum/handyWorker/show.do");
+			} catch (final Throwable oops) {
+				System.out.println("Error al borrar miscellaneousRecord desde hw: ");
+				System.out.println(oops);
+				result = new ModelAndView("curriculum/handyWorker/show");
+			}
 		}
+
 		return result;
 	}
 }

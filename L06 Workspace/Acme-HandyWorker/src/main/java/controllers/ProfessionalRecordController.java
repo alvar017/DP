@@ -62,17 +62,26 @@ public class ProfessionalRecordController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("professionalRecordId") final int professionalRecordId) {
+	public ModelAndView edit(@RequestParam(value = "professionalRecordId", defaultValue = "-1") final int professionalRecordId) {
 		ModelAndView result;
 
 		final ProfessionalRecord professionalRecord;
-		Assert.isTrue(this.professionalRecordService.findOne(professionalRecordId) != null);
-		professionalRecord = this.professionalRecordService.findOne(professionalRecordId);
+		final HandyWorker handyWorker2 = this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId());
+		if (this.professionalRecordService.findOne(professionalRecordId) == null || handyWorker2 == null || handyWorker2.getCurriculum() == null || handyWorker2.getCurriculum().getProrec() == null
+			|| !this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getCurriculum().getProrec().contains(this.professionalRecordService.findOne(professionalRecordId))) {
 
-		result = new ModelAndView("professionalRecord/handyWorker/edit");
+			result = new ModelAndView("curriculum/handyWorker/show");
+			result.addObject("handyWorker", handyWorker2);
+			result.addObject("curriculum", handyWorker2.getCurriculum());
+			result.addObject("requestURI", "curriculum/handyWorker/show.do");
+		} else {
+			Assert.isTrue(this.professionalRecordService.findOne(professionalRecordId) != null);
+			professionalRecord = this.professionalRecordService.findOne(professionalRecordId);
 
-		result.addObject("professionalRecord", professionalRecord);
+			result = new ModelAndView("professionalRecord/handyWorker/edit");
 
+			result.addObject("professionalRecord", professionalRecord);
+		}
 		return result;
 	}
 
@@ -112,29 +121,39 @@ public class ProfessionalRecordController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("professionalRecordId") final int professionalRecordId) {
+	public ModelAndView delete(@RequestParam(value = "professionalRecordId", defaultValue = "-1") final int professionalRecordId) {
 		ModelAndView result;
-		Assert.notNull(professionalRecordId, "professionalRecord.null");
-		final ProfessionalRecord professionalRecord = this.professionalRecordService.findOne(professionalRecordId);
-		System.out.println("professionalRecordId encontrado: " + professionalRecordId);
-
-		try {
-			final int userLoggin = LoginService.getPrincipal().getId();
-			final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
-			Assert.isTrue(handyWorker != null);
-			final Curriculum curriculum = handyWorker.getCurriculum();
-			Assert.notNull(curriculum, "curriculum.null");
-			this.professionalRecordService.delete(professionalRecord);
-			final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
+		final HandyWorker handyWorker2 = this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId());
+		if (this.professionalRecordService.findOne(professionalRecordId) == null || handyWorker2 == null || handyWorker2.getCurriculum() == null || handyWorker2.getCurriculum().getProrec() == null
+			|| !this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getCurriculum().getProrec().contains(this.professionalRecordService.findOne(professionalRecordId))) {
 			result = new ModelAndView("curriculum/handyWorker/show");
-			result.addObject("handyWorker", savedHandyWorker);
-			result.addObject("curriculum", savedHandyWorker.getCurriculum());
+			result.addObject("handyWorker", handyWorker2);
+			result.addObject("curriculum", handyWorker2.getCurriculum());
 			result.addObject("requestURI", "curriculum/handyWorker/show.do");
-		} catch (final Throwable oops) {
-			System.out.println("Error al borrar professionalRecord desde hw: ");
-			System.out.println(oops);
-			result = new ModelAndView("curriculum/handyWorker/show");
+		} else {
+			Assert.notNull(professionalRecordId, "professionalRecord.null");
+			final ProfessionalRecord professionalRecord = this.professionalRecordService.findOne(professionalRecordId);
+			System.out.println("professionalRecordId encontrado: " + professionalRecordId);
+
+			try {
+				final int userLoggin = LoginService.getPrincipal().getId();
+				final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
+				Assert.isTrue(handyWorker != null);
+				final Curriculum curriculum = handyWorker.getCurriculum();
+				Assert.notNull(curriculum, "curriculum.null");
+				this.professionalRecordService.delete(professionalRecord);
+				final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
+				result = new ModelAndView("curriculum/handyWorker/show");
+				result.addObject("handyWorker", savedHandyWorker);
+				result.addObject("curriculum", savedHandyWorker.getCurriculum());
+				result.addObject("requestURI", "curriculum/handyWorker/show.do");
+			} catch (final Throwable oops) {
+				System.out.println("Error al borrar professionalRecord desde hw: ");
+				System.out.println(oops);
+				result = new ModelAndView("curriculum/handyWorker/show");
+			}
 		}
+
 		return result;
 	}
 }

@@ -61,17 +61,20 @@ public class SocialProfileActorController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("socialProfileId") final int socialProfileId) {
+	public ModelAndView edit(@RequestParam(value = "socialProfileId", defaultValue = "-1") final int socialProfileId) {
 		ModelAndView result;
 
-		final SocialProfile socialProfile;
-		Assert.isTrue(this.socialProfileService.findOne(socialProfileId) != null);
-		socialProfile = this.socialProfileService.findOne(socialProfileId);
+		if (this.socialProfileService.findOne(socialProfileId) == null || !this.actorService.findOneByUserAccountId(LoginService.getPrincipal().getId()).getSocialProfiles().contains(this.socialProfileService.findOne(socialProfileId)))
+			result = new ModelAndView("welcome/index");
+		else {
+			final SocialProfile socialProfile;
+			Assert.isTrue(this.socialProfileService.findOne(socialProfileId) != null);
+			socialProfile = this.socialProfileService.findOne(socialProfileId);
 
-		result = new ModelAndView("socialProfile/actor/edit");
+			result = new ModelAndView("socialProfile/actor/edit");
 
-		result.addObject("socialProfile", socialProfile);
-
+			result.addObject("socialProfile", socialProfile);
+		}
 		return result;
 	}
 
@@ -112,35 +115,41 @@ public class SocialProfileActorController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("socialProfileId") final int socialProfileId) {
+	public ModelAndView delete(@RequestParam(value = "socialProfileId", defaultValue = "-1") final int socialProfileId) {
 		ModelAndView result;
 
 		final SocialProfile socialProfile = this.socialProfileService.findOne(socialProfileId);
 		System.out.println("socialProfileId encontrado: " + socialProfileId);
 		Assert.notNull(socialProfileId, "socialProfile.null");
 
-		try {
-			Assert.isTrue(socialProfile != null);
-
-			final int userLoggin = LoginService.getPrincipal().getId();
-			final Actor actor = this.actorService.getActorByUserId(userLoggin);
-			Assert.isTrue(actor != null);
-			actor.getSocialProfiles().remove(socialProfile);
+		if (this.socialProfileService.findOne(socialProfileId) == null || !this.actorService.findOneByUserAccountId(LoginService.getPrincipal().getId()).getSocialProfiles().contains(this.socialProfileService.findOne(socialProfileId))) {
 			result = new ModelAndView("actor/show");
-			final Actor savedActor = this.actorService.save(actor);
-			this.socialProfileService.delete(socialProfile);
-			result.addObject("actor", savedActor);
-			result.addObject("socialProfiles", savedActor.getSocialProfiles());
+			result.addObject("actor", this.actorService.findOneByUserAccountId(LoginService.getPrincipal().getId()));
+			result.addObject("socialProfiles", this.actorService.findOneByUserAccountId(LoginService.getPrincipal().getId()).getSocialProfiles());
 			result.addObject("requestURI", "actor/show.do");
-		} catch (final Throwable oops) {
-			System.out.println("Error al borrar socialProfile desde actor: ");
-			System.out.println(oops);
-			result = new ModelAndView("actor/show");
-			final int userLoggin = LoginService.getPrincipal().getId();
-			final Actor actor = this.actorService.getActorByUserId(userLoggin);
-			result.addObject("actor", actor);
-			result.addObject("socialProfiles", actor.getSocialProfiles());
-		}
+		} else
+			try {
+				Assert.isTrue(socialProfile != null);
+
+				final int userLoggin = LoginService.getPrincipal().getId();
+				final Actor actor = this.actorService.getActorByUserId(userLoggin);
+				Assert.isTrue(actor != null);
+				actor.getSocialProfiles().remove(socialProfile);
+				result = new ModelAndView("actor/show");
+				final Actor savedActor = this.actorService.save(actor);
+				this.socialProfileService.delete(socialProfile);
+				result.addObject("actor", savedActor);
+				result.addObject("socialProfiles", savedActor.getSocialProfiles());
+				result.addObject("requestURI", "actor/show.do");
+			} catch (final Throwable oops) {
+				System.out.println("Error al borrar socialProfile desde actor: ");
+				System.out.println(oops);
+				result = new ModelAndView("actor/show");
+				final int userLoggin = LoginService.getPrincipal().getId();
+				final Actor actor = this.actorService.getActorByUserId(userLoggin);
+				result.addObject("actor", actor);
+				result.addObject("socialProfiles", actor.getSocialProfiles());
+			}
 		return result;
 	}
 }
