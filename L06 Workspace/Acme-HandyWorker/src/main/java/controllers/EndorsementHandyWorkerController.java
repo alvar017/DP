@@ -73,7 +73,8 @@ public class EndorsementHandyWorkerController extends AbstractController {
 		Assert.notNull(userAccountId);
 		final HandyWorker handyWorker = this.handyWorkerService.getHandyWorkerByUserAccountId(userAccountId);
 		final Customer customer = this.customerService.findOne(receiverId);
-		if (customer == null && handyWorker != null) {
+		final Collection<Customer> customers = this.customerService.getAllCustomersByHandyWorkers(handyWorker.getId());
+		if (customer == null && handyWorker != null && customers.contains(customer)) {
 			final Collection<FixUp> fixUps = this.fixUpService.findAll();
 			final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 			final Collection<FixUp> myFixUps = this.fixUpService.findAllByHWLogger();

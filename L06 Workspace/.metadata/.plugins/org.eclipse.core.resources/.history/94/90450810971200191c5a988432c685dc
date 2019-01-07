@@ -73,8 +73,7 @@ public class EndorsementCustomerController extends AbstractController {
 		Assert.notNull(userAccountId);
 		final Customer customer = this.customerService.getCustomerByUserAccountId(userAccountId);
 		final HandyWorker handyWorker = this.handyWorkerService.findOne(receiverId);
-		final Collection<HandyWorker> handyWorkers = this.handyWorkerService.getAllHandyWorkersByCustomer(customer.getId());
-		if (customer != null && handyWorker == null && handyWorkers.contains(handyWorker)) {
+		if (customer != null && handyWorker == null) {
 			final Collection<FixUp> fixUps = this.fixUpService.listing();
 			final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 

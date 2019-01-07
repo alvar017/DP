@@ -93,7 +93,7 @@ public class ApplicationService {
 		final Customer customer = this.customerService.getCustomerByUserAccountId(idLogin);
 		Assert.isTrue(customer.equals(application.getFixUp().getCustomer()));
 		final Application originalApplication = this.findOne(application.getId());
-		if (originalApplication.getState() != null && originalApplication.getState() == true) {
+		if (application.getState() == true) {
 			//			if (true)
 			Assert.isTrue(this.checkCreditCard(application.getCreditCard()), "application.error.creditCard");
 			System.out.println("Intento actualizar hw");

@@ -38,8 +38,8 @@ import domain.FixUp;
 import domain.HandyWorker;
 
 @Controller
-@RequestMapping("/endorsement/customer")
-public class EndorsementCustomerController extends AbstractController {
+@RequestMapping("/endorsement/handyWorker")
+public class EndorsementHandyWorkerController extends AbstractController {
 
 	@Autowired
 	private EndorsementService	endorsementService;
@@ -58,7 +58,7 @@ public class EndorsementCustomerController extends AbstractController {
 
 	// Constructors -----------------------------------------------------------
 
-	public EndorsementCustomerController() {
+	public EndorsementHandyWorkerController() {
 		super();
 	}
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
@@ -71,28 +71,28 @@ public class EndorsementCustomerController extends AbstractController {
 
 		final Integer userAccountId = LoginService.getPrincipal().getId();
 		Assert.notNull(userAccountId);
-		final Customer customer = this.customerService.getCustomerByUserAccountId(userAccountId);
-		final HandyWorker handyWorker = this.handyWorkerService.findOne(receiverId);
-		final Collection<HandyWorker> handyWorkers = this.handyWorkerService.getAllHandyWorkersByCustomer(customer.getId());
-		if (customer != null && handyWorker == null && handyWorkers.contains(handyWorker)) {
-			final Collection<FixUp> fixUps = this.fixUpService.listing();
+		final HandyWorker handyWorker = this.handyWorkerService.getHandyWorkerByUserAccountId(userAccountId);
+		final Customer customer = this.customerService.findOne(receiverId);
+		if (customer == null && handyWorker != null) {
+			final Collection<FixUp> fixUps = this.fixUpService.findAll();
 			final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+			final Collection<FixUp> myFixUps = this.fixUpService.findAllByHWLogger();
 
-			result = new ModelAndView("fixUp/customer/list");
+			result = new ModelAndView("fixUp/handyWorker/list");
 			result.addObject("fixUps", fixUps);
+			result.addObject("myFixUps", myFixUps);
 			result.addObject("language", language);
-			result.addObject("requestURI", "fixUp/customer/list.do");
+			result.addObject("requestURI", "fixUp/handyWorker/list.do");
 		} else {
 			Assert.isTrue(customer != null && handyWorker != null);
-			endorsement.setendorsableReceiver(handyWorker);
-			endorsement.setEndorsableSender(customer);
+			endorsement.setendorsableReceiver(customer);
+			endorsement.setEndorsableSender(handyWorker);
 			endorsement.setMoment(LocalDate.now().toDate());
 
-			result = new ModelAndView("endorsement/customer/edit");
+			result = new ModelAndView("endorsement/handyWorker/edit");
 
 			result.addObject("endorsement", endorsement);
 		}
-
 		return result;
 	}
 
@@ -106,7 +106,7 @@ public class EndorsementCustomerController extends AbstractController {
 			result = new ModelAndView("redirect:show.do");
 		else {
 			Assert.isTrue(this.endorsementService.findOne(endorsementId) != null);
-			result = new ModelAndView("endorsement/customer/edit");
+			result = new ModelAndView("endorsement/handyWorker/edit");
 
 			result.addObject("endorsement", endorsement);
 		}
@@ -121,15 +121,15 @@ public class EndorsementCustomerController extends AbstractController {
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);
-			result = new ModelAndView("endorsement/customer/edit");
+			result = new ModelAndView("endorsement/handyWorker/edit");
 		} else
 			try {
 				Assert.isTrue(endorsement != null, "endorsement.null");
 				final Endorsement saveEndorsement = this.endorsementService.save(endorsement);
 				result = new ModelAndView("redirect:show.do");
-				if (this.customerService.getCustomerByUserAccountId(LoginService.getPrincipal().getId()) != null) {
-					result.addObject("deleteURL", "endorsement/customer/delete.do?endorsementId");
-					result.addObject("requestURI", "endorsement/customer/show.do");
+				if (this.handyWorkerService.getHandyWorkerByUserAccountId(LoginService.getPrincipal().getId()) != null) {
+					result.addObject("deleteURL", "endorsement/handyWorker/delete.do?endorsementId");
+					result.addObject("requestURI", "endorsement/handyWorker/show.do");
 				} else {
 					result.addObject("deleteURL", "endorsement/handyWorker/delete.do?endorsementId");
 					result.addObject("requestURI", "endorsement/handyWorker/show.do");
@@ -163,7 +163,7 @@ public class EndorsementCustomerController extends AbstractController {
 				this.endorsementService.delete(endorsement);
 				result = new ModelAndView("redirect:show.do");
 				result.addObject("endorsable", saveEndorsableSender);
-				result.addObject("requestURI", "endorsement/customer/show");
+				result.addObject("requestURI", "endorsement/handyWorker/show");
 			} catch (final Throwable oops) {
 				System.out.println("Error al borrar endorsement desde hw: ");
 				System.out.println(oops);
@@ -181,7 +181,9 @@ public class EndorsementCustomerController extends AbstractController {
 		if (handyWorker != null) {
 			result = new ModelAndView("endorsement/handyWorker/show");
 			final Collection<Endorsement> endorsementSend = this.endorsementService.getEndorsementSender(handyWorker.getId());
+			final Collection<Endorsement> endorsementReceived = this.endorsementService.getEndorsementReceiver(handyWorker.getId());
 			result.addObject("endorsementSend", endorsementSend);
+			result.addObject("endorsementReceived", endorsementReceived);
 			result.addObject("requestURI", "endorsement/handyWorker/show.do");
 			result.addObject("deleteURL", "endorsement/handyWorker/delete.do?endorsementId");
 			result.addObject("editURL", "endorsement/handyWorker/edit.do?endorsementId");
