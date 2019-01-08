@@ -190,6 +190,15 @@
 		<security:intercept-url pattern="/workplan/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/workplan/handyWorker/delete.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/customer/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
+		<!-- Añadidas -->
+		<security:intercept-url pattern="/tutorial/list.do" access="permitAll" />
+		<security:intercept-url pattern="/handyWorker/showG.do" access="permitAll" />
+		<security:intercept-url pattern="/tutorial/show.do" access="permitAll" />
+		<security:intercept-url pattern="/section/handyWorker/edit.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/application/handyWorker/update.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/section/handyWorker/create.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/section/handyWorker/delete.do" access="hasRole('HANDYWORKER')" />
+		<security:intercept-url pattern="/workplan/handyWorker/redir.do" access="hasRole('HANDYWORKER')" />
 		<!-- Ferrete -->
 <!-- Fran -->
 		<security:intercept-url pattern="/complaint/customer/list.do" access="hasRole('CUSTOMER')" />

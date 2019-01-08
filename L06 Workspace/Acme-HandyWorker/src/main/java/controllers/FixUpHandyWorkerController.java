@@ -75,8 +75,10 @@ public class FixUpHandyWorkerController extends AbstractController {
 		final UserAccount login = LoginService.getPrincipal();
 
 		final HandyWorker logged = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
-		//		final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId(); COMENTADO POR ÁLVARO -> SI NO TIENE NINGÚN HW FALLA
-		//		System.out.println("checkHW: " + checkHW); COMENTADO POR ÁLVARO -> SI NO TIENE NINGÚN HW FALLA
+		if (fixUp.getHandyWorker() != null) {
+			final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+			System.out.println("checkHW: " + checkHW);
+		}
 		//======================================
 		final Category category = fixUp.getCategory();
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
@@ -89,7 +91,11 @@ public class FixUpHandyWorkerController extends AbstractController {
 		result.addObject("language", language);
 		//NUEVO
 		result.addObject("workplan", workplan);
-		//		result.addObject("checkHW", checkHW); COMENTADO POR ÁLVARO -> SI NO TIENE NINGÚN HW FALLA
+		if (fixUp.getHandyWorker() != null) {
+			final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+			System.out.println("checkHW: " + checkHW);
+			result.addObject("checkHW", checkHW);
+		}
 		//========================================
 		result.addObject("requestURI", "fixUp/handyWorker/show.do");
 		result.addObject("iva", iva);

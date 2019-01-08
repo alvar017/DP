@@ -19,7 +19,7 @@
 
 <body>
 <div>
-<p><spring:message code="handyWorker.allFixUp" /></p>
+<h2><spring:message code="handyWorker.allFixUp" /></h2>
 <security:authorize access="hasRole('HANDYWORKER')">
 <display:table name="fixUps" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 	<display:column titleKey="customer.ticker"> 
@@ -36,7 +36,7 @@
 </div>
 
 <div>
-<p><spring:message code="handyWorker.allMyFixUp" /></p>
+<h2><spring:message code="handyWorker.allMyFixUp" /></h2>
 <security:authorize access="hasRole('HANDYWORKER')">
 <display:table name="myFixUps" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 	<display:column titleKey="customer.ticker"> 

@@ -101,7 +101,18 @@ public class ApplicationService {
 		return this.applicationRepository.findOne(id);
 	}
 	public Application save(final Application application) {
+		Assert.isTrue(this.checkApplier(application), "application.alreadyApplied");
 		return this.applicationRepository.save(application);
+	}
+
+	private boolean checkApplier(final Application application) {
+		boolean res = true;
+		for (final Application a : application.getFixUp().getApplications())
+			if (a.getApplier().getUserAccount().getId() == LoginService.getPrincipal().getId()) {
+				res = false;
+				break;
+			}
+		return res;
 	}
 	public void delete(final Application application) {
 		Assert.notNull(this.applicationRepository.findOne(application.getId()), "La application no existe");

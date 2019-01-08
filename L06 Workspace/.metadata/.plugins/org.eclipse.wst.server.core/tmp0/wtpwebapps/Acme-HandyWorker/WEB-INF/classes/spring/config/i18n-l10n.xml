@@ -42,7 +42,9 @@
 		<value>/views/mailBox/messages</value>
 		<value>/views/message/messages</value>
 		<value>/views/warranty/messages</value>
-		<value>/views/category/messages</value>				
+		<value>/views/category/messages</value>
+		<value>/views/tutorial/messages</value>
+		<value>/views/section/messages</value>						
 	</util:list>
 
 </beans>

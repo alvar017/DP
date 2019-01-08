@@ -39,10 +39,10 @@
 			<form:textarea path="description" />
 			<form:errors path="description"/><br>
 			<form:label path="startDate"><spring:message code="phase.startDate" /></form:label>
-			<form:input type="date" path="startDate" />
+			<form:input type="date" path="startDate" placeholder="yyyy/MM/dd HH:mm"/>
 			<form:errors path="startDate"/><br>
 			<form:label path="endDate"><spring:message code="phase.endDate" /></form:label>
-			<form:input type="date" path="endDate" />
+			<form:input type="date" path="endDate" placeholder="yyyy/MM/dd HH:mm"/>
 			<form:errors path="endDate"/><br>
 			<input type="submit" name="save" value="<spring:message code="submit"/>" />
 			<input type="button" name="cancel" onclick="javascript:relativeRedir('fixUp/handyWorker/list.do')" value="<spring:message code="cancel"/>"/>

@@ -39,27 +39,7 @@
 		<put-attribute name="title" value="Handy Worker: Edit Profile" />
 		<put-attribute name="body" value="/views/handyWorker/edit.jsp" />
 	</definition>
-	
-		<definition name="tutorial/handyWorker/list" extends="master.page">	
-		<put-attribute name="title" value="Tutorial" />
-		<put-attribute name="body" value="/views/handyWorker/tutorial-listing.jsp" />
-	</definition>
-	
-	<definition name="tutorial/handyWorker/edit" extends="master.page">	
-		<put-attribute name="title" value="Tutorial Edit" />
-		<put-attribute name="body" value="/views/handyWorker/tutorial-edit.jsp" />
-	</definition>
-	
-	<definition name="tutorial/handyWorker/create" extends="master.page">	
-		<put-attribute name="title" value="Tutorial Creation" />
-		<put-attribute name="body" value="/views/handyWorker/tutorial-edit.jsp" />
-	</definition>
-	
-	<definition name="tutorial/handyWorker/show" extends="master.page">	
-		<put-attribute name="title" value="Tutorial Details" />
-		<put-attribute name="body" value="/views/handyWorker/tutorial-show.jsp" />
-	</definition>
-	
+		
 	<definition name="handyWorker/administrator/showD" extends="master.page">
 		<put-attribute name="title" value="Administrator: Show Dashboard"></put-attribute>
 		<put-attribute name="body" value="/views/handyWorker/showD.jsp"></put-attribute>
@@ -118,5 +98,11 @@
 	<definition name="personalRecord/handyWorker/edit" extends="master.page">	
 		<put-attribute name="title" value="Handy Worker: Edit Personal Record" />
 		<put-attribute name="body" value="/views/handyWorker/edit_personalRecord.jsp" />
+	</definition>
+	
+		<!-- Añadidas -->
+	<definition name="handyWorker/showG" extends="master.page">	
+		<put-attribute name="title" value="Handy Worker: Show Profile" />
+		<put-attribute name="body" value="/views/handyWorker/showG.jsp" />
 	</definition>
 </tiles-definitions>

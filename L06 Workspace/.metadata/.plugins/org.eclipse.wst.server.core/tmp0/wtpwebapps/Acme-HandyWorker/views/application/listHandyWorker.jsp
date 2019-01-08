@@ -17,7 +17,6 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<p><spring:message code="handyWorker.listHandyWorker"/></p>
 <body>
   
    <display:table name="applications" id="row"  requestURI="${requestURI}"	pagesize="5" class="displaytag" >
@@ -26,7 +25,19 @@
 		<a href="application/handyWorker/edit.do?applicationId=${row.id}">Edit</a>
 	</display:column>
   	<display:column property="fixUp.ticker" titleKey="application.fixUp"/>
-  	<display:column property="state" titleKey="application.state"/>
+  	<display:column titleKey="application.state">
+  	<jstl:choose>
+  		<jstl:when test="${row.state}">
+  			<div id="aceptada"><spring:message code="application.state.accepted"/></div>
+  		</jstl:when>
+  		<jstl:when test="!${!row.state}">
+  			<div id="rechazada"><spring:message code="application.state.rejected"/></div>
+  		</jstl:when>
+  		<jstl:otherwise>
+  			<div id="pendiente"><spring:message code="application.state.pending"/></div>
+  		</jstl:otherwise>
+  	</jstl:choose>
+  	</display:column>
   	<display:column property="offered.quantity" titleKey="application.offered"/>
   	<display:column property="comments" titleKey="application.comments"/>
   	<display:column property="creditCard.number" titleKey="application.creditCard"/>

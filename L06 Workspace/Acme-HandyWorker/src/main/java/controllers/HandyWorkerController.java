@@ -20,6 +20,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
@@ -179,6 +180,21 @@ public class HandyWorkerController extends AbstractController {
 				System.out.println(binding);
 				result = new ModelAndView("handyWorker/edit");
 			}
+		return result;
+	}
+
+	//Añadidos
+	@RequestMapping(value = "/showG", method = RequestMethod.GET)
+	public ModelAndView show(@RequestParam(value = "handyWorkerId", defaultValue = "-1") final int handyWorkerId) {
+		ModelAndView result;
+		final HandyWorker handyWorker = this.handyWorkerService.findOne(handyWorkerId);
+		Assert.isTrue(handyWorker != null);
+
+		result = new ModelAndView("handyWorker/showG");
+		result.addObject("handyWorker", handyWorker);
+		result.addObject("tutorials", handyWorker.getTutorials());
+		result.addObject("requestURI", "handyWorker/showG.do");
+
 		return result;
 	}
 }
