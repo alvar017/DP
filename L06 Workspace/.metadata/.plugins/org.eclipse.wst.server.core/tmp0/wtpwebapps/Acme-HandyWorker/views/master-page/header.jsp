@@ -29,6 +29,7 @@
 					<li><a href="administrator/list.do"><spring:message code="master.page.administrator.action.1" /></a></li>
 					<li><a href="referee/administrator/list.do"><spring:message code="master.page.administrator.action.3" /></a></li>
 					<li><a href="complaint/administrator/showD.do"><spring:message code="master.page.administrator.action.2" /></a></li>
+					<li><a href="endorsement/administrator/list.do"><spring:message code="master.page.administrator.endorsement" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
@@ -56,6 +57,15 @@
 					<li><a href="complaint/handyWorker/list.do"><spring:message code="master.page.handyWorker.complaint" /></a></li>
 					<li><a href="endorsement/handyWorker/show.do"><spring:message code="master.page.handyWorker.endorsement" /></a></li>									
 										
+				</ul>
+			</li>
+		</security:authorize>
+		
+		<security:authorize access="hasRole('REFEREE')">
+			<li><a class="fNiv"><spring:message	code="master.page.referee" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="complaint/referee/list.do"><spring:message code="master.page.complaints.referee.list" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>

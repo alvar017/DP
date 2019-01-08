@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>	
+			<!-- Complaint -->
+	<definition name="complaint/customer/list" extends="master.page">
+		<put-attribute name="title" value="Cliente: Lista de Quejas"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintList.jsp"></put-attribute>
+	</definition>
+
+	<definition name="complaint/customer/edit" extends="master.page">
+		<put-attribute name="title" value="Cliente: Editar Queja"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintEdit.jsp"></put-attribute>
+	</definition>
+
+	<definition name="complaint/customer/create" extends="master.page">
+		<put-attribute name="title" value="Cliente: Crear Queja"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintCreate.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/customer/show" extends="master.page">
+		<put-attribute name="title" value="Cliente: Mostrar Queja"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintShow.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/handyWorker/list" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Quejas" />
+		<put-attribute name="body" value="/views/complaint/list.jsp" />
+	</definition>
+
+	<definition name="complaint/handyWorker/show" extends="master.page">
+		<put-attribute name="title" value="Trabajador: Mostrar queja"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/show.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/administrator/showD" extends="master.page">
+		<put-attribute name="title" value="Administrador: Estadísticas"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/showD.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/referee/list" extends="master.page">
+		<put-attribute name="title" value="Revisor: Lista de Quejas"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintRefereeList.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/referee/show" extends="master.page">
+		<put-attribute name="title" value="Revisor: Mostrar Queja"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintRefereeShow.jsp"></put-attribute>
+	</definition>
+	
+		<!-- Reports -->
+		
+	<definition name="report/referee/show" extends="master.page">
+		<put-attribute name="title" value="Revisor: Mostrar Informe"></put-attribute>
+		<put-attribute name="body" value="/views/report/reportRefereeShow.jsp"></put-attribute>
+	</definition>	
+		
+
+	
+</tiles-definitions>
+	

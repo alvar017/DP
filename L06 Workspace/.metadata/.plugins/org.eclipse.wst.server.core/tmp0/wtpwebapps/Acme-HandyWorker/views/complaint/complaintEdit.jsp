@@ -22,6 +22,7 @@
 	<form:hidden path="version" />
 	<form:hidden path="moment"/>
 	<form:hidden path="ticker"/>
+	<form:hidden path="referee"/>
 	<div>
 		<a href="complaint/customer/edit.do?complaintId=${complaint.id}"><input type="button" value="<spring:message code='button.reset'></spring:message>"></a>
 		<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
@@ -29,12 +30,6 @@
 		<br />
 	</div>
 	<div>
-		<form:label path="referee"><spring:message code="complaint.referee" /></form:label>
-		<form:select id="referees" path="referee">
-			<form:options items="${referees}" itemLabel="name" itemValue="id"/>
-			<form:option value="${complaint.referee}" label="${complaint.referee.name}"></form:option>
-		</form:select>
-		<form:errors path="referee"></form:errors>
 		<br />
 		<form:label path="fixUp"><spring:message code="complaint.fixUp" /></form:label>
 		<form:select  id="fixUps" path="fixUp">

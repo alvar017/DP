@@ -33,7 +33,6 @@
 <fullyQualifiedTypeName name="domain.Actor"/>
 <fullyQualifiedTypeName name="domain.SocialProfile"/>
 <fullyQualifiedTypeName name="services.ActorService"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="services.AdministratorService"/>
 <fullyQualifiedTypeName name="domain.MiscellaneousRecord"/>
 <fullyQualifiedTypeName name="repositories.MiscellaneousRecordRepository"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="services.WelcomeService"/>
 <fullyQualifiedTypeName name="controllers.WelcomeController"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
 </qualifiedTypeNameHistroy>

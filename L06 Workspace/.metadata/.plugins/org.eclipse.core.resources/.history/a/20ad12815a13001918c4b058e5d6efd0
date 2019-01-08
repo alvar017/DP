@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>
+
+	<definition name="endorsement/customer/show" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Mostrar valoraciones" />
+		<put-attribute name="body" value="/views/endorsement/show.jsp" />
+	</definition>
+	
+	<definition name="endorsement/customer/create" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Crear valoración" />
+		<put-attribute name="body" value="/views/endorsement/edit.jsp" />
+	</definition>
+	
+	<definition name="endorsement/customer/edit" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Editar valoración" />
+		<put-attribute name="body" value="/views/endorsement/edit.jsp" />
+	</definition>
+	
+	<definition name="endorsement/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Mostrar valoraciones" />
+		<put-attribute name="body" value="/views/endorsement/show.jsp" />
+	</definition>
+	
+	<definition name="endorsement/handyWorker/create" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Crear valoración" />
+		<put-attribute name="body" value="/views/endorsement/edit_handyWorker.jsp" />
+	</definition>
+	
+	<definition name="endorsement/handyWorker/edit" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Editar valoración" />
+		<put-attribute name="body" value="/views/endorsement/edit_handyWorker.jsp" />
+	</definition>
+	
+		<!-- Fran -->
+	
+	<definition name="endorsement/administrator/list" extends="master.page">	
+		<put-attribute name="title" value="Admin: Listado de puntuaciones" />
+		<put-attribute name="body" value="/views/endorsement/endorsementAdminList.jsp" />
+	</definition>
+	
+	<definition name="endorsement/administrator/wordList" extends="master.page">	
+		<put-attribute name="title" value="Admin: Listing Score´s Parameters" />
+		<put-attribute name="body" value="/views/endorsement/endorsementAdminWordList.jsp" />
+	</definition>
+</tiles-definitions>

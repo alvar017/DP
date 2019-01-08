@@ -71,6 +71,17 @@
 		</display:table>
 		<br />
 	</div>
+		<div>
+		<spring:message code="complaint.reports"></spring:message>
+		<display:table name="complaint.reports" id="row" requestURI="${requestURI}" class="displaytag"> 
+			<display:column property="moment" titleKey="complaint.moment"></display:column><!-- complaint.X spring messages are used bcs it would say the same that report.X -->
+			<display:column property="description" titleKey="complaint.description"></display:column>
+			<display:column>
+				<a href="report/customer/show.do?reportId=${row.id}"><spring:message code="details" /></a>
+			</display:column>
+		</display:table>
+		<br />
+	</div>
 </security:authorize>
  </div>
 </body>

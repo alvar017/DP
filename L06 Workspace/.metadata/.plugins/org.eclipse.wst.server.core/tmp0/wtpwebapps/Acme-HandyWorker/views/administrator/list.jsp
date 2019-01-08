@@ -77,6 +77,26 @@
 
 <br>
 
+<!-- SCORE WORDS -->
+<h3><i><spring:message code="ScoreWords" /></i></h3>
+<p>${scoreWords}</p>
+<security:authorize access="hasRole('ADMIN')">
+	<form:form class="formularioEdicion" method="GET"  action="administrator/newScoreWord.do?newScoreWord='${newScoreWord}'.do">		
+		<spring:message code="newScoreWord" />
+			<input type=text name="newScoreWord" required="required"/>
+		<form:errors cssClass="error" path="spamWord.wrong"/><br>
+		<input type="submit" value=<spring:message code="saveNewScoreWord"/> />
+	</form:form>
+	<form:form class="formularioEdicion" method="GET"  action="administrator/deleteScoreWord.do?ScoreWord='${ScoreWord}'.do">		
+		<spring:message code="deleteScoreWord" />
+			<input type=text name="deleteScoreWord" required="required"/>
+		<form:errors cssClass="error" path="scoreWord.wrong"/><br>
+		<input type="submit" value=<spring:message code="deleteScoreWord"/> />
+	</form:form>
+</security:authorize>
+<!-- SCORE WORDS -->
+<br />
+
 <!--Welcome page-->	
 <h3><i><spring:message code="welcomePage" /></i></h3>
 <spring:message code="welcomePageS" /><p>${spanish}</p>
@@ -202,3 +222,12 @@
     		</c:otherwise>
 		</c:choose>
  -->
+ 
+ <!-- PHONE -->
+<h3><i><spring:message code="phoneCountry" /></i>${phoneCountry}</h3>
+	<form:form class="formularioEdicion" method="GET"  action="administrator/newPhoneCountry.do?newPhoneCountry='${newPhoneCountry}'.do">		
+		<spring:message code="phoneCountryM" />
+		<input type="text" name="newPhoneCountry" required="required"/>
+		<input type="submit" value=<spring:message code="saveNewSpamWord" /> />
+</form:form>
+<!-- PHONE -->

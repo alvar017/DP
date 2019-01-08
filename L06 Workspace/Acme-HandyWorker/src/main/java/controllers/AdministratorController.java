@@ -132,6 +132,9 @@ public class AdministratorController extends AbstractController {
 		System.out.println("Carmen: Esta es la lista de spam words");
 		System.out.println(spamWords);
 
+		//Score Words
+		final HashSet<String> scoreWords = this.administratorService.listScoreWords();
+
 		//Welcome page
 		final String ingles = this.welcomeService.getS();
 		final String spanish = this.welcomeService.getE();
@@ -145,6 +148,9 @@ public class AdministratorController extends AbstractController {
 
 		//Phone
 		final Integer phone = this.welcomeService.getPhone();
+
+		//Country´s Phone
+		final String phoneCountry = this.welcomeService.getCountry();
 
 		//Brand
 		final HashSet<String> brand = this.applicationService.listBrands();
@@ -167,6 +173,7 @@ public class AdministratorController extends AbstractController {
 		result.addObject("iva", iva);
 
 		result.addObject("spamWords", spamWords);
+		result.addObject("scoreWords", scoreWords);
 
 		result.addObject("time", time);
 		result.addObject("resultF", resultF);
@@ -174,6 +181,7 @@ public class AdministratorController extends AbstractController {
 		result.addObject("system", system);
 
 		result.addObject("phone", phone);
+		result.addObject("phoneCountry", phoneCountry);
 
 		result.addObject("brand", brand);
 
@@ -269,6 +277,25 @@ public class AdministratorController extends AbstractController {
 		spamWords = this.fixUpService.newSpamWords(newSpamWord);
 		System.out.println("Carmen llego");
 		System.out.println("Carmen: Ya hemos guardado:" + spamWords);
+		result = new ModelAndView("redirect:list.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/newScoreWord", method = RequestMethod.GET)
+	public ModelAndView newScoreWord(@RequestParam("newScoreWord") final String newScoreWord) {
+		ModelAndView result;
+
+		this.administratorService.newScoreWords(newScoreWord);
+		result = new ModelAndView("redirect:list.do");
+
+		return result;
+	}
+	@RequestMapping(value = "/deleteScoreWord", method = RequestMethod.GET)
+	public ModelAndView deleteScoreWord(@RequestParam("deleteScoreWord") final String ScoreWord) {
+		ModelAndView result;
+
+		this.administratorService.deleteScoreWords(ScoreWord);
 		result = new ModelAndView("redirect:list.do");
 
 		return result;
@@ -407,4 +434,13 @@ public class AdministratorController extends AbstractController {
 		return result;
 	}
 
+	@RequestMapping(value = "/newPhoneCountry", method = RequestMethod.GET)
+	public ModelAndView newPhone(@RequestParam("newPhoneCountry") final String newPhoneCountry) {
+		ModelAndView result;
+
+		this.welcomeService.newCountry(newPhoneCountry);
+		result = new ModelAndView("redirect:list.do");
+
+		return result;
+	}
 }

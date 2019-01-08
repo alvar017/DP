@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+
+	<definition name="note/handyWorker/create" extends="master.page">	
+		<put-attribute name="title" value="HandyWorker: Create note" />
+		<put-attribute name="body" value="/views/note/create.jsp" />
+	</definition>
+	
+
+	
+		<definition name="note/administrator/showD" extends="master.page">
+		<put-attribute name="title" value="Administrator: Show Dashboard"></put-attribute>
+		<put-attribute name="body" value="/views/note/showD.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="note/administrator/show" extends="master.page">
+		<put-attribute name="title" value="Administrator: Create note"></put-attribute>
+		<put-attribute name="body" value="/views/note/show.jsp"></put-attribute>
+	</definition>
+
+		<!-- Note -->
+	<definition name="note/customer/create" extends="master.page">	
+		<put-attribute name="title" value="Customer: Show Note" />
+		<put-attribute name="body" value="/views/note/noteCreate.jsp" />
+	</definition>
+	
+	<definition name="note/customer/show" extends="master.page">	
+		<put-attribute name="title" value="Customer: Show Note" />
+		<put-attribute name="body" value="/views/note/noteShow.jsp" />
+	</definition>
+	
+	<definition name="note/referee/create" extends="master.page">	
+		<put-attribute name="title" value="Referee: Edit Note" />
+		<put-attribute name="body" value="/views/note/noteRefereeCreate.jsp" />
+	</definition>
+	
+	<definition name="note/referee/show" extends="master.page">	
+		<put-attribute name="title" value="Referee: Show Note" />
+		<put-attribute name="body" value="/views/note/noteRefereeShow.jsp" />
+	</definition>
+	
+</tiles-definitions>

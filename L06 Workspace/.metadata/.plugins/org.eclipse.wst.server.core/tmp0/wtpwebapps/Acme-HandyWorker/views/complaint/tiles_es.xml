@@ -51,5 +51,27 @@
 		<put-attribute name="body" value="/views/complaint/showD.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="complaint/referee/list" extends="master.page">
+		<put-attribute name="title" value="Revisor: Lista de Quejas"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintRefereeList.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/referee/show" extends="master.page">
+		<put-attribute name="title" value="Revisor: Mostrar Queja"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintRefereeShow.jsp"></put-attribute>
+	</definition>
+	
+		<!-- Reports -->
+		
+	<definition name="report/referee/show" extends="master.page">
+		<put-attribute name="title" value="Revisor: Mostrar Informe"></put-attribute>
+		<put-attribute name="body" value="/views/report/reportRefereeShow.jsp"></put-attribute>
+	</definition>	
+		
+	<definition name="report/customer/show" extends="master.page">
+		<put-attribute name="title" value="Cliente: Mostrar Informe"></put-attribute>
+		<put-attribute name="body" value="/views/report/reportShow.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>
 	

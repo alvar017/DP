@@ -16,6 +16,8 @@ public class WelcomeService {
 
 	Integer	phone	= 34;
 
+	String	country	= "España/Spain";
+
 	String	logo	= "https://tinyurl.com/acme-handy-worker-logo";
 
 
@@ -62,5 +64,13 @@ public class WelcomeService {
 	public Integer newPhone(final Integer phoneNew) {
 		this.phone = phoneNew;
 		return this.phone;
+	}
+
+	public String getCountry() {
+		return this.country;
+	}
+
+	public void newCountry(final String country) {
+		this.country = country;
 	}
 }
