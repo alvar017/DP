@@ -131,10 +131,10 @@ public class ActorController extends AbstractController {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
 				System.out.println(binding);
 				if (this.customerService.findOne(actor.getId()) != null) {
-					final String password = actor.getUserAccount().getPassword();
-					final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-					final String hashPassword = encoder.encodePassword(password, null);
-					actor.getUserAccount().setPassword(hashPassword);
+					//					final String password = actor.getUserAccount().getPassword();
+					//					final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+					//					final String hashPassword = encoder.encodePassword(password, null);
+					//					actor.getUserAccount().setPassword(hashPassword);
 					final Customer customer = this.customerService.findOne(actor.getId());
 					customer.setName(actor.getName());
 					customer.setAddress(actor.getAddress());

@@ -104,10 +104,10 @@ public class AdministratorController extends AbstractController {
 		} else
 			try {
 				Assert.notNull(administrator, "administrator.null");
-				final String password = administrator.getUserAccount().getPassword();
-				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-				final String hashPassword = encoder.encodePassword(password, null);
-				administrator.getUserAccount().setPassword(hashPassword);
+				//				final String password = administrator.getUserAccount().getPassword();
+				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				//				final String hashPassword = encoder.encodePassword(password, null);
+				//				administrator.getUserAccount().setPassword(hashPassword);
 				this.administratorService.save(administrator);
 				result = new ModelAndView("actor/show");
 				result.addObject("actor", administrator);

@@ -13,7 +13,6 @@ package controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
@@ -111,10 +110,10 @@ public class HandyWorkerController extends AbstractController {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
 				System.out.println(binding);
 				//				Assert.isTrue(this.userAccountService.findByUsername(handyWorker.getUserAccount().getUsername()) == null, "hw.usedUsername");
-				final String password = handyWorker.getUserAccount().getPassword();
-				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-				final String hashPassword = encoder.encodePassword(password, null);
-				handyWorker.getUserAccount().setPassword(hashPassword);
+				//				final String password = handyWorker.getUserAccount().getPassword();
+				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				//				final String hashPassword = encoder.encodePassword(password, null);
+				//				handyWorker.getUserAccount().setPassword(hashPassword);
 				this.handyWorkerService.save(handyWorker);
 				result = new ModelAndView("welcome/index");
 			} catch (final Throwable oops) {

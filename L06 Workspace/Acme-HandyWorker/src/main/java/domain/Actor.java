@@ -15,6 +15,7 @@ import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.URL;
 
 import security.UserAccount;
 
@@ -99,6 +100,7 @@ public class Actor extends DomainEntity {
 		this.email = email;
 	}
 
+	@URL
 	public String getPhoto() {
 		return this.photo;
 	}

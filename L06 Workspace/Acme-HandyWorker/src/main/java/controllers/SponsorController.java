@@ -37,7 +37,7 @@ public class SponsorController extends AbstractController {
 	@Autowired
 	private UserAccountRepository	userAccountService;
 	@Autowired
-	private WelcomeService welcomeService;
+	private WelcomeService			welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -153,10 +153,10 @@ public class SponsorController extends AbstractController {
 		} else
 			try {
 				Assert.notNull(sponsor, "sponsor.null");
-				final String password = sponsor.getUserAccount().getPassword();
-				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-				final String hashPassword = encoder.encodePassword(password, null);
-				sponsor.getUserAccount().setPassword(hashPassword);
+				//				final String password = sponsor.getUserAccount().getPassword();
+				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				//				final String hashPassword = encoder.encodePassword(password, null);
+				//				sponsor.getUserAccount().setPassword(hashPassword);
 				this.sponsorService.save(sponsor);
 				result = new ModelAndView("actor/show");
 				result.addObject("actor", sponsor);

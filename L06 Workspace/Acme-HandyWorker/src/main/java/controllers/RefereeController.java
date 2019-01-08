@@ -158,10 +158,10 @@ public class RefereeController extends AbstractController {
 		} else
 			try {
 				Assert.isTrue(this.refereeService.findOne(referee.getId()) != null);
-				final String password = referee.getUserAccount().getPassword();
-				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-				final String hashPassword = encoder.encodePassword(password, null);
-				referee.getUserAccount().setPassword(hashPassword);
+				//				final String password = referee.getUserAccount().getPassword();
+				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				//				final String hashPassword = encoder.encodePassword(password, null);
+				//				referee.getUserAccount().setPassword(hashPassword);
 				this.refereeService.save(referee);
 				result = new ModelAndView("redirect:show.do");
 			} catch (final Throwable oops) {
