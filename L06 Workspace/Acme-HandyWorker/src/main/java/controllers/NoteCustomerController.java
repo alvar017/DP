@@ -18,6 +18,7 @@ import services.CustomerService;
 import services.NoteService;
 import services.ReportService;
 import domain.Customer;
+import domain.HandyWorker;
 import domain.Note;
 import domain.Report;
 
@@ -50,8 +51,10 @@ public class NoteCustomerController extends AbstractController {
 		final Report report = this.reportService.findOne(id);
 		Assert.notNull(report);
 
-		final Customer customer = this.customerService.getCustomerByUserAccountId(acc.getId());
+		final HandyWorker hw = report.getComplaint().getFixUp().getHandyWorker();
 
+		final Customer customer = this.customerService.getCustomerByUserAccountId(acc.getId());
+		note.setHandyWorker(hw);
 		note.setReport(report);
 		note.setCustomer(customer);
 		res = this.createEditModelAndView(note);

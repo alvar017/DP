@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.validation.Valid;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Access(AccessType.PROPERTY)
 public class MailBox extends DomainEntity {
@@ -20,6 +22,7 @@ public class MailBox extends DomainEntity {
 	private Collection<Message>	messages;
 
 
+	@NotBlank
 	public String getName() {
 		return this.name;
 	}

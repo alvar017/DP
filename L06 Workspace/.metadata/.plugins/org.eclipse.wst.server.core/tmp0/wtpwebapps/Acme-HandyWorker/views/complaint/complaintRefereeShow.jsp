@@ -35,7 +35,7 @@
 	</div>
 	<div>
 		<spring:message code="complaint.info"></spring:message>
-		<display:table name="complaint" id="row" requestURI="${requestURI}" class="displaytag">
+		<display:table name="complaint" id="row" requestURI="${requestURI}" class="displaytag" >
 			<display:column property="description" titleKey="complaint.description"></display:column>
 			<display:column property="attachment" titleKey="complaint.attachment"></display:column>	
 		</display:table>
@@ -43,7 +43,7 @@
 	</div>
 	<div>
 		<spring:message code="complaint.reports"></spring:message>
-		<display:table name="complaint.reports" id="row" requestURI="${requestURI}" class="displaytag"> 
+		<display:table name="complaint.reports" id="row" requestURI="${requestURI}" class="displaytag" pagesize="5"> 
 			<display:column property="moment" titleKey="complaint.moment"></display:column><!-- complaint.X spring messages are used bcs it would say the same that report.X -->
 			<display:column property="description" titleKey="complaint.description"></display:column>
 			<display:column>

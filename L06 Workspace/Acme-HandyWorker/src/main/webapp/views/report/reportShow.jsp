@@ -43,7 +43,7 @@
 	</div>
 	<div>
 		<spring:message code="report.notes"></spring:message>
-		<display:table name="report.notes" id="row" requestURI="${requestURI}" class="displaytag"> 
+		<display:table name="report.notes" id="row" requestURI="${requestURI}" class="displaytag" pagesize="5"> 
 			<display:column property="moment" titleKey="report.moment" format="{0,date,dd/MM/yyyy HH:mm}"></display:column>
 			<display:column property="handyWorker.name" titleKey="report.note.hw.name"></display:column>
 			<display:column property="report.complaint.referee.name" titleKey="report.complaint.referee.name"></display:column>

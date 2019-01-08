@@ -78,7 +78,6 @@
     				<tr><td><i><spring:message code="customer.showing.applications" /></i></td></tr>
     					<tr><td>
     				    	<div>
-								<security:authorize access="hasRole('CUSTOMER')">
 									<display:table name="applications" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 										<display:column titleKey="customer.ticker"> 
 											<a href="application/customer/show.do?applicationId=${row.id}"><spring:message code="application.show" /></a>
@@ -90,7 +89,6 @@
 										</display:column>
 										<display:column property="comments" titleKey="application.comments"></display:column>
 									</display:table>
-								</security:authorize>
 							</div>
   							
   						</td></tr>

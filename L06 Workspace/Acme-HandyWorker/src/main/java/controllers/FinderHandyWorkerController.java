@@ -153,7 +153,7 @@ public class FinderHandyWorkerController extends AbstractController {
 		result.addObject("requestURI", "finder/handyWorker/list.do");
 		result.addObject("resultF", resultF);
 		result.addObject("system", system);
-		result.addObject("finderFixUp", finderFixUp);
+		result.addObject("finderFixUp", finder.getFixUps());
 
 		return result;
 	}

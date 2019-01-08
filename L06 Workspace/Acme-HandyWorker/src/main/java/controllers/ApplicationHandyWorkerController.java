@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -127,6 +128,11 @@ public class ApplicationHandyWorkerController extends AbstractController {
 		System.out.println(application);
 		System.out.println(application.getComments());
 		System.out.println("Entro en el update");
+		if (application.getOffered().getQuantity() < 0) {
+			final ObjectError error = new ObjectError("maxPrice.quantity", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("offered.quantity", "error.maxPrice.quantity");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding");
 			System.out.println(binding.getAllErrors().get(0));

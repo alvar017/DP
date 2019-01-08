@@ -292,35 +292,92 @@ public class AdministratorController extends AbstractController {
 		return result;
 	}
 
-	@RequestMapping(value = "/newScoreWord", method = RequestMethod.GET)
-	public ModelAndView newScoreWord(@RequestParam("newScoreWord") final String newScoreWord) {
-		ModelAndView result;
-
-		this.administratorService.newScoreWords(newScoreWord);
-		result = new ModelAndView("redirect:list.do");
-
-		return result;
-	}
-	@RequestMapping(value = "/deleteScoreWord", method = RequestMethod.GET)
-	public ModelAndView deleteScoreWord(@RequestParam("deleteScoreWord") final String ScoreWord) {
-		ModelAndView result;
-
-		this.administratorService.deleteScoreWords(ScoreWord);
-		result = new ModelAndView("redirect:list.do");
-
-		return result;
-	}
-
 	@RequestMapping(value = "/newIVA", method = RequestMethod.GET)
 	public ModelAndView newIVA(@RequestParam("newIVA") final Integer newIVA) {
 		ModelAndView result;
 
-		System.out.println(newIVA);
-		System.out.println("Carmen: Voy a intentar guardar");
-		final Integer iva = this.fixUpService.newIva(newIVA);
-		this.applicationService.newIva(newIVA);
-		System.out.println(iva);
-		result = new ModelAndView("redirect:list.do");
+		try {
+			System.out.println(newIVA);
+			System.out.println("Carmen: Voy a intentar guardar");
+			final Integer iva = this.fixUpService.newIva(newIVA);
+			this.applicationService.newIva(newIVA);
+			System.out.println(iva);
+			result = new ModelAndView("redirect:list.do");
+		} catch (final Exception e) {
+			result = this.createEditModelAndView(newIVA, "iva.bad");
+		}
+
+		return result;
+	}
+
+	private ModelAndView createEditModelAndView(final Integer newIVA, final String messageCode) {
+		ModelAndView result;
+
+		//Actores suspendidos
+		final Collection<Actor> actor = this.actorService.findActorsSuspicious();
+		final Collection<Actor> actorB = this.actorService.findActorsBanned();
+
+		//Logo
+		final String logo = this.welcomeService.getLogo();
+
+		//iva
+		final Integer iva = this.fixUpService.getIva();
+
+		//Spam words
+		final HashSet<String> spamWords = this.fixUpService.listSpamWords();
+
+		System.out.println("Carmen: Esta es la lista de spam words");
+		System.out.println(spamWords);
+
+		//Welcome page
+		final String ingles = this.welcomeService.getS();
+		final String spanish = this.welcomeService.getE();
+
+		//Finder
+		final Integer time = this.finderService.getTime();
+		final Integer resultF = this.finderService.getResult();
+
+		//System
+		final String system = this.welcomeService.getSystem();
+
+		//Phone
+		final Integer phone = this.welcomeService.getPhone();
+
+		//Brand
+		final HashSet<String> brand = this.applicationService.listBrands();
+
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		System.out.println("Carmen: Entro en el list");
+
+		System.out.println(actor);
+
+		result = new ModelAndView("administrator/list");
+		result.addObject("message", messageCode);
+
+		result.addObject("actor", actor);
+		result.addObject("actorB", actorB);
+
+		result.addObject("logo", logo);
+
+		result.addObject("ingles", ingles);
+		result.addObject("spanish", spanish);
+
+		result.addObject("iva", iva);
+
+		result.addObject("spamWords", spamWords);
+
+		result.addObject("time", time);
+		result.addObject("resultF", resultF);
+
+		result.addObject("system", system);
+
+		result.addObject("phone", phone);
+
+		result.addObject("brand", brand);
+
+		result.addObject("language", language);
+		result.addObject("requestURI", "administrator/list.do");
 
 		return result;
 	}
@@ -378,29 +435,36 @@ public class AdministratorController extends AbstractController {
 	@RequestMapping(value = "/newResult", method = RequestMethod.GET)
 	public ModelAndView newResult(@RequestParam("newResult") final Integer newResult) {
 		ModelAndView result;
+		try {
+			final Integer resultF = this.finderService.numResult(newResult);
 
-		final Integer resultF = this.finderService.numResult(newResult);
+			System.out.println(resultF);
 
-		System.out.println(resultF);
+			System.out.println("Carmen: Voy a intentar guardar");
 
-		System.out.println("Carmen: Voy a intentar guardar");
+			result = new ModelAndView("redirect:list.do");
 
-		result = new ModelAndView("redirect:list.do");
-
+		} catch (final Exception e) {
+			result = this.createEditModelAndView(newResult, "resutl.bad");
+		}
 		return result;
 	}
 
 	@RequestMapping(value = "/newTime", method = RequestMethod.GET)
 	public ModelAndView newTime(@RequestParam("newTime") final Integer newTime) {
 		ModelAndView result;
+		try {
+			final Integer time = this.finderService.newTime(newTime);
 
-		final Integer time = this.finderService.newTime(newTime);
+			System.out.println(time);
 
-		System.out.println(time);
+			System.out.println("Carmen: Voy a intentar guardar");
 
-		System.out.println("Carmen: Voy a intentar guardar");
+			result = new ModelAndView("redirect:list.do");
 
-		result = new ModelAndView("redirect:list.do");
+		} catch (final Exception e) {
+			result = this.createEditModelAndView(newTime, "time.bad");
+		}
 
 		return result;
 	}
@@ -408,12 +472,88 @@ public class AdministratorController extends AbstractController {
 	@RequestMapping(value = "/newLogo", method = RequestMethod.GET)
 	public ModelAndView newLogo(@RequestParam("newLogo") final String newLogo) {
 		ModelAndView result;
+		try {
+			final String logo = this.welcomeService.newLogo(newLogo);
 
-		final String logo = this.welcomeService.newLogo(newLogo);
+			System.out.println("Carmen: Voy a intentar guardar");
 
-		System.out.println("Carmen: Voy a intentar guardar");
+			result = new ModelAndView("redirect:list.do");
 
-		result = new ModelAndView("redirect:list.do");
+		} catch (final Exception e) {
+			result = this.createEditModelAndView(newLogo, "logo.bad");
+		}
+
+		return result;
+	}
+
+	private ModelAndView createEditModelAndView(final String newLogo, final String messageCode) {
+		ModelAndView result;
+
+		//Actores suspendidos
+		final Collection<Actor> actor = this.actorService.findActorsSuspicious();
+		final Collection<Actor> actorB = this.actorService.findActorsBanned();
+
+		//Logo
+		final String logo = this.welcomeService.getLogo();
+
+		//iva
+		final Integer iva = this.fixUpService.getIva();
+
+		//Spam words
+		final HashSet<String> spamWords = this.fixUpService.listSpamWords();
+
+		System.out.println("Carmen: Esta es la lista de spam words");
+		System.out.println(spamWords);
+
+		//Welcome page
+		final String ingles = this.welcomeService.getS();
+		final String spanish = this.welcomeService.getE();
+
+		//Finder
+		final Integer time = this.finderService.getTime();
+		final Integer resultF = this.finderService.getResult();
+
+		//System
+		final String system = this.welcomeService.getSystem();
+
+		//Phone
+		final Integer phone = this.welcomeService.getPhone();
+
+		//Brand
+		final HashSet<String> brand = this.applicationService.listBrands();
+
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		System.out.println("Carmen: Entro en el list");
+
+		System.out.println(actor);
+
+		result = new ModelAndView("administrator/list");
+		result.addObject("actor", actor);
+		result.addObject("actorB", actorB);
+
+		result.addObject("logo", logo);
+
+		result.addObject("ingles", ingles);
+		result.addObject("spanish", spanish);
+
+		result.addObject("iva", iva);
+
+		result.addObject("spamWords", spamWords);
+
+		result.addObject("time", time);
+		result.addObject("resultF", resultF);
+
+		result.addObject("system", system);
+
+		result.addObject("phone", phone);
+
+		result.addObject("brand", brand);
+
+		result.addObject("language", language);
+		result.addObject("requestURI", "administrator/list.do");
+
+		result.addObject("message", messageCode);
 
 		return result;
 	}
@@ -581,6 +721,25 @@ public class AdministratorController extends AbstractController {
 		result.addObject("betterHandyWorkers", betterHandyWorkers);
 
 		result.addObject("requestURI", "administrator/statistics.do");
+
+		return result;
+	}
+	@RequestMapping(value = "/deleteScoreWord", method = RequestMethod.GET)
+	public ModelAndView deleteScoreWord(@RequestParam("deleteScoreWord") final String ScoreWord) {
+		ModelAndView result;
+
+		this.administratorService.deleteScoreWords(ScoreWord);
+		result = new ModelAndView("redirect:list.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/newScoreWord", method = RequestMethod.GET)
+	public ModelAndView newScoreWord(@RequestParam("newScoreWord") final String newScoreWord) {
+		ModelAndView result;
+
+		this.administratorService.newScoreWords(newScoreWord);
+		result = new ModelAndView("redirect:list.do");
 
 		return result;
 	}

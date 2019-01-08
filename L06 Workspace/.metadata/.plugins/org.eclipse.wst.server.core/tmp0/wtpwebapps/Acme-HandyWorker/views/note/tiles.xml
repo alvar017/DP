@@ -19,10 +19,8 @@
 
 	<definition name="note/handyWorker/create" extends="master.page">	
 		<put-attribute name="title" value="HandyWorker: Create note" />
-		<put-attribute name="body" value="/views/note/create.jsp" />
+		<put-attribute name="body" value="/views/note/noteHandyWorkerCreate.jsp" />
 	</definition>
-	
-
 	
 		<definition name="note/administrator/showD" extends="master.page">
 		<put-attribute name="title" value="Administrator: Show Dashboard"></put-attribute>
@@ -34,7 +32,6 @@
 		<put-attribute name="body" value="/views/note/show.jsp"></put-attribute>
 	</definition>
 
-		<!-- Note -->
 	<definition name="note/customer/create" extends="master.page">	
 		<put-attribute name="title" value="Customer: Create Note" />
 		<put-attribute name="body" value="/views/note/noteCreate.jsp" />
@@ -43,6 +40,11 @@
 	<definition name="note/customer/show" extends="master.page">	
 		<put-attribute name="title" value="Customer: Show Note" />
 		<put-attribute name="body" value="/views/note/noteShow.jsp" />
+	</definition>
+	
+	<definition name="note/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="HandyWorker: Show Note" />
+		<put-attribute name="body" value="/views/note/noteHandyWorkerShow.jsp" />
 	</definition>
 	
 	<definition name="note/referee/create" extends="master.page">	

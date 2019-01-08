@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.transaction.Transactional;
 
+import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -32,6 +33,7 @@ public class TutorialService {
 		Assert.notNull(hw);
 		final Tutorial tutorial = new Tutorial();
 		tutorial.setHandyWorker(hw);
+		tutorial.setMoment(LocalDateTime.now().toDate());
 		return tutorial;
 	}
 

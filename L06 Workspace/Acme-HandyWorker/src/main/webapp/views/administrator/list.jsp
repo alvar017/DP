@@ -69,33 +69,12 @@
 	<form:form class="formularioEdicion" method="GET"  action="administrator/newSpamWord.do?newSpamWord='${newSpamWord}'.do">		
 		<spring:message code="newSpamWord" />
 		<input type=text name="newSpamWord" required="required"/>
-		<form:errors cssClass="error" path="spamWord.wrong"/><br>
 		<input type="submit" value=<spring:message code="saveNewSpamWord"/> />
 	</form:form>
 </security:authorize>
 <!--SPAM WORDS-->	
 
 <br>
-
-<!-- SCORE WORDS -->
-<h3><i><spring:message code="ScoreWords" /></i></h3>
-<p>${scoreWords}</p>
-<security:authorize access="hasRole('ADMIN')">
-	<form:form class="formularioEdicion" method="GET"  action="administrator/newScoreWord.do?newScoreWord='${newScoreWord}'.do">		
-		<spring:message code="newScoreWord" />
-			<input type=text name="newScoreWord" required="required"/>
-		<form:errors cssClass="error" path="spamWord.wrong"/><br>
-		<input type="submit" value=<spring:message code="saveNewScoreWord"/> />
-	</form:form>
-	<form:form class="formularioEdicion" method="GET"  action="administrator/deleteScoreWord.do?ScoreWord='${ScoreWord}'.do">		
-		<spring:message code="deleteScoreWord" />
-			<input type=text name="deleteScoreWord" required="required"/>
-		<form:errors cssClass="error" path="scoreWord.wrong"/><br>
-		<input type="submit" value=<spring:message code="deleteScoreWord"/> />
-	</form:form>
-</security:authorize>
-<!-- SCORE WORDS -->
-<br />
 
 <!--Welcome page-->	
 <h3><i><spring:message code="welcomePage" /></i></h3>
@@ -121,6 +100,7 @@
 	<form:form class="formularioEdicion" method="GET" action="administrator/newIVA.do?newIVA='${newIVA}'.do">		
 		<spring:message code="ivaM" />
 		<input type="number" name="newIVA" required="required"/>
+		<form:errors cssClass="error" path="${newIVA}"/>
 		<input type="submit" value=<spring:message code="saveNewSpamWord" /> />
 	</form:form>
 <!-- IVA -->
@@ -133,6 +113,7 @@
 	<form:form class="formularioEdicion" method="GET" action="administrator/newLogo.do?newLogo='${newLogo}'.do">		
 		<spring:message code="logoM" />
 		<input type="text" name="newLogo" required="required"/>
+		<form:errors cssClass="error" path="${newLogo}"/><br> 
 		<input type="submit" value=<spring:message code="saveNewSpamWord" /> />
 	</form:form>
 <!-- Logo -->
@@ -170,6 +151,7 @@
 	<form:form class="formularioEdicion" method="GET" action="administrator/newTime.do?newTime='${newTime}'.do">		
 		<spring:message code="timeM" />
 		<input type="number" name="newTime" required="required"/>
+		<form:errors cssClass="error" path="${newTime}"/><br> 
 		<input type="submit" value=<spring:message code="saveNewSpamWord" /> />
 	</form:form>
 <!-- TIME -->				
@@ -182,6 +164,7 @@
 	<form:form class="formularioEdicion" method="GET"  action="administrator/newResult.do?newResult='${newResult}'.do">		
 		<spring:message code="resultM" />
 		<input type="number" name="newResult" required="required"/>
+		<form:errors cssClass="error" path="${newResult}"/><br> 
 		<input type="submit" value=<spring:message code="saveNewSpamWord" /> />
 	</form:form>
 <!-- RESULT -->	

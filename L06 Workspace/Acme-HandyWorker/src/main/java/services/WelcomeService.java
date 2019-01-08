@@ -3,6 +3,7 @@ package services;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 @Service
 @Transactional
@@ -26,8 +27,19 @@ public class WelcomeService {
 	}
 
 	public String newLogo(final String newLogo) {
+		Assert.isTrue(!this.checkUrl(newLogo), "logo.bad");
 		this.logo = newLogo;
 		return this.logo;
+	}
+
+	private Boolean checkUrl(final String url) {
+		Boolean res = true;
+		final String[] elementos = url.split("://");
+		final String elemento1 = elementos[0];
+		final String elemento2 = elementos[1];
+		if (elemento1 == "https" || elemento1 == "http")
+			res = false;
+		return res;
 	}
 
 	public String newE(final String newE) {

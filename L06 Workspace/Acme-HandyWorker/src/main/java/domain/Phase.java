@@ -41,7 +41,7 @@ public class Phase extends DomainEntity {
 	public void setDescription(final String description) {
 		this.description = description;
 	}
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getStartDate() {
 		return this.startDate;
@@ -50,7 +50,7 @@ public class Phase extends DomainEntity {
 	public void setStartDate(final Date startDate) {
 		this.startDate = startDate;
 	}
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
 	public Date getEndDate() {
 		return this.endDate;

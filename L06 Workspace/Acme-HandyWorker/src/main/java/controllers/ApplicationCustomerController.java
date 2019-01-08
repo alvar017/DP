@@ -27,7 +27,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import services.ApplicationService;
+import services.MailBoxService;
+import services.MessageService;
+import domain.Actor;
 import domain.Application;
+import domain.MailBox;
+import domain.Message;
 
 @Controller
 @RequestMapping("/application/customer")
@@ -35,6 +40,10 @@ public class ApplicationCustomerController extends AbstractController {
 
 	@Autowired
 	private ApplicationService	applicationService;
+	@Autowired
+	private MessageService		messageService;
+	@Autowired
+	private MailBoxService		mailBoxService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -101,7 +110,7 @@ public class ApplicationCustomerController extends AbstractController {
 		Application application;
 
 		application = this.applicationService.findOne(applicationId);
-		if (application == null || application.getFixUp().getCustomer().getUserAccount().getId() != LoginService.getPrincipal().getId()) {
+		if (application == null || (application.getState() != null && application.getState() == true) || application.getFixUp().getCustomer().getUserAccount().getId() != LoginService.getPrincipal().getId()) {
 			final Collection<Application> applications = this.applicationService.findAllByCustomerLogger();
 			result = new ModelAndView("application/customer/list");
 			result.addObject("applications", applications);
@@ -121,6 +130,17 @@ public class ApplicationCustomerController extends AbstractController {
 		System.out.println(application);
 		System.out.println(application.getComments());
 		System.out.println("Entro en el save");
+
+		final Actor applier = application.getApplier();
+		final Actor custom = application.getFixUp().getCustomer();
+
+		final MailBox inBoxApplier = this.mailBoxService.getInBoxActor(applier.getId());
+		final MailBox inBoxCustom = this.mailBoxService.getInBoxActor(custom.getId());
+
+		System.out.println("EL REQ 19");
+		System.out.println(inBoxApplier);
+		System.out.println(inBoxCustom);
+
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding");
 			System.out.println(binding);
@@ -128,6 +148,28 @@ public class ApplicationCustomerController extends AbstractController {
 		} else
 			try {
 				this.applicationService.updateCustomer(application);
+				if (application.getState() != null) {
+					final Message m = this.messageService.create();
+					m.setSubject("Application");
+					if (application.getState() == true)
+						m.setBody("ES: La aplicación " + application.getId() + " ha cambiado su estado a aceptada ||EN: The application" + application.getId() + " have change her state to accepted");
+					else
+						m.setBody("ES: La aplicación " + application.getId() + " ha cambiado su estado a rechazada ||EN: The application" + application.getId() + " have change her state to rejected");
+
+					m.getMailBoxes().add(inBoxApplier);
+					m.getMailBoxes().add(inBoxCustom);
+
+					final Message saved = this.messageService.save(m);
+
+					inBoxApplier.getMessages().add(m);
+					inBoxCustom.getMessages().add(m);
+
+					System.out.println(m.getMailBoxes());
+					System.out.println(inBoxApplier.getMessages());
+					System.out.println(inBoxCustom.getMessages());
+
+					System.out.println("sE GUARDA EL MENSAJE");
+				}
 				result = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
 				System.out.println(oops);

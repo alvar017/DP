@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -69,7 +69,7 @@ public class MessageService {
 	public Message create() {
 		final Collection<MailBox> boxes = new ArrayList<>();
 		final Message m = new Message();
-		m.setMoment(LocalDate.now().toDate());
+		m.setMoment(LocalDateTime.now().toDate());
 		m.setBody("");
 		m.setMailBoxes(boxes);
 		return m;

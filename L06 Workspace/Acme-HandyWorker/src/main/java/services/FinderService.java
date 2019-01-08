@@ -35,6 +35,7 @@ public class FinderService {
 
 
 	public Integer numResult(final Integer newResult) {
+		Assert.isTrue(!this.checkResult(newResult), "result.bad");
 		this.result = newResult;
 		return this.result;
 	}
@@ -48,8 +49,16 @@ public class FinderService {
 
 
 	public Integer newTime(final Integer newTime) {
+		Assert.isTrue(!this.checkTime(newTime), "time.bad");
 		this.time = newTime;
 		return this.time;
+	}
+
+	private Boolean checkTime(final Integer time) {
+		Boolean res = true;
+		if (time >= 1 && time <= 24)
+			res = false;
+		return res;
 	}
 
 	public Integer getTime() {
@@ -63,6 +72,13 @@ public class FinderService {
 	public Collection<FixUp> fixUpByFinder(final Collection<FixUp> fixUps) {
 		this.finderFixUp.addAll(fixUps);
 		return this.finderFixUp;
+	}
+
+	private Boolean checkResult(final Integer result) {
+		Boolean res = true;
+		if (result > 0)
+			res = false;
+		return res;
 	}
 
 	public Collection<FixUp> getFinderFixUp() {

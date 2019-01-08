@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.NoteService;
 import services.ReportService;
 import domain.Customer;
+import domain.HandyWorker;
 import domain.Note;
 import domain.Report;
 
@@ -43,8 +44,10 @@ public class NoteRefereeController extends AbstractController {
 		final Report report = this.reportService.findOne(id);
 		Assert.notNull(report);
 
-		final Customer customer = report.getComplaint().getFixUp().getCustomer();
+		final HandyWorker hw = report.getComplaint().getFixUp().getHandyWorker();
 
+		final Customer customer = report.getComplaint().getFixUp().getCustomer();
+		note.setHandyWorker(hw);
 		note.setReport(report);
 		note.setCustomer(customer);
 		res = this.createEditModelAndView(note);

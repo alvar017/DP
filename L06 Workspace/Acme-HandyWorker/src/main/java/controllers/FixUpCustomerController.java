@@ -19,6 +19,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -162,7 +163,11 @@ public class FixUpCustomerController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final FixUp fixUp, final BindingResult binding) {
 		ModelAndView result;
-
+		if (fixUp.getMaxPrice().getQuantity() < 0) {
+			final ObjectError error = new ObjectError("maxPrice.quantity", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("maxPrice.quantity", "error.maxPrice.quantity");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);

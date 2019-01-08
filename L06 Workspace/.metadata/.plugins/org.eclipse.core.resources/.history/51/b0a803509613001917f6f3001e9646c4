@@ -1,0 +1,49 @@
+# messages.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+
+handyWorker.create = Create note
+handyWorker.showing.commentHandyWorker = Comment
+hw.send = Send
+
+administrator.action.1 = Daschboard
+administrator.indicator1 = Note per fix Ups
+administrator.value1 = Value
+administrator.min.note.fx = Minimun
+administrator.max.note.fx = Maximun
+administrator.av.note.fx = Average
+administrator.sd.note.fx = Standar desviation
+button.next = Next
+note.commit.error = Error
+
+hw.showing.details = Create note
+hw.showing.hw = Handy Worker 
+hw.showing.moment = Moment 
+hw.showing.comment = Comment 
+
+note.info = Info
+
+handyWorker.create = Crear una nota
+handyWorker.showing.commentHandyWorker = Escribe tu comentario
+hw.send = Enviar
+
+save = Create
+commentCustomer= Customer큦 comment
+moment = Moment
+description = Description
+handyWorker = HandyWorker
+referee = Referee
+customer = Customer
+commentReferee = Referee큦 Comment
+commentCustomer = Customer큦 Comment
+commentHandyWorker = HandyWorker큦 Comment
+comments = Comments
+
+note.commit.error = Note commit error
+
+button.edit = Comment

@@ -200,7 +200,7 @@
 		<security:intercept-url pattern="/section/handyWorker/delete.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/workplan/handyWorker/redir.do" access="hasRole('HANDYWORKER')" />
 		<!-- Ferrete -->
-<!-- Fran -->
+		<!-- Fran -->
 		<security:intercept-url pattern="/complaint/customer/list.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/complaint/customer/show.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/complaint/customer/edit.do" access="hasRole('CUSTOMER')" />
@@ -225,6 +225,8 @@
 		<security:intercept-url pattern="/note/referee/show.do" access="hasRole('REFEREE')"/>
 		<security:intercept-url pattern="/note/referee/edit.do" access="hasRole('REFEREE')"/>
 		<security:intercept-url pattern="/note/referee/create.do" access="hasRole('REFEREE')"/>
+		
+		<security:intercept-url pattern="/note/handyWorker/show.do" access="hasRole('HANDYWORKER')"/>
 		
 		<security:intercept-url pattern="/endorsement/administrator/list.do" access="hasRole('ADMIN')" />
 		<security:intercept-url pattern="/endorsement/administrator/wordList.do" access="hasRole('ADMIN')" />

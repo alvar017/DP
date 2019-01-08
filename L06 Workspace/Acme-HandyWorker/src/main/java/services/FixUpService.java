@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Map;
 
 import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -56,6 +57,7 @@ public class FixUpService {
 
 	//CARMEN: Método para modificar el IVA
 	public Integer newIva(final Integer newIva) {
+		Assert.isTrue(!this.checkIva(newIva), "iva.bad");
 		this.iva = newIva;
 
 		return this.iva;
@@ -63,6 +65,13 @@ public class FixUpService {
 
 	public Integer getIva() {
 		return this.iva;
+	}
+
+	private Boolean checkIva(final Integer iva) {
+		Boolean res = true;
+		if (iva != null && iva >= 0)
+			res = false;
+		return res;
 	}
 
 	public Double iva(final FixUp fixUp) {
@@ -121,7 +130,7 @@ public class FixUpService {
 		//		final Warranty saveWaranty = this.warrantyService.save(warranty);
 		//		fixUp.setWarranty(saveWaranty);
 		fixUp.setDescription("");
-		fixUp.setMoment(LocalDate.now().toDate());
+		fixUp.setMoment(LocalDateTime.now().toDate());
 		return fixUp;
 
 	}

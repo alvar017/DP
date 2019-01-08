@@ -1,0 +1,136 @@
+# messages_es.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+administrator.action.1	= Esta es la acción 1 del administrador
+administrator.action.2	= Esta es la acción 2 del administrador
+
+master.page.administrator.create = Crear administrador
+
+administrator.edit = Edit administrator
+
+ad.administrator = Lista de árbitros
+administrator.name = Nombre
+administrator.middleName = Apellidos
+administrator.email = Email
+administrator.address = Dirección
+
+button.create = Crear
+
+
+register.administrator = Árbitro
+
+administrator.name = Nombre:
+administrator.surname = Apellidos:
+administrator.middleName = Segundo Nombre:
+administrator.email= Correo Electrónico:
+administrator.username = Nombre de usuario:
+administrator.password = Contraseña:
+administrator.address = Dirección:
+administrator.photo = Imagen: 
+administrator.create= Registrar
+
+ad.actor.Susp = Actores sancionados
+actor.nameS = Nombre
+actor.surnameS = Apellidos
+actor.emailS = Email
+actor.isBanned = Estado
+actor.addressS = Dirección
+actor.sus = Estado
+ad.actor.B = Actores prohibidos
+
+spamWords = Lista de palabras spams: 
+newSpamWord = Añade una nueva palabra spam: 
+saveNewSpamWord = Guardar
+spamWord.wrong = Word spam esten blanco
+
+
+welcomePage = Texto de la página de principal
+welcomePageE = Mensaje en inglés: 
+welcomePageS = Mensaje en español: 
+spanish = Nuevo mensaje en español: 
+ingles = Nuevo mensaje en inglés:
+
+creditCard = Tarjeta de crédito
+
+IVA = IVA: 
+ivaM = Nuevo IVA: 
+
+result = Número de resultados del buscador: 
+time =  Tiempo de resultados del buscador: 
+resultM: Resultado nuevo: 
+timeM: Tiempo nuevo: 
+
+nameSistem = Nombre del sistema:
+systemM = Nuevo nombre del sistema:  
+
+phone = Teléfono:
+phoneM = Modifica el prefijo actual:  
+
+logoM = Url de la imágen: 
+nameLogo = Nueva url:  
+ 
+ cardM = Añade un tipo nuevo: 
+
+ad.welcom = ¿Quieres modificar el mensaje de la página de bienvenida?
+
+ScoreWords = Palabras puntuables
+newScoreWord = Nueva palabra puntuable
+saveNewScoreWord = Guardar nueva palabra puntuable
+deleteScoreWord = Borrar palabra puntuable
+
+phoneCountry = País del Teléfono:
+phoneCountryM = Modifica el país por defecto actual: 
+
+register.administrator = Registrar administrador
+administrator.statistics = Estadísticas
+
+administrator.name = Nombre
+administrator.address = Dirección
+administrator.surname = Apellido
+administrator.middleName = Nombre central
+administrator.email = Correo electrónico
+administrator.photo = URL de su foto
+administrator.username = Nombre de usuario
+administrator.password = Contraseña
+
+customer.fixUps = FixUps
+customer.name = Nombre
+customer.surname = Apellido
+customer.email = Correo electrónico
+
+handyWorker.application = Aplicaciones
+handyWorker.name = Nombre
+handyWorker.surname = Apellido
+handyWorker.email = Correo electrónico
+
+administrator.commit.error = Error
+
+minFixUpPerUser = Mínimo número de fixUp por usuario: 
+maxFixUpPerUser = Máximo número de fixUp por usuario:
+avgFixUpPerUser = Media de fixUp por usuario: 
+desviationFixUpPerUser = Desviación de fixUp por usuario: 
+
+minAppPerFixUp = Mínimo número de aplicaciones por fixUp: 
+maxAppUpPerFixUp =  Máximo número de aplicaciones por fixUp: 
+avgAppPerFixUp =  Media de número de aplicaciones por fixUp: 
+desviationAppPerFixUp = Desviación de número de aplicaciones por fixUp: 
+
+minPriceFixUp = Mínimo precio de fixUp: 
+maxPriceFixUp = Máximo precio de fixUp: 
+avgPriceFixUp = Media de precio de fixUp: 
+desviationPriceFixUp = Desviación de precio de fixUp: 
+
+minPriceApp = Mínimo precio de aplicación: 
+maxPriceApp = Máximo precio de aplicación: 
+avgPriceApp = Media de precio de aplicación: 
+desviationPriceApp = Desviación de precio de aplicación: 
+
+pendingApplicationRatio = Ratio de aplicaciones pendientes:  
+acceptedApplicationRatio = Ratio de aplicaciones aceptadas:  
+rejectedApplicationRatio = Ratio de aplicaciones rechazadas:  
+unModificableApplicationRatio = Ratio de aplicaciones no modificadas:  

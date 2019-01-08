@@ -234,10 +234,14 @@ public class MessageController extends AbstractController {
 		ModelAndView result;
 		final Collection<String> emails = this.actorService.getEmailofActors();
 		System.out.println(emails);
-		for (int i = 0; i < emails.size(); i++) {
-			final List<String> listEmail = (List<String>) emails;
+		final List<String> listEmail = new ArrayList<>();
+		listEmail.addAll(emails);
+		for (int i = 0; i < listEmail.size(); i++) {
 			final Actor a = this.actorService.getActorByEmail(listEmail.get(i));
 			final MailBox inbox = this.mailBoxService.getInBoxActor(a.getId());
+			System.out.println("inbox y actor");
+			System.out.println(inbox);
+			System.out.println(a);
 			if (inbox == null)
 				emails.remove(listEmail.get(i));
 		}

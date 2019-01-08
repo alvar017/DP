@@ -1,30 +1,33 @@
-/*
- * CustomerController.java
- * 
- * Copyright (C) 2018 Universidad de Sevilla
- * 
- * The use of this project is hereby constrained to the conditions of the
- * TDG Licence, a copy of which you may download from
- * http://www.tdg-seville.info/License.html
- */
 
 package controllers;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.LoginService;
+import security.UserAccount;
 import services.ComplaintService;
+import services.CustomerService;
+import services.FixUpService;
+import services.HandyWorkerService;
+import services.RefereeService;
 import domain.Complaint;
+import domain.Customer;
 import domain.FixUp;
+import domain.HandyWorker;
 import domain.Referee;
-import domain.Report;
+
+// COMPLAINTS
 
 @Controller
 @RequestMapping("/complaint/handyWorker")
@@ -32,59 +35,166 @@ public class ComplaintHandyWorkerController extends AbstractController {
 
 	@Autowired
 	private ComplaintService	complaintService;
+	@Autowired
+	private FixUpService		fixUpService;
+	@Autowired
+	private RefereeService		refereeService;
+	@Autowired
+	private CustomerService		customerService;
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
 
 
-	// Constructors -----------------------------------------------------------
+	// ==============================================================
 
-	public ComplaintHandyWorkerController() {
-		super();
+	protected ModelAndView createEditModelAndView(final Complaint complaint) {
+
+		ModelAndView res;
+
+		res = this.createEditModelAndView(complaint, null);
+
+		return res;
 	}
 
-	@RequestMapping(value = "/list")
+	protected ModelAndView createEditModelAndView(final Complaint complaint, final String messageCode) {
+
+		final ModelAndView res;
+		final UserAccount acc = LoginService.getPrincipal();
+		final Collection<FixUp> fixUps;
+		final Collection<Referee> referees;
+		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(acc.getId());
+
+		fixUps = this.fixUpService.getFixUpByCustomerId(hw.getId());
+		referees = this.refereeService.findAll();
+
+		res = new ModelAndView("complaint/handyWorker/edit");
+		res.addObject("complaint", complaint);
+		res.addObject("fixUps", fixUps);
+		res.addObject("referees", referees);
+		res.addObject("message", messageCode);
+
+		return res;
+	}
+
+	// ==============================================================
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
-		ModelAndView result;
-		final Collection<Complaint> complaint = this.complaintService.getAllComplaintsByHandyWorker();
-		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
-		System.out.println("Carmen: Entro en el list");
+		ModelAndView res;
+		Collection<Complaint> complaints;
 
-		result = new ModelAndView("complaint/handyWorker/list");
-		result.addObject("complaint", complaint);
-		result.addObject("language", language);
-		result.addObject("requestURI", "complaint/handyWorker/list.do");
+		complaints = this.complaintService.getAllComplaintsByHandyWorker();
 
-		System.out.println("Carmen: Salgo en el list");
+		res = new ModelAndView("complaint/handyWorker/list");
+		res.addObject("complaints", complaints);
+		res.addObject("requestURI", "complaint/handyWorker/list.do");
 
-		return result;
+		return res;
+	}
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+
+		ModelAndView res;
+		Complaint complaint;
+
+		complaint = this.complaintService.create();
+		res = this.createEditModelAndView(complaint);
+
+		return res;
 	}
 
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
 	public ModelAndView show(@RequestParam("complaintId") final int complaintId) {
-		ModelAndView result;
 
-		System.out.println("Carmen: Entro en el show");
+		final ModelAndView res;
+		res = new ModelAndView("complaint/handyWorker/show");
 
-		final Complaint complaint = this.complaintService.findOne(complaintId);
-		final FixUp fixUp = complaint.getFixUp();
+		final Complaint complaint;
+		complaint = this.complaintService.findOne(complaintId);
+		final Collection<FixUp> fixUps;
+		fixUps = this.fixUpService.getFixUpByCustomerId(complaint.getFixUp().getCustomer().getId());
 
-		System.out.println("Carmen: El fixUp de la complaint es:" + fixUp);
+		if (complaint.getReferee() != null) {
+			final Referee referee;
+			referee = this.refereeService.findOne(complaint.getReferee().getId());
+			res.addObject("referee", referee);
+		}
 
-		final Referee referee = complaint.getReferee();
-		final Collection<Report> reports = complaint.getReports();
+		final Customer customer = this.customerService.findOne(complaint.getFixUp().getCustomer().getId());
+		res.addObject("customer", customer);
 
-		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+		res.addObject("complaint", complaint);
+		res.addObject("fixUps", fixUps);
+		res.addObject("requestURI", "complaint/handyWorker/show.do");
 
-		result = new ModelAndView("complaint/handyWorker/show");
-		result.addObject("reports", reports);
-		result.addObject("complaint", complaint);
-		result.addObject("referee", referee);
-		result.addObject("language", language);
-		result.addObject("fixUp", fixUp);
-
-		result.addObject("requestURI", "complaint/handyWorker/show.do");
-
-		System.out.println("Carmen: Salgo en el show");
-
-		return result;
+		return res;
 	}
+	@RequestMapping(value = "/show", method = RequestMethod.POST, params = "delete")
+	public ModelAndView delete(@Valid final Complaint complaint, final BindingResult binding) {
+
+		ModelAndView res;
+
+		try {
+			this.complaintService.delete(complaint);
+			res = new ModelAndView("redirect:list.do");
+		} catch (final Throwable oops) {
+			res = this.createEditModelAndView(complaint, "complaint.commit.error");
+		}
+
+		return res;
+	}
+
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public ModelAndView edit(@RequestParam("complaintId") final int complaintId) {
+
+		ModelAndView res;
+		Complaint complaint;
+
+		complaint = this.complaintService.findOne(complaintId);
+		Assert.notNull(complaint);
+		res = this.createEditModelAndView(complaint);
+
+		return res;
+	}
+
+	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
+	public ModelAndView save(@Valid final Complaint complaint, final BindingResult binding) {
+
+		ModelAndView res;
+
+		if (binding.hasErrors()) {
+			res = this.createEditModelAndView(complaint);
+			System.out.println(binding);
+		} else
+			try {
+				this.complaintService.save(complaint);
+				res = new ModelAndView("redirect:list.do");
+			} catch (final Throwable oops) {
+				System.out.println("El error: " + oops);
+				res = this.createEditModelAndView(complaint, "complaint.commit.error");
+
+			}
+
+		return res;
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public ModelAndView delete(@RequestParam("complaintId") final int complaintId) {
+
+		ModelAndView res;
+		final Complaint complaint = this.complaintService.findOne(complaintId);
+		Assert.notNull(complaint);
+
+		try {
+			this.complaintService.delete(complaint);
+			res = new ModelAndView("redirect:list.do");
+		} catch (final Exception e) {
+			res = this.createEditModelAndView(complaint, "complaint.commit.error");
+		}
+
+		return res;
+	}
+	// ==============================================================
+
 }
