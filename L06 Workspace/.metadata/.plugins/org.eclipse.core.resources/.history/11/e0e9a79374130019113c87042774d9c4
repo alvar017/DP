@@ -4,7 +4,6 @@ package services;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -214,25 +213,6 @@ public class MessageService {
 			System.out.println(spamBox.getMessages());
 			System.out.println(trashBox.getMessages());
 
-		}
-
-		if (!inBox.getMessages().contains(message) && !outBox.getMessages().contains(message) && !spamBox.getMessages().contains(message) && !trashBox.getMessages().contains(message) && message.getMailBoxes().size() > 0) {
-			System.out.println("entra en super if delete");
-			message.getMailBoxes().add(trashBox);
-			trashBox.getMessages().add(message);
-
-			final Collection<MailBox> newBoxes = message.getMailBoxes();
-			System.out.println(newBoxes);
-			final List<MailBox> newBoxesList = new ArrayList<>();
-			newBoxesList.addAll(newBoxes);
-			final MailBox newBox = newBoxesList.get(0);
-
-			System.out.println(newBox);
-
-			message.getMailBoxes().remove(newBox);
-			newBox.getMessages().remove(message);
-
-			System.out.println("SALGO SUPER IF DELETE");
 		}
 
 		return saved;
