@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import security.LoginService;
 import security.UserAccountRepository;
 import services.RefereeService;
+import services.WelcomeService;
 import domain.Referee;
 
 @Controller
@@ -35,6 +36,8 @@ public class RefereeController extends AbstractController {
 	private RefereeService			refereeService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
+	@Autowired
+	WelcomeService					welcomeService;
 
 
 	//	@Autowired
@@ -56,6 +59,8 @@ public class RefereeController extends AbstractController {
 		result = new ModelAndView("referee/create");
 
 		result.addObject("referee", referee);
+		final Integer phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
 
 		return result;
 	}
@@ -71,6 +76,8 @@ public class RefereeController extends AbstractController {
 		result.addObject("referee", referee);
 		result.addObject("socialProfiles", referee.getSocialProfiles());
 		result.addObject("requestURI", "referee/show.do");
+		final Integer phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
 
 		return result;
 	}
@@ -117,6 +124,8 @@ public class RefereeController extends AbstractController {
 		result = new ModelAndView("referee/edit");
 
 		result.addObject("referee", referee);
+		final Integer phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
 
 		return result;
 	}

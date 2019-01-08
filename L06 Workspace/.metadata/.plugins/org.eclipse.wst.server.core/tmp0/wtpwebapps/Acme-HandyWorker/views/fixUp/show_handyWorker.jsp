@@ -37,7 +37,7 @@
     							
     				<tr><td><spring:message code="customer.showing.address" /><jstl:out value="${fixUp.address}"></jstl:out></td></tr>
     							
-    				<tr><td><spring:message code="customer.showing.price" /><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out></td></tr>
+    				<tr><td><spring:message code="customer.showing.price" /><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out>(${iva})</td></tr>
     							
     				<tr><td><spring:message code="customer.showing.startDate" /><jstl:out value="${fixUp.startDate}"></jstl:out></td></tr>
     							

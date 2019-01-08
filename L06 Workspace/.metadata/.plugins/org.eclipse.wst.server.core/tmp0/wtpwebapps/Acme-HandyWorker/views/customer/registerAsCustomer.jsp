@@ -35,7 +35,8 @@
           	<form:hidden path="isBanned"/>
           	<form:hidden path="isSuspicious"/>
           	<form:hidden path="mailBoxes"/>
-          	
+          	<form:label path="phone"><spring:message code="actor.phone" /></form:label>(+${phone})
+			<form:input path="phone" required="required"/><br>
           	<form:label path="name"><spring:message code="customer.name" /></form:label>
 			<form:input path="name" required="required"/>
 			<form:errors cssClass="error" path="name"/><br>

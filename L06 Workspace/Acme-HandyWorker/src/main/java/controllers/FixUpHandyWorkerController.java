@@ -81,6 +81,7 @@ public class FixUpHandyWorkerController extends AbstractController {
 		final Category category = fixUp.getCategory();
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 		final Collection<Phase> workplan = this.phaseService.getPhasesByFixUp(fixUp);
+		final Double iva = this.fixUpService.iva(fixUp);
 
 		result = new ModelAndView("fixUp/handyWorker/show");
 		result.addObject("fixUp", fixUp);
@@ -91,6 +92,7 @@ public class FixUpHandyWorkerController extends AbstractController {
 		//		result.addObject("checkHW", checkHW); COMENTADO POR ÁLVARO -> SI NO TIENE NINGÚN HW FALLA
 		//========================================
 		result.addObject("requestURI", "fixUp/handyWorker/show.do");
+		result.addObject("iva", iva);
 
 		return result;
 	}

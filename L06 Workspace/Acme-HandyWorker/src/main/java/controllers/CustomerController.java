@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.UserAccountRepository;
 import services.CustomerService;
+import services.WelcomeService;
 import domain.Customer;
 
 @Controller
@@ -33,6 +34,8 @@ public class CustomerController extends AbstractController {
 	private CustomerService			customerService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
+	@Autowired
+	private WelcomeService			welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -52,6 +55,8 @@ public class CustomerController extends AbstractController {
 		result = new ModelAndView("customer/create");
 
 		result.addObject("customer", customer);
+		final Integer phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
 
 		return result;
 	}

@@ -85,6 +85,7 @@ public class FixUpCustomerController extends AbstractController {
 			final Category category = fixUp.getCategory();
 			final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
 			final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
+			final Double iva = this.fixUpService.iva(fixUp);
 
 			result = new ModelAndView("fixUp/customer/show");
 			result.addObject("fixUp", fixUp);
@@ -92,6 +93,7 @@ public class FixUpCustomerController extends AbstractController {
 			result.addObject("applications", applications);
 			result.addObject("complaints", complaints);
 			result.addObject("requestURI", "fixUp/customer/show.do");
+			result.addObject("iva", iva);
 		}
 
 		return result;

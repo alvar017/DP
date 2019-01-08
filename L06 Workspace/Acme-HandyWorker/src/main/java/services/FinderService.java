@@ -1,8 +1,11 @@
 
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,13 +23,57 @@ import domain.HandyWorker;
 public class FinderService {
 
 	@Autowired
-	private FinderRepository	finderRepository;
+	private FinderRepository		finderRepository;
 
 	@Autowired
-	private HandyWorkerService	handyWorkerService;
+	private HandyWorkerService		handyWorkerService;
+
+	@Autowired
+	private AdministratorService	administratorService;
+
+	private Integer					result	= 10;
 
 
+	public Integer numResult(final Integer newResult) {
+		this.result = newResult;
+		return this.result;
+	}
+
+	public Integer getResult() {
+		return this.result;
+	}
+
+
+	private Integer	time	= 24;
+
+
+	public Integer newTime(final Integer newTime) {
+		this.time = newTime;
+		return this.time;
+	}
+
+	public Integer getTime() {
+		return this.time;
+	}
+
+
+	private final Collection<FixUp>	finderFixUp	= new ArrayList<>();
+
+
+	public Collection<FixUp> fixUpByFinder(final Collection<FixUp> fixUps) {
+		this.finderFixUp.addAll(fixUps);
+		return this.finderFixUp;
+	}
+
+	public Collection<FixUp> getFinderFixUp() {
+		return this.finderFixUp;
+	}
 	//Simple CRUD Methods ------------------
+
+	public Integer updateResultFinder() {
+		final Integer res = this.result;
+		return res;
+	}
 
 	public Finder create() {
 
@@ -35,6 +82,10 @@ public class FinderService {
 		final UserAccount login = LoginService.getPrincipal();
 		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
 		Assert.notNull(hw);
+
+		final Date moment = LocalDate.now().toDate();
+
+		finder.setDate(moment);
 
 		System.out.println("paso2");
 		return finder;

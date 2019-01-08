@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
-<fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
 <fullyQualifiedTypeName name="org.hibernate.engine.config.spi.ConfigurationService.Converter"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="security.LoginService"/>
+<fullyQualifiedTypeName name="services.WelcomeService"/>
+<fullyQualifiedTypeName name="controllers.WelcomeController"/>
 </qualifiedTypeNameHistroy>

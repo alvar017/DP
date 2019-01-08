@@ -45,6 +45,10 @@
 			<form:input path="surname" required="required"/>
 			<form:errors cssClass="error" path="surname"/><br>
 			
+			<form:label path="phone"><spring:message code="referee.phone" /></form:label>(+${phone})
+			<form:input path="phone" required="required"/><br>
+			<form:errors cssClass="error" path="phone"/><br>
+			
 			<form:label path="middleName"><spring:message code="referee.middleName" /></form:label>
 			<form:input path="middleName" required="required"/>
 			<form:errors cssClass="error" path="middleName"/><br>

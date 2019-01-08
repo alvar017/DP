@@ -48,6 +48,9 @@
 			<form:input path="surname" required="required"/>
 			<form:errors cssClass="error" path="surname"/><br>
 			
+			<form:label path="phone"><spring:message code="actor.phone" /></form:label>(+${phone})
+			<form:input path="phone" required="required"/><br>
+			
 			<form:label path="middleName"><spring:message code="actor.middleName" /></form:label>
 			<form:input path="middleName" required="required"/>
 			<form:errors cssClass="error" path="middleName"/><br>

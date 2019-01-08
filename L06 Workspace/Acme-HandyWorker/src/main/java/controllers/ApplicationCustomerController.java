@@ -11,6 +11,7 @@
 package controllers;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.validation.Valid;
 
@@ -45,7 +46,6 @@ public class ApplicationCustomerController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView listApplication() {
 		ModelAndView result;
-
 		final Collection<Application> applications = this.applicationService.findAllByCustomerLogger();
 
 		//		final String color = this.chooseColor(application);
@@ -72,13 +72,14 @@ public class ApplicationCustomerController extends AbstractController {
 			result.addObject("requestURI", "application/customer/list.do");
 		} else {
 			Assert.notNull(application);
-
+			final Double iva = this.applicationService.iva(application);
 			final String color = this.chooseColor(application);
 			System.out.println("Color: " + color);
 
 			result = new ModelAndView("application/customer/show");
 			result.addObject("color", color);
 			result.addObject("application", application);
+			result.addObject("iva", iva);
 			result.addObject("requestURI", "application/customer/show.do");
 		}
 		return result;
@@ -108,6 +109,8 @@ public class ApplicationCustomerController extends AbstractController {
 		} else {
 			Assert.notNull(application);
 			result = this.createEditModelAndView(application);
+			final HashSet<String> brand = this.applicationService.listBrands();
+			result.addObject("brand", brand);
 		}
 		return result;
 	}

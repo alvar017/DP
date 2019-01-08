@@ -48,6 +48,10 @@
 			<form:input path="make" required="required"/>
 			<form:errors cssClass="error" path="make"/><br>
 			
+			<form:label path="phone"><spring:message code="handyWorker.phone" /></form:label>(+${phone})
+			<form:input path="phone" required="required"/><br>
+			<form:errors cssClass="error" path="phone"/><br>
+			
 			<form:label path="address"><spring:message code="handyWorker.address" /></form:label>
 			<form:input path="address" required="required"/>
 			<form:errors cssClass="error" path="address"/><br>

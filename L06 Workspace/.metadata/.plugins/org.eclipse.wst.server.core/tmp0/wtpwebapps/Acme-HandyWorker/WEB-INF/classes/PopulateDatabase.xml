@@ -122,7 +122,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     <!-- Other domain beans come here -->
 
  <bean id="adm01" class="domain.Administrator">
-
+		<property name="phone"><null/></property>
         <property name="name" value="Laura" />
         <property name="surname" value="Exposito" />
         <property name="middleName" value="" />
@@ -141,7 +141,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
 
     <!-- HandyWorker -->
     <bean id="han01" class="domain.HandyWorker">
-
+		<property name="phone"><null/></property>
         <property name="name" value="Ester" />
         <property name="surname" value="Exposito" />
         <property name="middleName" value="" />
@@ -532,7 +532,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     <bean id="chan01" class="domain.HandyWorker">
          <property name="userAccount" ref= "userAccount6"/>
     
-       
+       	 <property name="phone"><null/></property>
          <property name="name" value="Carmen" />
          <property name="surname" value="Fernández" />
          <property name="middleName" value="" />
@@ -590,6 +590,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     
     <!-- Customer -->
     <bean id="ancus01" class="domain.Customer">
+    	<property name="phone"><null/></property>
         <property name="isSuspicious" value="true"/>
         <property name="isBanned" value="true"/>
         <property name="name" value="David" />
@@ -618,6 +619,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     </bean>
 
     <bean id="ancus02" class="domain.Customer">
+    	<property name="phone"><null/></property>
         <property name="name" value="Alvaro" />
         <property name="surname" value="Martín" />
         <property name="middleName" value="" />
@@ -665,6 +667,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
 <!-- Referee -->
 
 <bean id="Franref01" class="domain.Referee">
+		<property name="phone"><null/></property>
         <property name="name" value="Manuel" />
         <property name="surname" value="Rojo" />
         <property name="middleName" value="" />

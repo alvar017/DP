@@ -51,7 +51,7 @@
     							
     				<tr><td><spring:message code="customer.showing.warranty" /><jstl:out value="${fixUp.warranty.title}"></jstl:out></td></tr>			
     							
-    				<tr><td><spring:message code="customer.showing.price" /><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out></td></tr>
+    				<tr><td><spring:message code="customer.showing.price" /><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out>(${iva})</td></tr>
 
     				<tr><td><spring:message code="customer.showing.moment" /><jstl:out value="${fixUp.moment}"></jstl:out></td></tr>
     							

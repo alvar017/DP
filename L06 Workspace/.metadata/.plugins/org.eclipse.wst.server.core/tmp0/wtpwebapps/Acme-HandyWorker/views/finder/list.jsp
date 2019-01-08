@@ -49,7 +49,7 @@
 					<tr><td>
 					<div>
 						<security:authorize access="hasRole('HANDYWORKER')">
-							<display:table name="finder.fixUps" id="row" requestURI="${requestURI}" pagesize="3" class="displaytag">
+							<display:table name="finderFixUp" id="row" requestURI="${requestURI}" pagesize="${resultF}" class="displaytag">
 								<display:column property="ticker" titleKey="finder.fixUps.ticker" ></display:column>
 								<display:column property="description" titleKey="finder.fixUps.description"></display:column>
 							</display:table>

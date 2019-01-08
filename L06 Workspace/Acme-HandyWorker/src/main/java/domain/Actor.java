@@ -35,6 +35,9 @@ public class Actor extends DomainEntity {
 	private Boolean						isBanned;
 	private Boolean						isSuspicious;
 
+	//carmen
+	private Integer						phone;
+
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	public UserAccount getUserAccount() {
@@ -128,6 +131,14 @@ public class Actor extends DomainEntity {
 
 	public void setIsSuspicious(final Boolean isSuspicious) {
 		this.isSuspicious = isSuspicious;
+	}
+
+	public Integer getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(final Integer phone) {
+		this.phone = phone;
 	}
 
 }

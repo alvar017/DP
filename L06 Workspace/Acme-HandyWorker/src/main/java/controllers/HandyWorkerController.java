@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import security.LoginService;
 import security.UserAccountRepository;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.HandyWorker;
 
 @Controller
@@ -35,6 +36,8 @@ public class HandyWorkerController extends AbstractController {
 	private HandyWorkerService		handyWorkerService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
+	@Autowired
+	private WelcomeService			welcomeService;
 
 
 	//	@Autowired
@@ -56,6 +59,8 @@ public class HandyWorkerController extends AbstractController {
 		result = new ModelAndView("handyWorker/create");
 
 		result.addObject("handyWorker", handyWorker);
+		final Integer phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
 
 		return result;
 	}
@@ -71,6 +76,8 @@ public class HandyWorkerController extends AbstractController {
 		result.addObject("handyWorker", handyWorker);
 		result.addObject("socialProfiles", handyWorker.getSocialProfiles());
 		result.addObject("requestURI", "handyWorker/show.do");
+		final Integer phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
 
 		return result;
 	}
@@ -132,6 +139,8 @@ public class HandyWorkerController extends AbstractController {
 		result = new ModelAndView("handyWorker/edit");
 
 		result.addObject("handyWorker", handyWorker);
+		final Integer phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
 
 		return result;
 	}

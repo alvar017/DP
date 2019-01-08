@@ -2,11 +2,10 @@
 package services;
 
 import java.security.SecureRandom;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
 
 import org.joda.time.LocalDate;
@@ -36,6 +35,7 @@ public class FixUpService {
 
 	@Autowired
 	private FixUpRepository		fixUpRepository;
+	private Integer				iva	= 21;
 
 	//Supporting services ------------------
 	@Autowired
@@ -53,8 +53,54 @@ public class FixUpService {
 	@Autowired
 	PhaseService				phaseService;
 
-	private final List<String>	spamWords	= Arrays.asList("sex", "viagra", "cialis", "ferrete", "one million", "you've been selected", "Nigeria", "queryfonsiponsypaferrete", "sexo", "un millón", "ha sido seleccionado");
 
+	//CARMEN: Método para modificar el IVA
+	public Integer newIva(final Integer newIva) {
+		this.iva = newIva;
+
+		return this.iva;
+	}
+
+	public Integer getIva() {
+		return this.iva;
+	}
+
+	public Double iva(final FixUp fixUp) {
+		System.out.println(this.getIva());
+		System.out.println(fixUp.getMaxPrice().getQuantity());
+		final Double res = (double) (this.getIva() / 100.0 * fixUp.getMaxPrice().getQuantity());
+
+		return res;
+	}
+
+
+	public HashSet<String>	spamWords	= new HashSet<>();
+
+
+	//Arrays.asList("sex", "viagra", "cialis", "ferrete", "one million", "you've been selected", "Nigeria", "queryfonsiponsypaferrete", "sexo", "un millón", "ha sido seleccionado");
+
+	//Carmen: Método para añadir spam words (adm)
+	public HashSet<String> newSpamWords(final String newWord) {
+		this.listSpamWords().add(newWord);
+		return this.listSpamWords();
+	}
+
+	//Carmen: Método para mostrar las spam words
+	public HashSet<String> listSpamWords() {
+
+		this.spamWords.add("sex");
+		this.spamWords.add("viagra");
+		this.spamWords.add("cialis");
+		this.spamWords.add("one millon");
+		this.spamWords.add("you've been selected");
+		this.spamWords.add("Nigeria");
+		this.spamWords.add("sexo");
+		this.spamWords.add("un millón");
+		this.spamWords.add("ha sido seleccionado");
+
+		return this.spamWords;
+	}
+	//private final List<String>	spamWords	= Arrays.asList("sex", "viagra", "cialis", "ferrete", "one million", "you've been selected", "Nigeria", "queryfonsiponsypaferrete", "sexo", "un millón", "ha sido seleccionado");
 
 	//Simple CRUD Methods ------------------
 

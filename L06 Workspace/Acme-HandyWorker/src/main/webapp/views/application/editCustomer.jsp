@@ -75,13 +75,11 @@
 		<form:label path="creditCard.name"><spring:message code="application.creditCard.name" /></form:label>
 		<form:input path="creditCard.name" /><form:errors cssClass="error" path="creditCard.name" />
 		<form:label path="creditCard.brand"><spring:message code="application.creditCard.brand" /></form:label>
-		<form:select path="creditCard.brand">
-			<form:option value=""></form:option>
-			<form:option value="VISA"></form:option>
-			<form:option value="MASTERCARD"></form:option>
-			<form:option value="DINNERS"></form:option>
-			<form:option value="AMEX"></form:option>
-		</form:select>	
+		<form:label path="creditCard.brand"><spring:message code="application.creditCard.brand" /></form:label>
+			<form:select path="creditCard.brand" >
+					<form:options items="${brand}"/>
+			</form:select>
+		<form:errors cssClass="error" path="creditCard.brand" />
 		<form:errors cssClass="error" path="creditCard.brand" />
 		<form:label path="creditCard.number"><spring:message code="application.creditCard.number" /></form:label>
 		<form:input path="creditCard.number"/>

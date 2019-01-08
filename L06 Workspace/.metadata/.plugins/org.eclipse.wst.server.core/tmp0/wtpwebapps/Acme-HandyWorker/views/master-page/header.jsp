@@ -16,7 +16,8 @@
 
 <header id="main-header">
     
-    <a title="AcmeTitle" href=""><img src="images/logo.png" alt="Logo" /></a>
+        <a title="AcmeTitle" href="">${system}    		    	<img  src="${logo}" id="main-header" >
+    <!--<img src="images/logo.png" alt="Logo" />--></a>
  
     <nav>
 		<ul id="jMenu">
@@ -25,7 +26,7 @@
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="actor/administrator/list.do"><spring:message code="master.page.administrator.action.1" /></a></li>
+					<li><a href="administrator/list.do"><spring:message code="master.page.administrator.action.1" /></a></li>
 					<li><a href="referee/administrator/list.do"><spring:message code="master.page.administrator.action.3" /></a></li>
 					<li><a href="complaint/administrator/showD.do"><spring:message code="master.page.administrator.action.2" /></a></li>
 				</ul>
