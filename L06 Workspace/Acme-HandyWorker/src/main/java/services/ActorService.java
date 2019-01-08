@@ -95,4 +95,12 @@ public class ActorService {
 	public Actor findOneByUserAccountId(final int idUserAccount) {
 		return this.actorRepository.findByUserAccountId(idUserAccount);
 	}
+
+	public Actor getActorByEmail(final String email) {
+		return this.actorRepository.getActorByEmail(email);
+	}
+
+	public Collection<String> getEmailofActors() {
+		return this.actorRepository.getEmailofActors();
+	}
 }

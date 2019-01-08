@@ -30,15 +30,22 @@ import security.LoginService;
 import services.ActorService;
 import services.AdministratorService;
 import services.ApplicationService;
+import services.CustomerService;
 import services.FinderService;
 import services.FixUpService;
+import services.HandyWorkerService;
 import services.WelcomeService;
 import domain.Actor;
 import domain.Administrator;
+import domain.Customer;
+import domain.HandyWorker;
 
 @Controller
 @RequestMapping("/administrator")
 public class AdministratorController extends AbstractController {
+
+	@Autowired
+	HandyWorkerService			handyWorkerService;
 
 	@Autowired
 	AdministratorService		administratorService;
@@ -57,6 +64,9 @@ public class AdministratorController extends AbstractController {
 
 	@Autowired
 	private WelcomeService		welcomeService;
+
+	@Autowired
+	private CustomerService		customerService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -440,6 +450,137 @@ public class AdministratorController extends AbstractController {
 
 		this.welcomeService.newCountry(newPhoneCountry);
 		result = new ModelAndView("redirect:list.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		ModelAndView result;
+
+		Administrator administrator;
+
+		administrator = this.administratorService.create();
+
+		result = new ModelAndView("administrator/create");
+
+		result.addObject("administrator", administrator);
+
+		return result;
+	}
+
+	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
+	public ModelAndView save(@Valid final Administrator administrator, final BindingResult binding) {
+		ModelAndView result;
+
+		if (binding.hasErrors()) {
+			System.out.println("El error pasa por aquí");
+			System.out.println(binding);
+			result = new ModelAndView("administrator/create");
+		} else
+			try {
+				System.out.println("El error pasa por aquí");
+				System.out.println(binding);
+				final String password = administrator.getUserAccount().getPassword();
+				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				final String hashPassword = encoder.encodePassword(password, null);
+				administrator.getUserAccount().setPassword(hashPassword);
+				this.administratorService.save(administrator);
+				result = new ModelAndView("welcome/index");
+			} catch (final Throwable oops) {
+				System.out.println("El error: ");
+				System.out.println(oops);
+				System.out.println(binding);
+				result = new ModelAndView("administrator/create");
+			}
+		return result;
+	}
+
+	@RequestMapping(value = "/statistics", method = RequestMethod.GET)
+	public ModelAndView statistics() {
+		final ModelAndView result;
+
+		//12.5.1
+		final Integer minFixUpPerUser = this.fixUpService.minFixUpHandyWorker();
+		final Integer maxFixUpPerUser = this.fixUpService.maxFixUpHandyWorker();
+		final Double avgFixUpPerUser = this.fixUpService.avgFixUpPerHandyWorker();
+		final Double desviationFixUpPerUser = this.fixUpService.desviationFixUpPerHandyWorker();
+		//
+		//12.5.2
+		final Integer minAppPerFixUp = this.applicationService.minFixUp();
+		final Integer maxAppUpPerFixUp = this.applicationService.maxFixUp();
+		final Double avgAppPerFixUp = this.applicationService.avgPerFixUp();
+		final Double desviationAppPerFixUp = this.applicationService.desviationPerFixUp();
+		//
+		//12.5.3
+		final Double minPriceFixUp = this.fixUpService.minPriceFixUp();
+		final Double maxPriceFixUp = this.fixUpService.maxPriceFixUp();
+		final Double avgPriceFixUp = this.fixUpService.avgPriceFixUp();
+		final Double desviationPriceFixUp = this.fixUpService.desviationPriceFixUp();
+		//
+		//12.5.4
+		final Double minPriceApp = this.applicationService.minPricePerApplication();
+		final Double maxPriceApp = this.applicationService.maxPricePerApplication();
+		final Double avgPriceApp = this.applicationService.averagePriceApp();
+		final Double desviationPriceApp = this.applicationService.desviationPriceApp();
+		//
+		//12.5.5
+		final Double pendingApplicationRatio = this.applicationService.getRatioPending();
+		//
+		//12.5.6
+		final Double acceptedApplicationRatio = this.applicationService.getRatioAccepted();
+		//
+		//12.5.7
+		final Double rejectedApplicationRatio = this.applicationService.getRatioRejected();
+		//
+		//12.5.8
+		final Double unModificableApplicationRatio = this.applicationService.getRatioUnmodifiable();
+		//
+		//12.5.9
+		final Collection<Customer> betterCustomers = this.customerService.betterCustomer();
+		//
+		//12.5.10
+		final Collection<HandyWorker> betterHandyWorkers = this.handyWorkerService.betterHandyWorker();
+		//
+
+		System.out.println(betterCustomers);
+		System.out.println(betterHandyWorkers);
+
+		result = new ModelAndView("administrator/statistics");
+
+		result.addObject("minFixUpPerUser", minFixUpPerUser);
+		result.addObject("maxFixUpPerUser", maxFixUpPerUser);
+		result.addObject("avgFixUpPerUser", avgFixUpPerUser);
+		result.addObject("desviationFixUpPerUser", desviationFixUpPerUser);
+
+		result.addObject("minAppPerFixUp", minAppPerFixUp);
+		result.addObject("maxAppUpPerFixUp", maxAppUpPerFixUp);
+		result.addObject("avgAppPerFixUp", avgAppPerFixUp);
+		result.addObject("desviationAppPerFixUp", desviationAppPerFixUp);
+
+		result.addObject("minPriceFixUp", minPriceFixUp);
+		result.addObject("maxPriceFixUp", maxPriceFixUp);
+		result.addObject("avgPriceFixUp", avgPriceFixUp);
+		result.addObject("desviationPriceFixUp", desviationPriceFixUp);
+
+		result.addObject("minPriceApp", minPriceApp);
+		result.addObject("maxPriceApp", maxPriceApp);
+		result.addObject("avgPriceApp", avgPriceApp);
+		result.addObject("desviationPriceApp", desviationPriceApp);
+
+		result.addObject("pendingApplicationRatio", pendingApplicationRatio);
+
+		result.addObject("acceptedApplicationRatio", acceptedApplicationRatio);
+
+		result.addObject("rejectedApplicationRatio", rejectedApplicationRatio);
+
+		result.addObject("unModificableApplicationRatio", unModificableApplicationRatio);
+
+		result.addObject("betterCustomers", betterCustomers);
+
+		result.addObject("betterHandyWorkers", betterHandyWorkers);
+
+		result.addObject("requestURI", "administrator/statistics.do");
 
 		return result;
 	}

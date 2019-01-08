@@ -108,7 +108,7 @@ public class Actor extends DomainEntity {
 	}
 
 	@Valid
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<MailBox> getMailBoxes() {
 		return this.mailBoxes;
 	}

@@ -2,19 +2,21 @@
 package services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
 
 import javax.transaction.Transactional;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import repositories.MessageRepository;
 import security.LoginService;
 import security.UserAccount;
 import domain.Actor;
+import domain.Administrator;
 import domain.MailBox;
 import domain.Message;
 
@@ -36,60 +38,208 @@ public class MessageService {
 	@Autowired
 	private CustomerService		customerService;
 
-	private final List<String>	spamWords	= Arrays.asList("sex", "viagra", "cialis", "ferrete", "one million", "you've been selected", "Nigeria", "queryfonsiponsypaferrete", "sexo", "un millón", "ha sido seleccionado");
+	//private final List<String>	spamWords	= Arrays.asList("sex", "viagra", "cialis", "ferrete", "one million", "you've been selected", "Nigeria", "queryfonsiponsypaferrete", "sexo", "un millón", "ha sido seleccionado");
 
+	public HashSet<String>		spamWords	= new HashSet<>();
+
+
+	//Carmen: Método para añadir spam words (adm)
+	public HashSet<String> newSpamWords(final String newWord) {
+		this.listSpamWords().add(newWord);
+		return this.listSpamWords();
+	}
+
+	//Carmen: Método para mostrar las spam words
+	public HashSet<String> listSpamWords() {
+
+		this.spamWords.add("sex");
+		this.spamWords.add("viagra");
+		this.spamWords.add("cialis");
+		this.spamWords.add("one millon");
+		this.spamWords.add("you've been selected");
+		this.spamWords.add("Nigeria");
+		this.spamWords.add("sexo");
+		this.spamWords.add("un millón");
+		this.spamWords.add("ha sido seleccionado");
+
+		return this.spamWords;
+	}
 
 	public Message create() {
 		final Collection<MailBox> boxes = new ArrayList<>();
 		final Message m = new Message();
+		m.setMoment(LocalDate.now().toDate());
 		m.setBody("");
 		m.setMailBoxes(boxes);
 		return m;
 	}
 
 	public Message exchangeMessage(final Message message, final Integer receiverId) {
-		this.checkSuspicious(message);
-		final MailBox inBoxReceiver = this.mailBoxService.getInBoxActor(receiverId);
-		inBoxReceiver.getMessages().add(message);
+		//this.checkSuspicious(message);
+		final Boolean suspicious = this.checkSuspiciousWithBoolean(message);
 
 		final UserAccount userSender = LoginService.getPrincipal();
 		final Actor sender = this.actorService.getActorByUserId(userSender.getId());
-		final MailBox outBoxReceiver = this.mailBoxService.getOutBoxActor(sender.getId());
+		final MailBox outBoxSender = this.mailBoxService.getOutBoxActor(sender.getId());
 
-		outBoxReceiver.getMessages().add(message);
+		if (!outBoxSender.getMessages().contains(message) && !message.getMailBoxes().contains(outBoxSender)) {
+			outBoxSender.getMessages().add(message);
+			message.getMailBoxes().add(outBoxSender);
+		}
+		MailBox boxReceiver = null;
+
+		if (suspicious) {
+			System.out.println("id del exchangeMessafe");
+			System.out.println(receiverId);
+			boxReceiver = this.mailBoxService.getSpamBoxActor(receiverId);
+			System.out.println(boxReceiver);
+			boxReceiver.getMessages().add(message);
+			message.getMailBoxes().add(boxReceiver);
+		} else {
+			boxReceiver = this.mailBoxService.getInBoxActor(receiverId);
+			boxReceiver.getMessages().add(message);
+			message.getMailBoxes().add(boxReceiver);
+		}
 
 		return message;
 	}
+	public Message sendBroadcast(final Message message) {
+		final Administrator a = this.administratorService.findByUserAccount(LoginService.getPrincipal().getId());
+		final Collection<MailBox> inBoxAdmin = this.mailBoxService.getAdminInBox();
+		final MailBox spamBoxAdmin = this.mailBoxService.getSpamBoxActor(a.getId());
+		final MailBox outBoxAdmin = this.mailBoxService.getOutBoxActor(a.getId());
 
+		System.out.println(outBoxAdmin);
+
+		message.getMailBoxes().add(outBoxAdmin);
+		outBoxAdmin.getMessages().add(message);
+
+		Assert.notNull(a);
+		final Boolean suspicious = this.checkSuspiciousWithBoolean(message);
+
+		if (suspicious) {
+			final Collection<MailBox> result = this.mailBoxService.getspamBox();
+			result.remove(spamBoxAdmin);
+			for (final MailBox mailBox : result) {
+				message.getMailBoxes().add(mailBox);
+				mailBox.getMessages().add(message);
+			}
+		} else {
+			final Collection<MailBox> result = this.mailBoxService.getInbox();
+
+			result.removeAll(inBoxAdmin);
+
+			for (final MailBox mailBox : result) {
+				message.getMailBoxes().add(mailBox);
+				mailBox.getMessages().add(message);
+			}
+		}
+
+		return message;
+	}
 	public Message delete(final Message message) {
 		final UserAccount user = LoginService.getPrincipal();
 		final Actor a = this.actorService.getActorByUserId(user.getId());
+
+		System.out.println(a.getName());
+
 		final MailBox inBox = this.mailBoxService.getInBoxActor(a.getId());
 		final MailBox outBox = this.mailBoxService.getOutBoxActor(a.getId());
 		final MailBox spamBox = this.mailBoxService.getSpamBoxActor(a.getId());
 		final MailBox trashBox = this.mailBoxService.getTrashBoxActor(a.getId());
+
+		Message saved = message;
+
 		if (trashBox.getMessages().contains(message))
-			trashBox.getMessages().remove(message);
+			System.out.println("entra en trashBox.contains(message)");
+		message.getMailBoxes().remove(trashBox);
+		trashBox.getMessages().remove(message);
+
+		if (message.getMailBoxes().size() == 0)
+			this.messageRepository.delete(message.getId());
+
+		System.out.println(trashBox.getMessages());
+
 		if (inBox.getMessages().contains(message)) {
-			inBox.getMessages().remove(message);
+			System.out.println("entra en inBox.contains(message)");
+
+			message.getMailBoxes().add(trashBox);
 			trashBox.getMessages().add(message);
+
+			message.getMailBoxes().remove(inBox);
+			inBox.getMessages().remove(message);
+
+			saved = this.save(message);
+
+			System.out.println(message.getMailBoxes());
+			System.out.println(inBox.getMessages());
+			System.out.println(trashBox.getMessages());
+
 		}
 		if (outBox.getMessages().contains(message)) {
-			outBox.getMessages().remove(message);
+			System.out.println("entra en outBox.contains(message)");
+
+			message.getMailBoxes().add(trashBox);
 			trashBox.getMessages().add(message);
+
+			System.out.println("antes de aqui");
+
+			message.getMailBoxes().remove(outBox);
+
+			System.out.println("despues");
+			System.out.println(outBox.getMessages());
+			System.out.println(message.getId());
+			outBox.getMessages().remove(message);
+
+			saved = this.save(message);
+
+			System.out.println(message.getMailBoxes());
+			System.out.println(outBox.getMessages());
+			System.out.println(trashBox.getMessages());
+
 		}
 		if (spamBox.getMessages().contains(message)) {
-			spamBox.getMessages().remove(message);
+			System.out.println("entra en spamBox.contains(message)");
+
+			message.getMailBoxes().add(trashBox);
 			trashBox.getMessages().add(message);
+
+			message.getMailBoxes().remove(spamBox);
+			spamBox.getMessages().remove(message);
+
+			saved = this.save(message);
+
+			System.out.println(message.getMailBoxes());
+			System.out.println(spamBox.getMessages());
+			System.out.println(trashBox.getMessages());
+
 		}
 
-		return message;
+		return saved;
 
+	}
+	public Message findOne(final int id) {
+		return this.messageRepository.findOne(id);
+	}
+
+	public Message save(final Message message) {
+		return this.messageRepository.save(message);
 	}
 
 	private void checkSuspicious(final Message msg) {
 		for (final String word : this.spamWords)
 			if (msg.getBody().contains(word))
 				this.customerService.getCustomerByUserAccountId(LoginService.getPrincipal().getId()).setIsSuspicious(true);
+	}
+
+	private Boolean checkSuspiciousWithBoolean(final Message msg) {
+		Boolean res = false;
+		System.out.println(this.spamWords);
+		for (final String word : this.listSpamWords())
+			if (msg.getBody().contains(word)) {
+				res = true;
+				this.actorService.getActorByUserId(LoginService.getPrincipal().getId()).setIsSuspicious(true);
+			}
+		return res;
 	}
 }

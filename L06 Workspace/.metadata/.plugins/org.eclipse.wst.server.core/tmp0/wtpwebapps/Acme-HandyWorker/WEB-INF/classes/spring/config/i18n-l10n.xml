@@ -38,7 +38,11 @@
 		<value>/views/referee/messages</value>				
 		<value>/views/workplan/messages</value>
 		<value>/views/sponsor/messages</value>
-		<value>/views/endorsement/messages</value>	
+		<value>/views/endorsement/messages</value>
+		<value>/views/mailBox/messages</value>
+		<value>/views/message/messages</value>
+		<value>/views/warranty/messages</value>
+		<value>/views/category/messages</value>				
 	</util:list>
 
 </beans>

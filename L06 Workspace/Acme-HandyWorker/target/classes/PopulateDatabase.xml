@@ -671,7 +671,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="name" value="Manuel" />
         <property name="surname" value="Rojo" />
         <property name="middleName" value="" />
-        <property name="email" value="manuel@gmail.com" />
+        <property name="email" value="manuel2@gmail.com" />
         <property name="SocialProfiles">
             <list>
                 <ref bean="socialProfile3"/>
@@ -909,6 +909,132 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="link" value="https://www.instagram.es/" />
 		<property name="name" value="Instagram" />
     </bean>     
+    
+    <bean id="category1" class="domain.Category">
+        <property name="nameEN" value="Carpentry" />
+        <property name="nameES" value="Carpintería" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+    <bean id="category2" class="domain.Category">
+        <property name="nameEN" value="Ceiling repair" />
+        <property name="nameES" value="Reparación de techos" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+    <bean id="category3" class="domain.Category">
+        <property name="nameEN" value="Cleaning" />
+        <property name="nameES" value="Limpieza" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+    <bean id="category5" class="domain.Category">
+        <property name="nameEN" value="Concrete work" />
+        <property name="nameES" value="Trabajo concreto" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+    <bean id="category6" class="domain.Category">
+        <property name="nameEN" value="Doors" />
+        <property name="nameES" value="Puertas" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+    <bean id="category7" class="domain.Category">
+        <property name="nameEN" value="Electrical wiring" />
+        <property name="nameES" value="Cableado eléctrico" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+    <bean id="category8" class="domain.Category">
+        <property name="nameEN" value="Fan installation" />
+        <property name="nameES" value="Instalación de ventilador" />
+        <property name="subCategories"><null/></property>   
+    </bean>
+    
+     <bean id="category9" class="domain.Category">
+        <property name="nameEN" value="Fence fixing" />
+        <property name="nameES" value="Fijación de vallas" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category10" class="domain.Category">
+        <property name="nameEN" value="Home security systems" />
+        <property name="nameES" value="Sistema de seguridad para el hogar" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category11" class="domain.Category">
+        <property name="nameEN" value="Insulation installation" />
+        <property name="nameES" value="Instalación de aislamiento" />
+        <property name="subCategories"><null/></property>   
+    </bean>  
+    
+     <bean id="category12" class="domain.Category">
+        <property name="nameEN" value="Lamp repairs" />
+        <property name="nameES" value="Reparación de lamparas" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category13" class="domain.Category">
+        <property name="nameEN" value="Moving" />
+        <property name="nameES" value="Mudanza" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category14" class="domain.Category">
+        <property name="nameEN" value="Painting" />
+        <property name="nameES" value="Pintura" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category15" class="domain.Category">
+        <property name="nameEN" value="Pest control" />
+        <property name="nameES" value="Control de plagas" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category16" class="domain.Category">
+        <property name="nameEN" value="Plumbing repairs" />
+        <property name="nameES" value="Reparación de fontanería" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category17" class="domain.Category">
+        <property name="nameEN" value="Roofing" />
+        <property name="nameES" value="Tejados" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category18" class="domain.Category">
+        <property name="nameEN" value="Shelf installation" />
+        <property name="nameES" value="Instalación de estantes" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category19" class="domain.Category">
+        <property name="nameEN" value="Solar panels" />
+        <property name="nameES" value="Paneles solares" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category20" class="domain.Category">
+        <property name="nameEN" value="SoundProofing" />
+        <property name="nameES" value="Insonorización" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category21" class="domain.Category">
+        <property name="nameEN" value="Sprinkler repair" />
+        <property name="nameES" value="Reparación de aspersores" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="category22" class="domain.Category">
+        <property name="nameEN" value="Window repair" />
+        <property name="nameES" value="Reparación de ventanas" />
+        <property name="subCategories"><null/></property>   
+    </bean> 
     
 </beans>
 

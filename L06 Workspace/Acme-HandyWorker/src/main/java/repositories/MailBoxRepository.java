@@ -18,6 +18,12 @@ public interface MailBoxRepository extends JpaRepository<MailBox, Integer> {
 	@Query("select m from MailBox m where m.name = 'inBox'")
 	Collection<MailBox> getInBox();
 
+	@Query("select m from MailBox m where m.name = ?1")
+	Collection<MailBox> getBoxWithName(String name);
+
+	@Query("select m from MailBox m where m.name = 'spamBox'")
+	Collection<MailBox> getspamBox();
+
 	@Query("select m from Administrator a join a.mailBoxes m where a.id = ?1 and m.name = 'inBox'")
 	Collection<MailBox> getAdminInBox(Integer id);
 
@@ -38,4 +44,5 @@ public interface MailBoxRepository extends JpaRepository<MailBox, Integer> {
 
 	@Query("select m from MailBox m where m.isDefault = false and m.id = ?1")
 	MailBox getBoxDefaultId(Integer Id);
+
 }

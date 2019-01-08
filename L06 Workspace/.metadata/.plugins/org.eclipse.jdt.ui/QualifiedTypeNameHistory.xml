@@ -28,7 +28,6 @@
 <fullyQualifiedTypeName name="domain.CreditCard"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.Future"/>
 <fullyQualifiedTypeName name="utilities.HashPassword"/>
-<fullyQualifiedTypeName name="services.HandyWorkerService"/>
 <fullyQualifiedTypeName name="domain.Tutorial"/>
 <fullyQualifiedTypeName name="domain.Actor"/>
 <fullyQualifiedTypeName name="domain.SocialProfile"/>
@@ -38,7 +37,6 @@
 <fullyQualifiedTypeName name="repositories.MiscellaneousRecordRepository"/>
 <fullyQualifiedTypeName name="controllers.HandyWorkerController"/>
 <fullyQualifiedTypeName name="domain.Curriculum"/>
-<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="javax.jws.HandlerChain"/>
 <fullyQualifiedTypeName name="domain.Endorsement"/>
 <fullyQualifiedTypeName name="domain.Endorsable"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="services.WelcomeService"/>
 <fullyQualifiedTypeName name="controllers.WelcomeController"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+<fullyQualifiedTypeName name="services.HandyWorkerService"/>
 </qualifiedTypeNameHistroy>

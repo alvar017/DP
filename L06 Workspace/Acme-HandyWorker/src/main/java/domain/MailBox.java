@@ -5,7 +5,9 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.validation.Valid;
 
@@ -34,7 +36,7 @@ public class MailBox extends DomainEntity {
 		this.isDefault = isDefault;
 	}
 
-	@ManyToMany(mappedBy = "mailBoxes")
+	@ManyToMany(mappedBy = "mailBoxes", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Valid
 	public Collection<Message> getMessages() {
 		return this.messages;
