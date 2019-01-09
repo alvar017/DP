@@ -21,12 +21,14 @@ import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
+import security.UserAccountRepository;
 import services.ActorService;
 import services.AdministratorService;
 import services.ApplicationService;
@@ -45,28 +47,31 @@ import domain.HandyWorker;
 public class AdministratorController extends AbstractController {
 
 	@Autowired
-	HandyWorkerService			handyWorkerService;
+	HandyWorkerService				handyWorkerService;
 
 	@Autowired
-	AdministratorService		administratorService;
+	AdministratorService			administratorService;
 
 	@Autowired
-	private ActorService		actorService;
+	private ActorService			actorService;
 
 	@Autowired
-	private FixUpService		fixUpService;
+	private FixUpService			fixUpService;
 
 	@Autowired
-	private FinderService		finderService;
+	private FinderService			finderService;
 
 	@Autowired
-	private ApplicationService	applicationService;
+	private ApplicationService		applicationService;
 
 	@Autowired
-	private WelcomeService		welcomeService;
+	private WelcomeService			welcomeService;
 
 	@Autowired
-	private CustomerService		customerService;
+	private CustomerService			customerService;
+
+	@Autowired
+	private UserAccountRepository	userAccountService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -612,6 +617,28 @@ public class AdministratorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Administrator administrator, final BindingResult binding) {
 		ModelAndView result;
+
+		if (this.actorService.getActorByEmail(administrator.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
+		if (administrator.getUserAccount().getPassword().length() < 5 || administrator.getUserAccount().getPassword().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.password", "error.userAccount.password");
+		}
+
+		if (administrator.getUserAccount().getUsername().length() < 5 || administrator.getUserAccount().getUsername().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username");
+		}
+		if (this.userAccountService.findByUsername(administrator.getUserAccount().getUsername()) != null) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
 
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí");

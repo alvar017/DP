@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -140,6 +141,11 @@ public class ApplicationCustomerController extends AbstractController {
 		System.out.println("EL REQ 19");
 		System.out.println(inBoxApplier);
 		System.out.println(inBoxCustom);
+		if (application.getOffered() != null || application.getOffered().getQuantity() != null || (application.getOffered().getQuantity() < 100 || application.getOffered().getQuantity() > 999)) {
+			final ObjectError error = new ObjectError("offered.quantity", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("offered.quantity", "error.offered.quantity");
+		}
 
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding");

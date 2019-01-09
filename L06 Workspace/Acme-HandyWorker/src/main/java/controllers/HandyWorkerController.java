@@ -13,6 +13,7 @@ package controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import security.UserAccountRepository;
+import services.ActorService;
 import services.HandyWorkerService;
 import services.WelcomeService;
 import domain.HandyWorker;
@@ -38,6 +40,8 @@ public class HandyWorkerController extends AbstractController {
 	private UserAccountRepository	userAccountService;
 	@Autowired
 	private WelcomeService			welcomeService;
+	@Autowired
+	private ActorService			actorService;
 
 
 	//	@Autowired
@@ -85,6 +89,11 @@ public class HandyWorkerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final HandyWorker handyWorker, final BindingResult binding) {
 		ModelAndView result;
+		if (this.actorService.getActorByEmail(handyWorker.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 		if (handyWorker.getUserAccount().getPassword().length() < 5 || handyWorker.getUserAccount().getPassword().length() > 32) {
 			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
 			binding.addError(error);
@@ -109,11 +118,11 @@ public class HandyWorkerController extends AbstractController {
 			try {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
 				System.out.println(binding);
-				//				Assert.isTrue(this.userAccountService.findByUsername(handyWorker.getUserAccount().getUsername()) == null, "hw.usedUsername");
-				//				final String password = handyWorker.getUserAccount().getPassword();
-				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-				//				final String hashPassword = encoder.encodePassword(password, null);
-				//				handyWorker.getUserAccount().setPassword(hashPassword);
+				Assert.isTrue(this.userAccountService.findByUsername(handyWorker.getUserAccount().getUsername()) == null, "hw.usedUsername");
+				final String password = handyWorker.getUserAccount().getPassword();
+				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				final String hashPassword = encoder.encodePassword(password, null);
+				handyWorker.getUserAccount().setPassword(hashPassword);
 				this.handyWorkerService.save(handyWorker);
 				result = new ModelAndView("welcome/index");
 			} catch (final Throwable oops) {

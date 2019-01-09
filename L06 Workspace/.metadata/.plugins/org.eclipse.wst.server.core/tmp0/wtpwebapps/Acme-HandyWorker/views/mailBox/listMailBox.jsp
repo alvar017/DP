@@ -63,17 +63,8 @@
 	</security:authorize>
 
   			
-  		<c:choose>
-    		<c:when test="${language=='English'}">
-        		<form>
-      				<input type="button" value="Back" name="volver atrás2" onclick="history.back()" />
-	  			</form> 
-    		</c:when>    
-    		<c:otherwise>
-		 		<form>
-      				<input type="button" value="Volver" name="volver atrás2" onclick="history.back()" />
-	  			</form>        		
-    		</c:otherwise>
-		</c:choose>
+			<form method="get" action=" ">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
 		
 </body>

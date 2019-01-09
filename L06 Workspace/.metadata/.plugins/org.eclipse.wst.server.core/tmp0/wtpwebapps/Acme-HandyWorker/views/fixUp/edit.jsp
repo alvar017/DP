@@ -51,15 +51,19 @@
 			<form:label path="maxPrice.quantity"><spring:message code="customer.showing.price" /></form:label>
 			<form:input type="number" path="maxPrice.quantity" required="required"/>
 			<form:errors cssClass="error" path="maxPrice.quantity"/><br>
+			<!-- 
 			<form:label path="maxPrice.currency"><spring:message code="customer.showing.currency" /></form:label>
-			<!--  
+			  
 			<form:input path="maxPrice.currency" /><br>
 			-->
+			<form:hidden path="maxPrice.currency"/>
+			<!--
 			<form:select path="maxPrice.currency" >
 				<form:option value="EUR"></form:option>
 				<form:option value="DOL"></form:option>
 			</form:select>
-			<form:errors cssClass="error" path="maxPrice.currency"/><br>
+			 -->
+			<form:errors cssClass="error" path="maxPrice.currency"/>
 			<form:label path="startDate"><spring:message code="customer.showing.startDate" /></form:label>
 			<form:input type="date" path="startDate" required="required" placeholder="yyyy/MM/dd HH:mm"/>
 			<form:errors cssClass="error" path="startDate"/><br>
@@ -84,6 +88,6 @@
   
   </section> <!-- / #main-content -->
   
-				<form>
-					<input type="button" value=<spring:message code="back" /> name="back" onclick="history.back()" />
-				</form>
+			<form method="get" action="fixUp/customer/list.do">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>

@@ -157,7 +157,11 @@ public class MailBoxController extends AbstractController {
 		final UserAccount login = LoginService.getPrincipal();
 		final Actor logged = this.actorService.getActorByUserId(login.getId());
 
-		if (mailBox.getIsDefault() == true || mailBox == null || !logged.getMailBoxes().contains(mailBox)) {
+		final Boolean idMail = mailBox.getId() == 0;
+
+		System.out.println(mailBox.getId() == 0);
+
+		if (mailBox.getIsDefault() == true || mailBox == null || (!logged.getMailBoxes().contains(mailBox) && !idMail)) {
 			result = new ModelAndView("mailBox/list");
 			result.addObject("mailBoxes", logged.getMailBoxes());
 			result.addObject("requestURI", "mailBox/list.do");

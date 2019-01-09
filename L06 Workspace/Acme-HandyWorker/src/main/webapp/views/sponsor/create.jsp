@@ -54,7 +54,7 @@
 			<form:errors cssClass="error" path="middleName"/><br>
 			
 			<form:label path="phone"><spring:message code="actor.phone" /></form:label>(+${phone})
-			<form:input path="phone" required="required"/><br>
+			<form:input path="phone"/><br>
 			
 			<form:label path="email"><spring:message code="sponsor.email" /></form:label>
 			<form:input path="email" required="required"/>

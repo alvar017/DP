@@ -49,7 +49,7 @@
 			<form:errors cssClass="error" path="surname"/><br>
 			
 			<form:label path="phone"><spring:message code="referee.phone" /></form:label>(+${phone})
-			<form:input path="phone" required="required"/><br>
+			<form:input path="phone"/>
 			<form:errors cssClass="error" path="phone"/><br>
 			
 			

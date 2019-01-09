@@ -79,6 +79,9 @@
 			<form:hidden path="userAccount"/>
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
+					<form method="get" action=" ">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
       </div>
       
  	</article>

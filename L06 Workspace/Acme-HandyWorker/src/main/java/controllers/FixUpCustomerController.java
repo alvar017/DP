@@ -35,6 +35,7 @@ import domain.Application;
 import domain.Category;
 import domain.Complaint;
 import domain.FixUp;
+import domain.Money;
 import domain.Warranty;
 
 @Controller
@@ -109,6 +110,10 @@ public class FixUpCustomerController extends AbstractController {
 		FixUp fixUp;
 
 		fixUp = this.fixUpService.create();
+		final Money money = new Money();
+		money.setCurrency("EUR");
+		money.setQuantity(0.);
+		fixUp.setMaxPrice(money);
 
 		result = this.createEditModelAndView(fixUp);
 		result.addObject("language", language);

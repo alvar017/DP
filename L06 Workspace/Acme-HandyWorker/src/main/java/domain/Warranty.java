@@ -8,6 +8,8 @@ import javax.persistence.AccessType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Access(AccessType.PROPERTY)
 public class Warranty extends DomainEntity {
@@ -26,6 +28,7 @@ public class Warranty extends DomainEntity {
 		this.isFinal = isFinal;
 	}
 
+	@NotBlank
 	public String getTitle() {
 		return this.title;
 	}

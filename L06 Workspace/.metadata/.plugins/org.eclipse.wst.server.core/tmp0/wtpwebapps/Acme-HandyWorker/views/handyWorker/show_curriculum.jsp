@@ -25,7 +25,7 @@
 								<tr><td>
 									<p><spring:message code="curriculum.misrec" />
 									<p><input type="button" value=<spring:message code="curriculum.createMisrec" /> id="buttoncreateMisrec" name="buttoncreateMisrec"  onclick="location.href='miscellaneousRecord/handyWorker/create.do';"/></p>
-									<display:table name="curriculum.misrec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
+									<display:table name="curriculum.misrec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag" keepStatus="true">
 										<display:column titleKey="button.edit"> 
 											<a href="miscellaneousRecord/handyWorker/edit.do?miscellaneousRecordId=${row.id}"><spring:message code="button.edit" /></a>
 										</display:column>
@@ -40,7 +40,7 @@
 								<tr><td>
 									<p><spring:message code="curriculum.endrec" /></p>
 									<p><input type="button" value=<spring:message code="curriculum.createEndrec" /> id="buttoncreateEndrec" name="buttoncreateEndrec"  onclick="location.href='endorserRecord/handyWorker/create.do';"/></p>
-									<display:table name="curriculum.endrec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
+									<display:table name="curriculum.endrec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag" keepStatus="true">
 										<display:column titleKey="button.edit"> 
 											<a href="endorserRecord/handyWorker/edit.do?endorserRecordId=${row.id}"><spring:message code="button.edit" /></a>
 										</display:column>
@@ -57,7 +57,7 @@
 								<tr><td>
 									<p><spring:message code="curriculum.perrec" /></p>
 									<p><input type="button" value=<spring:message code="curriculum.createPerrec" /> id="buttoncreatePerrec" name="buttoncreatePerrec"  onclick="location.href='personalRecord/handyWorker/create.do';"/></p>
-									<display:table name="curriculum.perrec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
+									<display:table name="curriculum.perrec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag" keepStatus="true">
 										<display:column titleKey="button.edit"> 
 											<a href="personalRecord/handyWorker/edit.do?personalRecordId=${row.id}"><spring:message code="button.edit" /></a>
 										</display:column>
@@ -73,7 +73,7 @@
 								<tr><td>
 									<p><spring:message code="curriculum.prorec" /></p>
 									<p><input type="button" value=<spring:message code="curriculum.createProrec" /> id="buttoncreateProrec" name="buttoncreateProrec"  onclick="location.href='professionalRecord/handyWorker/create.do';"/></p>
-									<display:table name="curriculum.prorec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
+									<display:table name="curriculum.prorec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag" keepStatus="true">
 										<display:column titleKey="button.edit"> 
 											<a href="professionalRecord/handyWorker/edit.do?professionalRecordId=${row.id}"><spring:message code="button.edit" /></a>
 										</display:column>
@@ -91,7 +91,7 @@
 								<tr><td>
 									<p><spring:message code="curriculum.edurec" /></p>
 									<p><input type="button" value=<spring:message code="curriculum.createEdurec" /> id="buttoncreateEdurec" name="buttoncreateEdurec"  onclick="location.href='educationalRecord/handyWorker/create.do';"/></p>
-									<display:table name="curriculum.edurec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
+									<display:table name="curriculum.edurec" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag" keepStatus="true">
 										<display:column titleKey="button.edit"> 
 											<a href="educationalRecord/handyWorker/edit.do?educationalRecordId=${row.id}"><spring:message code="button.edit" /></a>
 										</display:column>

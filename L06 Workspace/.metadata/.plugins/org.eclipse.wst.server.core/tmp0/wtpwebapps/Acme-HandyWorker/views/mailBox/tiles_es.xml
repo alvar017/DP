@@ -23,12 +23,12 @@
 	</definition>
 	
 	<definition name="mailBox/list" extends="master.page">	
-		<put-attribute name="title" value="Administrador: Lista de mailBox" />
+		<put-attribute name="title" value="Lista de mailBox" />
 		<put-attribute name="body" value="/views/mailBox/listMailBox.jsp" />
 	</definition>
 	
 	<definition name="mailBox/edit" extends="master.page">	
-		<put-attribute name="title" value="Administrador: Editar mailBox" />
+		<put-attribute name="title" value="Editar buzón" />
 		<put-attribute name="body" value="/views/mailBox/editMailBox.jsp" />
 	</definition>
 	

@@ -32,6 +32,7 @@ import services.HandyWorkerService;
 import domain.Application;
 import domain.FixUp;
 import domain.HandyWorker;
+import domain.Money;
 
 @Controller
 @RequestMapping("/application/handyWorker")
@@ -78,6 +79,9 @@ public class ApplicationHandyWorkerController extends AbstractController {
 
 		Assert.notNull(fixUp);
 		application.setFixUp(fixUp);
+		final Money money = new Money();
+		money.setCurrency("EUR");
+		money.setQuantity(0.);
 		result = this.createEditModelAndView(application);
 
 		return result;

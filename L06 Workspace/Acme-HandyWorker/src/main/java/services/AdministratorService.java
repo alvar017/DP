@@ -77,6 +77,8 @@ public class AdministratorService {
 		boxesDefault.add(trashBoxSave);
 
 		ad.setMailBoxes(boxesDefault);
+		ad.setIsSuspicious(false);
+		ad.setIsBanned(false);
 
 		return ad;
 	}

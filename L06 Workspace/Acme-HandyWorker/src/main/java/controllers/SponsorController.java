@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import security.UserAccountRepository;
+import services.ActorService;
 import services.SponsorService;
 import services.WelcomeService;
 import domain.Sponsor;
@@ -38,6 +39,8 @@ public class SponsorController extends AbstractController {
 	private UserAccountRepository	userAccountService;
 	@Autowired
 	private WelcomeService			welcomeService;
+	@Autowired
+	private ActorService			actorService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -66,6 +69,11 @@ public class SponsorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Sponsor sponsor, final BindingResult binding) {
 		ModelAndView result;
+		if (this.actorService.getActorByEmail(sponsor.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 		if (sponsor.getUserAccount().getPassword().length() < 5 || sponsor.getUserAccount().getPassword().length() > 32) {
 			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
 			binding.addError(error);
@@ -77,8 +85,10 @@ public class SponsorController extends AbstractController {
 			binding.addError(error);
 			binding.rejectValue("userAccount.username", "error.userAccount.username");
 		}
-
-		if (!this.userAccountService.findByUsername(sponsor.getUserAccount().getUsername()).equals(sponsor.getUserAccount())) {
+		System.out.println(sponsor);
+		System.out.println(sponsor.getUserAccount());
+		System.out.println(sponsor.getUserAccount().getUsername());
+		if (this.userAccountService.findByUsername(sponsor.getUserAccount().getUsername()) != null) {
 			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");

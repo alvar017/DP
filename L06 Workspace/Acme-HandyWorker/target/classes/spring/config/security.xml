@@ -226,7 +226,6 @@
 		<security:intercept-url pattern="/note/referee/edit.do" access="hasRole('REFEREE')"/>
 		<security:intercept-url pattern="/note/referee/create.do" access="hasRole('REFEREE')"/>
 		
-		<security:intercept-url pattern="/note/handyWorker/show.do" access="hasRole('HANDYWORKER')"/>
 		
 		<security:intercept-url pattern="/endorsement/administrator/list.do" access="hasRole('ADMIN')" />
 		<security:intercept-url pattern="/endorsement/administrator/wordList.do" access="hasRole('ADMIN')" />

@@ -54,7 +54,8 @@
 			<form:errors cssClass="error" path="address"/><br>
 			
 			<form:label path="phone"><spring:message code="actor.phone" /></form:label>(+${phone})
-			<form:input path="phone"/><br>
+			<form:input path="phone"/>
+			<form:errors cssClass="error" path="phone"/><br>
 			
 			<form:label path="surname"><spring:message code="handyWorker.surname" /></form:label>
 			<form:input path="surname" required="required"/>
@@ -88,6 +89,9 @@
 			
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
+			<form method="get" action="security/login">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
       </div>
       
  	</article>

@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import security.UserAccountRepository;
+import services.ActorService;
 import services.RefereeService;
 import services.WelcomeService;
 import domain.Referee;
@@ -38,6 +39,8 @@ public class RefereeController extends AbstractController {
 	private UserAccountRepository	userAccountService;
 	@Autowired
 	WelcomeService					welcomeService;
+	@Autowired
+	ActorService					actorService;
 
 
 	//	@Autowired
@@ -85,6 +88,11 @@ public class RefereeController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Referee referee, final BindingResult binding) {
 		ModelAndView result;
+		if (this.actorService.getActorByEmail(referee.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.UserAccountRepository;
+import services.ActorService;
 import services.CustomerService;
 import services.WelcomeService;
 import domain.Customer;
@@ -36,6 +37,8 @@ public class CustomerController extends AbstractController {
 	private UserAccountRepository	userAccountService;
 	@Autowired
 	private WelcomeService			welcomeService;
+	@Autowired
+	private ActorService			actorService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -64,6 +67,11 @@ public class CustomerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Customer customer, final BindingResult binding) {
 		ModelAndView result;
+		if (this.actorService.getActorByEmail(customer.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 		if (customer.getUserAccount().getPassword().length() < 5 || customer.getUserAccount().getPassword().length() > 32) {
 			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
 			binding.addError(error);

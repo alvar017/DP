@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.UserAccountRepository;
+import services.ActorService;
 import services.RefereeService;
 import domain.Referee;
 
@@ -36,6 +37,8 @@ public class RefereeAdministratorController extends AbstractController {
 	private RefereeService			refereeService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
+	@Autowired
+	private ActorService			actorService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -82,6 +85,11 @@ public class RefereeAdministratorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Referee referee, final BindingResult binding) {
 		ModelAndView result;
+		if (this.actorService.getActorByEmail(referee.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 		if (referee.getUserAccount().getPassword().length() < 5 || referee.getUserAccount().getPassword().length() > 32) {
 			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
 			binding.addError(error);

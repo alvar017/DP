@@ -22,6 +22,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -216,7 +217,16 @@ public class FinderHandyWorkerController extends AbstractController {
 		System.out.println("Carmen: Entro en el save");
 
 		System.out.println("BindingErrors: " + binding.getFieldErrors());
-
+		if (finder.getMaxPrice() == null || finder.getMaxPrice() < 0) {
+			final ObjectError error = new ObjectError("maxPrice", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("maxPrice", "error.maxPrice.negative");
+		}
+		if (finder.getMinPrice() == null || finder.getMinPrice() < 0) {
+			final ObjectError error = new ObjectError("minPrice", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("minPrice", "error.minPrice.negative");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("Carmen: Hay ERRORES");
 			result = this.createEditModelAndView(finder);

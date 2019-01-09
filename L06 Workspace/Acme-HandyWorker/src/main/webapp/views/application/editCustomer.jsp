@@ -46,23 +46,29 @@
 		<form:hidden path="applier" />
 		<form:hidden path="fixUp"/>
 		<form:hidden path="moment"/>
-			
+		<form:hidden path="comments"/>
+		<!--
 		<form:label path="comments">
 			<spring:message code="application.comments" />
 		</form:label>
 		<form:input path="comments" />
 		<form:errors cssClass="error" path="comments" /><br/>
-		
+		-->
+		<form:hidden path="offered.quantity"/>
+		<!--
 		<form:label path="offered.quantity"><spring:message code="application.offered.quantity" /></form:label>
 		<form:input type="number" path="offered.quantity" required="required"/>
 		<form:errors cssClass="error" path="offered.quantity" />
+		-->
+		<form:hidden path="offered.currency"/>
+		<!--
 		<form:label path="offered.currency"><spring:message code="application.offered.currency" /></form:label>
 		<form:select path="offered.currency" >
 			<form:option value="EUR"></form:option>
 			<form:option value="DOL"></form:option>
 		</form:select>
 		<form:errors cssClass="error" path="offered.currency" /><br />
-				
+		-->	
 		<form:label path="state"><spring:message code="application.state" /></form:label>
 		<form:select path="state" onchange="mostrar(this.value);">
 			<form:option value="false"  selected="true"><spring:message code="application.denied" /></form:option>

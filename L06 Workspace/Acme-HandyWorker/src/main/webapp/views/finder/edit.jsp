@@ -61,12 +61,14 @@
 					<spring:message code="handyWorker.showing.minPrice" />
 				</form:label>
 				<form:input type="number" path="minPrice" />
+				<form:errors path="minPrice"/>
 				<br>
 
 				<form:label path="maxPrice">
 					<spring:message code="handyWorker.showing.maxPrice" />
 				</form:label>
 				<form:input type="number" path="maxPrice" />
+				<form:errors path="maxPrice"/>
 				<br>
 
 				<form:label path="startDate">
