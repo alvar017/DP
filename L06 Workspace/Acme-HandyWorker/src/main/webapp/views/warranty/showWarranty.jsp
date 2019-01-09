@@ -41,4 +41,8 @@
         	
     		</c:otherwise>
 		</c:choose>
+		
+			<form method="get" action="warranty/administrator/list.do">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
       			</div>

@@ -198,7 +198,7 @@ public class FixUpCustomerController extends AbstractController {
 	}
 	private ModelAndView createEditModelAndView(final FixUp fixUp) {
 		ModelAndView result;
-		final Collection<Warranty> warranties = this.warrantyService.findAll();
+		final Collection<Warranty> warranties = this.warrantyService.getFinalWarranty();
 		final Collection<Category> categories = this.categoryService.findAll();
 
 		result = new ModelAndView("fixUp/customer/edit");

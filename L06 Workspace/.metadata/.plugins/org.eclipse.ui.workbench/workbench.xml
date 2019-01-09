@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="61" version="2.0">
+<workbench progressCount="72" version="2.0">
 <workbenchAdvisor/>
 <window height="675" maximized="true" width="965" x="-1" y="3">
 <fastViewData fastViewLocation="1024">
@@ -19,7 +19,7 @@
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jpt.jpa.ui.internal.editors.PersistenceEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="88" y="22"/>
-<coolItem id="org.eclipse.jst.jsp.core.jspsource.source" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jst.jsp.core.jspsource.source" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.m2e.editor.MavenPomEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="98" y="22"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
@@ -31,7 +31,7 @@
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="39" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="62" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="183" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -45,13 +45,33 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Warranty.java" partName="Warranty.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/domain/Warranty.java" title="Warranty.java" tooltip="Acme-HandyWorker/src/main/java/domain/Warranty.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jst.jsp.core.jspsource.source" name="showWarranty.jsp" partName="showWarranty.jsp" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/webapp/views/warranty/showWarranty.jsp" title="showWarranty.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/warranty/showWarranty.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/webapp/views/warranty/showWarranty.jsp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1927" selectionTopPixel="494"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WarrantyRepository.java" partName="WarrantyRepository.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/repositories/WarrantyRepository.java" title="WarrantyRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/WarrantyRepository.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/repositories/WarrantyRepository.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="41" selectionOffset="410" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Warranty.java" partName="Warranty.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/domain/Warranty.java" title="Warranty.java" tooltip="Acme-HandyWorker/src/main/java/domain/Warranty.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/domain/Warranty.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="636" selectionTopPixel="210"/>
+<editorState selectionHorizontalPixel="0" selectionLength="7" selectionOffset="467" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WarrantyService.java" partName="WarrantyService.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/services/WarrantyService.java" title="WarrantyService.java" tooltip="Acme-HandyWorker/src/main/java/services/WarrantyService.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/services/WarrantyService.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2401" selectionTopPixel="885"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpCustomerController.java" partName="FixUpCustomerController.java" path="//VBOXSVR/dp/L06 Workspace/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java" title="FixUpCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="7592" selectionTopPixel="3417"/>
 </editor>
 </editors>
 <views>
@@ -336,10 +356,6 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/mailBox/listMailBox.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/application/editCustomer.jsp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/application/editHandyWorker.jsp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/ApplicationHandyWorkerController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/ApplicationCustomerController.java"/>
@@ -356,156 +372,163 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/finder/messages.properties"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/finder/messages_es.properties"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/Warranty.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/administrator/registerAdministrator.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/warranty/showWarranty.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/repositories/WarrantyRepository.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/repositories/TutorialRepository.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/repositories/RefereeRepository.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/services/WarrantyService.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
 </editors>
-<item historyLabel="edit.jsp" index="1">
-<position info="not_deleted" x="2495" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="2">
-<position info="not_deleted" x="4" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="2">
-<position info="not_deleted" x="3843" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="2">
-<position info="not_deleted" x="3844" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="2">
-<position info="not_deleted" x="3901" y="0"/>
-</item>
-<item historyLabel="edit.jsp" index="1">
-<position info="not_deleted" x="2701" y="0"/>
-</item>
-<item historyLabel="listMailBox.jsp" index="0">
-<position info="not_deleted" x="2450" y="122"/>
-</item>
-<item historyLabel="edit.jsp" index="1">
-<position info="not_deleted" x="4157" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="2">
-<position info="not_deleted" x="1850" y="4"/>
-</item>
-<item historyLabel="edit.jsp" index="1">
-<position info="not_deleted" x="4066" y="0"/>
-</item>
-<item historyLabel="FixUpCustomerController.java" index="2">
-<position info="not_deleted" x="1850" y="4"/>
-</item>
-<item historyLabel="listMailBox.jsp" index="0">
-<position info="not_deleted" x="2450" y="122"/>
-</item>
-<item historyLabel="editCustomer.jsp" index="3">
-<position info="not_deleted" x="4165" y="0"/>
-</item>
-<item historyLabel="editHandyWorker.jsp" index="4">
-<position/>
-</item>
-<item historyLabel="ApplicationHandyWorkerController.java" index="5">
+<item historyLabel="ApplicationHandyWorkerController.java" index="1">
 <position info="not_deleted" x="3" y="0"/>
 </item>
-<item historyLabel="ApplicationHandyWorkerController.java" index="5">
+<item historyLabel="ApplicationHandyWorkerController.java" index="1">
 <position info="not_deleted" x="2573" y="0"/>
 </item>
-<item historyLabel="ApplicationHandyWorkerController.java" index="5">
+<item historyLabel="ApplicationHandyWorkerController.java" index="1">
 <position info="not_deleted" x="2600" y="0"/>
 </item>
-<item historyLabel="editHandyWorker.jsp" index="4">
+<item historyLabel="editHandyWorker.jsp" index="0">
 <position info="not_deleted" x="1773" y="0"/>
 </item>
-<item historyLabel="ApplicationCustomerController.java" index="6">
+<item historyLabel="ApplicationCustomerController.java" index="2">
 <position info="not_deleted" x="2991" y="0"/>
 </item>
-<item historyLabel="HandyWorkerController.java" index="7">
+<item historyLabel="HandyWorkerController.java" index="3">
 <position info="not_deleted" x="3601" y="353"/>
 </item>
-<item historyLabel="ApplicationCustomerController.java" index="6">
+<item historyLabel="ApplicationCustomerController.java" index="2">
 <position info="not_deleted" x="2991" y="0"/>
 </item>
-<item historyLabel="ApplicationCustomerController.java" index="6">
+<item historyLabel="ApplicationCustomerController.java" index="2">
 <position info="not_deleted" x="5913" y="22"/>
 </item>
-<item historyLabel="messages.properties" index="8">
+<item historyLabel="messages.properties" index="4">
 <position info="not_deleted" x="2220" y="37"/>
 </item>
-<item historyLabel="messages_es.properties" index="9">
+<item historyLabel="messages_es.properties" index="5">
 <position info="not_deleted" x="2343" y="0"/>
 </item>
-<item historyLabel="messages.properties" index="8">
+<item historyLabel="messages.properties" index="4">
 <position info="not_deleted" x="2220" y="37"/>
 </item>
-<item historyLabel="ApplicationCustomerController.java" index="6">
+<item historyLabel="ApplicationCustomerController.java" index="2">
 <position info="not_deleted" x="5867" y="0"/>
 </item>
-<item historyLabel="Finder.java" index="10">
+<item historyLabel="Finder.java" index="6">
 <position/>
 </item>
-<item historyLabel="Finder.java" index="10">
+<item historyLabel="Finder.java" index="6">
 <position/>
 </item>
-<item historyLabel="Authority.java" index="11">
+<item historyLabel="Authority.java" index="7">
 <position info="not_deleted" x="2781" y="0"/>
 </item>
-<item historyLabel="Finder.java" index="10">
+<item historyLabel="Finder.java" index="6">
 <position/>
 </item>
-<item historyLabel="Credentials.java" index="12">
+<item historyLabel="Credentials.java" index="8">
 <position info="not_deleted" x="979" y="0"/>
 </item>
-<item historyLabel="Finder.java" index="10">
+<item historyLabel="Finder.java" index="6">
 <position/>
 </item>
-<item historyLabel="edit.jsp" index="13">
+<item historyLabel="edit.jsp" index="9">
 <position info="not_deleted" x="2332" y="0"/>
 </item>
-<item historyLabel="Finder.java" index="10">
+<item historyLabel="Finder.java" index="6">
 <position/>
 </item>
-<item historyLabel="edit.jsp" index="13">
+<item historyLabel="edit.jsp" index="9">
 <position info="not_deleted" x="2120" y="0"/>
 </item>
-<item historyLabel="Finder.java" index="10">
+<item historyLabel="Finder.java" index="6">
 <position info="not_deleted" x="678" y="0"/>
 </item>
-<item historyLabel="edit.jsp" index="13">
+<item historyLabel="edit.jsp" index="9">
 <position info="not_deleted" x="2120" y="0"/>
 </item>
-<item historyLabel="HandyWorkerController.java" index="14">
+<item historyLabel="HandyWorkerController.java" index="10">
 <position info="not_deleted" x="3244" y="353"/>
 </item>
-<item historyLabel="edit.jsp" index="13">
+<item historyLabel="edit.jsp" index="9">
 <position info="not_deleted" x="2120" y="0"/>
 </item>
-<item historyLabel="FinderHandyWorkerController.java" index="15">
+<item historyLabel="FinderHandyWorkerController.java" index="11">
 <position info="not_deleted" x="7556" y="0"/>
 </item>
-<item historyLabel="HandyWorkerController.java" index="14">
+<item historyLabel="HandyWorkerController.java" index="10">
 <position info="not_deleted" x="3626" y="0"/>
 </item>
-<item historyLabel="FinderHandyWorkerController.java" index="15">
+<item historyLabel="FinderHandyWorkerController.java" index="11">
 <position info="not_deleted" x="7560" y="23"/>
 </item>
-<item historyLabel="tiles.xml" index="16">
+<item historyLabel="tiles.xml" index="12">
 <position info="not_deleted" x="487" y="0"/>
 </item>
-<item historyLabel="FinderHandyWorkerController.java" index="15">
+<item historyLabel="FinderHandyWorkerController.java" index="11">
 <position info="not_deleted" x="7560" y="23"/>
 </item>
-<item historyLabel="messages.properties" index="17">
+<item historyLabel="messages.properties" index="13">
 <position info="not_deleted" x="1387" y="104"/>
 </item>
-<item historyLabel="messages_es.properties" index="18">
+<item historyLabel="messages_es.properties" index="14">
 <position info="not_deleted" x="1501" y="0"/>
 </item>
-<item historyLabel="edit.jsp" index="13">
+<item historyLabel="edit.jsp" index="9">
 <position info="not_deleted" x="2112" y="0"/>
 </item>
-<item historyLabel="messages_es.properties" index="18">
+<item historyLabel="messages_es.properties" index="14">
 <position info="not_deleted" x="1501" y="0"/>
 </item>
-<item historyLabel="messages.properties" index="17">
+<item historyLabel="messages.properties" index="13">
 <position info="not_deleted" x="1387" y="104"/>
 </item>
-<item active="true" historyLabel="Warranty.java" index="19">
+<item historyLabel="Warranty.java" index="15">
+<position info="not_deleted" x="636" y="0"/>
+</item>
+<item historyLabel="registerAdministrator.jsp" index="16">
+<position info="not_deleted" x="3342" y="138"/>
+</item>
+<item historyLabel="Warranty.java" index="15">
+<position info="not_deleted" x="636" y="0"/>
+</item>
+<item historyLabel="showWarranty.jsp" index="17">
+<position info="not_deleted" x="1927" y="0"/>
+</item>
+<item historyLabel="WarrantyRepository.java" index="18">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TutorialRepository.java" index="19">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="RefereeRepository.java" index="20">
+<position info="not_deleted" x="317" y="123"/>
+</item>
+<item historyLabel="TutorialRepository.java" index="19">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="WarrantyRepository.java" index="18">
+<position info="not_deleted" x="383" y="0"/>
+</item>
+<item historyLabel="Warranty.java" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="WarrantyRepository.java" index="18">
+<position info="not_deleted" x="393" y="0"/>
+</item>
+<item historyLabel="Warranty.java" index="15">
+<position info="not_deleted" x="467" y="7"/>
+</item>
+<item historyLabel="WarrantyRepository.java" index="18">
+<position info="not_deleted" x="410" y="41"/>
+</item>
+<item historyLabel="WarrantyService.java" index="21">
+<position info="not_deleted" x="2401" y="0"/>
+</item>
+<item active="true" historyLabel="FixUpCustomerController.java" index="22">
+<position info="not_deleted" x="4" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -513,12 +536,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -527,13 +544,33 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
-<trimItem IMemento.internal.id="bottomRight"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java">
+<persistable path="/Acme-HandyWorker/src/main/java/controllers/FixUpCustomerController.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WarrantyService.java" tooltip="Acme-HandyWorker/src/main/java/services/WarrantyService.java">
+<persistable path="/Acme-HandyWorker/src/main/java/services/WarrantyService.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Warranty.java" tooltip="Acme-HandyWorker/src/main/java/domain/Warranty.java">
 <persistable path="/Acme-HandyWorker/src/main/java/domain/Warranty.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RefereeRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/RefereeRepository.java">
+<persistable path="/Acme-HandyWorker/src/main/java/repositories/RefereeRepository.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TutorialRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/TutorialRepository.java">
+<persistable path="/Acme-HandyWorker/src/main/java/repositories/TutorialRepository.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WarrantyRepository.java" tooltip="Acme-HandyWorker/src/main/java/repositories/WarrantyRepository.java">
+<persistable path="/Acme-HandyWorker/src/main/java/repositories/WarrantyRepository.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="showWarranty.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/warranty/showWarranty.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/warranty/showWarranty.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="registerAdministrator.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/administrator/registerAdministrator.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/administrator/registerAdministrator.jsp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/finder/messages_es.properties">
 <persistable path="/Acme-HandyWorker/src/main/webapp/views/finder/messages_es.properties"/>
@@ -555,27 +592,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="edit.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/finder/edit.jsp">
 <persistable path="/Acme-HandyWorker/src/main/webapp/views/finder/edit.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Credentials.java" tooltip="Acme-HandyWorker/src/main/java/security/Credentials.java">
-<persistable path="/Acme-HandyWorker/src/main/java/security/Credentials.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Authority.java" tooltip="Acme-HandyWorker/src/main/java/security/Authority.java">
-<persistable path="/Acme-HandyWorker/src/main/java/security/Authority.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/application/messages_es.properties">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/application/messages_es.properties"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/application/messages.properties">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/application/messages.properties"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/ApplicationCustomerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/ApplicationCustomerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationHandyWorkerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/ApplicationHandyWorkerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/ApplicationHandyWorkerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="editHandyWorker.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/application/editHandyWorker.jsp">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/application/editHandyWorker.jsp"/>
 </file>
 </mruList>
 </workbench>

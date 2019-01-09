@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
 <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
 <fullyQualifiedTypeName name="org.springframework.cglib.core.Converter"/>
@@ -31,7 +30,6 @@
 <fullyQualifiedTypeName name="domain.Endorsable"/>
 <fullyQualifiedTypeName name="domain.Customer"/>
 <fullyQualifiedTypeName name="org.springframework.cglib.core.Local"/>
-<fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="domain.Money"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.AssertTrue"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="domain.Warranty"/>
 </qualifiedTypeNameHistroy>
