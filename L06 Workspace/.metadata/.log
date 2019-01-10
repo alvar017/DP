@@ -1387,3 +1387,1276 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.e
 
 !ENTRY org.eclipse.jst.jsp.core 4 4 2019-01-10 14:22:59.871
 !MESSAGE A workspace crash was detected. The previous session did not exit normally. Not using saved taglib indexes.
+!SESSION 2019-01-10 17:47:15.354 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_13
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-01-10 17:48:16.941
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/AbstractController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ActorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/AdministratorCategoryController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/AdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/AdministratorWarrantyController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ApplicationCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ApplicationHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ComplaintAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ComplaintCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ComplaintHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ComplaintRefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/CurriculumHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/CustomerAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/CustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/CustomerHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EducationalRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EndorsementAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EndorsementCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EndorsementHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EndorserRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/FinderHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/FixUpAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/FixUpCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/FixUpHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/HandyWorkerAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/HandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/MailBoxController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/MessageController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/MiscellaneousRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/NoteAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/NoteCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/NoteHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/NoteRefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/PersonalRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/PhaseHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ProfessionalRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.941
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ProfileController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/RefereeAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/RefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ReportCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ReportHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ReportRefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SectionHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SocialProfileActorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SocialProfileRefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SocialProfileaHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SponsorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/TutorialController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/TutorialHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/WelcomeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/ApplicationToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/AuthorityToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/CategoryToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/ComplaintToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/CurriculumToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/CustomerToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/EndorsableToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/FinderToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/FixUpToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/HandyWorkerToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/MailBoxToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/MessageToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/NoteToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/PhaseToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/RefereeToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/ReportToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/SectionToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/SocialProfilesToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/SponsorshipToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToApplicationConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToAuthorityConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToCategoryConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToComplaintConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToCurriculumConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToCustomerConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToEndorsableConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:16.988
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToFinderConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToFixUpConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToHandyWorkerConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToMailBoxConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToMessageConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToNoteConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToPhaseConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToRefereeConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToReportConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToSectionConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToSocialProfilesConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToSponsorshipConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToTutorialConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToUserAccountConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToWarrantyConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/TutorialToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/UserAccountToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/WarrantyToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Actor.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Administrator.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Application.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Category.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Complaint.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/CreditCard.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Curriculum.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Customer.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/DomainEntity.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/EducationalRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Endorsable.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Endorsement.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/EndorserRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Finder.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/FixUp.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/HandyWorker.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/MailBox.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Message.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/MiscellaneousRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Money.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Note.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/PersonalRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Phase.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Priority.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/ProfessionalRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Referee.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Report.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.081
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Section.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/SocialProfile.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Sponsor.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Sponsorship.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Tutorial.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Warranty.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ActorRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/AdministratorRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ApplicationRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/CategoryRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ComplaintRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/CreditCardRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/CurriculumRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/CustomerRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/EducationalRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/EndorsableRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/EndorsementRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/EndorserRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/FinderRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/FixUpRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/HandyWorkerRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/MailBoxRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/MessageRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/MiscellaneousRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/MoneyRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/NoteRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/PersonalRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/PhaseRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/PriorityRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ProfessionalRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/RefereeRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ReportRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/SectionRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/SocialProfileRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/SponsorRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/SponsorshipRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/TutorialRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/WarrantyRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/Authority.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/Credentials.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/LoginController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/LoginService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/UserAccount.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/UserAccountRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ActorService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/AdministratorService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ApplicationService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/CategoryService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ComplaintService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/CustomerService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EducationalRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EndorsableService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EndorsementService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EndorsementsService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EndorserRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/FinderService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/FixUpService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/HandyWorkerService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/MailBoxService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/MessageService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/MiscellaneousRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/NoteService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/PersonalRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/PhaseService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ProfessionalRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/RefereeService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ReportService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/SectionService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/SocialProfilelService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/SponsorService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/TutorialService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/WarrantyService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/WelcomeService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/ConsoleReader.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/DatabaseEnquirer.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/DatabasePopulator.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/DatabaseUtil$1.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/DatabaseUtil.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/EclipseConsole.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/EclipseStream.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/SchemaPrinter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/ThrowablePrinter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/DatabaseConfig.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/HashPassword.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/InitialiseDatabase.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/PopulateDatabase.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/QueryDatabase.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/styles/style.css'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/show.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/editCustomer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/editHandyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/listCustomer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/listHandyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/show_customer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/complaintCreate.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/complaintEdit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/complaintShow.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/customer/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/customer/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/customer/registerAsCustomer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/customer/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/endorsement/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/endorsement/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/endorsement/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/endorsement/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/list.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/list_customer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/list_handyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/show_customer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/show_handyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/create_handyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/show.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/show_curriculum.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/master-page/header.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/master-page/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/master-page/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/editMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/listMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/sendBroadcastMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/sendMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/showMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/note/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/note/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/note/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/note/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/create.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/show.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/report/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/report/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/report/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/report/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/sponsor/create.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/sponsor/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/sponsor/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/sponsor/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/index.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/editPhase.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:48:17.105
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/tiles_es.xml'.
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2019-01-10 17:51:24.816
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/AbstractController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ActorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/AdministratorCategoryController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/AdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/AdministratorWarrantyController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ApplicationCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ApplicationHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ComplaintAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ComplaintCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ComplaintHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ComplaintRefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/CurriculumHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/CustomerAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/CustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/CustomerHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EducationalRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EndorsementAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EndorsementCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EndorsementHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/EndorserRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/FinderHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/FixUpAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/FixUpCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/FixUpHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/HandyWorkerAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/HandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/MailBoxController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/MessageController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/MiscellaneousRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.816
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/NoteAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/NoteCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/NoteHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/NoteRefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/PersonalRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/PhaseHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ProfessionalRecordController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ProfileController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/RefereeAdministratorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/RefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ReportCustomerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ReportHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/ReportRefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SectionHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SocialProfileActorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SocialProfileRefereeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SocialProfileaHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/SponsorController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/TutorialController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/TutorialHandyWorkerController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/controllers/WelcomeController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/ApplicationToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/AuthorityToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/CategoryToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/ComplaintToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/CurriculumToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/CustomerToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/EndorsableToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/FinderToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/FixUpToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/HandyWorkerToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/MailBoxToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/MessageToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/NoteToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/PhaseToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/RefereeToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/ReportToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/SectionToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/SocialProfilesToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/SponsorshipToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToApplicationConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToAuthorityConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToCategoryConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToComplaintConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToCurriculumConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToCustomerConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToEndorsableConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToFinderConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToFixUpConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToHandyWorkerConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToMailBoxConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToMessageConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToNoteConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToPhaseConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToRefereeConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToReportConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToSectionConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToSocialProfilesConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToSponsorshipConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToTutorialConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToUserAccountConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/StringToWarrantyConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/TutorialToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/UserAccountToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/converters/WarrantyToStringConverter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Actor.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Administrator.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Application.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Category.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Complaint.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/CreditCard.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Curriculum.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Customer.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/DomainEntity.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/EducationalRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Endorsable.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Endorsement.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/EndorserRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Finder.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/FixUp.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/HandyWorker.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/MailBox.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Message.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/MiscellaneousRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Money.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Note.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/PersonalRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Phase.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Priority.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/ProfessionalRecord.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Referee.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Report.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Section.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/SocialProfile.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Sponsor.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Sponsorship.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Tutorial.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/domain/Warranty.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/AdministratorRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ApplicationRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/CategoryRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ComplaintRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/CreditCardRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/CurriculumRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/CustomerRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/EducationalRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/EndorsableRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/EndorsementRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/EndorserRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/FinderRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/FixUpRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/HandyWorkerRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/MailBoxRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/MessageRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/MiscellaneousRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/MoneyRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/NoteRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/PersonalRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/PhaseRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/PriorityRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ProfessionalRecordRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/RefereeRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/ReportRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/SectionRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/SocialProfileRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/SponsorRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/SponsorshipRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/TutorialRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/repositories/WarrantyRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/Authority.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/Credentials.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/LoginController.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/LoginService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/UserAccount.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/security/UserAccountRepository.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ActorService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/AdministratorService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ApplicationService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/CategoryService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ComplaintService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/CustomerService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EducationalRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EndorsableService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EndorsementService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EndorsementsService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/EndorserRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/FinderService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/FixUpService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/HandyWorkerService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/MailBoxService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/MessageService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/MiscellaneousRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/NoteService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/PersonalRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/PhaseService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ProfessionalRecordService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/RefereeService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/ReportService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/SectionService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/SocialProfilelService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/SponsorService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/TutorialService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/WarrantyService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/services/WelcomeService.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/ConsoleReader.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/DatabaseEnquirer.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/DatabasePopulator.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/DatabaseUtil$1.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/DatabaseUtil.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/EclipseConsole.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/EclipseStream.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/SchemaPrinter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/internal/ThrowablePrinter.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/DatabaseConfig.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/HashPassword.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/InitialiseDatabase.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/PopulateDatabase.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/target/classes/utilities/QueryDatabase.class'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/styles/style.css'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/show.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/actor/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/administrator/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/editCustomer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/editHandyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/listCustomer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/listHandyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/show_customer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/application/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/complaintCreate.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/complaintEdit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/complaintShow.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/complaint/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/customer/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/customer/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/customer/registerAsCustomer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/customer/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/endorsement/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/endorsement/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/endorsement/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/endorsement/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/list.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/finder/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/list_customer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/list_handyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/show_customer.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/fixUp/show_handyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/create_handyWorker.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/show.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/show_curriculum.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/handyWorker/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/master-page/header.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/master-page/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/master-page/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/editMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/listMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/sendBroadcastMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/sendMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/showMessage.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/message/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/note/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/note/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/note/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/note/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/create.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/referee/show.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/report/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/report/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/report/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/report/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/sponsor/create.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/sponsor/edit.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/sponsor/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/sponsor/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/index.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/welcome/tiles_es.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/editPhase.jsp'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/messages.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/messages_es.properties'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/tiles.xml'.
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:51:24.839
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/src/main/webapp/views/workplan/tiles_es.xml'.
+
+!ENTRY org.eclipse.core.resources 4 4 2019-01-10 17:59:30.933
+!MESSAGE Exception occurred while saving project preferences: /Acme-HandyWorker/.settings/org.eclipse.core.resources.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource is out of sync with the file system: '/Acme-HandyWorker/.settings/org.eclipse.core.resources.prefs'.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.write(FileSystemResourceManager.java:1076)
+	at org.eclipse.core.internal.resources.File.internalSetContents(File.java:321)
+	at org.eclipse.core.internal.resources.File.setContents(File.java:360)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:559)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:586)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:440)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:428)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.core.internal.resources.CharsetManager.flushPreferences(CharsetManager.java:256)
+	at org.eclipse.core.internal.resources.CharsetManager.setCharsetFor(CharsetManager.java:434)
+	at org.eclipse.core.internal.resources.Container.setDefaultCharset(Container.java:376)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.addResourceDirs(AbstractJavaProjectConfigurator.java:429)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.addProjectSourceFolders(AbstractJavaProjectConfigurator.java:299)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.configure(AbstractJavaProjectConfigurator.java:118)
+	at org.eclipse.m2e.core.project.configurator.AbstractLifecycleMapping.configure(AbstractLifecycleMapping.java:109)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:414)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:351)
+	at org.eclipse.m2e.core.ui.internal.UpdateMavenProjectJob.runInWorkspace(UpdateMavenProjectJob.java:74)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 274 2019-01-10 17:59:30.933
+!MESSAGE Resource is out of sync with the file system: '/Acme-HandyWorker/.settings/org.eclipse.core.resources.prefs'.
+
+!ENTRY org.eclipse.core.resources 4 382 2019-01-10 17:59:34.144
+!MESSAGE Could not save encoding settings.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception occurred while saving project preferences: /Acme-HandyWorker/.settings/org.eclipse.core.resources.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:600)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:440)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:428)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:350)
+	at org.eclipse.core.internal.resources.CharsetManager.flushPreferences(CharsetManager.java:256)
+	at org.eclipse.core.internal.resources.CharsetManager.setCharsetFor(CharsetManager.java:434)
+	at org.eclipse.core.internal.resources.Container.setDefaultCharset(Container.java:376)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.addResourceDirs(AbstractJavaProjectConfigurator.java:429)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.addProjectSourceFolders(AbstractJavaProjectConfigurator.java:299)
+	at org.eclipse.m2e.jdt.internal.AbstractJavaProjectConfigurator.configure(AbstractJavaProjectConfigurator.java:118)
+	at org.eclipse.m2e.core.project.configurator.AbstractLifecycleMapping.configure(AbstractLifecycleMapping.java:109)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:414)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:351)
+	at org.eclipse.m2e.core.ui.internal.UpdateMavenProjectJob.runInWorkspace(UpdateMavenProjectJob.java:74)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

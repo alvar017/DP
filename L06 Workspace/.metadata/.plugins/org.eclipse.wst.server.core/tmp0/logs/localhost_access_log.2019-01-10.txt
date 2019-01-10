@@ -453,3 +453,10 @@
 127.0.0.1 - - [10/Jan/2019:15:02:12 +0100] "POST /Acme-HandyWorker/category/administrator/edit.do HTTP/1.1" 302 -
 127.0.0.1 - - [10/Jan/2019:15:02:12 +0100] "GET /Acme-HandyWorker/category/administrator/list.do HTTP/1.1" 200 6656
 127.0.0.1 - - [10/Jan/2019:15:02:18 +0100] "GET /Acme-HandyWorker/category/administrator/list.do?language=en HTTP/1.1" 200 6652
+127.0.0.1 - - [10/Jan/2019:17:49:34 +0100] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [10/Jan/2019:17:49:50 +0100] "GET /Acme-HandyWorker/ HTTP/1.1" 200 3671
+127.0.0.1 - - [10/Jan/2019:17:49:54 +0100] "GET /Acme-HandyWorker/security/login.do HTTP/1.1" 200 3851
+127.0.0.1 - - [10/Jan/2019:17:50:03 +0100] "POST /Acme-HandyWorker/j_spring_security_check HTTP/1.1" 302 -
+127.0.0.1 - - [10/Jan/2019:17:50:03 +0100] "GET /Acme-HandyWorker/ HTTP/1.1" 200 4104
+127.0.0.1 - - [10/Jan/2019:18:04:57 +0100] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [10/Jan/2019:18:05:10 +0100] "GET /Acme-HandyWorker/ HTTP/1.1" 200 4126
