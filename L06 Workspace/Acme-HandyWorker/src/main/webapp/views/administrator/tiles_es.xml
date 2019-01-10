@@ -21,4 +21,18 @@
 		<put-attribute name="body" value="/views/administrator/edit.jsp" />
 	</definition>
 	
+	<definition name="administrator/list" extends="master.page">	
+		<put-attribute name="title" value="Administrador: Configuraciones" />
+		<put-attribute name="body" value="/views/administrator/list.jsp" />
+	</definition>
+	
+		<definition name="administrator/create" extends="master.page">	
+		<put-attribute name="title" value="Administrador: Registrar" />
+		<put-attribute name="body" value="/views/administrator/registerAdministrator.jsp" />
+	</definition>
+	
+	<definition name="administrator/statistics" extends="master.page">	
+		<put-attribute name="title" value="Administrador: Estadísticas" />
+		<put-attribute name="body" value="/views/administrator/statisticsDashboard.jsp" />
+	</definition>
 </tiles-definitions>

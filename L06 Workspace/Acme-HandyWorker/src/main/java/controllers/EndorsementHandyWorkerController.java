@@ -31,6 +31,7 @@ import services.EndorsableService;
 import services.EndorsementService;
 import services.FixUpService;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.Customer;
 import domain.Endorsable;
 import domain.Endorsement;
@@ -51,6 +52,8 @@ public class EndorsementHandyWorkerController extends AbstractController {
 	private HandyWorkerService	handyWorkerService;
 	@Autowired
 	private FixUpService		fixUpService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	//	@Autowired
@@ -73,7 +76,8 @@ public class EndorsementHandyWorkerController extends AbstractController {
 		Assert.notNull(userAccountId);
 		final HandyWorker handyWorker = this.handyWorkerService.getHandyWorkerByUserAccountId(userAccountId);
 		final Customer customer = this.customerService.findOne(receiverId);
-		if (customer == null && handyWorker != null) {
+		final Collection<Customer> customers = this.customerService.getAllCustomersByHandyWorkers(handyWorker.getId());
+		if (customer == null && handyWorker != null && customers.contains(customer)) {
 			final Collection<FixUp> fixUps = this.fixUpService.findAll();
 			final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 			final Collection<FixUp> myFixUps = this.fixUpService.findAllByHWLogger();
@@ -82,6 +86,10 @@ public class EndorsementHandyWorkerController extends AbstractController {
 			result.addObject("fixUps", fixUps);
 			result.addObject("myFixUps", myFixUps);
 			result.addObject("language", language);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 			result.addObject("requestURI", "fixUp/handyWorker/list.do");
 		} else {
 			Assert.isTrue(customer != null && handyWorker != null);
@@ -90,6 +98,10 @@ public class EndorsementHandyWorkerController extends AbstractController {
 			endorsement.setMoment(LocalDate.now().toDate());
 
 			result = new ModelAndView("endorsement/handyWorker/edit");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 
 			result.addObject("endorsement", endorsement);
 		}
@@ -107,6 +119,10 @@ public class EndorsementHandyWorkerController extends AbstractController {
 		else {
 			Assert.isTrue(this.endorsementService.findOne(endorsementId) != null);
 			result = new ModelAndView("endorsement/handyWorker/edit");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 
 			result.addObject("endorsement", endorsement);
 		}
@@ -186,6 +202,10 @@ public class EndorsementHandyWorkerController extends AbstractController {
 			result.addObject("endorsementReceived", endorsementReceived);
 			result.addObject("requestURI", "endorsement/handyWorker/show.do");
 			result.addObject("deleteURL", "endorsement/handyWorker/delete.do?endorsementId");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 			result.addObject("editURL", "endorsement/handyWorker/edit.do?endorsementId");
 		} else {
 			Assert.notNull(customer, "customer.null");
@@ -195,6 +215,10 @@ public class EndorsementHandyWorkerController extends AbstractController {
 			result.addObject("endorsementSend", endorsementSend);
 			result.addObject("endorsementReceived", endorsementReceived);
 			result.addObject("requestURI", "endorsement/customer/show.do");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 			result.addObject("deleteURL", "endorsement/customer/delete.do?endorsementId");
 			result.addObject("editURL", "endorsement/customer/edit.do?endorsementId");
 		}

@@ -51,7 +51,7 @@
     							
     				<tr><td><spring:message code="customer.showing.warranty" /><jstl:out value="${fixUp.warranty.title}"></jstl:out></td></tr>			
     							
-    				<tr><td><spring:message code="customer.showing.price" /><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out></td></tr>
+    				<tr><td><spring:message code="customer.showing.price" /><jstl:out value="${fixUp.maxPrice.quantity}"></jstl:out><jstl:out value="${fixUp.maxPrice.currency}"></jstl:out>(${iva})</td></tr>
 
     				<tr><td><spring:message code="customer.showing.moment" /><jstl:out value="${fixUp.moment}"></jstl:out></td></tr>
     							
@@ -78,7 +78,6 @@
     				<tr><td><i><spring:message code="customer.showing.applications" /></i></td></tr>
     					<tr><td>
     				    	<div>
-								<security:authorize access="hasRole('CUSTOMER')">
 									<display:table name="applications" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 										<display:column titleKey="customer.ticker"> 
 											<a href="application/customer/show.do?applicationId=${row.id}"><spring:message code="application.show" /></a>
@@ -90,7 +89,6 @@
 										</display:column>
 										<display:column property="comments" titleKey="application.comments"></display:column>
 									</display:table>
-								</security:authorize>
 							</div>
   							
   						</td></tr>

@@ -41,12 +41,15 @@
 			<form:input path="address" required="required"/>
 			<form:errors cssClass="error" path="address"/><br>
 			
+			<form:label path="phone"><spring:message code="actor.phone" /></form:label>(+${phone})
+			<form:input path="phone"/><br>
+			
 			<form:label path="surname"><spring:message code="administrator.surname" /></form:label>
 			<form:input path="surname" required="required"/>
 			<form:errors cssClass="error" path="surname"/><br>
 			
 			<form:label path="middleName"><spring:message code="administrator.middleName" /></form:label>
-			<form:input path="middleName" required="required"/>
+			<form:input path="middleName"/>
 			<form:errors cssClass="error" path="middleName"/><br>
 			
 			<form:label path="email"><spring:message code="administrator.email" /></form:label>
@@ -54,9 +57,10 @@
 			<form:errors cssClass="error" path="email"/><br>
 			
 			<form:label path="photo"><spring:message code="administrator.photo" /></form:label>
-			<form:input path="photo" required="required"/>
+			<form:input path="photo"/>
 			<form:errors cssClass="error" path="photo"/><br>
 			
+			<!--
 			<form:label path="userAccount.username"><spring:message code="administrator.username" /></form:label>
 			<form:input path="userAccount.username" required="required"/>
 			<form:errors cssClass="error" path="userAccount.username"/><br>
@@ -70,9 +74,13 @@
 			<form:hidden path="userAccount.authorities"/>
 			<form:hidden path="userAccount.isBanned"/>
 			<form:hidden path="userAccount.isSuspicious"/>
-			
+			-->
+			<form:hidden path="userAccount"/>
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
+			<form method="get" action=" ">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
       </div>
       
  	</article>

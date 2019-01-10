@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.HandyWorker;
 
 @Controller
@@ -27,6 +28,9 @@ public class HandyWorkerAdministratorController extends AbstractController {
 
 	@Autowired
 	private HandyWorkerService	handyWorkerService;
+
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -47,6 +51,10 @@ public class HandyWorkerAdministratorController extends AbstractController {
 		result = new ModelAndView("handyWorker/administrator/showD");
 		result.addObject("handyWorker", handyWorker);
 		result.addObject("language", language);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("requestURI", "handyWorker/administrator/showD.do");
 
 		return result;

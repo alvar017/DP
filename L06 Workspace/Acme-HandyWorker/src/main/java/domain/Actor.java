@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -15,6 +16,7 @@ import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.URL;
 
 import security.UserAccount;
 
@@ -34,6 +36,9 @@ public class Actor extends DomainEntity {
 	private UserAccount					userAccount;
 	private Boolean						isBanned;
 	private Boolean						isSuspicious;
+
+	//carmen
+	private String						phone;
 
 
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -88,6 +93,7 @@ public class Actor extends DomainEntity {
 		this.socialProfiles = socialProfiles;
 	}
 	@Email
+	@Column(unique = true)
 	public String getEmail() {
 		return this.email;
 	}
@@ -96,6 +102,7 @@ public class Actor extends DomainEntity {
 		this.email = email;
 	}
 
+	@URL
 	public String getPhoto() {
 		return this.photo;
 	}
@@ -105,7 +112,7 @@ public class Actor extends DomainEntity {
 	}
 
 	@Valid
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<MailBox> getMailBoxes() {
 		return this.mailBoxes;
 	}
@@ -128,6 +135,14 @@ public class Actor extends DomainEntity {
 
 	public void setIsSuspicious(final Boolean isSuspicious) {
 		this.isSuspicious = isSuspicious;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(final String phone) {
+		this.phone = phone;
 	}
 
 }

@@ -4,7 +4,9 @@ package services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -23,8 +25,13 @@ import domain.HandyWorker;
 @Transactional
 public class EndorsementService {
 
-	private final List<String>		positive	= Arrays.asList("bueno", "rápido", "servicial");
-	private final List<String>		negative	= Arrays.asList("malo", "lento", "rastrero");
+	final List<String>				posAux		= null;
+	final List<String>				negAux		= null;
+
+	private List<String>			esPositive	= Arrays.asList("bueno", "rápido");
+	private List<String>			esNegative	= Arrays.asList("malo", "lento");
+	private List<String>			enPositive	= Arrays.asList("good", "fast");
+	private List<String>			enNegative	= Arrays.asList("bad", "slow");
 
 	@Autowired
 	private EndorsementRepository	endorsementRepository;
@@ -117,14 +124,21 @@ public class EndorsementService {
 	}
 
 	public void calificateUser(final Endorsement endorsement) {
+
+		this.posAux.addAll(this.enPositive);
+		this.posAux.addAll(this.esPositive);
+
+		this.negAux.addAll(this.enNegative);
+		this.negAux.addAll(this.esNegative);
+
 		Assert.isTrue(endorsement.getendorsableReceiver() != null, "endorsement.endorsableReceiver.null");
 		final Endorsable endorsable = endorsement.getendorsableReceiver();
 		Assert.isTrue(endorsement.getComments() != null, "endorsement.comments.null");
 		final String message = endorsement.getComments();
 		//        final List<String> positiveWords = Arrays.asList("bueno", "rápido", "servicial");
-		final List<String> positiveWords = this.positive;
+		//final List<String> positiveWords = ;
 		//        final List<String> negativeWords = Arrays.asList("malo", "lento", "rastrero");
-		final List<String> negativeWords = this.negative;
+		//final List<String> negativeWords = this.negative;
 		message.trim();
 		message.replace(",", "");
 		message.replace(".", "");
@@ -132,8 +146,8 @@ public class EndorsementService {
 		final Integer sizeOriginal = listaMensaje.size();
 		final List<String> positivas = new ArrayList<String>(listaMensaje);
 		final List<String> negativas = new ArrayList<String>(listaMensaje);
-		positivas.removeAll(positiveWords);
-		negativas.removeAll(negativeWords);
+		positivas.removeAll(this.posAux);
+		negativas.removeAll(this.negAux);
 		final Double contadorPositivo = (sizeOriginal - positivas.size()) * 1.;
 		final Double contadorNegativo = (sizeOriginal - negativas.size()) * 1.;
 		final Double totalPalabras = contadorPositivo + contadorNegativo;
@@ -142,6 +156,75 @@ public class EndorsementService {
 		final Double nuevaCalificacion = (calificacionActual + res) / 2.;
 		Assert.isTrue(nuevaCalificacion > -1. && nuevaCalificacion < 1.);
 		endorsable.setCalification(nuevaCalificacion);
+	}
+
+	public Map<String, String> mapWords(final List<String> k, final List<String> v) {
+
+		final Map<String, String> res = new HashMap<String, String>();
+
+		for (int i = 0; i < k.size(); i++)
+			res.put(k.get(i), v.get(i));
+
+		return res;
+	}
+
+	public List<String> getEsPositive() {
+		return this.esPositive;
+	}
+
+	public void setEsPositive(final List<String> esPositive) {
+		this.esPositive = esPositive;
+	}
+
+	public List<String> getEsNegative() {
+		return this.esNegative;
+	}
+
+	public void setEsNegative(final List<String> esNegative) {
+		this.esNegative = esNegative;
+	}
+
+	public List<String> getEnPositive() {
+		return this.enPositive;
+	}
+
+	public void setEnPositive(final List<String> enPositive) {
+		this.enPositive = enPositive;
+	}
+
+	public List<String> getEnNegative() {
+		return this.enNegative;
+	}
+
+	public void setEnNegative(final List<String> enNegative) {
+		this.enNegative = enNegative;
+	}
+
+	public void deleteWord(final String word) {
+
+		if (this.esPositive.contains(word))
+			this.esPositive.remove(word);
+		if (this.enPositive.contains(word))
+			this.enPositive.remove(word);
+
+		if (this.esNegative.contains(word))
+			this.esNegative.remove(word);
+		if (this.enNegative.contains(word))
+			this.enNegative.remove(word);
+
+	}
+
+	public void saveWord(final String word) {
+
+		if (this.esPositive.contains(word))
+			this.esPositive.add(word);
+		if (this.enPositive.contains(word))
+			this.enPositive.add(word);
+
+		if (this.esNegative.contains(word))
+			this.esNegative.add(word);
+		if (this.enNegative.contains(word))
+			this.enNegative.add(word);
 	}
 
 }

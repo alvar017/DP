@@ -59,6 +59,8 @@
 		<!-- ANTONIO -->
 		<bean class="converters.FixUpToStringConverter"></bean>
 		<bean class="converters.StringToFixUpConverter"></bean>
+		<bean class="converters.MessageToStringConverter"></bean>
+		<bean class="converters.StringToMessageConverter"></bean>
 		<!-- ANTONIO -->
 		<!-- FERRETE -->
 		<bean class="converters.SponsorshipToStringConverter"></bean>

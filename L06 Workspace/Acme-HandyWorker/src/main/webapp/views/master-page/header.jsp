@@ -16,7 +16,8 @@
 
 <header id="main-header">
     
-    <a title="AcmeTitle" href=""><img src="images/logo.png" alt="Logo" /></a>
+        <a title="AcmeTitle" href="">${system}    		    	<img  src="${logo}" id="main-header" >
+    <!--<img src="images/logo.png" alt="Logo" />--></a>
  
     <nav>
 		<ul id="jMenu">
@@ -25,9 +26,14 @@
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
-					<li><a href="actor/administrator/list.do"><spring:message code="master.page.administrator.action.1" /></a></li>
+					<li><a href="administrator/list.do"><spring:message code="master.page.administrator.action.1" /></a></li>
 					<li><a href="referee/administrator/list.do"><spring:message code="master.page.administrator.action.3" /></a></li>
 					<li><a href="complaint/administrator/showD.do"><spring:message code="master.page.administrator.action.2" /></a></li>
+					<li><a href="endorsement/administrator/list.do"><spring:message code="master.page.administrator.endorsement" /></a></li>
+										<li><a href="administrator/create.do"><spring:message code="master.page.administrator.create" /></a></li>		
+					<li><a href="category/administrator/list.do"><spring:message code="master.page.category.list" /></a></li>																
+					<li><a href="warranty/administrator/list.do"><spring:message code="master.page.warranty.list" /></a></li>																
+					<li><a href="administrator/statistics.do"><spring:message code="master.page.administrator.statistics" /></a></li>																
 				</ul>
 			</li>
 		</security:authorize>
@@ -59,8 +65,18 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('REFEREE')">
+			<li><a class="fNiv"><spring:message	code="master.page.referee" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="complaint/referee/list.do"><spring:message code="master.page.complaints.referee.list" /></a></li>
+				</ul>
+			</li>
+		</security:authorize>
+		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
+			<li><a href="tutorial/list.do"><spring:message code="master.page.tutorialListing" /></a></li>
 			<li><a class="fNiv"><spring:message	code="master.page.createUser" /></a>
 				<ul>
 					<li class="arrow"></li>
@@ -80,6 +96,7 @@
 				<ul>
 					<li class="arrow"></li>					
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
+					<li><a href="mailBox/list.do"><spring:message code="master.page.mailBox.list" /></a></li>																
 					<security:authorize access="hasRole('CUSTOMER')">
 						<li><a href="actor/edit.do"><spring:message code="master.page.editProfile" /></a></li>
 						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>

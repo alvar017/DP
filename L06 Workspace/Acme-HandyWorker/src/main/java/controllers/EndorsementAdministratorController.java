@@ -26,6 +26,7 @@ import services.AdministratorService;
 import services.CustomerService;
 import services.EndorsementService;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.Customer;
 import domain.HandyWorker;
 
@@ -41,6 +42,8 @@ public class EndorsementAdministratorController extends AbstractController {
 	HandyWorkerService		hwService;
 	@Autowired
 	EndorsementService		endorsementService;
+	@Autowired
+	WelcomeService			welcomeService;
 
 
 	//-----------------------------------------------------------
@@ -59,6 +62,10 @@ public class EndorsementAdministratorController extends AbstractController {
 		res = new ModelAndView("endorsement/administrator/list");
 		res.addObject("requestURI", "endorsement/administrator/list.do");
 		res.addObject("customers", customers);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("handyWorkers", hws);
 
 		return res;
@@ -87,6 +94,11 @@ public class EndorsementAdministratorController extends AbstractController {
 
 		res.addObject("esPositives", esPositives);
 		res.addObject("enPositives", enPositives);
+
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 
 		res.addObject("esNegatives", esNegatives);
 		res.addObject("enNegatives", enNegatives);

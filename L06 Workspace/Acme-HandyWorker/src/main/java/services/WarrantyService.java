@@ -73,4 +73,8 @@ public class WarrantyService {
 		this.warrantyRepository.delete(warranty);
 	}
 
+	public Collection<Warranty> getFinalWarranty() {
+		return this.warrantyRepository.getFinalWarranty();
+	}
+
 }

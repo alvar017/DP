@@ -19,13 +19,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.NoteService;
+import services.WelcomeService;
 
 @Controller
 @RequestMapping("/note/administrator")
 public class NoteAdministratorController extends AbstractController {
 
 	@Autowired
-	private NoteService	noteService;
+	private NoteService		noteService;
+	@Autowired
+	private WelcomeService	welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -43,6 +46,10 @@ public class NoteAdministratorController extends AbstractController {
 
 		result = new ModelAndView("note/administrator/showD");
 		result.addObject("statistics", statistics);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}

@@ -11,6 +11,7 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -21,6 +22,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,6 +36,7 @@ import services.FixUpService;
 import services.HandyWorkerService;
 import services.MailBoxService;
 import services.MessageService;
+import services.WelcomeService;
 import domain.Actor;
 import domain.MailBox;
 import domain.Message;
@@ -52,6 +55,8 @@ public class MessageController extends AbstractController {
 	private ActorService		actorService;
 	@Autowired
 	private MailBoxService		mailBoxService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -70,6 +75,10 @@ public class MessageController extends AbstractController {
 
 		result = new ModelAndView("message/list");
 		result.addObject("msgs", msgs);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("requestURI", "message/list.do");
 
 		return result;
@@ -83,6 +92,10 @@ public class MessageController extends AbstractController {
 
 		result = new ModelAndView("message/show");
 		result.addObject("msg", msg);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("language", language);
 		result.addObject("requestURI", "message/show.do");
 
@@ -109,6 +122,10 @@ public class MessageController extends AbstractController {
 
 		msg = this.messageService.create();
 		result = this.createEditModelAndViewBroadcast(msg);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		return result;
 	}
 
@@ -124,41 +141,66 @@ public class MessageController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
-	public ModelAndView send(@ModelAttribute("msg") @Valid Message msg, final BindingResult binding, @RequestParam final String emailReceiver) {
+	public ModelAndView send(@ModelAttribute("msg") @Valid Message msg, final BindingResult binding, @RequestParam(value = "emailReceiver", defaultValue = "FfalsoF@gmail.com") final String emailReceiver) {
 		ModelAndView result;
+		if (msg.getEmailReceiver() == null)
+			msg.setEmailReceiver(Arrays.asList("FfalsoF@gmail.com"));
 		final UserAccount login = LoginService.getPrincipal();
 		final Actor sender = this.actorService.getActorByUserId(login.getId());
-		System.out.println(msg.getEmailReceiver());
-		System.out.println("antes de exchangeMessage");
-		final List<String> lisEmailReceiver = new ArrayList<>();
-		lisEmailReceiver.addAll(msg.getEmailReceiver());
-		for (int i = 0; i < msg.getEmailReceiver().size(); i++) {
-			final Actor receiverIndex = this.actorService.getActorByEmail(lisEmailReceiver.get(i));
-			msg = this.messageService.exchangeMessage(msg, receiverIndex.getId());
-			System.out.println(receiverIndex);
-			System.out.println(this.mailBoxService.getInBoxActor(receiverIndex.getId()).getMessages());
+		final List<String> emails = new ArrayList<>(msg.getEmailReceiver());
+		if (emails.get(0) == "FfalsoF@gmail.com") {
+			final ObjectError error = new ObjectError("emailReceiver", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("emailReceiver", "error.emailReceiver");
 		}
-
-		System.out.println("despues de exchangeMessage");
-		System.out.println(sender);
-		System.out.println(msg);
-		System.out.println(msg.getMailBoxes());
-		System.out.println(this.mailBoxService.getOutBoxActor(sender.getId()).getMessages());
-
-		System.out.println("LA SUPER PRUEBA DEL COMBO");
-		System.out.println(msg.getEmailReceiver());
-
-		System.out.println("Entro en el save");
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding messageController");
 			System.out.println(binding.getAllErrors().get(0));
 
 			final Collection<MailBox> mailBoxes = sender.getMailBoxes();
 			System.out.println(mailBoxes);
-			result = new ModelAndView("mailBox/list");
+			result = new ModelAndView("message/edit");
+			result.addObject("messageId", msg.getId());
+			result.addObject("messageId", msg.getId());
 			result.addObject("mailBoxes", mailBoxes);
+			final Collection<String> emails2 = this.actorService.getEmailofActors();
+			System.out.println(emails2);
+			final List<String> listEmail = new ArrayList<>();
+			listEmail.addAll(emails2);
+			for (int i = 0; i < listEmail.size(); i++) {
+				final Actor a = this.actorService.getActorByEmail(listEmail.get(i));
+				final MailBox inbox = this.mailBoxService.getInBoxActor(a.getId());
+				System.out.println("inbox y actor");
+				System.out.println(inbox);
+				System.out.println(a);
+				if (inbox == null)
+					emails2.remove(listEmail.get(i));
+				result.addObject("emails", emails2);
+			}
 		} else
 			try {
+				System.out.println(msg.getEmailReceiver());
+				System.out.println("antes de exchangeMessage");
+				final List<String> lisEmailReceiver = new ArrayList<>();
+				lisEmailReceiver.addAll(msg.getEmailReceiver());
+				for (int i = 0; i < msg.getEmailReceiver().size(); i++) {
+					final Actor receiverIndex = this.actorService.getActorByEmail(lisEmailReceiver.get(i));
+					msg = this.messageService.exchangeMessage(msg, receiverIndex.getId());
+					System.out.println(receiverIndex);
+					System.out.println(this.mailBoxService.getInBoxActor(receiverIndex.getId()).getMessages());
+				}
+
+				System.out.println("despues de exchangeMessage");
+				System.out.println(sender);
+				System.out.println(msg);
+				System.out.println(msg.getMailBoxes());
+				System.out.println(this.mailBoxService.getOutBoxActor(sender.getId()).getMessages());
+
+				System.out.println("LA SUPER PRUEBA DEL COMBO");
+				System.out.println(msg.getEmailReceiver());
+
+				System.out.println("Entro en el save");
+
 				System.out.println("intenta el list de exchange message");
 				this.messageService.save(msg);
 				final Collection<MailBox> mailBoxes = sender.getMailBoxes();
@@ -226,6 +268,10 @@ public class MessageController extends AbstractController {
 		ModelAndView result;
 
 		result = this.createEditModelAndView(msg, null);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -249,6 +295,10 @@ public class MessageController extends AbstractController {
 		result.addObject("msg", msg);
 		result.addObject("emails", emails);
 		result.addObject("msgCode", msgCode);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -256,6 +306,10 @@ public class MessageController extends AbstractController {
 		ModelAndView result;
 
 		result = this.createEditModelAndViewBroadcast(msg, null);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -267,6 +321,10 @@ public class MessageController extends AbstractController {
 		result = new ModelAndView("message/editBroadcast");
 		result.addObject("msg", msg);
 		result.addObject("emails", emails);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("msgCode", msgCode);
 
 		return result;
@@ -281,6 +339,24 @@ public class MessageController extends AbstractController {
 
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 		final Message msg = this.messageService.findOne(msgId);
+		final Collection<MailBox> boxesSender = sender.getMailBoxes();
+		final List<MailBox> boxesListSender = new ArrayList<>();
+		boxesListSender.addAll(boxesSender);
+
+		final Collection<MailBox> boxes = msg.getMailBoxes();
+		final List<MailBox> boxesList = new ArrayList<>();
+		boxesList.addAll(boxes);
+
+		final Actor creator = this.actorService.getActorMailBox(boxesList.get(0).getId());
+
+		System.out.println(sender);
+		System.out.println(creator);
+
+		if (creator.getId() != sender.getId()) {
+			result = new ModelAndView("welcome/index");
+			return result;
+		}
+
 		System.out.println("Message encontrado: " + msg);
 		Assert.notNull(msg, "msg.null");
 
@@ -354,6 +430,10 @@ public class MessageController extends AbstractController {
 		ModelAndView result;
 
 		result = this.createEditModelAndViewMailBox(msg, null);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -372,8 +452,33 @@ public class MessageController extends AbstractController {
 		System.out.println(mailBoxes);
 		System.out.println(nameMailBox);
 
+		final UserAccount login = LoginService.getPrincipal();
+		final Actor sender = this.actorService.getActorByUserId(login.getId());
+
+		final Collection<MailBox> boxesSender = sender.getMailBoxes();
+		final List<MailBox> boxesListSender = new ArrayList<>();
+		boxesListSender.addAll(boxesSender);
+
+		final Collection<MailBox> boxes = msg.getMailBoxes();
+		final List<MailBox> boxesList = new ArrayList<>();
+		boxesList.addAll(boxes);
+
+		final Actor creator = this.actorService.getActorMailBox(boxesList.get(0).getId());
+
+		System.out.println(sender);
+		System.out.println(creator);
+
+		if (creator.getId() != sender.getId()) {
+			result = new ModelAndView("welcome/index");
+			return result;
+		}
+
 		result = new ModelAndView("message/editMailBox");
 		result.addObject("msg", msg);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("nameMailBox", nameMailBox);
 		result.addObject("msgCode", msgCode);
 

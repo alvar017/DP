@@ -6,13 +6,16 @@ import java.util.Date;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -23,11 +26,11 @@ public class Message extends DomainEntity {
 	private Date				moment;
 	private Priority			priority;
 	private Collection<MailBox>	mailBoxes;
+	private Collection<String>	emailReceiver;
 
 
 	@ManyToMany
 	@Valid
-	@NotEmpty
 	public Collection<MailBox> getMailBoxes() {
 		return this.mailBoxes;
 	}
@@ -36,6 +39,7 @@ public class Message extends DomainEntity {
 		this.mailBoxes = mailBoxes;
 	}
 
+	@NotBlank
 	public String getSubject() {
 		return this.subject;
 	}
@@ -44,6 +48,7 @@ public class Message extends DomainEntity {
 		this.subject = subject;
 	}
 
+	@NotBlank
 	public String getBody() {
 		return this.body;
 	}
@@ -52,6 +57,8 @@ public class Message extends DomainEntity {
 		this.body = body;
 	}
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+	@NotNull
 	public Date getMoment() {
 		return this.moment;
 	}
@@ -66,6 +73,15 @@ public class Message extends DomainEntity {
 
 	public void setPriority(final Priority priority) {
 		this.priority = priority;
+	}
+
+	@ElementCollection(targetClass = String.class)
+	public Collection<String> getEmailReceiver() {
+		return this.emailReceiver;
+	}
+
+	public void setEmailReceiver(final Collection<String> emailReceiver) {
+		this.emailReceiver = emailReceiver;
 	}
 
 }

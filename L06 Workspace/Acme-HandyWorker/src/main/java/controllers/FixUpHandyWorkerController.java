@@ -25,6 +25,7 @@ import security.UserAccount;
 import services.FixUpService;
 import services.HandyWorkerService;
 import services.PhaseService;
+import services.WelcomeService;
 import domain.Category;
 import domain.FixUp;
 import domain.HandyWorker;
@@ -42,6 +43,9 @@ public class FixUpHandyWorkerController extends AbstractController {
 
 	@Autowired
 	private PhaseService		phaseService;
+
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -61,6 +65,10 @@ public class FixUpHandyWorkerController extends AbstractController {
 		result.addObject("fixUps", fixUps);
 		result.addObject("myFixUps", myFixUps);
 		result.addObject("language", language);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("requestURI", "fixUp/handyWorker/list.do");
 
 		return result;
@@ -75,12 +83,15 @@ public class FixUpHandyWorkerController extends AbstractController {
 		final UserAccount login = LoginService.getPrincipal();
 
 		final HandyWorker logged = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
-		final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
-		System.out.println("checkHW: " + checkHW);
+		if (fixUp.getHandyWorker() != null) {
+			final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+			System.out.println("checkHW: " + checkHW);
+		}
 		//======================================
 		final Category category = fixUp.getCategory();
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 		final Collection<Phase> workplan = this.phaseService.getPhasesByFixUp(fixUp);
+		final Double iva = this.fixUpService.iva(fixUp);
 
 		result = new ModelAndView("fixUp/handyWorker/show");
 		result.addObject("fixUp", fixUp);
@@ -88,9 +99,18 @@ public class FixUpHandyWorkerController extends AbstractController {
 		result.addObject("language", language);
 		//NUEVO
 		result.addObject("workplan", workplan);
-		result.addObject("checkHW", checkHW);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+		if (fixUp.getHandyWorker() != null) {
+			final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+			System.out.println("checkHW: " + checkHW);
+			result.addObject("checkHW", checkHW);
+		}
 		//========================================
 		result.addObject("requestURI", "fixUp/handyWorker/show.do");
+		result.addObject("iva", iva);
 
 		return result;
 	}

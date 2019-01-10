@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.ReportService;
+import services.WelcomeService;
 import domain.Report;
 
 @Controller
@@ -17,6 +18,8 @@ public class ReportCustomerController extends AbstractController {
 
 	@Autowired
 	private ReportService	reportService;
+	@Autowired
+	private WelcomeService	welcomeService;
 
 
 	// ==============================================================
@@ -31,6 +34,10 @@ public class ReportCustomerController extends AbstractController {
 		report = this.reportService.findOne(reportId);
 
 		res.addObject("report", report);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("requestURI", "report/customer/show.do");
 
 		return res;

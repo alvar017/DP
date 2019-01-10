@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.HandyWorker;
 
 @Controller
@@ -27,6 +28,8 @@ public class CurriculumHandyWorkerController extends AbstractController {
 
 	@Autowired
 	private HandyWorkerService	handyWorkerService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	//	@Autowired
@@ -46,6 +49,10 @@ public class CurriculumHandyWorkerController extends AbstractController {
 		Assert.isTrue(handyWorker != null);
 
 		result = new ModelAndView("curriculum/handyWorker/show");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("handyWorker", handyWorker);
 		result.addObject("curriculum", handyWorker.getCurriculum());
 		result.addObject("requestURI", "curriculum/handyWorker/show.do");

@@ -30,6 +30,7 @@ import services.CustomerService;
 import services.HandyWorkerService;
 import services.RefereeService;
 import services.SponsorService;
+import services.WelcomeService;
 import domain.Actor;
 import domain.Customer;
 import domain.Sponsor;
@@ -52,6 +53,8 @@ public class ActorController extends AbstractController {
 	private SponsorService			sponsorService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
+	@Autowired
+	WelcomeService					welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -68,9 +71,17 @@ public class ActorController extends AbstractController {
 		Assert.isTrue(actor != null);
 
 		result = new ModelAndView("actor/show");
+		if (this.customerService.getCustomerByUserAccountId(userLoggin) != null)
+			result.addObject("score", this.customerService.getCustomerByUserAccountId(userLoggin).getCalification());
 		result.addObject("actor", actor);
 		result.addObject("socialProfiles", actor.getSocialProfiles());
 		result.addObject("requestURI", "actor/show.do");
+		final String phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -89,6 +100,12 @@ public class ActorController extends AbstractController {
 		result = new ModelAndView("actor/edit");
 
 		result.addObject("actor", actor);
+		final String phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -122,10 +139,10 @@ public class ActorController extends AbstractController {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
 				System.out.println(binding);
 				if (this.customerService.findOne(actor.getId()) != null) {
-					final String password = actor.getUserAccount().getPassword();
-					final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-					final String hashPassword = encoder.encodePassword(password, null);
-					actor.getUserAccount().setPassword(hashPassword);
+					//					final String password = actor.getUserAccount().getPassword();
+					//					final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+					//					final String hashPassword = encoder.encodePassword(password, null);
+					//					actor.getUserAccount().setPassword(hashPassword);
 					final Customer customer = this.customerService.findOne(actor.getId());
 					customer.setName(actor.getName());
 					customer.setAddress(actor.getAddress());
@@ -133,6 +150,10 @@ public class ActorController extends AbstractController {
 					customer.setMiddleName(actor.getMiddleName());
 					customer.setEmail(actor.getEmail());
 					customer.setPhoto(actor.getPhoto());
+					if (actor.getPhone().matches("^([0-9]{4,})$"))
+						customer.setPhone("+" + this.welcomeService.getPhone() + " " + actor.getPhone());
+					else
+						customer.setPhone(actor.getPhone());
 					customer.getUserAccount().setUsername(actor.getUserAccount().getUsername());
 					customer.getUserAccount().setPassword(actor.getUserAccount().getPassword());
 					customer.setMailBoxes(actor.getMailBoxes());
@@ -153,6 +174,7 @@ public class ActorController extends AbstractController {
 					sponsor.getUserAccount().setUsername(actor.getUserAccount().getUsername());
 					sponsor.getUserAccount().setPassword(actor.getUserAccount().getPassword());
 					sponsor.setMailBoxes(actor.getMailBoxes());
+					sponsor.setPhone(actor.getPhone());
 					this.sponsorService.save(sponsor);
 					result = new ModelAndView("redirect:show.do");
 				} else

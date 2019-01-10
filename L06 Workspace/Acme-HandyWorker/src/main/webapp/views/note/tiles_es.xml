@@ -18,7 +18,7 @@
 
 	<definition name="note/handyWorker/create" extends="master.page">	
 		<put-attribute name="title" value="Trabajador: Crear nota" />
-		<put-attribute name="body" value="/views/note/create.jsp" />
+		<put-attribute name="body" value="/views/note/noteHandyWorkerCreate.jsp" />
 	</definition>
 	
 		<definition name="note/administrator/showD" extends="master.page">
@@ -31,7 +31,31 @@
 		<put-attribute name="body" value="/views/note/show.jsp"></put-attribute>
 	</definition>
 
+			<!-- Note -->
+	<definition name="note/customer/create" extends="master.page">
+		<put-attribute name="title" value="Cliente: Editar Nota"></put-attribute>
+		<put-attribute name="body" value="/views/note/noteCreate.jsp"></put-attribute>
+	</definition>
 	
+	<definition name="note/customer/show" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Mostrar Nota" />
+		<put-attribute name="body" value="/views/note/noteShow.jsp" />
+	</definition>
+	
+	<definition name="note/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Mostrar Nota" />
+		<put-attribute name="body" value="/views/note/noteHandyWorkerShow.jsp" />
+	</definition>
+	
+	<definition name="note/referee/create" extends="master.page">	
+		<put-attribute name="title" value="Revisor: Editar Nota" />
+		<put-attribute name="body" value="/views/note/noteRefereeCreate.jsp" />
+	</definition>
+	
+	<definition name="note/referee/show" extends="master.page">	
+		<put-attribute name="title" value="Revisor: Mostrar Nota" />
+		<put-attribute name="body" value="/views/note/noteRefereeShow.jsp" />
+	</definition>
 	
 </tiles-definitions>
 	

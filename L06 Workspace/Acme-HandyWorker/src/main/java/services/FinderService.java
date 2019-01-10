@@ -1,8 +1,11 @@
 
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,13 +23,73 @@ import domain.HandyWorker;
 public class FinderService {
 
 	@Autowired
-	private FinderRepository	finderRepository;
+	private FinderRepository		finderRepository;
 
 	@Autowired
-	private HandyWorkerService	handyWorkerService;
+	private HandyWorkerService		handyWorkerService;
+
+	@Autowired
+	private AdministratorService	administratorService;
+
+	private Integer					result	= 10;
 
 
+	public Integer numResult(final Integer newResult) {
+		Assert.isTrue(!this.checkResult(newResult), "result.bad");
+		this.result = newResult;
+		return this.result;
+	}
+
+	public Integer getResult() {
+		return this.result;
+	}
+
+
+	private Integer	time	= 24;
+
+
+	public Integer newTime(final Integer newTime) {
+		Assert.isTrue(!this.checkTime(newTime), "time.bad");
+		this.time = newTime;
+		return this.time;
+	}
+
+	private Boolean checkTime(final Integer time) {
+		Boolean res = true;
+		if (time >= 1 && time <= 24)
+			res = false;
+		return res;
+	}
+
+	public Integer getTime() {
+		return this.time;
+	}
+
+
+	private final Collection<FixUp>	finderFixUp	= new ArrayList<>();
+
+
+	public Collection<FixUp> fixUpByFinder(final Collection<FixUp> fixUps) {
+		this.finderFixUp.addAll(fixUps);
+		return this.finderFixUp;
+	}
+
+	private Boolean checkResult(final Integer result) {
+		Boolean res = true;
+		if (result > 0)
+			res = false;
+		return res;
+	}
+
+	public Collection<FixUp> getFinderFixUp() {
+		return this.finderFixUp;
+	}
 	//Simple CRUD Methods ------------------
+
+	public Integer updateResultFinder() {
+		final Integer res = this.result;
+		return res;
+	}
 
 	public Finder create() {
 
@@ -35,6 +98,10 @@ public class FinderService {
 		final UserAccount login = LoginService.getPrincipal();
 		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
 		Assert.notNull(hw);
+
+		final Date moment = LocalDate.now().toDate();
+
+		finder.setDate(moment);
 
 		System.out.println("paso2");
 		return finder;
@@ -45,7 +112,54 @@ public class FinderService {
 	}
 
 	public Finder save(final Finder finder) {
+		if (finder.getEndDate() != null && finder.getStartDate() != null)
+			Assert.isTrue(!this.checkStartDateEndDate(finder.getStartDate(), finder.getEndDate()), "finder.wrongDate");
+		//			Assert.isTrue(!this.checkEndDate(finder.getStartDate(), finder.getEndDate()), "finder.wrongMomentDate");
+		if (finder.getMaxPrice() != null && finder.getMinPrice() == null) {
+			Assert.isTrue(!this.checkMax(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrong");
+			Assert.isTrue(!this.checkMin(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrongP");
+		}
+		if (finder.getMinPrice() != null && finder.getMaxPrice() == null) {
+			Assert.isTrue(!this.checkMax(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrong");
+			Assert.isTrue(!this.checkMin(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrongP");
+		}
+		if (finder.getMaxPrice() != null && finder.getMinPrice() != null)
+			Assert.isTrue(!this.checkDate(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrong");
 		return this.finderRepository.save(finder);
+	}
+
+	private Boolean checkMax(final Double max, final Double min) {
+		Boolean res = true;
+		if (max != null && min == null) {
+			if (max < 0)
+				res = false;
+			res = false;
+		}
+		return res;
+	}
+
+	private Boolean checkMin(final Double max, final Double min) {
+		Boolean res = true;
+		if (min != null && max == null) {
+			if (min < 0)
+				res = false;
+			res = false;
+		}
+		return res;
+	}
+
+	private Boolean checkStartDateEndDate(final Date startDate, final Date endDate) {
+		Boolean res = true;
+		if (startDate != null && endDate != null && startDate.after(endDate))
+			res = false;
+		return res;
+	}
+
+	private Boolean checkDate(final Double min, final Double max) {
+		Boolean res = true;
+		if (min > 0 && max > 0)
+			res = false;
+		return res;
 	}
 
 	public Finder findOne(final int id) {

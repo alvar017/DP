@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.TutorialService;
+import services.WelcomeService;
 import domain.Section;
 import domain.Sponsorship;
 import domain.Tutorial;
@@ -30,6 +31,8 @@ public class TutorialController extends AbstractController {
 
 	@Autowired
 	private TutorialService	tutservice;
+	@Autowired
+	private WelcomeService	welcomeService;
 
 
 	//LIST
@@ -43,6 +46,10 @@ public class TutorialController extends AbstractController {
 
 		result = new ModelAndView();
 		result.addObject("tutorials", tutorials);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("requestURI", "tutorial/list.do");
 
 		return result;
@@ -64,6 +71,10 @@ public class TutorialController extends AbstractController {
 
 		sections = new TreeSet<>(tutorial.getSections());
 		result = new ModelAndView();
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("tutorial", tutorial);
 		result.addObject("sections", sections);
 		result.addObject("requestURI", "tutorial/show.do");
@@ -138,13 +149,24 @@ public class TutorialController extends AbstractController {
 		return result;
 	}
 	private ModelAndView createEditModelAndView(final Tutorial tutorial) {
-		return this.createEditModelAndView(tutorial, null);
+		ModelAndView res;
+
+		res = this.createEditModelAndView(tutorial, null);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
+		return res;
 	}
 	private ModelAndView createEditModelAndView(final Tutorial tutorial, final String messageCode) {
 		ModelAndView result;
 		final Collection<Section> sections = tutorial.getSections();
 		result = new ModelAndView("tutorial/handyWorker/edit");
 		result.addObject("tutorial", tutorial);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("sections", sections);
 		result.addObject("message", messageCode);
 

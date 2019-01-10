@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import security.LoginService;
 import services.EndorserRecordService;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.Curriculum;
 import domain.EndorserRecord;
 import domain.HandyWorker;
@@ -36,6 +37,8 @@ public class EndorserRecordController extends AbstractController {
 	private HandyWorkerService		handyWorkerService;
 	@Autowired
 	private EndorserRecordService	endorserRecordService;
+	@Autowired
+	private WelcomeService			welcomeService;
 
 
 	//	@Autowired
@@ -55,6 +58,10 @@ public class EndorserRecordController extends AbstractController {
 		endorserRecord = this.endorserRecordService.create();
 
 		result = new ModelAndView("endorserRecord/handyWorker/create");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		result.addObject("endorserRecord", endorserRecord);
 
@@ -62,17 +69,29 @@ public class EndorserRecordController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam("endorserRecordId") final int endorserRecordId) {
+	public ModelAndView edit(@RequestParam(value = "endorserRecordId", defaultValue = "-1") final int endorserRecordId) {
 		ModelAndView result;
 
 		final EndorserRecord endorserRecord;
-		Assert.isTrue(this.endorserRecordService.findOne(endorserRecordId) != null);
-		endorserRecord = this.endorserRecordService.findOne(endorserRecordId);
+		final HandyWorker handyWorker2 = this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId());
+		if (this.endorserRecordService.findOne(endorserRecordId) == null || handyWorker2 == null || handyWorker2.getCurriculum() == null || handyWorker2.getCurriculum().getEndrec() == null
+			|| !this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getCurriculum().getEndrec().contains(this.endorserRecordService.findOne(endorserRecordId))) {
+			result = new ModelAndView("curriculum/handyWorker/show");
+			result.addObject("handyWorker", handyWorker2);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			result.addObject("curriculum", handyWorker2.getCurriculum());
+			result.addObject("requestURI", "curriculum/handyWorker/show.do");
+		} else {
+			Assert.isTrue(this.endorserRecordService.findOne(endorserRecordId) != null);
+			endorserRecord = this.endorserRecordService.findOne(endorserRecordId);
 
-		result = new ModelAndView("endorserRecord/handyWorker/edit");
+			result = new ModelAndView("endorserRecord/handyWorker/edit");
 
-		result.addObject("endorserRecord", endorserRecord);
-
+			result.addObject("endorserRecord", endorserRecord);
+		}
 		return result;
 	}
 
@@ -112,28 +131,37 @@ public class EndorserRecordController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("endorserRecordId") final int endorserRecordId) {
+	public ModelAndView delete(@RequestParam(value = "endorserRecordId", defaultValue = "-1") final int endorserRecordId) {
 		ModelAndView result;
-		Assert.notNull(endorserRecordId, "endorserRecord.null");
-		final EndorserRecord endorserRecord = this.endorserRecordService.findOne(endorserRecordId);
-		System.out.println("endorserRecordId encontrado: " + endorserRecordId);
-
-		try {
-			final int userLoggin = LoginService.getPrincipal().getId();
-			final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
-			Assert.isTrue(handyWorker != null);
-			final Curriculum curriculum = handyWorker.getCurriculum();
-			Assert.notNull(curriculum, "curriculum.null");
-			this.endorserRecordService.delete(endorserRecord);
-			final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
+		final HandyWorker handyWorker2 = this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId());
+		if (this.endorserRecordService.findOne(endorserRecordId) == null || handyWorker2 == null || handyWorker2.getCurriculum() == null || handyWorker2.getCurriculum().getEndrec() == null
+			|| !this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getCurriculum().getEndrec().contains(this.endorserRecordService.findOne(endorserRecordId))) {
 			result = new ModelAndView("curriculum/handyWorker/show");
-			result.addObject("handyWorker", savedHandyWorker);
-			result.addObject("curriculum", savedHandyWorker.getCurriculum());
+			result.addObject("handyWorker", handyWorker2);
+			result.addObject("curriculum", handyWorker2.getCurriculum());
 			result.addObject("requestURI", "curriculum/handyWorker/show.do");
-		} catch (final Throwable oops) {
-			System.out.println("Error al borrar endorserRecord desde hw: ");
-			System.out.println(oops);
-			result = new ModelAndView("curriculum/handyWorker/show");
+		} else {
+			Assert.notNull(endorserRecordId, "endorserRecord.null");
+			final EndorserRecord endorserRecord = this.endorserRecordService.findOne(endorserRecordId);
+			System.out.println("endorserRecordId encontrado: " + endorserRecordId);
+
+			try {
+				final int userLoggin = LoginService.getPrincipal().getId();
+				final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
+				Assert.isTrue(handyWorker != null);
+				final Curriculum curriculum = handyWorker.getCurriculum();
+				Assert.notNull(curriculum, "curriculum.null");
+				this.endorserRecordService.delete(endorserRecord);
+				final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
+				result = new ModelAndView("curriculum/handyWorker/show");
+				result.addObject("handyWorker", savedHandyWorker);
+				result.addObject("curriculum", savedHandyWorker.getCurriculum());
+				result.addObject("requestURI", "curriculum/handyWorker/show.do");
+			} catch (final Throwable oops) {
+				System.out.println("Error al borrar endorserRecord desde hw: ");
+				System.out.println(oops);
+				result = new ModelAndView("curriculum/handyWorker/show");
+			}
 		}
 		return result;
 	}

@@ -19,10 +19,13 @@ import security.UserAccount;
 import services.ComplaintService;
 import services.CustomerService;
 import services.FixUpService;
+import services.HandyWorkerService;
 import services.RefereeService;
+import services.WelcomeService;
 import domain.Complaint;
 import domain.Customer;
 import domain.FixUp;
+import domain.HandyWorker;
 import domain.Referee;
 
 // COMPLAINTS
@@ -39,6 +42,10 @@ public class ComplaintCustomerController extends AbstractController {
 	private RefereeService		refereeService;
 	@Autowired
 	private CustomerService		customerService;
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// ==============================================================
@@ -48,6 +55,10 @@ public class ComplaintCustomerController extends AbstractController {
 		ModelAndView res;
 
 		res = this.createEditModelAndView(complaint, null);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 
 		return res;
 	}
@@ -64,6 +75,11 @@ public class ComplaintCustomerController extends AbstractController {
 		referees = this.refereeService.findAll();
 
 		res = new ModelAndView("complaint/customer/edit");
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
+
 		res.addObject("complaint", complaint);
 		res.addObject("fixUps", fixUps);
 		res.addObject("referees", referees);
@@ -83,6 +99,11 @@ public class ComplaintCustomerController extends AbstractController {
 		complaints = this.complaintService.listing();
 
 		res = new ModelAndView("complaint/customer/list");
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
+
 		res.addObject("complaints", complaints);
 		res.addObject("requestURI", "complaint/customer/list.do");
 
@@ -117,13 +138,21 @@ public class ComplaintCustomerController extends AbstractController {
 			res.addObject("referee", referee);
 		}
 
+		final HandyWorker handyWorker;
+		handyWorker = this.handyWorkerService.findOne(complaint.getFixUp().getHandyWorker().getId());
+		res.addObject("handyWorker", handyWorker);
+
 		res.addObject("complaint", complaint);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
+
 		res.addObject("fixUps", fixUps);
 		res.addObject("requestURI", "complaint/customer/show.do");
 
 		return res;
 	}
-
 	@RequestMapping(value = "/show", method = RequestMethod.POST, params = "delete")
 	public ModelAndView delete(@Valid final Complaint complaint, final BindingResult binding) {
 

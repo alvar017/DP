@@ -50,15 +50,19 @@
 			<form:errors cssClass="error" path="make"/><br>
 			
 			<form:label path="address"><spring:message code="handyWorker.address" /></form:label>
-			<form:input path="address" required="required"/>
+			<form:input path="address"/>
 			<form:errors cssClass="error" path="address"/><br>
+			
+			<form:label path="phone"><spring:message code="actor.phone" /></form:label>(+${phone})
+			<form:input path="phone"/>
+			<form:errors cssClass="error" path="phone"/><br>
 			
 			<form:label path="surname"><spring:message code="handyWorker.surname" /></form:label>
 			<form:input path="surname" required="required"/>
 			<form:errors cssClass="error" path="surname"/><br>
 			
 			<form:label path="middleName"><spring:message code="handyWorker.middleName" /></form:label>
-			<form:input path="middleName" required="required"/>
+			<form:input path="middleName"/>
 			<form:errors cssClass="error" path="middleName"/><br>
 			
 			<form:label path="email"><spring:message code="handyWorker.email" /></form:label>
@@ -85,6 +89,9 @@
 			
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
+			<form method="get" action="security/login">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
       </div>
       
  	</article>

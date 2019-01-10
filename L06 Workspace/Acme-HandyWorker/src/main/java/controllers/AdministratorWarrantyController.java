@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.FixUpService;
 import services.HandyWorkerService;
 import services.WarrantyService;
+import services.WelcomeService;
 import domain.Warranty;
 
 @Controller
@@ -39,6 +40,8 @@ public class AdministratorWarrantyController extends AbstractController {
 	private HandyWorkerService	handyWorkerService;
 	@Autowired
 	private FixUpService		fixUpService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -55,6 +58,11 @@ public class AdministratorWarrantyController extends AbstractController {
 
 		result = new ModelAndView("warranty/administrator/list");
 		result.addObject("warranties", warranties);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+
 		result.addObject("requestURI", "warranty/administrator/list.do");
 
 		return result;
@@ -70,6 +78,11 @@ public class AdministratorWarrantyController extends AbstractController {
 		result = new ModelAndView("warranty/administrator/show");
 		result.addObject("warranty", warranty);
 		result.addObject("language", language);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+
 		result.addObject("requestURI", "warranty/administrator/show.do");
 
 		return result;
@@ -125,23 +138,30 @@ public class AdministratorWarrantyController extends AbstractController {
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 		final Warranty warranty = this.warrantyService.findOne(warrantyId);
 		System.out.println("Warranty encontrado: " + warranty);
+		if (warranty.getIsFinal() == true) {
+			result = new ModelAndView("redirect:list.do");
+			return result;
+		}
 		Assert.notNull(warranty, "warranty.null");
 
 		try {
 			this.warrantyService.delete(warranty);
 			result = new ModelAndView("redirect:list.do");
 		} catch (final Exception e) {
-			result = this.createEditModelAndView(warranty, "warranty.commit.error");
+			result = new ModelAndView("welcome/index");
 		}
 
 		result.addObject("language", language);
 		return result;
 	}
-
 	protected ModelAndView createEditModelAndView(final Warranty warranty) {
 		ModelAndView result;
 
 		result = this.createEditModelAndView(warranty, null);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -149,8 +169,18 @@ public class AdministratorWarrantyController extends AbstractController {
 	protected ModelAndView createEditModelAndView(final Warranty warranty, final String messageCode) {
 		ModelAndView result;
 
+		if (warranty.getIsFinal() == true) {
+			result = new ModelAndView("welcome/index");
+			return result;
+		}
+
 		result = new ModelAndView("warranty/administrator/edit");
 		result.addObject("warranty", warranty);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+
 		result.addObject("message", messageCode);
 
 		return result;

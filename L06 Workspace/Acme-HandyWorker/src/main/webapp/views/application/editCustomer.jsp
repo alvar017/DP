@@ -46,23 +46,29 @@
 		<form:hidden path="applier" />
 		<form:hidden path="fixUp"/>
 		<form:hidden path="moment"/>
-			
+		<form:hidden path="comments"/>
+		<!--
 		<form:label path="comments">
 			<spring:message code="application.comments" />
 		</form:label>
 		<form:input path="comments" />
 		<form:errors cssClass="error" path="comments" /><br/>
-		
+		-->
+		<form:hidden path="offered.quantity"/>
+		<!--
 		<form:label path="offered.quantity"><spring:message code="application.offered.quantity" /></form:label>
 		<form:input type="number" path="offered.quantity" required="required"/>
 		<form:errors cssClass="error" path="offered.quantity" />
+		-->
+		<form:hidden path="offered.currency"/>
+		<!--
 		<form:label path="offered.currency"><spring:message code="application.offered.currency" /></form:label>
 		<form:select path="offered.currency" >
 			<form:option value="EUR"></form:option>
 			<form:option value="DOL"></form:option>
 		</form:select>
 		<form:errors cssClass="error" path="offered.currency" /><br />
-				
+		-->	
 		<form:label path="state"><spring:message code="application.state" /></form:label>
 		<form:select path="state" onchange="mostrar(this.value);">
 			<form:option value="false"  selected="true"><spring:message code="application.denied" /></form:option>
@@ -75,13 +81,11 @@
 		<form:label path="creditCard.name"><spring:message code="application.creditCard.name" /></form:label>
 		<form:input path="creditCard.name" /><form:errors cssClass="error" path="creditCard.name" />
 		<form:label path="creditCard.brand"><spring:message code="application.creditCard.brand" /></form:label>
-		<form:select path="creditCard.brand">
-			<form:option value=""></form:option>
-			<form:option value="VISA"></form:option>
-			<form:option value="MASTERCARD"></form:option>
-			<form:option value="DINNERS"></form:option>
-			<form:option value="AMEX"></form:option>
-		</form:select>	
+		<form:label path="creditCard.brand"><spring:message code="application.creditCard.brand" /></form:label>
+			<form:select path="creditCard.brand" >
+					<form:options items="${brand}"/>
+			</form:select>
+		<form:errors cssClass="error" path="creditCard.brand" />
 		<form:errors cssClass="error" path="creditCard.brand" />
 		<form:label path="creditCard.number"><spring:message code="application.creditCard.number" /></form:label>
 		<form:input path="creditCard.number"/>

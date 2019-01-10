@@ -29,6 +29,7 @@ import security.UserAccount;
 import services.ApplicationService;
 import services.FixUpService;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.Application;
 import domain.FixUp;
 import domain.HandyWorker;
@@ -44,6 +45,8 @@ public class ApplicationHandyWorkerController extends AbstractController {
 	private HandyWorkerService	handyWorkerService;
 	@Autowired
 	private FixUpService		fixUpService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -64,6 +67,11 @@ public class ApplicationHandyWorkerController extends AbstractController {
 
 		result = new ModelAndView("application/handyWorker/list");
 		result.addObject("applications", applications);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+
 		result.addObject("requestURI", "application/handyWorker/list.do");
 
 		return result;
@@ -166,6 +174,11 @@ public class ApplicationHandyWorkerController extends AbstractController {
 		ModelAndView result;
 
 		result = new ModelAndView("application/handyWorker/edit");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+
 		result.addObject("application", application);
 		result.addObject("message", messageCode);
 
@@ -177,6 +190,10 @@ public class ApplicationHandyWorkerController extends AbstractController {
 		ModelAndView result;
 
 		result = this.createUpdateModelAndView(application, null);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -185,6 +202,11 @@ public class ApplicationHandyWorkerController extends AbstractController {
 		ModelAndView result;
 
 		result = new ModelAndView("application/handyWorker/update");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+
 		result.addObject("application", application);
 		result.addObject("message", messageCode);
 

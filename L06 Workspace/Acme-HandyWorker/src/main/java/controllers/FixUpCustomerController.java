@@ -19,6 +19,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,10 +31,12 @@ import services.CategoryService;
 import services.ComplaintService;
 import services.FixUpService;
 import services.WarrantyService;
+import services.WelcomeService;
 import domain.Application;
 import domain.Category;
 import domain.Complaint;
 import domain.FixUp;
+import domain.Money;
 import domain.Warranty;
 
 @Controller
@@ -50,6 +53,8 @@ public class FixUpCustomerController extends AbstractController {
 	private CategoryService		categoryService;
 	@Autowired
 	private WarrantyService		warrantyService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -67,6 +72,10 @@ public class FixUpCustomerController extends AbstractController {
 		result = new ModelAndView("fixUp/customer/list");
 		result.addObject("fixUps", fixUps);
 		result.addObject("language", language);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("requestURI", "fixUp/customer/list.do");
 
 		return result;
@@ -85,13 +94,19 @@ public class FixUpCustomerController extends AbstractController {
 			final Category category = fixUp.getCategory();
 			final Collection<Application> applications = this.applicationService.findAllByFixUp(fixUp);
 			final Collection<Complaint> complaints = this.complaintService.getComplaintByFixUp(fixUp);
+			final Double iva = this.fixUpService.iva(fixUp);
 
 			result = new ModelAndView("fixUp/customer/show");
 			result.addObject("fixUp", fixUp);
 			result.addObject("category", category);
 			result.addObject("applications", applications);
 			result.addObject("complaints", complaints);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 			result.addObject("requestURI", "fixUp/customer/show.do");
+			result.addObject("iva", iva);
 		}
 
 		return result;
@@ -106,6 +121,10 @@ public class FixUpCustomerController extends AbstractController {
 		FixUp fixUp;
 
 		fixUp = this.fixUpService.create();
+		final Money money = new Money();
+		money.setCurrency("EUR");
+		money.setQuantity(0.);
+		fixUp.setMaxPrice(money);
 
 		result = this.createEditModelAndView(fixUp);
 		result.addObject("language", language);
@@ -160,7 +179,11 @@ public class FixUpCustomerController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final FixUp fixUp, final BindingResult binding) {
 		ModelAndView result;
-
+		if (fixUp.getMaxPrice().getQuantity() < 0) {
+			final ObjectError error = new ObjectError("maxPrice.quantity", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("maxPrice.quantity", "error.maxPrice.quantity");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);
@@ -186,12 +209,16 @@ public class FixUpCustomerController extends AbstractController {
 	}
 	private ModelAndView createEditModelAndView(final FixUp fixUp) {
 		ModelAndView result;
-		final Collection<Warranty> warranties = this.warrantyService.findAll();
+		final Collection<Warranty> warranties = this.warrantyService.getFinalWarranty();
 		final Collection<Category> categories = this.categoryService.findAll();
 
 		result = new ModelAndView("fixUp/customer/edit");
 
 		result.addObject("fixUp", fixUp);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("warranties", warranties);
 		result.addObject("categories", categories);
 
@@ -206,6 +233,10 @@ public class FixUpCustomerController extends AbstractController {
 		result = new ModelAndView("fixUp/customer/edit");
 
 		result.addObject("fixUp", fixUp);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("warranties", warranties);
 		result.addObject("categories", categories);
 		result.addObject("message", messageCode);

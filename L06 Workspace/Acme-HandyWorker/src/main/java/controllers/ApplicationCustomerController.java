@@ -11,6 +11,7 @@
 package controllers;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.validation.Valid;
 
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +28,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import services.ApplicationService;
+import services.MailBoxService;
+import services.MessageService;
+import services.WelcomeService;
+import domain.Actor;
 import domain.Application;
+import domain.MailBox;
+import domain.Message;
 
 @Controller
 @RequestMapping("/application/customer")
@@ -34,6 +42,12 @@ public class ApplicationCustomerController extends AbstractController {
 
 	@Autowired
 	private ApplicationService	applicationService;
+	@Autowired
+	private MessageService		messageService;
+	@Autowired
+	private MailBoxService		mailBoxService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -45,7 +59,6 @@ public class ApplicationCustomerController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView listApplication() {
 		ModelAndView result;
-
 		final Collection<Application> applications = this.applicationService.findAllByCustomerLogger();
 
 		//		final String color = this.chooseColor(application);
@@ -53,6 +66,10 @@ public class ApplicationCustomerController extends AbstractController {
 
 		result = new ModelAndView("application/customer/list");
 		result.addObject("applications", applications);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("requestURI", "application/customer/list.do");
 		//		result.addObject("color", color);
 
@@ -69,16 +86,27 @@ public class ApplicationCustomerController extends AbstractController {
 			final Collection<Application> applications = this.applicationService.findAllByCustomerLogger();
 			result = new ModelAndView("application/customer/list");
 			result.addObject("applications", applications);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+
 			result.addObject("requestURI", "application/customer/list.do");
 		} else {
 			Assert.notNull(application);
-
+			final Double iva = this.applicationService.iva(application);
 			final String color = this.chooseColor(application);
 			System.out.println("Color: " + color);
 
 			result = new ModelAndView("application/customer/show");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+
 			result.addObject("color", color);
 			result.addObject("application", application);
+			result.addObject("iva", iva);
 			result.addObject("requestURI", "application/customer/show.do");
 		}
 		return result;
@@ -100,14 +128,21 @@ public class ApplicationCustomerController extends AbstractController {
 		Application application;
 
 		application = this.applicationService.findOne(applicationId);
-		if (application == null || application.getFixUp().getCustomer().getUserAccount().getId() != LoginService.getPrincipal().getId()) {
+		if (application == null || (application.getState() != null && application.getState() == true) || application.getFixUp().getCustomer().getUserAccount().getId() != LoginService.getPrincipal().getId()) {
 			final Collection<Application> applications = this.applicationService.findAllByCustomerLogger();
 			result = new ModelAndView("application/customer/list");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+
 			result.addObject("applications", applications);
 			result.addObject("requestURI", "application/customer/list.do");
 		} else {
 			Assert.notNull(application);
 			result = this.createEditModelAndView(application);
+			final HashSet<String> brand = this.applicationService.listBrands();
+			result.addObject("brand", brand);
 		}
 		return result;
 	}
@@ -118,6 +153,22 @@ public class ApplicationCustomerController extends AbstractController {
 		System.out.println(application);
 		System.out.println(application.getComments());
 		System.out.println("Entro en el save");
+
+		final Actor applier = application.getApplier();
+		final Actor custom = application.getFixUp().getCustomer();
+
+		final MailBox inBoxApplier = this.mailBoxService.getInBoxActor(applier.getId());
+		final MailBox inBoxCustom = this.mailBoxService.getInBoxActor(custom.getId());
+
+		System.out.println("EL REQ 19");
+		System.out.println(inBoxApplier);
+		System.out.println(inBoxCustom);
+		if (application.getOffered() != null || application.getOffered().getQuantity() != null || (application.getOffered().getQuantity() < 100 || application.getOffered().getQuantity() > 999)) {
+			final ObjectError error = new ObjectError("offered.quantity", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("offered.quantity", "error.offered.quantity");
+		}
+
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding");
 			System.out.println(binding);
@@ -125,6 +176,28 @@ public class ApplicationCustomerController extends AbstractController {
 		} else
 			try {
 				this.applicationService.updateCustomer(application);
+				if (application.getState() != null) {
+					final Message m = this.messageService.create();
+					m.setSubject("Application");
+					if (application.getState() == true)
+						m.setBody("ES: La aplicación " + application.getId() + " ha cambiado su estado a aceptada ||EN: The application" + application.getId() + " have change her state to accepted");
+					else
+						m.setBody("ES: La aplicación " + application.getId() + " ha cambiado su estado a rechazada ||EN: The application" + application.getId() + " have change her state to rejected");
+
+					m.getMailBoxes().add(inBoxApplier);
+					m.getMailBoxes().add(inBoxCustom);
+
+					final Message saved = this.messageService.save(m);
+
+					inBoxApplier.getMessages().add(m);
+					inBoxCustom.getMessages().add(m);
+
+					System.out.println(m.getMailBoxes());
+					System.out.println(inBoxApplier.getMessages());
+					System.out.println(inBoxCustom.getMessages());
+
+					System.out.println("sE GUARDA EL MENSAJE");
+				}
 				result = new ModelAndView("redirect:list.do");
 			} catch (final Throwable oops) {
 				System.out.println(oops);
@@ -142,6 +215,10 @@ public class ApplicationCustomerController extends AbstractController {
 		ModelAndView result;
 
 		result = this.createEditModelAndView(application, null);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -150,6 +227,11 @@ public class ApplicationCustomerController extends AbstractController {
 		ModelAndView result;
 
 		result = new ModelAndView("application/customer/edit");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+
 		result.addObject("application", application);
 		result.addObject("message", messageCode);
 

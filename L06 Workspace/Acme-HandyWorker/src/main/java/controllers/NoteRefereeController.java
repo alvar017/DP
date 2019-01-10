@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.NoteService;
 import services.ReportService;
+import services.WelcomeService;
 import domain.Customer;
 import domain.HandyWorker;
 import domain.Note;
@@ -29,6 +30,8 @@ public class NoteRefereeController extends AbstractController {
 	private NoteService		noteService;
 	@Autowired
 	private ReportService	reportService;
+	@Autowired
+	private WelcomeService	welcomeService;
 
 
 	// ==============================================================
@@ -109,6 +112,10 @@ public class NoteRefereeController extends AbstractController {
 		note = this.noteService.findOne(noteId);
 
 		res.addObject("note", note);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("requestURI", "note/referee/show.do");
 
 		return res;
@@ -121,6 +128,10 @@ public class NoteRefereeController extends AbstractController {
 		ModelAndView res;
 
 		res = this.createEditModelAndView(note, null);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 
 		return res;
 	}
@@ -131,6 +142,10 @@ public class NoteRefereeController extends AbstractController {
 
 		res = new ModelAndView("note/referee/create");
 		res.addObject("note", note);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("message", messageCode);
 
 		return res;

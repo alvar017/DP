@@ -25,7 +25,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.UserAccountRepository;
+import services.ActorService;
 import services.RefereeService;
+import services.WelcomeService;
 import domain.Referee;
 
 @Controller
@@ -36,6 +38,10 @@ public class RefereeAdministratorController extends AbstractController {
 	private RefereeService			refereeService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
+	@Autowired
+	private ActorService			actorService;
+	@Autowired
+	private WelcomeService			welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -57,6 +63,10 @@ public class RefereeAdministratorController extends AbstractController {
 		result = new ModelAndView("referee/administrator/list");
 		result.addObject("referee", referee);
 		result.addObject("language", language);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("requestURI", "actor/administrator/list.do");
 
 		System.out.println("Carmen: Salgo del list");
@@ -73,6 +83,10 @@ public class RefereeAdministratorController extends AbstractController {
 		referee = this.refereeService.create();
 
 		result = new ModelAndView("referee/administrator/create");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		result.addObject("referee", referee);
 
@@ -82,6 +96,11 @@ public class RefereeAdministratorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Referee referee, final BindingResult binding) {
 		ModelAndView result;
+		if (this.actorService.getActorByEmail(referee.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 		if (referee.getUserAccount().getPassword().length() < 5 || referee.getUserAccount().getPassword().length() > 32) {
 			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
 			binding.addError(error);

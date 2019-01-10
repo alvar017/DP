@@ -35,13 +35,14 @@
           	<form:hidden path="isBanned"/>
           	<form:hidden path="isSuspicious"/>
           	<form:hidden path="mailBoxes"/>
-          	
+          	<form:label path="phone"><spring:message code="actor.phone" /></form:label>(+${phone})
+			<form:input path="phone"/><br>
           	<form:label path="name"><spring:message code="customer.name" /></form:label>
 			<form:input path="name" required="required"/>
 			<form:errors cssClass="error" path="name"/><br>
 			
 			<form:label path="address"><spring:message code="customer.address" /></form:label>
-			<form:input path="address" required="required"/>
+			<form:input path="address"/>
 			<form:errors cssClass="error" path="address"/><br>
 			
 			<form:label path="surname"><spring:message code="customer.surname" /></form:label>
@@ -49,7 +50,7 @@
 			<form:errors cssClass="error" path="surname"/><br>
 			
 			<form:label path="middleName"><spring:message code="customer.middleName" /></form:label>
-			<form:input path="middleName" required="required"/>
+			<form:input path="middleName"/>
 			<form:errors cssClass="error" path="middleName"/><br>
 			
 			<form:label path="email"><spring:message code="customer.email" /></form:label>
@@ -74,6 +75,9 @@
 			
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
+			<form method="get" action="welcome/index">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
       </div>
       
  	</article>

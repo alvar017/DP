@@ -17,6 +17,7 @@ import security.UserAccount;
 import services.CustomerService;
 import services.NoteService;
 import services.ReportService;
+import services.WelcomeService;
 import domain.Customer;
 import domain.HandyWorker;
 import domain.Note;
@@ -34,6 +35,8 @@ public class NoteCustomerController extends AbstractController {
 	private CustomerService	customerService;
 	@Autowired
 	private ReportService	reportService;
+	@Autowired
+	private WelcomeService	welcomeService;
 
 
 	// ==============================================================
@@ -115,6 +118,10 @@ public class NoteCustomerController extends AbstractController {
 		note = this.noteService.findOne(noteId);
 
 		res.addObject("note", note);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("requestURI", "note/customer/show.do");
 
 		return res;
@@ -127,6 +134,10 @@ public class NoteCustomerController extends AbstractController {
 		ModelAndView res;
 
 		res = this.createEditModelAndView(note, null);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 
 		return res;
 	}
@@ -139,6 +150,10 @@ public class NoteCustomerController extends AbstractController {
 
 		res = new ModelAndView("note/customer/create");
 		res.addObject("note", note);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("message", messageCode);
 
 		return res;

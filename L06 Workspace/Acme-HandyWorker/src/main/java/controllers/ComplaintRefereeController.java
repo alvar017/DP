@@ -18,6 +18,7 @@ import security.UserAccount;
 import services.ComplaintService;
 import services.FixUpService;
 import services.RefereeService;
+import services.WelcomeService;
 import domain.Complaint;
 import domain.FixUp;
 import domain.Referee;
@@ -34,6 +35,8 @@ public class ComplaintRefereeController extends AbstractController {
 	private RefereeService		refereeService;
 	@Autowired
 	private FixUpService		fixUpService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// ==============================================================
@@ -52,6 +55,10 @@ public class ComplaintRefereeController extends AbstractController {
 		myComplaints = this.complaintService.getComplaintByReferee(ref.getId());
 
 		res = new ModelAndView("complaint/referee/list");
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("complaints", complaints);
 		res.addObject("myComplaints", myComplaints);
 		res.addObject("requestURI", "complaint/referee/list.do");
@@ -113,7 +120,10 @@ public class ComplaintRefereeController extends AbstractController {
 			res.addObject("referee", referee);
 		}
 
-		res.addObject("complaint", complaint);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("fixUps", fixUps);
 		res.addObject("requestURI", "complaint/customer/show.do");
 

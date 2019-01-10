@@ -31,6 +31,7 @@ import services.EndorsableService;
 import services.EndorsementService;
 import services.FixUpService;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.Customer;
 import domain.Endorsable;
 import domain.Endorsement;
@@ -51,6 +52,8 @@ public class EndorsementCustomerController extends AbstractController {
 	private HandyWorkerService	handyWorkerService;
 	@Autowired
 	private FixUpService		fixUpService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	//	@Autowired
@@ -73,12 +76,17 @@ public class EndorsementCustomerController extends AbstractController {
 		Assert.notNull(userAccountId);
 		final Customer customer = this.customerService.getCustomerByUserAccountId(userAccountId);
 		final HandyWorker handyWorker = this.handyWorkerService.findOne(receiverId);
-		if (customer != null && handyWorker == null) {
+		final Collection<HandyWorker> handyWorkers = this.handyWorkerService.getAllHandyWorkersByCustomer(customer.getId());
+		if (customer != null && handyWorker == null && handyWorkers.contains(handyWorker)) {
 			final Collection<FixUp> fixUps = this.fixUpService.listing();
 			final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
 			result = new ModelAndView("fixUp/customer/list");
 			result.addObject("fixUps", fixUps);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 			result.addObject("language", language);
 			result.addObject("requestURI", "fixUp/customer/list.do");
 		} else {
@@ -106,6 +114,10 @@ public class EndorsementCustomerController extends AbstractController {
 		else {
 			Assert.isTrue(this.endorsementService.findOne(endorsementId) != null);
 			result = new ModelAndView("endorsement/customer/edit");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 
 			result.addObject("endorsement", endorsement);
 		}
@@ -128,9 +140,17 @@ public class EndorsementCustomerController extends AbstractController {
 				result = new ModelAndView("redirect:show.do");
 				if (this.customerService.getCustomerByUserAccountId(LoginService.getPrincipal().getId()) != null) {
 					result.addObject("deleteURL", "endorsement/customer/delete.do?endorsementId");
+					final String system = this.welcomeService.getSystem();
+					result.addObject("system", system);
+					final String logo = this.welcomeService.getLogo();
+					result.addObject("logo", logo);
 					result.addObject("requestURI", "endorsement/customer/show.do");
 				} else {
 					result.addObject("deleteURL", "endorsement/handyWorker/delete.do?endorsementId");
+					final String system = this.welcomeService.getSystem();
+					result.addObject("system", system);
+					final String logo = this.welcomeService.getLogo();
+					result.addObject("logo", logo);
 					result.addObject("requestURI", "endorsement/handyWorker/show.do");
 				}
 
@@ -182,6 +202,10 @@ public class EndorsementCustomerController extends AbstractController {
 			final Collection<Endorsement> endorsementSend = this.endorsementService.getEndorsementSender(handyWorker.getId());
 			result.addObject("endorsementSend", endorsementSend);
 			result.addObject("requestURI", "endorsement/handyWorker/show.do");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 			result.addObject("deleteURL", "endorsement/handyWorker/delete.do?endorsementId");
 			result.addObject("editURL", "endorsement/handyWorker/edit.do?endorsementId");
 		} else {
@@ -192,6 +216,10 @@ public class EndorsementCustomerController extends AbstractController {
 			result.addObject("endorsementSend", endorsementSend);
 			result.addObject("endorsementReceived", endorsementReceived);
 			result.addObject("requestURI", "endorsement/customer/show.do");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 			result.addObject("deleteURL", "endorsement/customer/delete.do?endorsementId");
 			result.addObject("editURL", "endorsement/customer/edit.do?endorsementId");
 		}

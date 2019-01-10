@@ -30,6 +30,7 @@ import services.ActorService;
 import services.FixUpService;
 import services.HandyWorkerService;
 import services.MailBoxService;
+import services.WelcomeService;
 import domain.Actor;
 import domain.MailBox;
 
@@ -45,6 +46,8 @@ public class MailBoxController extends AbstractController {
 	private FixUpService		fixUpService;
 	@Autowired
 	private ActorService		actorService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -68,6 +71,10 @@ public class MailBoxController extends AbstractController {
 		System.out.println(mailBoxes);
 
 		result = new ModelAndView("mailBox/list");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("mailBoxes", mailBoxes);
 		result.addObject("requestURI", "mailBox/list.do");
 
@@ -82,6 +89,10 @@ public class MailBoxController extends AbstractController {
 
 		result = new ModelAndView("mailBox/show");
 		result.addObject("mailBox", mailBox);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("language", language);
 		result.addObject("requestURI", "mailBox/show.do");
 
@@ -148,6 +159,10 @@ public class MailBoxController extends AbstractController {
 		ModelAndView result;
 
 		result = this.createEditModelAndView(mailBox, null);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -170,6 +185,10 @@ public class MailBoxController extends AbstractController {
 
 		result = new ModelAndView("mailBox/edit");
 		result.addObject("mailBox", mailBox);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("message", messageCode);
 
 		return result;

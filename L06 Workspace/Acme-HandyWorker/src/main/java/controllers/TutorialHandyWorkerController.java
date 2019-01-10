@@ -4,6 +4,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.validation.Valid;
 
@@ -17,7 +19,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.LoginService;
+import services.HandyWorkerService;
 import services.TutorialService;
+import services.WelcomeService;
+import domain.HandyWorker;
 import domain.Section;
 import domain.Sponsorship;
 import domain.Tutorial;
@@ -27,7 +33,11 @@ import domain.Tutorial;
 public class TutorialHandyWorkerController extends AbstractController {
 
 	@Autowired
-	private TutorialService	tutservice;
+	private TutorialService		tutservice;
+	@Autowired
+	private HandyWorkerService	hwService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	//LIST
@@ -36,11 +46,17 @@ public class TutorialHandyWorkerController extends AbstractController {
 
 		final ModelAndView result;
 		Collection<Tutorial> tutorials;
-		tutorials = this.tutservice.findAll();
+		final HandyWorker hw = this.hwService.findByUserAccountId(LoginService.getPrincipal().getId());
+		System.out.println(hw);
+		tutorials = hw.getTutorials();
 		System.out.println(tutorials);
 
 		result = new ModelAndView();
 		result.addObject("tutorials", tutorials);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("requestURI", "tutorial/handyWorker/list.do");
 
 		return result;
@@ -56,9 +72,11 @@ public class TutorialHandyWorkerController extends AbstractController {
 		final Collection<Sponsorship> sponsorships;
 		sponsorships = tutorial.getSponsorships();
 		final List<Sponsorship> listaSponsorships = new ArrayList<>(sponsorships);
-		final Collection<Section> sections;
+		System.out.println(sponsorships);
+		System.out.println(listaSponsorships);
+		final SortedSet<Section> sections;
 
-		sections = tutorial.getSections();
+		sections = new TreeSet<>(tutorial.getSections());
 		result = new ModelAndView();
 		result.addObject("tutorial", tutorial);
 		result.addObject("sections", sections);

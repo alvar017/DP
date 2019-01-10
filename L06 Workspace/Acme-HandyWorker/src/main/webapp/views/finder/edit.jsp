@@ -61,23 +61,28 @@
 					<spring:message code="handyWorker.showing.minPrice" />
 				</form:label>
 				<form:input type="number" path="minPrice" />
+				<form:errors cssClass="error" path="maxPrice"/><br>
 				<br>
 
 				<form:label path="maxPrice">
 					<spring:message code="handyWorker.showing.maxPrice" />
 				</form:label>
 				<form:input type="number" path="maxPrice" />
+				<form:errors cssClass="error" path="maxPrice"/><br>
+				
 				<br>
 
+					<form:label path="endDate">
+					<spring:message code="handyWorker.showing.endDate" />
+				</form:label>				
+				<form:input type="date" path="endDate" placeholder="yyyy/MM/dd HH:mm"/>
+				<form:errors cssClass="error" path="endDate"/><br>
+				
 				<form:label path="startDate">
 					<spring:message code="handyWorker.showing.startDate" />
 				</form:label>
-				<form:input type="date" path="startDate" />
-
-				<form:label path="endDate">
-					<spring:message code="handyWorker.showing.endDate" />
-				</form:label>
-				<form:input type="date" path="endDate" />
+				<form:input type="date" path="startDate" placeholder="yyyy/MM/dd HH:mm"/>
+				<form:errors cssClass="error" path="startDate"/><br>
 
 				<input type="submit" name="save"
 					value=<spring:message code="hw.send" /> />

@@ -31,7 +31,9 @@ import security.UserAccount;
 import services.CategoryService;
 import services.FixUpService;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.Category;
+import domain.FixUp;
 
 @Controller
 @RequestMapping("/category/administrator")
@@ -43,6 +45,8 @@ public class AdministratorCategoryController extends AbstractController {
 	private HandyWorkerService	handyWorkerService;
 	@Autowired
 	private FixUpService		fixUpService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -65,6 +69,10 @@ public class AdministratorCategoryController extends AbstractController {
 		result.addObject("language", language);
 		result.addObject("categories", categories);
 		result.addObject("requestURI", "category/administrator/list.do");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -80,6 +88,10 @@ public class AdministratorCategoryController extends AbstractController {
 		result.addObject("category", category);
 		result.addObject("language", language);
 		result.addObject("requestURI", "category/administrator/show.do");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -141,21 +153,32 @@ public class AdministratorCategoryController extends AbstractController {
 		final List<Category> categoriesList = new ArrayList<>();
 		categoriesList.addAll(categories);
 
-		for (int i = 0; i < categories.size(); i++)
-			if (categoriesList.get(i).getSubCategories().contains(category))
-				categoriesList.get(i).getSubCategories().remove(category);
-
 		try {
+			for (int i = 0; i < categories.size(); i++)
+				if (categoriesList.get(i).getSubCategories().contains(category)) {
+					category.setSubCategories(null);
+					System.out.println("PASA ESTO1");
+					categoriesList.get(i).getSubCategories().remove(category);
+					System.out.println("PASA ESTO2");
+				}
+			final Collection<FixUp> fixUps = this.fixUpService.findAll();
+			final List<FixUp> fixUpsList = new ArrayList<>();
+			fixUpsList.addAll(fixUps);
+			System.out.println("PASA ESTO3");
+			for (int i = 0; i < fixUps.size(); i++)
+				if (fixUpsList.get(i).getCategory() != null)
+					if (fixUpsList.get(i).getCategory().getId() == categoryId)
+						fixUpsList.get(i).setCategory(null);
 			this.categoryService.delete(category);
 			result = new ModelAndView("redirect:list.do");
 		} catch (final Exception e) {
-			result = this.createEditModelAndView(category, "category.commit.error");
+			System.out.println(e);
+			result = new ModelAndView("redirect:list.do");
 		}
 
 		result.addObject("language", language);
 		return result;
 	}
-
 	protected ModelAndView createEditModelAndView(final Category category) {
 		ModelAndView result;
 
@@ -188,6 +211,10 @@ public class AdministratorCategoryController extends AbstractController {
 		result.addObject("categories", categories);
 		result.addObject("nameCategories", nameCategories);
 		result.addObject("message", messageCode);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}

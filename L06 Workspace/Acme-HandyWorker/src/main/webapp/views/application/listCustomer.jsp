@@ -24,8 +24,12 @@
   	requestURI="${requestURI}"
   	pagesize="5" class="displaytag" >
   	
-  	<display:column titleKey="customer.editApplication"> 
-		<a href="application/customer/edit.do?applicationId=${row.id}"><spring:message code="customer.editApplication" /></a>
+  	<display:column titleKey="customer.editApplication">
+  		<c:choose>
+   			<c:when test="${row.state != true}">
+				<a href="application/customer/edit.do?applicationId=${row.id}"><spring:message code="customer.editApplication" /></a>
+			</c:when>
+		</c:choose> 
 	</display:column>
 	<display:column titleKey="application.show"> 
 		<a href="application/customer/show.do?applicationId=${row.id}"><spring:message code="application.show" /></a>

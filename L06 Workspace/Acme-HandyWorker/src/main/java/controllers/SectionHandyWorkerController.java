@@ -16,6 +16,7 @@ import services.FixUpService;
 import services.HandyWorkerService;
 import services.SectionService;
 import services.TutorialService;
+import services.WelcomeService;
 import domain.Section;
 import domain.Tutorial;
 
@@ -31,6 +32,8 @@ public class SectionHandyWorkerController extends AbstractController {
 	private SectionService				sectionService;
 	@Autowired
 	private HandyWorkerService			handyWorkerService;
+	@Autowired
+	private WelcomeService				welcomeService;
 
 	ApplicationHandyWorkerController	applicationController	= new ApplicationHandyWorkerController();
 
@@ -116,12 +119,23 @@ public class SectionHandyWorkerController extends AbstractController {
 		return result;
 	}
 	private ModelAndView createEditModelAndView(final Section section) {
-		return this.createEditModelAndView(section, null);
+		ModelAndView res;
+
+		res = this.createEditModelAndView(section, null);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
+		return res;
 	}
 	private ModelAndView createEditModelAndView(final Section section, final String messageCode) {
 		ModelAndView result;
 		result = new ModelAndView("section/handyWorker/edit");
 		result.addObject("section", section);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("message", messageCode);
 
 		return result;

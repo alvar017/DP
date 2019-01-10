@@ -2,6 +2,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ import domain.HandyWorker;
 @Transactional
 public class ApplicationService {
 
+	public HashSet<String>			brands	= new HashSet<>();
+	private Integer					iva		= 21;
+
 	//Managed Repository -------------------	
 
 	@Autowired
@@ -41,6 +45,38 @@ public class ApplicationService {
 	@Autowired
 	private FixUpService			fixUpService;
 
+
+	//Carmen: Método para mostrar las brands
+	public HashSet<String> listBrands() {
+
+		this.brands.add("VISA");
+		this.brands.add("MASTER");
+		this.brands.add("DINNERS");
+		this.brands.add("AMEX");
+
+		return this.brands;
+	}
+
+	public HashSet<String> newBrand(final String newBrand) {
+		this.listBrands().add(newBrand);
+		return this.listBrands();
+	}
+
+	//CARMEN: Método para modificar el IVA
+	public Double iva(final Application application) {
+		final Double res = (double) (this.getIva() / 100.0 * application.getOffered().getQuantity());
+		return res;
+	}
+
+	public Integer newIva(final Integer newIva) {
+		this.iva = newIva;
+
+		return this.iva;
+	}
+
+	public Integer getIva() {
+		return this.iva;
+	}
 
 	//Simple CRUD Methods ------------------
 
@@ -65,7 +101,18 @@ public class ApplicationService {
 		return this.applicationRepository.findOne(id);
 	}
 	public Application save(final Application application) {
+		Assert.isTrue(this.checkApplier(application), "application.alreadyApplied");
 		return this.applicationRepository.save(application);
+	}
+
+	private boolean checkApplier(final Application application) {
+		boolean res = true;
+		for (final Application a : application.getFixUp().getApplications())
+			if (a.getApplier().getUserAccount().getId() == LoginService.getPrincipal().getId()) {
+				res = false;
+				break;
+			}
+		return res;
 	}
 	public void delete(final Application application) {
 		Assert.notNull(this.applicationRepository.findOne(application.getId()), "La application no existe");
@@ -93,7 +140,7 @@ public class ApplicationService {
 		final Customer customer = this.customerService.getCustomerByUserAccountId(idLogin);
 		Assert.isTrue(customer.equals(application.getFixUp().getCustomer()));
 		final Application originalApplication = this.findOne(application.getId());
-		if (originalApplication.getState() != null && originalApplication.getState() == true) {
+		if (application.getState() == true) {
 			//			if (true)
 			Assert.isTrue(this.checkCreditCard(application.getCreditCard()), "application.error.creditCard");
 			System.out.println("Intento actualizar hw");

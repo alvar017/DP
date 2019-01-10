@@ -76,6 +76,8 @@ public class SponsorService {
 		boxesDefault.add(trashBoxSave);
 
 		sp.setMailBoxes(boxesDefault);
+		sp.setIsBanned(false);
+		sp.setIsSuspicious(false);
 
 		return sp;
 	}

@@ -24,7 +24,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import security.UserAccountRepository;
+import services.ActorService;
 import services.RefereeService;
+import services.WelcomeService;
 import domain.Referee;
 
 @Controller
@@ -35,6 +37,10 @@ public class RefereeController extends AbstractController {
 	private RefereeService			refereeService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
+	@Autowired
+	WelcomeService					welcomeService;
+	@Autowired
+	ActorService					actorService;
 
 
 	//	@Autowired
@@ -56,6 +62,12 @@ public class RefereeController extends AbstractController {
 		result = new ModelAndView("referee/create");
 
 		result.addObject("referee", referee);
+		final String phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -71,6 +83,12 @@ public class RefereeController extends AbstractController {
 		result.addObject("referee", referee);
 		result.addObject("socialProfiles", referee.getSocialProfiles());
 		result.addObject("requestURI", "referee/show.do");
+		final String phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -78,6 +96,11 @@ public class RefereeController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Referee referee, final BindingResult binding) {
 		ModelAndView result;
+		if (this.actorService.getActorByEmail(referee.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
@@ -117,6 +140,12 @@ public class RefereeController extends AbstractController {
 		result = new ModelAndView("referee/edit");
 
 		result.addObject("referee", referee);
+		final String phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -149,10 +178,10 @@ public class RefereeController extends AbstractController {
 		} else
 			try {
 				Assert.isTrue(this.refereeService.findOne(referee.getId()) != null);
-				final String password = referee.getUserAccount().getPassword();
-				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-				final String hashPassword = encoder.encodePassword(password, null);
-				referee.getUserAccount().setPassword(hashPassword);
+				//				final String password = referee.getUserAccount().getPassword();
+				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				//				final String hashPassword = encoder.encodePassword(password, null);
+				//				referee.getUserAccount().setPassword(hashPassword);
 				this.refereeService.save(referee);
 				result = new ModelAndView("redirect:show.do");
 			} catch (final Throwable oops) {

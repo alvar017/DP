@@ -38,17 +38,39 @@
 	
 	<definition name="complaint/handyWorker/list" extends="master.page">	
 		<put-attribute name="title" value="Handy Worker: Complaint" />
-		<put-attribute name="body" value="/views/complaint/list.jsp" />
+		<put-attribute name="body" value="/views/complaint/complaintHandyWorkerList.jsp" />
 	</definition>
 	
 	<definition name="complaint/handyWorker/show" extends="master.page">
 		<put-attribute name="title" value="HandyWorker: Show Complaint"></put-attribute>
-		<put-attribute name="body" value="/views/complaint/show.jsp"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintHandyWorkerShow.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="complaint/administrator/showD" extends="master.page">
 		<put-attribute name="title" value="Administrator: Show Dashboard"></put-attribute>
 		<put-attribute name="body" value="/views/complaint/showD.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/referee/list" extends="master.page">
+		<put-attribute name="title" value="Referee: Listing Complaints"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintRefereeList.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="complaint/referee/show" extends="master.page">
+		<put-attribute name="title" value="Referee: Show Complaint"></put-attribute>
+		<put-attribute name="body" value="/views/complaint/complaintRefereeShow.jsp"></put-attribute>
+	</definition>
+	
+		<!-- Reports -->
+		
+	<definition name="report/referee/show" extends="master.page">
+		<put-attribute name="title" value="Referee: Showing Report"></put-attribute>
+		<put-attribute name="body" value="/views/report/reportRefereeShow.jsp"></put-attribute>
+	</definition>	
+		
+	<definition name="report/customer/show" extends="master.page">
+		<put-attribute name="title" value="Customer: Showing Report"></put-attribute>
+		<put-attribute name="body" value="/views/report/reportShow.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

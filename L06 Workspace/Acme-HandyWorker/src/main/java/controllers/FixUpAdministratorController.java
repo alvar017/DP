@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.FixUpService;
+import services.WelcomeService;
 
 @Controller
 @RequestMapping("/fixUp/administrator")
@@ -26,6 +27,8 @@ public class FixUpAdministratorController extends AbstractController {
 
 	@Autowired
 	private FixUpService	fixUpService;
+	@Autowired
+	private WelcomeService	welcomeService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -42,6 +45,10 @@ public class FixUpAdministratorController extends AbstractController {
 		statistics = this.fixUpService.computeStatistics();
 
 		result = new ModelAndView("fixUp/administrator/showD");
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("statistics", statistics);
 
 		return result;

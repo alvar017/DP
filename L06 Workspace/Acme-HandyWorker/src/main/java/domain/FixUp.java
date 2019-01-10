@@ -166,4 +166,8 @@ public class FixUp extends DomainEntity {
 		this.category = category;
 	}
 
+	@Override
+	public String toString() {
+		return "FixUp[ " + this.getTicker() + " ]";
+	}
 }

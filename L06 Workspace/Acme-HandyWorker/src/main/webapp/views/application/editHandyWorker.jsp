@@ -41,7 +41,9 @@
 		<form:errors cssClass="error" path="offered.quantity" />
 		
 		<br />
+		<form:hidden path="offered.currency"/>
 		
+		<!--
 		<form:label path="offered.currency">
 			<spring:message code="application.offered.currency" />:
 		</form:label>
@@ -52,7 +54,7 @@
 		<form:errors cssClass="error" path="offered.currency" />
 		
 		<br />
-		
+		-->
 		<form:label path="comments">
 			<spring:message code="application.comments" />:
 		</form:label>

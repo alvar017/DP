@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.ComplaintService;
 import services.RefereeService;
 import services.ReportService;
+import services.WelcomeService;
 import domain.Complaint;
 import domain.Report;
 
@@ -28,6 +29,8 @@ public class ReportRefereeController extends AbstractController {
 	private ComplaintService	complaintService;
 	@Autowired
 	private RefereeService		refereeService;
+	@Autowired
+	private WelcomeService		welcomeService;
 
 
 	// ==============================================================
@@ -65,6 +68,10 @@ public class ReportRefereeController extends AbstractController {
 				complaint = report.getComplaint();
 
 				res.addObject("complaint", complaint);
+				final String system = this.welcomeService.getSystem();
+				res.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				res.addObject("logo", logo);
 				res.addObject("requestURI", "complaint/referee/show.do");
 			} catch (final Throwable oops) {
 				System.out.println(oops);
@@ -84,6 +91,10 @@ public class ReportRefereeController extends AbstractController {
 		report = this.reportService.findOne(reportId);
 
 		res.addObject("report", report);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("requestURI", "report/referee/show.do");
 
 		return res;
@@ -106,6 +117,10 @@ public class ReportRefereeController extends AbstractController {
 
 		res = new ModelAndView("report/referee/create");
 		res.addObject("report", report);
+		final String system = this.welcomeService.getSystem();
+		res.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		res.addObject("logo", logo);
 		res.addObject("message", messageCode);
 
 		return res;

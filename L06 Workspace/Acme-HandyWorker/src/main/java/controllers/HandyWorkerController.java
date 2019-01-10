@@ -20,11 +20,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import security.UserAccountRepository;
+import services.ActorService;
 import services.HandyWorkerService;
+import services.WelcomeService;
 import domain.HandyWorker;
 
 @Controller
@@ -35,6 +38,10 @@ public class HandyWorkerController extends AbstractController {
 	private HandyWorkerService		handyWorkerService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
+	@Autowired
+	private WelcomeService			welcomeService;
+	@Autowired
+	private ActorService			actorService;
 
 
 	//	@Autowired
@@ -56,6 +63,12 @@ public class HandyWorkerController extends AbstractController {
 		result = new ModelAndView("handyWorker/create");
 
 		result.addObject("handyWorker", handyWorker);
+		final String phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -71,6 +84,12 @@ public class HandyWorkerController extends AbstractController {
 		result.addObject("handyWorker", handyWorker);
 		result.addObject("socialProfiles", handyWorker.getSocialProfiles());
 		result.addObject("requestURI", "handyWorker/show.do");
+		final String phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -78,6 +97,11 @@ public class HandyWorkerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final HandyWorker handyWorker, final BindingResult binding) {
 		ModelAndView result;
+		if (this.actorService.getActorByEmail(handyWorker.getEmail()) != null) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 		if (handyWorker.getUserAccount().getPassword().length() < 5 || handyWorker.getUserAccount().getPassword().length() > 32) {
 			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
 			binding.addError(error);
@@ -102,7 +126,7 @@ public class HandyWorkerController extends AbstractController {
 			try {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
 				System.out.println(binding);
-				//				Assert.isTrue(this.userAccountService.findByUsername(handyWorker.getUserAccount().getUsername()) == null, "hw.usedUsername");
+				Assert.isTrue(this.userAccountService.findByUsername(handyWorker.getUserAccount().getUsername()) == null, "hw.usedUsername");
 				final String password = handyWorker.getUserAccount().getPassword();
 				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 				final String hashPassword = encoder.encodePassword(password, null);
@@ -132,6 +156,12 @@ public class HandyWorkerController extends AbstractController {
 		result = new ModelAndView("handyWorker/edit");
 
 		result.addObject("handyWorker", handyWorker);
+		final String phone = this.welcomeService.getPhone();
+		result.addObject("phone", phone);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 
 		return result;
 	}
@@ -170,6 +200,25 @@ public class HandyWorkerController extends AbstractController {
 				System.out.println(binding);
 				result = new ModelAndView("handyWorker/edit");
 			}
+		return result;
+	}
+
+	//Añadidos
+	@RequestMapping(value = "/showG", method = RequestMethod.GET)
+	public ModelAndView show(@RequestParam(value = "handyWorkerId", defaultValue = "-1") final int handyWorkerId) {
+		ModelAndView result;
+		final HandyWorker handyWorker = this.handyWorkerService.findOne(handyWorkerId);
+		Assert.isTrue(handyWorker != null);
+
+		result = new ModelAndView("handyWorker/showG");
+		result.addObject("handyWorker", handyWorker);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+		result.addObject("tutorials", handyWorker.getTutorials());
+		result.addObject("requestURI", "handyWorker/showG.do");
+
 		return result;
 	}
 }
