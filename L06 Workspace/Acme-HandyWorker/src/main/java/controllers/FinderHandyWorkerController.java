@@ -22,7 +22,6 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -217,16 +216,16 @@ public class FinderHandyWorkerController extends AbstractController {
 		System.out.println("Carmen: Entro en el save");
 
 		System.out.println("BindingErrors: " + binding.getFieldErrors());
-		if (finder.getMaxPrice() == null || finder.getMaxPrice() < 0) {
-			final ObjectError error = new ObjectError("maxPrice", "An account already exists for this email.");
-			binding.addError(error);
-			binding.rejectValue("maxPrice", "error.maxPrice.negative");
-		}
-		if (finder.getMinPrice() == null || finder.getMinPrice() < 0) {
-			final ObjectError error = new ObjectError("minPrice", "An account already exists for this email.");
-			binding.addError(error);
-			binding.rejectValue("minPrice", "error.minPrice.negative");
-		}
+		//		if (finder.getMaxPrice() == null || finder.getMaxPrice() < 0) {
+		//			final ObjectError error = new ObjectError("maxPrice", "An account already exists for this email.");
+		//			binding.addError(error);
+		//			binding.rejectValue("maxPrice", "error.maxPrice.negative");
+		//		}
+		//		if (finder.getMinPrice() == null || finder.getMinPrice() < 0) {
+		//			final ObjectError error = new ObjectError("minPrice", "An account already exists for this email.");
+		//			binding.addError(error);
+		//			binding.rejectValue("minPrice", "error.minPrice.negative");
+		//		}
 		if (binding.hasErrors()) {
 			System.out.println("Carmen: Hay ERRORES");
 			result = this.createEditModelAndView(finder);
@@ -290,7 +289,20 @@ public class FinderHandyWorkerController extends AbstractController {
 			} catch (final Throwable oops) {
 				System.out.println("Carmen: !NO PUEDO GUARDAR¡");
 				System.out.println("finder error:" + oops);
-				result = this.createEditModelAndView(finder, "finder.commit.error");
+				if (oops.getMessage().equals("fixUp.wrongDate")) {
+					System.out.println("1");
+					result = this.createEditModelAndView(finder, "finder.wrongDate");
+				} else if (oops.getMessage().equals("finder.wrongMomentDate")) {
+					System.out.println("2");
+					result = this.createEditModelAndView(finder, "finder.wrongMomentDate");
+				} else if (oops.getMessage().equals("finder.wrongP")) {
+					System.out.println("3");
+					result = this.createEditModelAndView(finder, "finder.wrongP");
+				} else if (oops.getMessage().equals("finder.wrong")) {
+					System.out.println("4");
+					result = this.createEditModelAndView(finder, "finder.wrong");
+				} else
+					result = this.createEditModelAndView(finder, "finder.wrongDate");
 			}
 
 		return result;
@@ -314,10 +326,16 @@ public class FinderHandyWorkerController extends AbstractController {
 	private ModelAndView createEditModelAndView(final Finder finder, final String messageCode) {
 		ModelAndView result;
 
+		final Collection<Category> category = this.categoryService.findAll();
+		final Collection<Warranty> warranty = this.warrantyService.findAll();
+
 		result = new ModelAndView("finder/handyWorker/edit");
 
 		result.addObject("finder", finder);
 		result.addObject("message", messageCode);
+
+		result.addObject("category", category);
+		result.addObject("warranty", warranty);
 
 		return result;
 	}

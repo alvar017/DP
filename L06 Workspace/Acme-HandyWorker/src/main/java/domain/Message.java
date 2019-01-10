@@ -75,7 +75,6 @@ public class Message extends DomainEntity {
 		this.priority = priority;
 	}
 
-	@NotBlank
 	@ElementCollection(targetClass = String.class)
 	public Collection<String> getEmailReceiver() {
 		return this.emailReceiver;

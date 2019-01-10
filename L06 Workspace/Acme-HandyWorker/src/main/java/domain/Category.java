@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.context.i18n.LocaleContextHolder;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -45,6 +46,14 @@ public class Category extends DomainEntity {
 
 	public void setSubCategories(final Collection<Category> subCategories) {
 		this.subCategories = subCategories;
+	}
+
+	@Override
+	public String toString() {
+		if (LocaleContextHolder.getLocale().getDisplayLanguage() == "English")
+			return this.getNameEN();
+		else
+			return this.getNameES();
 	}
 
 }

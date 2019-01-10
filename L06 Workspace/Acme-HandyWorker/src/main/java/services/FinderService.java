@@ -112,7 +112,54 @@ public class FinderService {
 	}
 
 	public Finder save(final Finder finder) {
+		if (finder.getEndDate() != null && finder.getStartDate() != null)
+			Assert.isTrue(!this.checkStartDateEndDate(finder.getStartDate(), finder.getEndDate()), "finder.wrongDate");
+		//			Assert.isTrue(!this.checkEndDate(finder.getStartDate(), finder.getEndDate()), "finder.wrongMomentDate");
+		if (finder.getMaxPrice() != null && finder.getMinPrice() == null) {
+			Assert.isTrue(!this.checkMax(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrong");
+			Assert.isTrue(!this.checkMin(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrongP");
+		}
+		if (finder.getMinPrice() != null && finder.getMaxPrice() == null) {
+			Assert.isTrue(!this.checkMax(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrong");
+			Assert.isTrue(!this.checkMin(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrongP");
+		}
+		if (finder.getMaxPrice() != null && finder.getMinPrice() != null)
+			Assert.isTrue(!this.checkDate(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrong");
 		return this.finderRepository.save(finder);
+	}
+
+	private Boolean checkMax(final Double max, final Double min) {
+		Boolean res = true;
+		if (max != null && min == null) {
+			if (max < 0)
+				res = false;
+			res = false;
+		}
+		return res;
+	}
+
+	private Boolean checkMin(final Double max, final Double min) {
+		Boolean res = true;
+		if (min != null && max == null) {
+			if (min < 0)
+				res = false;
+			res = false;
+		}
+		return res;
+	}
+
+	private Boolean checkStartDateEndDate(final Date startDate, final Date endDate) {
+		Boolean res = true;
+		if (startDate != null && endDate != null && startDate.after(endDate))
+			res = false;
+		return res;
+	}
+
+	private Boolean checkDate(final Double min, final Double max) {
+		Boolean res = true;
+		if (min > 0 && max > 0)
+			res = false;
+		return res;
 	}
 
 	public Finder findOne(final int id) {
