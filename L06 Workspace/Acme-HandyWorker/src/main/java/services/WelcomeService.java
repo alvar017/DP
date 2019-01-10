@@ -1,9 +1,9 @@
 
 package services;
 
+import org.hibernate.validator.constraints.URL;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 
 @Service
 @Transactional
@@ -15,10 +15,11 @@ public class WelcomeService {
 
 	String	system	= "Acme Handy Worker";
 
-	Integer	phone	= 34;
+	String	phone	= "34";
 
 	String	country	= "España/Spain";
 
+	@URL
 	String	logo	= "https://tinyurl.com/acme-handy-worker-logo";
 
 
@@ -27,7 +28,7 @@ public class WelcomeService {
 	}
 
 	public String newLogo(final String newLogo) {
-		Assert.isTrue(!this.checkUrl(newLogo), "logo.bad");
+		//		Assert.isTrue(!this.checkUrl(newLogo), "logo.bad");
 		this.logo = newLogo;
 		return this.logo;
 	}
@@ -69,11 +70,11 @@ public class WelcomeService {
 		return this.system;
 	}
 
-	public Integer getPhone() {
+	public String getPhone() {
 		return this.phone;
 	}
 
-	public Integer newPhone(final Integer phoneNew) {
+	public String newPhone(final String phoneNew) {
 		this.phone = phoneNew;
 		return this.phone;
 	}

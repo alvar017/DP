@@ -27,7 +27,7 @@
 								<security:authorize access="hasRole('CUSTOMER')">
 									<tr><td><spring:message code="score" /><jstl:out value="${score}"></jstl:out></td></tr>
 								</security:authorize>
-								<tr><td><spring:message code="actor.phone" /><jstl:out value="+(${phone})"></jstl:out><jstl:out value="${actor.phone}"></jstl:out></td></tr>
+								<tr><td><spring:message code="actor.phone" /><jstl:out value="${actor.phone}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.middleName" /><jstl:out value="${actor.middleName}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.email" /><jstl:out value="${actor.email}"></jstl:out></td></tr>
 								<tr><td><img class="customer_photo" src="${actor.photo}" alt=<jstl:out value="${actor.photo}"></jstl:out> width="5%"/></td></tr>

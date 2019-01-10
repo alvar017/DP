@@ -60,7 +60,7 @@ public class SponsorController extends AbstractController {
 		result = new ModelAndView("sponsor/create");
 
 		result.addObject("sponsor", sponsor);
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;
@@ -130,7 +130,7 @@ public class SponsorController extends AbstractController {
 		result = new ModelAndView("sponsor/edit");
 
 		result.addObject("sponsor", sponsor);
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;

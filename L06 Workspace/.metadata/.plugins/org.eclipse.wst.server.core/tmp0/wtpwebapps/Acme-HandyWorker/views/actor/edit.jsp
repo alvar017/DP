@@ -24,11 +24,40 @@
         <h2>
         	<spring:message code="actor.edit" />
         </h2>
+        			<script type="text/javascript">
+				function phonenumberval() {
+
+					var phoneNumber;
+					phoneNumber = document.getElementById("phoneNumber").value;
+
+					var res = false;
+
+					if (/(\+[0-9]{1,3})(\([0-9]{1,3}\))([0-9]{4,})$/.test(phoneNumber)) {
+						res = true;
+					}
+					if (/(\+[0-9]{1,3})\s([0-9]{4,})$/.test(phoneNumber)) {
+						res = true;
+					}
+					if (/^([0-9]{4,})\:(\+[0-9]{1,3})$/.test(phoneNumber)) {
+						res = true;
+					}
+					if (/^([0-9]{4,})$/.test(phoneNumber)) {
+						res = true;
+						
+						alert("<spring:message code='PN' />");
+					}
+					if (res == false) {
+						var conf = confirm("<spring:message code='PNconf' />");
+						return conf;
+					}
+
+				}
+			</script>
       </header>
       
       <div class="content">
     		
-    	<form:form class="formularioEdicion" method="POST" modelAttribute="actor" action="actor/edit.do">
+    		<form:form class="formularioEdicion" method="POST" onsubmit="return phonenumberval()" modelAttribute="actor" id="myForm" action="actor/edit.do">
           	<form:hidden path="id"/>
           	<form:hidden path="version"/>
           	<form:hidden path="socialProfiles"/>
@@ -48,8 +77,8 @@
 			<form:input path="surname" required="required"/>
 			<form:errors cssClass="error" path="surname"/><br>
 			
-			<form:label path="phone"><spring:message code="actor.phone" /></form:label>(+${phone})
-			<form:input path="phone"/>
+			<form:label path="phone"><spring:message code="actor.phone" /></form:label>
+			<form:input path="phone" id="phoneNumber" />
 			<form:errors cssClass="error" path="phone"/><br>
 			
 			<form:label path="middleName"><spring:message code="actor.middleName" /></form:label>

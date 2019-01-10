@@ -12,6 +12,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -56,9 +57,12 @@ public class AdministratorCategoryController extends AbstractController {
 
 		final UserAccount login = LoginService.getPrincipal();
 
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
 		final Collection<Category> categories = this.categoryService.findAll();
 
 		result = new ModelAndView("category/administrator/list");
+		result.addObject("language", language);
 		result.addObject("categories", categories);
 		result.addObject("requestURI", "category/administrator/list.do");
 
@@ -133,6 +137,14 @@ public class AdministratorCategoryController extends AbstractController {
 		System.out.println("Category encontrado: " + category);
 		Assert.notNull(category, "category.null");
 
+		final Collection<Category> categories = this.categoryService.findAll();
+		final List<Category> categoriesList = new ArrayList<>();
+		categoriesList.addAll(categories);
+
+		for (int i = 0; i < categories.size(); i++)
+			if (categoriesList.get(i).getSubCategories().contains(category))
+				categoriesList.get(i).getSubCategories().remove(category);
+
 		try {
 			this.categoryService.delete(category);
 			result = new ModelAndView("redirect:list.do");
@@ -164,6 +176,12 @@ public class AdministratorCategoryController extends AbstractController {
 		else
 			for (final Category category2 : categories)
 				nameCategories.add(category2.getNameES());
+
+		if (nameCategories.contains(category.getNameEN()))
+			nameCategories.remove(category.getNameEN());
+
+		if (nameCategories.contains(category.getNameES()))
+			nameCategories.remove(category.getNameES());
 
 		result = new ModelAndView("category/administrator/edit");
 		result.addObject("category", category);

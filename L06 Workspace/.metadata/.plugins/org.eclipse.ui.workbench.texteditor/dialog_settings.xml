@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Warranty" key="selection"/>
+		<item value="Logo" key="selection"/>
 		<list key="findhistory">
+			<item value="logo"/>
+			<item value="/edit"/>
+			<item value="phone"/>
+			<item value="workplan"/>
 			<item value="warranty"/>
 			<item value="max"/>
 			<item value="editar"/>
 			<item value="administrator: edit"/>
-			<item value="fix"/>
-			<item value="lista de"/>
-			<item value="list of"/>
-			<item value="mai"/>
 		</list>
 		<list key="replacehistory">
 			<item value="110"/>

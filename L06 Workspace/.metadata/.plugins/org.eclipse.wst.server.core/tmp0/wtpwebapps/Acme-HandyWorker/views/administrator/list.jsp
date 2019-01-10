@@ -112,7 +112,7 @@
 
 	<form:form class="formularioEdicion" method="GET" action="administrator/newLogo.do?newLogo='${newLogo}'.do">		
 		<spring:message code="logoM" />
-		<input type="text" name="newLogo" required="required"/>
+		<input type="url" name="newLogo" required="required"/>
 		<form:errors cssClass="error" path="${newLogo}"/><br> 
 		<input type="submit" value=<spring:message code="saveNewSpamWord" /> />
 	</form:form>

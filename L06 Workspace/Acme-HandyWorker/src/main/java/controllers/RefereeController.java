@@ -62,7 +62,7 @@ public class RefereeController extends AbstractController {
 		result = new ModelAndView("referee/create");
 
 		result.addObject("referee", referee);
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;
@@ -79,7 +79,7 @@ public class RefereeController extends AbstractController {
 		result.addObject("referee", referee);
 		result.addObject("socialProfiles", referee.getSocialProfiles());
 		result.addObject("requestURI", "referee/show.do");
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;
@@ -132,7 +132,7 @@ public class RefereeController extends AbstractController {
 		result = new ModelAndView("referee/edit");
 
 		result.addObject("referee", referee);
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;

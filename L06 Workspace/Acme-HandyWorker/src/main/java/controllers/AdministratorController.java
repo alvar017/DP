@@ -162,7 +162,7 @@ public class AdministratorController extends AbstractController {
 		final String system = this.welcomeService.getSystem();
 
 		//Phone
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 
 		//Country´s Phone
 		final String phoneCountry = this.welcomeService.getCountry();
@@ -238,7 +238,7 @@ public class AdministratorController extends AbstractController {
 		final String system = this.welcomeService.getSystem();
 
 		//Phone
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 
 		//Logo
 		final String logo = this.welcomeService.getLogo();
@@ -346,7 +346,7 @@ public class AdministratorController extends AbstractController {
 		final String system = this.welcomeService.getSystem();
 
 		//Phone
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 
 		//Brand
 		final HashSet<String> brand = this.applicationService.listBrands();
@@ -522,7 +522,7 @@ public class AdministratorController extends AbstractController {
 		final String system = this.welcomeService.getSystem();
 
 		//Phone
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 
 		//Brand
 		final HashSet<String> brand = this.applicationService.listBrands();
@@ -577,10 +577,10 @@ public class AdministratorController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/newPhone", method = RequestMethod.GET)
-	public ModelAndView newPhone(@RequestParam("newPhone") final Integer newPhone) {
+	public ModelAndView newPhone(@RequestParam("newPhone") final String newPhone) {
 		ModelAndView result;
 
-		final Integer phone = this.welcomeService.newPhone(newPhone);
+		final String phone = this.welcomeService.newPhone(newPhone);
 
 		System.out.println("Carmen: Voy a intentar guardar");
 
@@ -590,7 +590,7 @@ public class AdministratorController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/newPhoneCountry", method = RequestMethod.GET)
-	public ModelAndView newPhone(@RequestParam("newPhoneCountry") final String newPhoneCountry) {
+	public ModelAndView newPhoneCountry(@RequestParam("newPhoneCountry") final String newPhoneCountry) {
 		ModelAndView result;
 
 		this.welcomeService.newCountry(newPhoneCountry);

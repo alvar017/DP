@@ -76,7 +76,7 @@ public class ActorController extends AbstractController {
 		result.addObject("actor", actor);
 		result.addObject("socialProfiles", actor.getSocialProfiles());
 		result.addObject("requestURI", "actor/show.do");
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;
@@ -96,7 +96,7 @@ public class ActorController extends AbstractController {
 		result = new ModelAndView("actor/edit");
 
 		result.addObject("actor", actor);
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;
@@ -142,7 +142,10 @@ public class ActorController extends AbstractController {
 					customer.setMiddleName(actor.getMiddleName());
 					customer.setEmail(actor.getEmail());
 					customer.setPhoto(actor.getPhoto());
-					customer.setPhone(actor.getPhone());
+					if (actor.getPhone().matches("^([0-9]{4,})$"))
+						customer.setPhone("+" + this.welcomeService.getPhone() + " " + actor.getPhone());
+					else
+						customer.setPhone(actor.getPhone());
 					customer.getUserAccount().setUsername(actor.getUserAccount().getUsername());
 					customer.getUserAccount().setPassword(actor.getUserAccount().getPassword());
 					customer.setMailBoxes(actor.getMailBoxes());

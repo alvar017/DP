@@ -42,7 +42,7 @@
   	<display:column property="comments" titleKey="application.comments"/>
   	<display:column property="creditCard.number" titleKey="application.creditCard"/>
   	<jstl:if test="${row.state}" >
-  		<display:column titleKey="handyWorker.editApplication"> 
+  		<display:column titleKey="application.workplan"> 
 			<a href="workplan/handyWorker/create.do?fixUpId=${row.fixUp.id}"><spring:message code="workplan.create"/></a>
 		</display:column>
   	</jstl:if>

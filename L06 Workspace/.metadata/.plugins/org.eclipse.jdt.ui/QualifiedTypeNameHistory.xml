@@ -57,7 +57,7 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="domain.Money"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.AssertTrue"/>
-<fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="domain.Warranty"/>
+<fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
 </qualifiedTypeNameHistroy>

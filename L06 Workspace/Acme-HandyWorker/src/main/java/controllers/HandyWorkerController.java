@@ -63,7 +63,7 @@ public class HandyWorkerController extends AbstractController {
 		result = new ModelAndView("handyWorker/create");
 
 		result.addObject("handyWorker", handyWorker);
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;
@@ -80,7 +80,7 @@ public class HandyWorkerController extends AbstractController {
 		result.addObject("handyWorker", handyWorker);
 		result.addObject("socialProfiles", handyWorker.getSocialProfiles());
 		result.addObject("requestURI", "handyWorker/show.do");
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;
@@ -148,7 +148,7 @@ public class HandyWorkerController extends AbstractController {
 		result = new ModelAndView("handyWorker/edit");
 
 		result.addObject("handyWorker", handyWorker);
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;

@@ -58,7 +58,7 @@ public class CustomerController extends AbstractController {
 		result = new ModelAndView("customer/create");
 
 		result.addObject("customer", customer);
-		final Integer phone = this.welcomeService.getPhone();
+		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
 
 		return result;

@@ -35,13 +35,13 @@
           	
           	<form:label path="title"><spring:message code="phase.title" /></form:label>
 			<form:textarea path="title" />
-			<form:errors path="title"/><br>
+			<form:errors cssClass="error"  path="title"/><br>
 			<form:label path="text"><spring:message code="section.text" /></form:label>
 			<form:textarea path="text" />
-			<form:errors path="text"/><br>
+			<form:errors cssClass="error"  path="text"/><br>
 			<form:label path="picture"><spring:message code="section.picture" /></form:label>
 			<form:textarea path="picture" />
-			<form:errors path="picture"/><br>
+			<form:errors cssClass="error"  path="picture"/><br>
 			
 			<input type="submit" name="save" value="<spring:message code="submit"/>" />
 			<input type="button" name="cancel" onclick="javascript:relativeRedir('tutorial/handyWorker/list.do')" value="<spring:message code="cancel"/>"/>

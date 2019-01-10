@@ -28,8 +28,16 @@
   	<display:column titleKey="administrator.editCategory"> 
 		<a href="category/administrator/edit.do?categoryId=${row.id}"><spring:message code="administrator.editCategory" /></a>
 	</display:column>
-  	<display:column property="nameES" titleKey="category.nameES"/>
-  	<display:column property="nameEN" titleKey="category.nameEN"/>
+  	
+  	
+  	<c:choose>
+    	<c:when test="${language=='English'}">
+			<display:column property="nameEN" titleKey="category.nameEN"/>    	</c:when>    
+    	<c:otherwise>
+  			<display:column property="nameES" titleKey="category.nameES"/>
+    	</c:otherwise>
+	</c:choose>
+  
   	<display:column property="subCategories" titleKey="category.subcategories"/>
   	
   	</display:table>

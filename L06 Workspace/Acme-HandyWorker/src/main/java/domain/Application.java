@@ -101,5 +101,8 @@ public class Application extends DomainEntity {
 	public void setCreditCard(final CreditCard creditCard) {
 		this.creditCard = creditCard;
 	}
-
+	@Override
+	public String toString() {
+		return "Application[ " + this.getId() + " ]";
+	}
 }

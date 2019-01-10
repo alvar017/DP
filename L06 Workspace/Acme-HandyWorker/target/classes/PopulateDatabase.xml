@@ -67,6 +67,18 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         </property>
     </bean>
     
+     <bean id="userAccount5" class="security.UserAccount">
+        <property name="username" value="sponsor" />
+        <property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="SPONSOR" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+    
    	<bean id="userAccount10" class="security.UserAccount">
         <property name="username" value="referee" />
         <property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
@@ -126,18 +138,54 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="name" value="Laura" />
         <property name="surname" value="Exposito" />
         <property name="middleName" value="" />
+        <property name="email" value="admin@gmail.com" />
         <property name="SocialProfiles">
             <null />
         </property>
         <property name="photo">
             <null />
         </property>
-        <property name="mailBoxes">
-            <null />
+         <property name="mailBoxes">
+        	<list>
+                <ref bean="mailBox1"/>
+                <ref bean="mailBox2"/>
+                <ref bean="mailBox3"/>
+                <ref bean="mailBox4"/>
+        	</list>
         </property>
         <property name="address" value="Calle Aguditas Número 12" />
         <property name="userAccount" ref= "userAccount1"/>
     </bean>
+    
+    <bean id="sponsor1" class="domain.Sponsor">
+        <property name="name" value="Pepe" />
+        <property name="surname" value="Villuela" />
+        <property name="middleName" value="" />
+        <property name="email" value="villuelux@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="userAccount" ref="userAccount5" />
+        <property name="photo">
+            <null />
+        </property>
+        <property name="sponsorships">
+            <list>
+                <ref bean="sponsorship1"/>
+            </list>
+        </property>
+        <property name="address" value="Calle Chota Número 12" />
+          <property name="mailBoxes">
+        	<list>
+                <ref bean="mailBox5"/>
+                <ref bean="mailBox6"/>
+                <ref bean="mailBox7"/>
+                <ref bean="mailBox8"/>
+        	</list>
+        </property>
+    </bean>
+    
+   
 
     <!-- HandyWorker -->
     <bean id="han01" class="domain.HandyWorker">
@@ -145,6 +193,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="name" value="Ester" />
         <property name="surname" value="Exposito" />
         <property name="middleName" value="" />
+        <property name="email" value="esterEx@gmail.com" />
         <property name="calification" value="0.5" />
         <property name="SocialProfiles">
             <null />
@@ -152,8 +201,13 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="photo">
             <null />
         </property>
-        <property name="mailBoxes">
-            <null />
+          <property name="mailBoxes">
+        	<list>
+                 <ref bean="mailBox9"/>
+                <ref bean="mailBox10"/>
+                <ref bean="mailBox11"/>
+                <ref bean="mailBox12"/>
+        	</list>
         </property>
         <property name="address" value="Calle Aguditas Número 12" />
         <property name="make" value="make1" />
@@ -174,6 +228,180 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="applications"><null/></property>
         <property name="fixUps"><null/></property>
     </bean>
+    
+    <bean id="chan01" class="domain.HandyWorker">
+         <property name="userAccount" ref= "userAccount6"/>
+    
+       	 <property name="phone"><null/></property>
+         <property name="name" value="Carmen" />
+         <property name="surname" value="Fernández" />
+         <property name="middleName" value="" />
+         <property name="calification" value="0.5" />
+         <property name="email" value="carFer@gmail.com" />
+         <property name="SocialProfiles"><null/></property>
+         <property name="photo"><null/></property>
+           <property name="mailBoxes">
+        	<list>
+                 <ref bean="mailBox13"/>
+                <ref bean="mailBox14"/>
+                <ref bean="mailBox15"/>
+                <ref bean="mailBox16"/>
+        	</list>
+        </property>
+         <property name="address" value="Castillo de Constantina N5" />
+        <property name="make" value="cmake1" />
+
+        <property name="endorsementReceiver"><null/></property>
+        <property name="tutorials"><null/></property>
+        <property name="finder"><null/></property>
+        <property name="curriculum"><null/></property>    
+        <property name="applications"><null/></property>
+        <property name="fixUps"><null/></property>      
+    </bean>
+    
+     <!-- Customer -->
+    <bean id="ancus01" class="domain.Customer">
+    	<property name="phone"><null/></property>
+        <property name="isSuspicious" value="true"/>
+        <property name="isBanned" value="true"/>
+        <property name="name" value="David" />
+        <property name="surname" value="Martín" />
+        <property name="middleName" value="" />
+        <property name="calification" value="0.5" />
+        <property name="email" value="david@gmail.com" />
+        <property name="SocialProfiles">
+            <list>
+                <ref bean="socialProfile1"/>
+                <ref bean="socialProfile2"/>
+            </list>  
+        </property>
+        <property name="userAccount" ref="userAccount2" />
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+        	<list>
+               <ref bean="mailBox17"/>
+                <ref bean="mailBox18"/>
+                <ref bean="mailBox19"/>
+                <ref bean="mailBox20"/>
+        	</list>
+        </property>
+        <property name="address" value="Calle Pozoblanco Número 12" />
+        <property name="endorsementReceiver">
+            <null />
+        </property>
+        <property name="fixUps"><null/></property>
+    </bean>
+
+    <bean id="ancus02" class="domain.Customer">
+    	<property name="phone"><null/></property>
+        <property name="name" value="Alvaro" />
+        <property name="surname" value="Martín" />
+        <property name="middleName" value="" />
+        <property name="calification" value="0.5" />
+        <property name="email" value="alvaro@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+         <property name="mailBoxes">
+        	<list>
+                <ref bean="mailBox21"/>
+                <ref bean="mailBox22"/>
+                <ref bean="mailBox23"/>
+                <ref bean="mailBox24"/>
+        	</list>
+        </property>
+        <property name="address" value="Calle PozoRojo Número 15" />
+        <property name="endorsementReceiver">
+            <null />
+        </property>    
+        <property name="fixUps"><null/></property>
+        <property name="userAccount" ref= "alvaro"/>
+    </bean>
+    
+        <bean id="ancus03" class="domain.Customer">
+        <property name="name" value="María del Gracia" />
+        <property name="surname" value="Martín" />
+        <property name="middleName" value="" />
+        <property name="calification" value="0.5" />
+        <property name="email" value="maria@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+         <property name="mailBoxes">
+        	<list>
+                <ref bean="mailBox25"/>
+                <ref bean="mailBox26"/>
+                <ref bean="mailBox27"/>
+                <ref bean="mailBox28"/>
+        	</list>
+        </property>
+        <property name="address" value="Calle Pozoverde Número 12" />
+        <property name="endorsementReceiver">
+            <null />
+        </property>   
+        <property name="fixUps"><null/></property>
+        <property name="userAccount" ref= "antonio"/>
+    </bean>
+<!-- Referee -->
+
+<bean id="Franref01" class="domain.Referee">
+		<property name="phone"><null/></property>
+        <property name="name" value="Manuel" />
+        <property name="surname" value="Rojo" />
+        <property name="middleName" value="" />
+        <property name="email" value="manuel2@gmail.com" />
+        <property name="SocialProfiles">
+            <list>
+                <ref bean="socialProfile3"/>
+            </list>  
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+         <property name="mailBoxes">
+        	<list>
+               <ref bean="mailBox29"/>
+                <ref bean="mailBox30"/>
+                <ref bean="mailBox31"/>
+                <ref bean="mailBox32"/>
+        	</list>
+        </property>
+        <property name="userAccount" ref= "userAccount10"/>
+        <property name="address" value="Calle Pozonegro Número 12" />
+        <property name="isBanned" value="false"/>
+        <property name="isSuspicious" value="false"/>
+        
+        
+</bean>
+<!--  
+<bean id="Franref02" class="domain.Referee">
+        <property name="name" value="Manuel" />
+        <property name="surname" value="Rojo" />
+        <property name="middleName" value="" />
+        <property name="email" value="manuel@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+        <property name="mailBoxes">
+            <null />
+        </property>
+        <property name="address" value="Calle Pozonegro Número 12" />
+        <property name="isBanned" value="false"/>
+        <property name="isSuspicious" value="false"/>
+</bean>
+-->
+    
     
     <bean id="cur01" class="domain.Curriculum">
         <property name="ticker" value="29122018ADO23D" />
@@ -203,6 +431,8 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         	</list>
         </property>
     </bean>
+    
+    
     
     <bean id="misrec01" class="domain.MiscellaneousRecord">
         <property name="title" value="Titulo 1" />
@@ -421,15 +651,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     </bean>
     <!-- Category -->
 
-    <bean id="cat01" class="domain.Category">
-
-        <property name="nameES" value="categoria" />
-        <property name="nameEN" value="category" />
-        <property name="subCategories">
-            <null />
-        </property>
-
-    </bean>
+   
 
     <!-- Warranty -->
 
@@ -470,7 +692,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endDate" value="2019/11/30 08:00" />
         <property name="warranty" ref="war01" />
 
-        <property name="category" ref="cat01" />
+        <property name="category" ref="category7" />
         <property name="handyWorker" ref="han01" />
         <property name="customer" ref="ancus01" />
         <property name="complaints"><null/></property>
@@ -490,7 +712,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="warranty" ref="war01" />
 
 
-        <property name="category" ref="cat01" />
+        <property name="category" ref="category2" />
         <property name="handyWorker" ref="han01" />
         <property name="customer" ref="ancus01" />
         <property name="complaints"><null/></property>
@@ -508,7 +730,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endDate" value="2019/11/13 08:00"/>
         <property name="warranty" ref="war01"/>
 
-        <property name="category" ref="ccat01"/>
+        <property name="category" ref="category3"/>
         <property name="handyWorker" ref="chan01"/>
         <property name="customer" ref="ancus02" />
         <property name="complaints"><null/></property>
@@ -525,7 +747,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="endDate" value="2019/11/13 08:00"/>
         <property name="warranty" ref="war01"/>
 
-        <property name="category" ref="ccat01"/>
+        <property name="category" ref="category11"/>
         <property name="handyWorker" ref="chan01"/>
         <property name="customer" ref="ancus03" />
         <property name="complaints"><null/></property>
@@ -533,37 +755,11 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         
     </bean>
     
-    <bean id="chan01" class="domain.HandyWorker">
-         <property name="userAccount" ref= "userAccount6"/>
     
-       	 <property name="phone"><null/></property>
-         <property name="name" value="Carmen" />
-         <property name="surname" value="Fernández" />
-         <property name="middleName" value="" />
-         <property name="calification" value="0.5" />
-         <property name="SocialProfiles"><null/></property>
-         <property name="photo"><null/></property>
-         <property name="mailBoxes"><null/></property>
-         <property name="address" value="Castillo de Constantina N5" />
-        <property name="make" value="cmake1" />
-
-        <property name="endorsementReceiver"><null/></property>
-        <property name="tutorials"><null/></property>
-        <property name="finder"><null/></property>
-        <property name="curriculum"><null/></property>    
-        <property name="applications"><null/></property>
-        <property name="fixUps"><null/></property>      
-    </bean>
     
     <!-- Category -->    
     
-    <bean id="ccat01" class="domain.Category">
-    
-        <property name="nameES" value="ccategoria" />
-        <property name="nameEN" value="ccategory" />
-        <property name="subCategories"><null/></property>
-
-    </bean>
+  
     
     <!-- Complaint -->    
     
@@ -592,129 +788,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         </property>
     </bean>
     
-    <!-- Customer -->
-    <bean id="ancus01" class="domain.Customer">
-    	<property name="phone"><null/></property>
-        <property name="isSuspicious" value="true"/>
-        <property name="isBanned" value="true"/>
-        <property name="name" value="David" />
-        <property name="surname" value="Martín" />
-        <property name="middleName" value="" />
-        <property name="calification" value="0.5" />
-        <property name="email" value="david@gmail.com" />
-        <property name="SocialProfiles">
-            <list>
-                <ref bean="socialProfile1"/>
-                <ref bean="socialProfile2"/>
-            </list>  
-        </property>
-        <property name="userAccount" ref="userAccount2" />
-        <property name="photo">
-            <null />
-        </property>
-        <property name="mailBoxes">
-            <null />
-        </property>
-        <property name="address" value="Calle Pozoblanco Número 12" />
-        <property name="endorsementReceiver">
-            <null />
-        </property>
-        <property name="fixUps"><null/></property>
-    </bean>
-
-    <bean id="ancus02" class="domain.Customer">
-    	<property name="phone"><null/></property>
-        <property name="name" value="Alvaro" />
-        <property name="surname" value="Martín" />
-        <property name="middleName" value="" />
-        <property name="calification" value="0.5" />
-        <property name="email" value="alvaro@gmail.com" />
-        <property name="SocialProfiles">
-            <null />
-        </property>
-        <property name="photo">
-            <null />
-        </property>
-        <property name="mailBoxes">
-            <null />
-        </property>
-        <property name="address" value="Calle PozoRojo Número 15" />
-        <property name="endorsementReceiver">
-            <null />
-        </property>    
-        <property name="fixUps"><null/></property>
-        <property name="userAccount" ref= "alvaro"/>
-    </bean>
-    
-        <bean id="ancus03" class="domain.Customer">
-        <property name="name" value="María del Gracia" />
-        <property name="surname" value="Martín" />
-        <property name="middleName" value="" />
-        <property name="calification" value="0.5" />
-        <property name="email" value="maria@gmail.com" />
-        <property name="SocialProfiles">
-            <null />
-        </property>
-        <property name="photo">
-            <null />
-        </property>
-        <property name="mailBoxes">
-            <null />
-        </property>
-        <property name="address" value="Calle Pozoverde Número 12" />
-        <property name="endorsementReceiver">
-            <null />
-        </property>   
-        <property name="fixUps"><null/></property>
-        <property name="userAccount" ref= "antonio"/>
-    </bean>
-<!-- Referee -->
-
-<bean id="Franref01" class="domain.Referee">
-		<property name="phone"><null/></property>
-        <property name="name" value="Manuel" />
-        <property name="surname" value="Rojo" />
-        <property name="middleName" value="" />
-        <property name="email" value="manuel2@gmail.com" />
-        <property name="SocialProfiles">
-            <list>
-                <ref bean="socialProfile3"/>
-            </list>  
-        </property>
-        <property name="photo">
-            <null />
-        </property>
-        <property name="mailBoxes">
-            <null />
-        </property>
-        <property name="userAccount" ref= "userAccount10"/>
-        <property name="address" value="Calle Pozonegro Número 12" />
-        <property name="isBanned" value="false"/>
-        <property name="isSuspicious" value="false"/>
-        
-        
-</bean>
-<!--  
-<bean id="Franref02" class="domain.Referee">
-        <property name="name" value="Manuel" />
-        <property name="surname" value="Rojo" />
-        <property name="middleName" value="" />
-        <property name="email" value="manuel@gmail.com" />
-        <property name="SocialProfiles">
-            <null />
-        </property>
-        <property name="photo">
-            <null />
-        </property>
-        <property name="mailBoxes">
-            <null />
-        </property>
-        <property name="address" value="Calle Pozonegro Número 12" />
-        <property name="isBanned" value="false"/>
-        <property name="isSuspicious" value="false"/>
-</bean>
--->
-<!-- Reports -->
+   <!-- Reports -->
 
 <bean id="Franrep01" class="domain.Report">
     
@@ -867,37 +941,7 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="tutorial" ref="tutorial1"/>     
     </bean>
     
-    <bean id="sponsor1" class="domain.Sponsor">
-        <property name="name" value="Pepe" />
-        <property name="surname" value="Villuela" />
-        <property name="middleName" value="" />
-        <property name="email" value="villuelux@gmail.com" />
-        <property name="SocialProfiles">
-            <null />
-        </property>
-        <property name="userAccount" ref="userAccount5" />
-        <property name="photo">
-            <null />
-        </property>
-        <property name="sponsorships">
-            <list>
-                <ref bean="sponsorship1"/>
-            </list>
-        </property>
-        <property name="address" value="Calle Chota Número 12" />
-    </bean>
     
-    <bean id="userAccount5" class="security.UserAccount">
-        <property name="username" value="sponsor" />
-        <property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
-        <property name="authorities">
-            <list>
-                <bean class="security.Authority">
-                    <property name="authority" value="SPONSOR" />
-                </bean>
-            </list>
-        </property>
-    </bean>
     
     <bean id="socialProfile1" class="domain.SocialProfile">
         <property name="nick" value="alvar017" />
@@ -1041,6 +1085,198 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="nameEN" value="Window repair" />
         <property name="nameES" value="Reparación de ventanas" />
         <property name="subCategories"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox1" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox2" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox3" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox4" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox5" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox6" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox7" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox8" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox9" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox10" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox11" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox12" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox13" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox14" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox15" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox16" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox17" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox18" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox19" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox20" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox21" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox22" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox23" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox24" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox25" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox26" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox27" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox28" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox29" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox30" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox31" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox32" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
     </bean> 
     
 </beans>
