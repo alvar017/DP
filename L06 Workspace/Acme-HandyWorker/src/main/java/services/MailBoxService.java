@@ -14,7 +14,6 @@ import org.springframework.util.Assert;
 import repositories.MailBoxRepository;
 import security.LoginService;
 import security.UserAccount;
-import domain.Actor;
 import domain.Administrator;
 import domain.MailBox;
 import domain.Message;
@@ -30,9 +29,6 @@ public class MailBoxService {
 	@Autowired
 	private AdministratorService	administratorService;
 
-	@Autowired
-	private ActorService			actorService;
-
 
 	public MailBox create() {
 		final MailBox result = new MailBox();
@@ -45,13 +41,9 @@ public class MailBoxService {
 
 	public MailBox update(final MailBox mailBox) {
 		final MailBox oldMailBox = this.mailBoxRepository.findOne(mailBox.getId());
-		System.out.println(oldMailBox);
-		if (oldMailBox != null)
-			if (oldMailBox.getName() == "inBox" || oldMailBox.getName() == "outBox" || oldMailBox.getName() == "spamBox" || oldMailBox.getName() == "trashBox")
-				Assert.isTrue(oldMailBox.getName() == mailBox.getName());
-		System.out.println("falla aqui");
+		if (oldMailBox.getName() == "inBox" || oldMailBox.getName() == "outBox" || oldMailBox.getName() == "spamBox" || oldMailBox.getName() == "trashBox")
+			Assert.isTrue(oldMailBox.getName() == mailBox.getName());
 		final MailBox result = this.mailBoxRepository.save(mailBox);
-		System.out.println("no falla donde creo");
 		return result;
 	}
 
@@ -61,18 +53,11 @@ public class MailBoxService {
 	}
 
 	public void delete(final MailBox mailBox) {
-		System.out.println(mailBox);
-		final Boolean isDefault = mailBox.getIsDefault();
-		System.out.println(isDefault);
-		Assert.isTrue(isDefault == null || isDefault == false);
-		System.out.println("pasa el default");
+		Assert.isTrue(mailBox.getIsDefault() == false);
 		Assert.notNull(this.mailBoxRepository.findOne(mailBox.getId()), "La fixUp no existe");
-		System.out.println("pasa el findOne");
-		final UserAccount user = LoginService.getPrincipal();
-		final Actor a = this.actorService.getActorByUserId(user.getId());
-		a.getMailBoxes().remove(mailBox);
 		this.mailBoxRepository.delete(mailBox);
 	}
+
 	public MailBox findOne(final int id) {
 		final MailBox result = this.mailBoxRepository.findOne(id);
 		return result;
@@ -125,23 +110,11 @@ public class MailBoxService {
 	public MailBox getInBoxActor(final Integer id) {
 		final Collection<MailBox> inBoxCollection = this.mailBoxRepository.getInBoxActor(id);
 		final List<MailBox> inBoxList = (List<MailBox>) inBoxCollection;
-		MailBox inbox = null;
-		if (inBoxList.size() > 0)
-			inbox = inBoxList.get(0);
-		return inbox;
-	}
-	public Collection<MailBox> getInBox() {
-
-		return this.mailBoxRepository.getInBox();
-	}
-
-	public Collection<MailBox> getspamBox() {
-
-		return this.mailBoxRepository.getspamBox();
+		final MailBox inBox = inBoxList.get(0);
+		return inBox;
 	}
 
 	public MailBox getTrashBoxActor(final Integer id) {
-
 		final Collection<MailBox> inBoxCollection = this.mailBoxRepository.getTrashBoxActor(id);
 		final List<MailBox> TrashBoxList = (List<MailBox>) inBoxCollection;
 		final MailBox trashBox = TrashBoxList.get(0);
@@ -149,17 +122,12 @@ public class MailBoxService {
 	}
 
 	public MailBox getSpamBoxActor(final Integer id) {
-		System.out.println("id del getSpamBoxActor");
-		System.out.println(id);
-		final Collection<MailBox> spamBoxCollection = this.mailBoxRepository.getSpamBoxActor(id);
-		System.out.println(spamBoxCollection);
+		final Collection<MailBox> spamBoxCollection = this.mailBoxRepository.getTrashBoxActor(id);
 		final List<MailBox> SpamBoxList = (List<MailBox>) spamBoxCollection;
-		System.out.println(SpamBoxList);
-		System.out.println("falla aqui");
 		final MailBox spamBox = SpamBoxList.get(0);
-		System.out.println("falla aqui");
 		return spamBox;
 	}
+
 	public MailBox getOutBoxActor(final Integer id) {
 		final Collection<MailBox> outBoxCollection = this.mailBoxRepository.getOutBoxActor(id);
 		final List<MailBox> outBoxList = (List<MailBox>) outBoxCollection;

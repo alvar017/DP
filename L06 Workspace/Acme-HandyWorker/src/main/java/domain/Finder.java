@@ -118,4 +118,5 @@ public class Finder extends DomainEntity {
 	public void setFixUps(final Collection<FixUp> fixUps) {
 		this.fixUps = fixUps;
 	}
+
 }

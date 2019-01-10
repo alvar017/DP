@@ -36,9 +36,4 @@
 		<put-attribute name="body" value="/views/workplan/showPhase.jsp" />
 	</definition>
 	
-	<definition name="workplan/handyWorker/redir" extends="master.page">	
-		<put-attribute name="title" value="Aplicando cambios..." />
-		<put-attribute name="body" value="/views/workplan/redirectToShow.jsp" />
-	</definition>
-	
 </tiles-definitions>

@@ -79,8 +79,6 @@ public class HandyWorkerService {
 		boxesDefault.add(trashBoxSave);
 
 		hw.setMailBoxes(boxesDefault);
-		hw.setIsBanned(false);
-		hw.setIsSuspicious(false);
 
 		return hw;
 	}

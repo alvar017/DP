@@ -46,22 +46,17 @@
 			<form:errors cssClass="error" path="surname"/><br>
 			
 			<form:label path="middleName"><spring:message code="sponsor.middleName" /></form:label>
-			<form:input path="middleName"/>
+			<form:input path="middleName" required="required"/>
 			<form:errors cssClass="error" path="middleName"/><br>
-			
-			<form:label path="phone"><spring:message code="sponsor.phone" /></form:label>(+${phone})
-			<form:input path="phone"/><br>
-			<form:errors cssClass="error" path="phone"/><br>
 			
 			<form:label path="email"><spring:message code="sponsor.email" /></form:label>
 			<form:input path="email" required="required"/>
 			<form:errors cssClass="error" path="email"/><br>
 			
 			<form:label path="photo"><spring:message code="sponsor.photo" /></form:label>
-			<form:input path="photo"/>
+			<form:input path="photo" required="required"/>
 			<form:errors cssClass="error" path="photo"/><br>
 			
-			<!--
 			<form:label path="userAccount.username"><spring:message code="sponsor.username" /></form:label>
 			<form:input path="userAccount.username" required="required"/>
 			<form:errors cssClass="error" path="userAccount.username"/><br>
@@ -75,13 +70,9 @@
 			<form:hidden path="userAccount.authorities"/>
 			<form:hidden path="userAccount.isBanned"/>
 			<form:hidden path="userAccount.isSuspicious"/>
-			-->
-			<form:hidden path="userAccount"/>
+			
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
-					<form method="get" action=" ">
-    			<button type="submit"><spring:message code="button.back" /></button>
-			</form>
       </div>
       
  	</article>

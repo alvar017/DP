@@ -1,146 +1,130 @@
+/*
+ * CustomerController.java
+ * 
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the
+ * TDG Licence, a copy of which you may download from
+ * http://www.tdg-seville.info/License.html
+ */
 
 package controllers;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import security.LoginService;
-import security.UserAccount;
-import services.HandyWorkerService;
 import services.NoteService;
+import services.RefereeService;
 import services.ReportService;
-import domain.Customer;
-import domain.HandyWorker;
 import domain.Note;
 import domain.Report;
-
-// NOTES
 
 @Controller
 @RequestMapping("/note/handyWorker")
 public class NoteHandyWorkerController extends AbstractController {
 
 	@Autowired
-	private NoteService			noteService;
+	private NoteService					noteService;
+
 	@Autowired
-	private HandyWorkerService	handyWorkerService;
+	private services.HandyWorkerService	HandyWorkerService;
+
 	@Autowired
-	private ReportService		reportService;
+	private ReportService				reportService;
+
+	@Autowired
+	private RefereeService				refereeService;
 
 
-	// ==============================================================
+	// Constructors -----------------------------------------------------------
+
+	public NoteHandyWorkerController() {
+		super();
+	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView create(@RequestParam final int id) {
+	public ModelAndView create(@RequestParam("reportId") final int reportId) {
+		ModelAndView result;
 
-		final ModelAndView res;
-
-		final UserAccount acc = LoginService.getPrincipal();
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
 		Note note;
+
+		System.out.println("carmen aquí llego");
+
 		note = this.noteService.create();
 
-		final Report report = this.reportService.findOne(id);
-		Assert.notNull(report);
-
-		final Customer customer = report.getComplaint().getFixUp().getCustomer();
-
-		final HandyWorker hw = this.handyWorkerService.findByUserAccountId(acc.getId());
+		final Report report = this.reportService.findOne(reportId);
 		note.setReport(report);
-		note.setHandyWorker(hw);
-		note.setCustomer(customer);
-		res = this.createEditModelAndView(note);
 
-		return res;
+		result = this.createEditModelAndView(note);
+		result.addObject("language", language);
+		result.addObject("note", note);
+
+		return result;
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Note note, final BindingResult binding) {
-
-		ModelAndView res;
+		ModelAndView result;
 
 		if (binding.hasErrors()) {
-			System.out.println(binding.getAllErrors().get(0));
-			res = this.createEditModelAndView(note);
+			System.out.println("Carmen: Hay un error");
+			System.out.println("Carmen: El error es este: " + binding);
+			result = this.createEditModelAndView(note);
 		} else
 			try {
-				this.noteService.save(note);
+				System.out.println("Carmen: Voy a intentar guardar");
 
-				res = new ModelAndView("report/handyWorker/show");
+				System.out.println("Carmen: Hay errores " + binding);
 
-				final Report report;
-				report = note.getReport();
+				final Note noteSave = this.noteService.save(note);
+				System.out.println("carmen llego");
 
-				res.addObject("report", report);
-				res.addObject("requestURI", "report/handyWorker/show.do");
+				final Report report = note.getReport();
+				final Report reportSave = this.reportService.save(report);
 
-				return res;
+				result = new ModelAndView("report/handyWorker/show");
+				result.addObject("report", reportSave);
+				result.addObject("note", note);
 
 			} catch (final Throwable oops) {
-				System.out.println(oops);
-				res = this.createEditModelAndView(note, "note.commit.error");
+				System.out.println("Carmen: Hay un error:" + oops);
+				result = this.createEditModelAndView(note, "note.commit.error");
 			}
-
-		return res;
+		return result;
 	}
 
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int noteId) {
+	private ModelAndView createEditModelAndView(final Note note) {
+		ModelAndView result;
 
-		final ModelAndView res;
+		result = new ModelAndView("note/handyWorker/create");
 
-		Note note;
-		note = this.noteService.findOne(noteId);
+		result.addObject("note", note);
 
-		res = this.createEditModelAndView(note);
-
-		return res;
+		return result;
 	}
 
-	@RequestMapping(value = "/show", method = RequestMethod.GET)
-	public ModelAndView show(@RequestParam("noteId") final int noteId) {
+	private ModelAndView createEditModelAndView(final Note note, final String messageCode) {
+		final ModelAndView result;
 
-		final ModelAndView res;
-		res = new ModelAndView("note/handyWorker/show");
+		final Report report = this.reportService.findOne(note.getReport().getId());
 
-		final Note note;
-		note = this.noteService.findOne(noteId);
+		result = new ModelAndView("note/handyWorker/create");
 
-		res.addObject("note", note);
-		res.addObject("requestURI", "note/handyWorker/show.do");
+		result.addObject("note", note);
+		result.addObject("report", report);
+		result.addObject("message", messageCode);
 
-		return res;
-	}
-
-	// ==============================================================
-
-	protected ModelAndView createEditModelAndView(final Note note) {
-
-		ModelAndView res;
-
-		res = this.createEditModelAndView(note, null);
-
-		return res;
-	}
-
-	protected ModelAndView createEditModelAndView(final Note note, final String messageCode) {
-
-		final ModelAndView res;
-		final UserAccount acc = LoginService.getPrincipal();
-		final HandyWorker hw = this.handyWorkerService.findByUserAccountId(acc.getId());
-		res = new ModelAndView("note/handyWorker/create");
-		res.addObject("note", note);
-		res.addObject("message", messageCode);
-
-		return res;
+		return result;
 	}
 
 }

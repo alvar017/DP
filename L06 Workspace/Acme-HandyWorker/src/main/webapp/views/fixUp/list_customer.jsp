@@ -31,16 +31,9 @@
 		<jstl:out value="${row.maxPrice.quantity}"></jstl:out><jstl:out value="${row.maxPrice.currency}"></jstl:out>
 	</display:column>
 	<display:column property="handyWorker.name" titleKey="handyWorker.nameHW"></display:column>
-	<c:choose>
-   		<c:when test="${row.handyWorker != null}">
-        	<display:column titleKey="valorar"> 
-				<a href="endorsement/customer/create.do?receiverId=${row.handyWorker.id}"><spring:message code="valorar" /></a>
-			</display:column> 
-    	</c:when>    
-    	<c:otherwise>
-        	<tr><td></td></tr>
-    	</c:otherwise>
-	</c:choose>
+		<display:column titleKey="valorar"> 
+			<a href="endorsement/customer/create.do?receiverId=${row.handyWorker.id}"><spring:message code="valorar" /></a>
+		</display:column>
 </display:table>
 </security:authorize>
 </div>

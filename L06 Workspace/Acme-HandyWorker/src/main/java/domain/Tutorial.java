@@ -85,7 +85,7 @@ public class Tutorial extends DomainEntity {
 		this.sponsorships = sponsorships;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tutorial")
+	@OneToMany(cascade = CascadeType.ALL)
 	public Collection<Section> getSections() {
 		return this.sections;
 	}

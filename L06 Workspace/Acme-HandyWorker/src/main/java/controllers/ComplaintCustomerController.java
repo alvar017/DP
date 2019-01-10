@@ -19,12 +19,10 @@ import security.UserAccount;
 import services.ComplaintService;
 import services.CustomerService;
 import services.FixUpService;
-import services.HandyWorkerService;
 import services.RefereeService;
 import domain.Complaint;
 import domain.Customer;
 import domain.FixUp;
-import domain.HandyWorker;
 import domain.Referee;
 
 // COMPLAINTS
@@ -41,8 +39,6 @@ public class ComplaintCustomerController extends AbstractController {
 	private RefereeService		refereeService;
 	@Autowired
 	private CustomerService		customerService;
-	@Autowired
-	private HandyWorkerService	handyWorkerService;
 
 
 	// ==============================================================
@@ -121,16 +117,13 @@ public class ComplaintCustomerController extends AbstractController {
 			res.addObject("referee", referee);
 		}
 
-		final HandyWorker handyWorker;
-		handyWorker = this.handyWorkerService.findOne(complaint.getFixUp().getHandyWorker().getId());
-		res.addObject("handyWorker", handyWorker);
-
 		res.addObject("complaint", complaint);
 		res.addObject("fixUps", fixUps);
 		res.addObject("requestURI", "complaint/customer/show.do");
 
 		return res;
 	}
+
 	@RequestMapping(value = "/show", method = RequestMethod.POST, params = "delete")
 	public ModelAndView delete(@Valid final Complaint complaint, final BindingResult binding) {
 

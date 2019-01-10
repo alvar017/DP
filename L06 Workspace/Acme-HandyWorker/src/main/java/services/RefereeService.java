@@ -78,8 +78,6 @@ public class RefereeService {
 		boxesDefault.add(trashBoxSave);
 
 		referee.setMailBoxes(boxesDefault);
-		referee.setIsBanned(false);
-		referee.setIsSuspicious(false);
 
 		return referee;
 	}

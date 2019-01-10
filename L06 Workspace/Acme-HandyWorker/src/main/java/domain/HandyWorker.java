@@ -43,7 +43,7 @@ public class HandyWorker extends Endorsable {
 	//	public void setNotes(final Collection<Note> notes) {
 	//		this.notes = notes;
 	//	}
-	@OneToMany(mappedBy = "handyWorker")
+	@OneToMany
 	@Valid
 	public Collection<Tutorial> getTutorials() {
 		return this.tutorials;

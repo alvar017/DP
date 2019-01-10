@@ -20,7 +20,6 @@
 <form:form modelAttribute="complaint" action="complaint/customer/create.do">
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-	<form:hidden path="referee" />
 	<div>
 		<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.cancel'></spring:message>"></a>
 		<input type="submit" name="save" value="<spring:message code='complaint.save' />" />
@@ -28,6 +27,10 @@
 	<div>
 		<form:label path="date"><spring:message code="complaint.moment" /></form:label>
 		<form:input path="moment" placeholder = "dd/MM/yyyy"/>
+		<form:select id="referees" path="referee">
+			<form:options items="${referees}" itemLabel="name" itemValue="id"/>
+			<form:option value="0" label="----"></form:option>
+		</form:select>
 		<form:select id="fixUps" path="fixUp">
 			<form:options items="${fixUps}" itemLabel="ticker" itemValue="id"/>
 			<form:option value="0" label="----"></form:option>

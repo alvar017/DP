@@ -2,7 +2,6 @@
 package services;
 
 import java.util.Collection;
-import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -47,14 +46,7 @@ public class PhaseService {
 		authority.setAuthority(Authority.HANDYWORKER);
 		Assert.isTrue(user.getAuthorities().contains(authority));
 		Assert.isTrue(phase.getFixUp() != null);
-		Assert.isTrue(!this.checkStartDateEndDate(phase.getStartDate(), phase.getEndDate()), "phase.wrongDate");
 		return this.phaseRepository.save(phase);
-	}
-	private Boolean checkStartDateEndDate(final Date startDate, final Date endDate) {
-		Boolean res = true;
-		if (startDate != null && endDate != null && startDate.before(endDate))
-			res = false;
-		return res;
 	}
 
 	public void delete(final Phase phase) {

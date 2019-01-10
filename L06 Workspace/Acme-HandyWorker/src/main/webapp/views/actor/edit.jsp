@@ -24,40 +24,11 @@
         <h2>
         	<spring:message code="actor.edit" />
         </h2>
-        			<script type="text/javascript">
-				function phonenumberval() {
-
-					var phoneNumber;
-					phoneNumber = document.getElementById("phoneNumber").value;
-
-					var res = false;
-
-					if (/(\+[0-9]{1,3})(\([0-9]{1,3}\))([0-9]{4,})$/.test(phoneNumber)) {
-						res = true;
-					}
-					if (/(\+[0-9]{1,3})\s([0-9]{4,})$/.test(phoneNumber)) {
-						res = true;
-					}
-					if (/^([0-9]{4,})\:(\+[0-9]{1,3})$/.test(phoneNumber)) {
-						res = true;
-					}
-					if (/^([0-9]{4,})$/.test(phoneNumber)) {
-						res = true;
-						
-						alert("<spring:message code='PN' />");
-					}
-					if (res == false) {
-						var conf = confirm("<spring:message code='PNconf' />");
-						return conf;
-					}
-
-				}
-			</script>
       </header>
       
       <div class="content">
     		
-    		<form:form class="formularioEdicion" method="POST" onsubmit="return phonenumberval()" modelAttribute="actor" id="myForm" action="actor/edit.do">
+    	<form:form class="formularioEdicion" method="POST" modelAttribute="actor" action="actor/edit.do">
           	<form:hidden path="id"/>
           	<form:hidden path="version"/>
           	<form:hidden path="socialProfiles"/>
@@ -77,12 +48,8 @@
 			<form:input path="surname" required="required"/>
 			<form:errors cssClass="error" path="surname"/><br>
 			
-			<form:label path="phone"><spring:message code="actor.phone" /></form:label>
-			<form:input path="phone" id="phoneNumber" />
-			<form:errors cssClass="error" path="phone"/><br>
-			
 			<form:label path="middleName"><spring:message code="actor.middleName" /></form:label>
-			<form:input path="middleName"/>
+			<form:input path="middleName" required="required"/>
 			<form:errors cssClass="error" path="middleName"/><br>
 			
 			<form:label path="email"><spring:message code="actor.email" /></form:label>
@@ -90,9 +57,8 @@
 			<form:errors cssClass="error" path="email"/><br>
 			
 			<form:label path="photo"><spring:message code="actor.photo" /></form:label>
-			<form:input path="photo"/>
+			<form:input path="photo" required="required"/>
 			<form:errors cssClass="error" path="photo"/><br>
-			<!--
 			
 			<form:label path="userAccount.username"><spring:message code="actor.username" /></form:label>
 			<form:input path="userAccount.username" required="required"/>
@@ -102,22 +68,14 @@
 			<form:password path="userAccount.password" required="required"/>
 			<form:errors cssClass="error" path="userAccount.password"/><br>
 			
-			-->
-			<form:hidden path="userAccount"/>
-			<!-- 
-			<form:hidden path="userAccount.username"/>
-			<form:hidden path="userAccount.password"/>
 			<form:hidden path="userAccount.id"/>
 			<form:hidden path="userAccount.version"/>
 			<form:hidden path="userAccount.authorities"/>
 			<form:hidden path="userAccount.isBanned"/>
 			<form:hidden path="userAccount.isSuspicious"/>
-			 -->
+			
 			<input type="submit" name="save" value=<spring:message code="send" />/>
 		</form:form>
-			<form method="get" action=" ">
-    			<button type="submit"><spring:message code="button.back" /></button>
-			</form>
       </div>
       
  	</article>

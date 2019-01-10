@@ -53,6 +53,7 @@ img {
 }
 
 #main-header {
+	background-image: url("https://tinyurl.com/acme-handy-worker-logo");
 	background-color: #333;
 	color: white;
 	height: 80px;
@@ -129,24 +130,4 @@ nav ul li a:hover {
 	
 #main-footer a {
 	color: white;
-}
-
-#banner{
-	height: 100px;
-	max-width: 90%;
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
-	
-}
-
-#aceptada{
-	color:green;
-}
-
-#rechazada{
-	color:red;
-}
-#pendiente{
-	color:orange;
 }

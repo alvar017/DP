@@ -24,9 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
 import security.UserAccountRepository;
-import services.ActorService;
 import services.SponsorService;
-import services.WelcomeService;
 import domain.Sponsor;
 
 @Controller
@@ -37,10 +35,6 @@ public class SponsorController extends AbstractController {
 	private SponsorService			sponsorService;
 	@Autowired
 	private UserAccountRepository	userAccountService;
-	@Autowired
-	private WelcomeService			welcomeService;
-	@Autowired
-	private ActorService			actorService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -60,8 +54,6 @@ public class SponsorController extends AbstractController {
 		result = new ModelAndView("sponsor/create");
 
 		result.addObject("sponsor", sponsor);
-		final String phone = this.welcomeService.getPhone();
-		result.addObject("phone", phone);
 
 		return result;
 	}
@@ -69,11 +61,6 @@ public class SponsorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Sponsor sponsor, final BindingResult binding) {
 		ModelAndView result;
-		if (this.actorService.getActorByEmail(sponsor.getEmail()) != null) {
-			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
-			binding.addError(error);
-			binding.rejectValue("email", "error.actor.email.exits");
-		}
 		if (sponsor.getUserAccount().getPassword().length() < 5 || sponsor.getUserAccount().getPassword().length() > 32) {
 			final ObjectError error = new ObjectError("userAccount.password", "An account already exists for this email.");
 			binding.addError(error);
@@ -85,10 +72,8 @@ public class SponsorController extends AbstractController {
 			binding.addError(error);
 			binding.rejectValue("userAccount.username", "error.userAccount.username");
 		}
-		System.out.println(sponsor);
-		System.out.println(sponsor.getUserAccount());
-		System.out.println(sponsor.getUserAccount().getUsername());
-		if (this.userAccountService.findByUsername(sponsor.getUserAccount().getUsername()) != null) {
+
+		if (!this.userAccountService.findByUsername(sponsor.getUserAccount().getUsername()).equals(sponsor.getUserAccount())) {
 			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
@@ -130,8 +115,6 @@ public class SponsorController extends AbstractController {
 		result = new ModelAndView("sponsor/edit");
 
 		result.addObject("sponsor", sponsor);
-		final String phone = this.welcomeService.getPhone();
-		result.addObject("phone", phone);
 
 		return result;
 	}
@@ -163,10 +146,10 @@ public class SponsorController extends AbstractController {
 		} else
 			try {
 				Assert.notNull(sponsor, "sponsor.null");
-				//				final String password = sponsor.getUserAccount().getPassword();
-				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-				//				final String hashPassword = encoder.encodePassword(password, null);
-				//				sponsor.getUserAccount().setPassword(hashPassword);
+				final String password = sponsor.getUserAccount().getPassword();
+				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+				final String hashPassword = encoder.encodePassword(password, null);
+				sponsor.getUserAccount().setPassword(hashPassword);
 				this.sponsorService.save(sponsor);
 				result = new ModelAndView("actor/show");
 				result.addObject("actor", sponsor);

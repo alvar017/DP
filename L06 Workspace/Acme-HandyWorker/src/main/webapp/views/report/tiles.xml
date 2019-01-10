@@ -15,51 +15,12 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
        
 <tiles-definitions>
-	
-	<definition name="report/handyWorker/show" extends="master.page">
-		<put-attribute name="title" value="HandyWorker: Showing Report"></put-attribute>
-		<put-attribute name="body" value="/views/report/reportHandyWorkerShow.jsp"></put-attribute>
+
+	<definition name="report/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="HandyWorker: Show report" />
+		<put-attribute name="body" value="/views/report/show.jsp" />
 	</definition>
 	
-	<definition name="report/customer/list" extends="master.page">	
-		<put-attribute name="title" value="Customer: Complaint´s Report List" />
-		<put-attribute name="body" value="/views/report/customersReportList.jsp" />
-	</definition>
 	
-		<!-- Reports -->
-	<definition name="report/customer/show" extends="master.page">
-		<put-attribute name="title" value="Customer: Showing Report"></put-attribute>
-		<put-attribute name="body" value="/views/report/reportShow.jsp"></put-attribute>
-	</definition>
 	
-	<definition name="report/referee/create" extends="master.page">
-		<put-attribute name="title" value="Referee: Creating Report"></put-attribute>
-		<put-attribute name="body" value="/views/report/reportRefereeCreate.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="report/referee/show" extends="master.page">
-		<put-attribute name="title" value="Referee: Showing Report"></put-attribute>
-		<put-attribute name="body" value="/views/report/reportRefereeShow.jsp"></put-attribute>
-	</definition>
-	
-		<!-- Note -->
-	<definition name="note/customer/create" extends="master.page">	
-		<put-attribute name="title" value="Customer: Create Note" />
-		<put-attribute name="body" value="/views/note/noteCreate.jsp" />
-	</definition>
-	
-		<definition name="note/customer/show" extends="master.page">	
-		<put-attribute name="title" value="Customer: Show Note" />
-		<put-attribute name="body" value="/views/note/noteShow.jsp" />
-	</definition>
-	
-	<definition name="note/referee/show" extends="master.page">	
-		<put-attribute name="title" value="Referee: Show Note" />
-		<put-attribute name="body" value="/views/note/noteRefereeShow.jsp" />
-	</definition>
-	
-	<definition name="note/referee/create" extends="master.page">	
-		<put-attribute name="title" value="Referee: Edit Note" />
-		<put-attribute name="body" value="/views/note/noteRefereeCreate.jsp" />
-	</definition>
 </tiles-definitions>

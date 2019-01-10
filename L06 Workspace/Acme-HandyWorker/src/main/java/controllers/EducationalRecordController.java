@@ -62,24 +62,17 @@ public class EducationalRecordController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam(value = "educationalRecordId", defaultValue = "-1") final int educationalRecordId) {
+	public ModelAndView edit(@RequestParam("educationalRecordId") final int educationalRecordId) {
 		ModelAndView result;
+
 		final EducationalRecord educationalRecord;
-		final HandyWorker handyWorker2 = this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId());
-		if (this.educationalRecordService.findOne(educationalRecordId) == null || handyWorker2 == null || handyWorker2.getCurriculum() == null || handyWorker2.getCurriculum().getEdurec() == null
-			|| !this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getCurriculum().getEdurec().contains(this.educationalRecordService.findOne(educationalRecordId))) {
-			result = new ModelAndView("curriculum/handyWorker/show");
-			result.addObject("handyWorker", handyWorker2);
-			result.addObject("curriculum", handyWorker2.getCurriculum());
-			result.addObject("requestURI", "curriculum/handyWorker/show.do");
-		} else {
-			Assert.isTrue(this.educationalRecordService.findOne(educationalRecordId) != null);
-			educationalRecord = this.educationalRecordService.findOne(educationalRecordId);
+		Assert.isTrue(this.educationalRecordService.findOne(educationalRecordId) != null);
+		educationalRecord = this.educationalRecordService.findOne(educationalRecordId);
 
-			result = new ModelAndView("educationalRecord/handyWorker/edit");
+		result = new ModelAndView("educationalRecord/handyWorker/edit");
 
-			result.addObject("educationalRecord", educationalRecord);
-		}
+		result.addObject("educationalRecord", educationalRecord);
+
 		return result;
 	}
 
@@ -119,37 +112,28 @@ public class EducationalRecordController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam(value = "educationalRecordId", defaultValue = "-1") final int educationalRecordId) {
+	public ModelAndView delete(@RequestParam("educationalRecordId") final int educationalRecordId) {
 		ModelAndView result;
-		final HandyWorker handyWorker2 = this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId());
-		if (this.educationalRecordService.findOne(educationalRecordId) == null || handyWorker2 == null || handyWorker2.getCurriculum() == null || handyWorker2.getCurriculum().getEdurec() == null
-			|| !this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getCurriculum().getEdurec().contains(this.educationalRecordService.findOne(educationalRecordId))) {
-			result = new ModelAndView("curriculum/handyWorker/show");
-			result.addObject("handyWorker", handyWorker2);
-			result.addObject("curriculum", handyWorker2.getCurriculum());
-			result.addObject("requestURI", "curriculum/handyWorker/show.do");
-		} else {
-			Assert.notNull(educationalRecordId, "educationalRecord.null");
-			final EducationalRecord educationalRecord = this.educationalRecordService.findOne(educationalRecordId);
-			System.out.println("educationalRecordId encontrado: " + educationalRecordId);
+		Assert.notNull(educationalRecordId, "educationalRecord.null");
+		final EducationalRecord educationalRecord = this.educationalRecordService.findOne(educationalRecordId);
+		System.out.println("educationalRecordId encontrado: " + educationalRecordId);
 
-			try {
-				final int userLoggin = LoginService.getPrincipal().getId();
-				final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
-				Assert.isTrue(handyWorker != null);
-				final Curriculum curriculum = handyWorker.getCurriculum();
-				Assert.notNull(curriculum, "curriculum.null");
-				this.educationalRecordService.delete(educationalRecord);
-				final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
-				result = new ModelAndView("curriculum/handyWorker/show");
-				result.addObject("handyWorker", savedHandyWorker);
-				result.addObject("curriculum", savedHandyWorker.getCurriculum());
-				result.addObject("requestURI", "curriculum/handyWorker/show.do");
-			} catch (final Throwable oops) {
-				System.out.println("Error al borrar educationalRecord desde hw: ");
-				System.out.println(oops);
-				result = new ModelAndView("curriculum/handyWorker/show");
-			}
+		try {
+			final int userLoggin = LoginService.getPrincipal().getId();
+			final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
+			Assert.isTrue(handyWorker != null);
+			final Curriculum curriculum = handyWorker.getCurriculum();
+			Assert.notNull(curriculum, "curriculum.null");
+			this.educationalRecordService.delete(educationalRecord);
+			final HandyWorker savedHandyWorker = this.handyWorkerService.save(handyWorker);
+			result = new ModelAndView("curriculum/handyWorker/show");
+			result.addObject("handyWorker", savedHandyWorker);
+			result.addObject("curriculum", savedHandyWorker.getCurriculum());
+			result.addObject("requestURI", "curriculum/handyWorker/show.do");
+		} catch (final Throwable oops) {
+			System.out.println("Error al borrar educationalRecord desde hw: ");
+			System.out.println(oops);
+			result = new ModelAndView("curriculum/handyWorker/show");
 		}
 		return result;
 	}

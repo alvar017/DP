@@ -37,7 +37,7 @@
     					</c:otherwise>
 					</c:choose>
     				  								
-					<tr><td><spring:message code="application.show.offered" /><jstl:out value="${application.offered.quantity} ${application.offered.currency}"></jstl:out>(${iva})</td></tr>
+					<tr><td><spring:message code="application.show.offered" /><jstl:out value="${application.offered.quantity} ${application.offered.currency}"></jstl:out></td></tr>
 					
 					<tr><td><spring:message code="application.show.comments" /><jstl:out value="${application.comments}"></jstl:out></td></tr>
 					

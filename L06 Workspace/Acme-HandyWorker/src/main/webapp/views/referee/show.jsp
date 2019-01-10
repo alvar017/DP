@@ -26,7 +26,7 @@
 								<tr><td><spring:message code="actor.surname" /><jstl:out value="${referee.surname}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.middleName" /><jstl:out value="${referee.middleName}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.email" /><jstl:out value="${referee.email}"></jstl:out></td></tr>
-								<tr><td><img width="5%" class="customer_photo" src="${referee.photo}" alt=<jstl:out value="${actor.photo}"></jstl:out>/></td></tr>
+								<tr><td><spring:message code="actor.photo" /><jstl:out value="${referee.photo}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.username" /><jstl:out value="${referee.userAccount.username}"></jstl:out></td></tr>
 								<tr><td>
 									<p><spring:message code="actor.socialProfiles" /></p>

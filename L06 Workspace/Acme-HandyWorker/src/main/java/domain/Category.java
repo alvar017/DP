@@ -5,12 +5,9 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
-
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.context.i18n.LocaleContextHolder;
 
 @Entity
 @Access(AccessType.PROPERTY)
@@ -21,7 +18,6 @@ public class Category extends DomainEntity {
 	private Collection<Category>	subCategories;
 
 
-	@NotBlank
 	public String getNameES() {
 		return this.nameES;
 	}
@@ -30,7 +26,6 @@ public class Category extends DomainEntity {
 		this.nameES = nameES;
 	}
 
-	@NotBlank
 	public String getNameEN() {
 		return this.nameEN;
 	}
@@ -39,21 +34,15 @@ public class Category extends DomainEntity {
 		this.nameEN = nameEN;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(cascade = {
+		CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH
+	})
 	public Collection<Category> getSubCategories() {
 		return this.subCategories;
 	}
 
 	public void setSubCategories(final Collection<Category> subCategories) {
 		this.subCategories = subCategories;
-	}
-
-	@Override
-	public String toString() {
-		if (LocaleContextHolder.getLocale().getDisplayLanguage() == "English")
-			return this.getNameEN();
-		else
-			return this.getNameES();
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
@@ -14,11 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.LoginService;
+import security.UserAccount;
 import services.ApplicationService;
 import services.FixUpService;
 import services.HandyWorkerService;
 import services.PhaseService;
+import domain.Category;
 import domain.FixUp;
+import domain.HandyWorker;
 import domain.Phase;
 
 @Controller
@@ -34,7 +39,7 @@ public class PhaseHandyWorkerController extends AbstractController {
 	@Autowired
 	private HandyWorkerService			handyWorkerService;
 
-	ApplicationHandyWorkerController	applicationController	= new ApplicationHandyWorkerController();
+	HandyWorkerApplicationController	applicationController	= new HandyWorkerApplicationController();
 
 
 	//SHOW
@@ -54,7 +59,7 @@ public class PhaseHandyWorkerController extends AbstractController {
 	}
 	//CREATE
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView create(@RequestParam(value = "fixUpId", defaultValue = "-1") final int fixUpId) {
+	public ModelAndView create(@RequestParam("fixUpId") final int fixUpId) {
 
 		final ModelAndView result;
 		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
@@ -67,7 +72,7 @@ public class PhaseHandyWorkerController extends AbstractController {
 	}
 	//EDIT
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam(value = "phaseId", defaultValue = "-1") final int phaseId) {
+	public ModelAndView edit(@RequestParam("phaseId") final int phaseId) {
 
 		ModelAndView result;
 		Phase phase;
@@ -91,25 +96,38 @@ public class PhaseHandyWorkerController extends AbstractController {
 			try {
 				this.phaseService.save(phase);
 				System.out.println("phase guardada");
+				final UserAccount login = LoginService.getPrincipal();
+				//SE PODRÍA LLAMAR AL MÉTODO DE OTRO CONTROLADOR PARA CREAR LA VISTA????
+				final HandyWorker logged = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
+				final FixUp fixUp = this.fixUpService.findOne(phase.getFixUp().getId());
+				final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+				System.out.println("checkHW: " + checkHW);
+				//======================================
+				final Category category = fixUp.getCategory();
+				final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+				final Collection<Phase> workplan = this.phaseService.getPhasesByFixUp(fixUp);
 
-				result = new ModelAndView("workplan/handyWorker/redir");
-
-				result.addObject("urlRedir", "/fixUp/handyWorker/show.do?fixUpId=");
-				result.addObject("id", phase.getFixUp().getId());
+				result = new ModelAndView("fixUp/handyWorker/show");
+				result.addObject("fixUp", fixUp);
+				result.addObject("category", category);
+				result.addObject("language", language);
+				//NUEVO
+				result.addObject("workplan", workplan);
+				result.addObject("checkHW", checkHW);
+				//========================================
+				result.addObject("requestURI", "fixUp/handyWorker/show.do?fixUpId=" + fixUp.getId());
 
 			} catch (final Exception error) {
 				System.out.println("hay un error: " + error);
-				if (error.getMessage().equals("phase.wrongDate"))
-					result = this.createEditModelAndView(phase, "phase.wrongDate");
-				else
-					result = this.createEditModelAndView(phase, "tutorial.commit.error");
+				error.printStackTrace();
+				result = this.createEditModelAndView(phase, "tutorial.commit.error");
 			}
 		return result;
 
 	}
 	//DELETE
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam(value = "phaseId", defaultValue = "-1") final int phaseId) {
+	public ModelAndView delete(@RequestParam("phaseId") final int phaseId) {
 
 		ModelAndView result;
 		final Phase phase = this.phaseService.findOne(phaseId);
@@ -117,12 +135,26 @@ public class PhaseHandyWorkerController extends AbstractController {
 		try {
 
 			this.phaseService.delete(phase);
-			System.out.println("phase borrada");
+			final UserAccount login = LoginService.getPrincipal();
+			//SE PODRÍA LLAMAR AL MÉTODO DE OTRO CONTROLADOR PARA CREAR LA VISTA????
+			final HandyWorker logged = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
+			final FixUp fixUp = this.fixUpService.findOne(phase.getFixUp().getId());
+			final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+			System.out.println("checkHW: " + checkHW);
+			//======================================
+			final Category category = fixUp.getCategory();
+			final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+			final Collection<Phase> workplan = this.phaseService.getPhasesByFixUp(fixUp);
 
-			result = new ModelAndView("workplan/handyWorker/redir");
-
-			result.addObject("urlRedir", "/fixUp/handyWorker/show.do?fixUpId=");
-			result.addObject("id", phase.getFixUp().getId());
+			result = new ModelAndView("fixUp/handyWorker/show");
+			result.addObject("fixUp", fixUp);
+			result.addObject("category", category);
+			result.addObject("language", language);
+			//NUEVO
+			result.addObject("workplan", workplan);
+			result.addObject("checkHW", checkHW);
+			//========================================
+			result.addObject("requestURI", "fixUp/handyWorker/show.do?fixUpId=" + fixUp.getId());
 
 		} catch (final Throwable error) {
 			result = this.createEditModelAndView(phase, "tutorial.commit.error");

@@ -15,18 +15,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
-<c:choose>
-    		<c:when test="${language=='English'}">
-					<p>${name}</p>
-    		</c:when>    
-    		<c:otherwise>
-					<p>${nameS}</p>
-    		</c:otherwise>
-</c:choose>
-
-
+<p><spring:message code="welcome.greeting.prefix" /> ${name}<spring:message code="welcome.greeting.suffix" /></p>
 
 <p><spring:message code="welcome.greeting.current.time" /> ${moment}</p> 

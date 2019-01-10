@@ -108,36 +108,17 @@
 		<security:intercept-url pattern="/report/handyWorker/show.do" access="hasRole('HANDYWORKER')" />  
 		<security:intercept-url pattern="/note/handyWorker/create.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/note/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
-		
-		<security:intercept-url pattern="/welcome/edit.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/welcome/save.do" access="hasRole('ADMIN')" /> 
-		
-		<security:intercept-url pattern="/administrator/spamWords.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/administrator/save.do" access="hasRole('ADMIN')" /> 		
-		<security:intercept-url pattern="/administrator/header.do" access="permitAll" /> 
-		
-		<security:intercept-url pattern="/administrator/newSpamWord.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/newIVA.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/newWelcome.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/newSystem.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/newResult.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/newTime.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/newPhone.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/newLogo.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/newBrand.do" access="hasRole('ADMIN')" />  		  				  
-		
-		<security:intercept-url pattern="/administrator/list.do" access="hasRole('ADMIN')" />  		  				  
-		<security:intercept-url pattern="/administrator/editA.do" access="hasRole('ADMIN')" />  	
-			  				   		  				  
+		<security:intercept-url pattern="/actor/administrator/list.do" access="hasRole('ADMIN')" />  		  				  
+		<security:intercept-url pattern="/actor/administrator/edit.do" access="hasRole('ADMIN')" />  		  				   		  				  
 		<security:intercept-url pattern="/referee/administrator/list.do" access="hasRole('ADMIN')" />
 		<security:intercept-url pattern="/referee/administrator/create.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/referee/administrator/save.do" access="hasRole('ADMIN')" />		
+		<security:intercept-url pattern="/referee/administrator/save.do" access="hasRole('ADMIN')" />
+		
 		<security:intercept-url pattern="/complaint/administrator/showD.do " access="hasRole('ADMIN')" />	  				  
 		<security:intercept-url pattern="/note/administrator/showD.do " access="hasRole('ADMIN')" />	  				  
 		<security:intercept-url pattern="/fixUp/administrator/showD.do " access="hasRole('ADMIN')" />	  				  
 		<security:intercept-url pattern="/customer/administrator/showD.do " access="hasRole('ADMIN')" />	  				  
-		<security:intercept-url pattern="/handyWorker/administrator/showD.do " access="hasRole('ADMIN')" />		
-		<security:intercept-url pattern="/note/handyWorker/edit.do" access="hasRole('HANDYWORKER')" />		
+		<security:intercept-url pattern="/handyWorker/administrator/showD.do " access="hasRole('ADMIN')" />
 		<!-- CARMEN -->
 
 		<security:intercept-url pattern="/profile/action-1.do" access="isAuthenticated()" /> 
@@ -145,36 +126,6 @@
 		<security:intercept-url pattern="/profile/action-3.do" access="isAuthenticated()" /> 
 		
 		<!-- Antonio -->
-		<security:intercept-url pattern="/mailBox/list.do" access="permitAll" /> 
-		<security:intercept-url pattern="/mailBox/create.do" access="permitAll" /> 
-		<security:intercept-url pattern="/mailBox/edit.do" access="permitAll" />
-		<security:intercept-url pattern="/mailBox/show.do" access="permitAll" />
-		<security:intercept-url pattern="/mailBox/delete.do" access="permitAll" />
-
-		<security:intercept-url pattern="/message/list.do" access="permitAll" /> 
-		<security:intercept-url pattern="/message/create.do" access="permitAll" /> 
-		<security:intercept-url pattern="/message/edit.do" access="permitAll" />
-		<security:intercept-url pattern="/message/show.do" access="permitAll" />
-		<security:intercept-url pattern="/message/createBroadcast.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/message/editBroadcast.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/message/delete.do" access="permitAll" />
-		<security:intercept-url pattern="/message/editMailbox.do" access="permitAll" />
-		
-		<security:intercept-url pattern="/category/administrator/list.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/category/administrator/create.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/category/administrator/edit.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/category/administrator/show.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/category/administrator/delete.do" access="hasRole('ADMIN')" />
-		
-		<security:intercept-url pattern="/warranty/administrator/list.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/warranty/administrator/create.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/warranty/administrator/edit.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/warranty/administrator/show.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/warranty/administrator/delete.do" access="hasRole('ADMIN')" />
-		
-		<security:intercept-url pattern="/administrator/create.do" access="hasRole('ADMIN')" /> 
-		
-		<security:intercept-url pattern="/administrator/statistics.do" access="hasRole('ADMIN')" /> 
 		<security:intercept-url pattern="/application/handyWorker/list.do" access="hasRole('HANDYWORKER')" /> 
 		<security:intercept-url pattern="/application/handyWorker/create.do" access="hasRole('HANDYWORKER')" /> 
 		<security:intercept-url pattern="/application/handyWorker/edit.do" access="hasRole('HANDYWORKER')" />
@@ -190,15 +141,6 @@
 		<security:intercept-url pattern="/workplan/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/workplan/handyWorker/delete.do" access="hasRole('HANDYWORKER')" />
 		<security:intercept-url pattern="/customer/handyWorker/show.do" access="hasRole('HANDYWORKER')" />
-		<!-- Añadidas -->
-		<security:intercept-url pattern="/tutorial/list.do" access="permitAll" />
-		<security:intercept-url pattern="/handyWorker/showG.do" access="permitAll" />
-		<security:intercept-url pattern="/tutorial/show.do" access="permitAll" />
-		<security:intercept-url pattern="/section/handyWorker/edit.do" access="hasRole('HANDYWORKER')" />
-		<security:intercept-url pattern="/application/handyWorker/update.do" access="hasRole('HANDYWORKER')" />
-		<security:intercept-url pattern="/section/handyWorker/create.do" access="hasRole('HANDYWORKER')" />
-		<security:intercept-url pattern="/section/handyWorker/delete.do" access="hasRole('HANDYWORKER')" />
-		<security:intercept-url pattern="/workplan/handyWorker/redir.do" access="hasRole('HANDYWORKER')" />
 		<!-- Ferrete -->
 		<!-- Fran -->
 		<security:intercept-url pattern="/complaint/customer/list.do" access="hasRole('CUSTOMER')" />
@@ -207,33 +149,6 @@
 		<security:intercept-url pattern="/complaint/customer/save.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/complaint/customer/delete.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/complaint/customer/create.do" access="hasRole('CUSTOMER')" />
-		
-		<security:intercept-url pattern="/report/customer/show.do" access="hasRole('CUSTOMER')" />
-		
-		<security:intercept-url pattern="/note/customer/create.do" access="hasRole('CUSTOMER')" />
-		<security:intercept-url pattern="/note/customer/show.do" access="hasRole('CUSTOMER')" />
-		<security:intercept-url pattern="/note/customer/edit.do" access="hasRole('CUSTOMER')"/>
-
-		<security:intercept-url pattern="/complaint/referee/list.do" access="hasRole('REFEREE')"/>
-		<security:intercept-url pattern="/complaint/referee/add.do" access="hasRole('REFEREE')"/>
-		<security:intercept-url pattern="/complaint/referee/show.do" access="hasRole('REFEREE')"/>
-		<security:intercept-url pattern="/complaint/referee/create.do" access="hasRole('REFEREE')"/>
-		
-		<security:intercept-url pattern="/report/referee/show.do" access="hasRole('REFEREE')"/>
-		<security:intercept-url pattern="/report/referee/create.do" access="hasRole('REFEREE')"/>
-
-		<security:intercept-url pattern="/note/referee/show.do" access="hasRole('REFEREE')"/>
-		<security:intercept-url pattern="/note/referee/edit.do" access="hasRole('REFEREE')"/>
-		<security:intercept-url pattern="/note/referee/create.do" access="hasRole('REFEREE')"/>
-		
-		
-		<security:intercept-url pattern="/endorsement/administrator/list.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/endorsement/administrator/wordList.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/endorsement/administrator/delete.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/endorsement/administrator/edit.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/administrator/newPhoneCountry.do" access="hasRole('ADMIN')" /> 
-		<security:intercept-url pattern="/administrator/newScoreWord.do" access="hasRole('ADMIN')" />
-		<security:intercept-url pattern="/administrator/deleteScoreWord.do" access="hasRole('ADMIN')" />
 		<!-- Fran -->
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 
