@@ -28,7 +28,7 @@
 								<tr><td><spring:message code="score" /><jstl:out value="${handyWorker.calification}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.middleName" /><jstl:out value="${handyWorker.middleName}"></jstl:out></td></tr>
 								<tr><td><spring:message code="actor.email" /><jstl:out value="${handyWorker.email}"></jstl:out></td></tr>
-								<tr><td><img class="customer_photo" src="${handyWorker.photo}" alt=<jstl:out value="${handyWorker.photo}"></jstl:out> width="5%"/></td></tr>
+								<tr><td><img width="95" class="customer_photo" src="${handyWorker.photo}" alt=<jstl:out value="${handyWorker.photo}"></jstl:out>/></td></tr>
 								<tr><td><spring:message code="actor.username" /><jstl:out value="${handyWorker.userAccount.username}"></jstl:out></td></tr>
 								<tr><td>
 									<p><spring:message code="actor.socialProfiles" /></p>

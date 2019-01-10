@@ -14,6 +14,7 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -38,6 +39,7 @@ public class Message extends DomainEntity {
 		this.mailBoxes = mailBoxes;
 	}
 
+	@NotBlank
 	public String getSubject() {
 		return this.subject;
 	}
@@ -46,6 +48,7 @@ public class Message extends DomainEntity {
 		this.subject = subject;
 	}
 
+	@NotBlank
 	public String getBody() {
 		return this.body;
 	}
@@ -72,6 +75,7 @@ public class Message extends DomainEntity {
 		this.priority = priority;
 	}
 
+	@NotBlank
 	@ElementCollection(targetClass = String.class)
 	public Collection<String> getEmailReceiver() {
 		return this.emailReceiver;

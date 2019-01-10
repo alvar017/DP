@@ -297,3 +297,15 @@
 127.0.0.1 - - [10/Jan/2019:13:41:48 +0100] "GET /Acme-HandyWorker/styles/style.css HTTP/1.1" 304 -
 127.0.0.1 - - [10/Jan/2019:13:41:48 +0100] "GET /Acme-HandyWorker/images/spain.png HTTP/1.1" 304 -
 127.0.0.1 - - [10/Jan/2019:13:41:48 +0100] "GET /Acme-HandyWorker/images/uk.png HTTP/1.1" 304 -
+127.0.0.1 - - [10/Jan/2019:13:45:56 +0100] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [10/Jan/2019:13:46:11 +0100] "GET /Acme-HandyWorker/ HTTP/1.1" 200 3671
+127.0.0.1 - - [10/Jan/2019:13:46:19 +0100] "GET /Acme-HandyWorker/customer/create.do HTTP/1.1" 200 6010
+127.0.0.1 - - [10/Jan/2019:13:46:23 +0100] "GET /Acme-HandyWorker/customer/create.do?language=en HTTP/1.1" 200 6010
+127.0.0.1 - - [10/Jan/2019:13:46:27 +0100] "GET /Acme-HandyWorker/customer/create.do?language=es HTTP/1.1" 200 6055
+127.0.0.1 - - [10/Jan/2019:13:46:33 +0100] "GET /Acme-HandyWorker/customer/create.do?language=en HTTP/1.1" 200 6010
+127.0.0.1 - - [10/Jan/2019:13:46:36 +0100] "GET /Acme-HandyWorker/customer/create.do?language=es HTTP/1.1" 200 6055
+127.0.0.1 - - [10/Jan/2019:13:46:37 +0100] "GET /Acme-HandyWorker/welcome/index HTTP/1.1" 302 -
+127.0.0.1 - - [10/Jan/2019:13:46:38 +0100] "GET /Acme-HandyWorker/security/login.do HTTP/1.1" 200 3888
+127.0.0.1 - - [10/Jan/2019:13:47:10 +0100] "GET /Acme-HandyWorker/customer/create.do HTTP/1.1" 200 6055
+127.0.0.1 - - [10/Jan/2019:13:47:44 +0100] "POST /Acme-HandyWorker/customer/create.do HTTP/1.1" 200 6551
+127.0.0.1 - - [10/Jan/2019:13:48:09 +0100] "POST /Acme-HandyWorker/customer/create.do HTTP/1.1" 200 3543
