@@ -21,9 +21,6 @@
   
     <article>
       <header>
-        <h2>
-        	<spring:message code="administrator.edit" />
-        </h2>
       </header>
       
       <div class="content">

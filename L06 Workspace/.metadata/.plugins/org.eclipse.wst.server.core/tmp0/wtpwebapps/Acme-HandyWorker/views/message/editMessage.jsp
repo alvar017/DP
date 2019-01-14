@@ -46,5 +46,5 @@
 		
 		</form:form>
 		
-		<input type="button" name="cancel" value="<spring:message code="msg.cancel"/>" onclick="javascript:relativeRedir('message/list.do');"/>
+		<input type="button" name="cancel" value="<spring:message code="msg.cancel"/>" onclick="javascript:relativeRedir('mailBox/list.do');"/>
 </body>

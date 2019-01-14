@@ -130,6 +130,11 @@ public class ActorController extends AbstractController {
 			binding.addError(error);
 			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
 		}
+		if (actor.getEmail() != null && this.actorService.getActorByEmail(actor.getEmail()) != null && this.actorService.findOneByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(actor.getEmail()).getId()) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);

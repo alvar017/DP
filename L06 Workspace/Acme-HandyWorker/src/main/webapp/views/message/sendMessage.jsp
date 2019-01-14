@@ -17,7 +17,6 @@
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<p><spring:message code="editMessage" /></p>
 <body>
 	<form:form action="message/edit.do" method="POST"	modelAttribute="msg">
 		
@@ -47,9 +46,9 @@
 			<spring:message code="msg.priority" />:
 		</form:label>
 		<form:select path="priority.value" >
-			<form:option value="HIGH"></form:option>
-			<form:option value="NEUTRAL"></form:option>
-			<form:option value="LOW"></form:option>
+			<form:option value="HIGH"><spring:message code="high" /></form:option>
+			<form:option value="NEUTRAL"><spring:message code="neutral" /></form:option>
+			<form:option value="LOW"><spring:message code="low" /></form:option>
 		</form:select>		
 		<form:errors cssClass="error" path="priority.value" />
 		

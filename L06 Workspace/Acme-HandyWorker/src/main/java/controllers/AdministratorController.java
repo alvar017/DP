@@ -105,6 +105,22 @@ public class AdministratorController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView saveEdit(@Valid final Administrator administrator, final BindingResult binding) {
 		ModelAndView result;
+		if (administrator.getEmail() != null && this.actorService.getActorByEmail(administrator.getEmail()) != null
+			&& this.administratorService.findByUserAccount(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(administrator.getEmail()).getId()) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
+		if (administrator.getUserAccount().getUsername().length() < 5 || administrator.getUserAccount().getUsername().length() > 32) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username");
+		}
+		if (!this.userAccountService.findByUsername(administrator.getUserAccount().getUsername()).equals(administrator.getUserAccount())) {
+			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
 
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");

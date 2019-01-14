@@ -71,7 +71,7 @@ public class ApplicationServiceTest extends AbstractTest {
 		final Application saveApplication = this.applicationService.save(application);
 		//		saveApplication.setComments("Comentario editado");
 		final CreditCard visa = new CreditCard();
-		visa.setNumber("09240982308239820");
+		visa.setNumber(82308);
 		saveApplication.setCreditCard(visa);
 		saveApplication.setState(true);
 		final Application updateApplication = this.applicationService.update(saveApplication);

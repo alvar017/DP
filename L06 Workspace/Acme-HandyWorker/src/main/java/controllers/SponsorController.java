@@ -10,6 +10,9 @@
 
 package controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,19 +56,33 @@ public class SponsorController extends AbstractController {
 	public ModelAndView create() {
 		ModelAndView result;
 
-		Sponsor sponsor;
+		try {
+			final Boolean res = LoginService.getPrincipal() != null;
+			result = new ModelAndView("welcome/index");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			SimpleDateFormat formatter;
+			String moment;
+			formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+			moment = formatter.format(new Date());
+			result.addObject("moment", moment);
+		} catch (final Exception e) {
+			Sponsor sponsor;
 
-		sponsor = this.sponsorService.create();
+			sponsor = this.sponsorService.create();
 
-		result = new ModelAndView("sponsor/create");
+			result = new ModelAndView("sponsor/create");
 
-		result.addObject("sponsor", sponsor);
-		final String phone = this.welcomeService.getPhone();
-		result.addObject("phone", phone);
-		final String system = this.welcomeService.getSystem();
-		result.addObject("system", system);
-		final String logo = this.welcomeService.getLogo();
-		result.addObject("logo", logo);
+			result.addObject("sponsor", sponsor);
+			final String phone = this.welcomeService.getPhone();
+			result.addObject("phone", phone);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		}
 
 		return result;
 	}
@@ -163,6 +180,12 @@ public class SponsorController extends AbstractController {
 			final ObjectError error = new ObjectError("userAccount.username", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
+		}
+		if (sponsor.getEmail() != null && this.actorService.getActorByEmail(sponsor.getEmail()) != null
+			&& this.sponsorService.findByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(sponsor.getEmail()).getId()) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
 		}
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");

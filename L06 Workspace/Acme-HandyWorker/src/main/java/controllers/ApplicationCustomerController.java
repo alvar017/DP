@@ -163,16 +163,39 @@ public class ApplicationCustomerController extends AbstractController {
 		System.out.println("EL REQ 19");
 		System.out.println(inBoxApplier);
 		System.out.println(inBoxCustom);
-		if (application.getOffered() != null || application.getOffered().getQuantity() != null || (application.getOffered().getQuantity() < 100 || application.getOffered().getQuantity() > 999)) {
-			final ObjectError error = new ObjectError("offered.quantity", "An account already exists for this email.");
+		//		if (application.getOffered() != null || application.getOffered().getQuantity() != null || (application.getOffered().getQuantity() < 100 || application.getOffered().getQuantity() > 999)) {
+		//			final ObjectError error = new ObjectError("offered.quantity", "An account already exists for this email.");
+		//			binding.addError(error);
+		//			binding.rejectValue("offered.quantity", "error.offered.quantity");
+		//		}
+		if (application.getState() == true && (application.getCreditCard().getName() == null || application.getCreditCard().getName().trim().isEmpty())) {
+			final ObjectError error = new ObjectError("creditCard.name", "Illegal name");
 			binding.addError(error);
-			binding.rejectValue("offered.quantity", "error.offered.quantity");
+			binding.rejectValue("creditCard.name", "error.creditCard.name");
+		}
+		if (application.getState() == true && (application.getCreditCard().getNumber() == null || application.getCreditCard().getNumber() <= 0)) {
+			final ObjectError error = new ObjectError("creditCard.number", "Illegal number");
+			binding.addError(error);
+			binding.rejectValue("creditCard.number", "error.creditCard.number");
 		}
 
+		if (application.getState() == true && (application.getCreditCard().getCvv() == null || application.getCreditCard().getCvv() < 100 || application.getCreditCard().getCvv() > 999)) {
+			final ObjectError error = new ObjectError("creditCard.year", "Illegal year");
+			binding.addError(error);
+			binding.rejectValue("creditCard.cvv", "error.creditCard.cvv");
+		}
+
+		if (application.getState() == true && (application.getCreditCard().getYear() == null || application.getCreditCard().getYear() < 1900 || application.getCreditCard().getYear() > 2100)) {
+			final ObjectError error = new ObjectError("creditCard.year", "Illegal year");
+			binding.addError(error);
+			binding.rejectValue("creditCard.year", "error.creditCard.year");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding");
 			System.out.println(binding);
 			result = this.createEditModelAndView(application);
+			final HashSet<String> brand = this.applicationService.listBrands();
+			result.addObject("brand", brand);
 		} else
 			try {
 				this.applicationService.updateCustomer(application);

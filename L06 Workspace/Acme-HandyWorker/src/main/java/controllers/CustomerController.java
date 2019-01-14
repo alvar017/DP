@@ -10,6 +10,9 @@
 
 package controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import security.LoginService;
 import security.UserAccountRepository;
 import services.ActorService;
 import services.CustomerService;
@@ -50,25 +54,36 @@ public class CustomerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
 		ModelAndView result;
+		try {
+			final Boolean res = LoginService.getPrincipal() != null;
+			result = new ModelAndView("welcome/index");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			SimpleDateFormat formatter;
+			String moment;
+			formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+			moment = formatter.format(new Date());
+			result.addObject("moment", moment);
+		} catch (final Exception e) {
+			Customer customer;
 
-		Customer customer;
+			customer = this.customerService.create();
 
-		customer = this.customerService.create();
+			result = new ModelAndView("customer/create");
 
-		result = new ModelAndView("customer/create");
+			result.addObject("customer", customer);
+			final String phone = this.welcomeService.getPhone();
+			result.addObject("phone", phone);
 
-		result.addObject("customer", customer);
-		final String phone = this.welcomeService.getPhone();
-		result.addObject("phone", phone);
-
-		final String system = this.welcomeService.getSystem();
-		result.addObject("system", system);
-		final String logo = this.welcomeService.getLogo();
-		result.addObject("logo", logo);
-
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		}
 		return result;
 	}
-
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Customer customer, final BindingResult binding) {
 		ModelAndView result;
@@ -110,6 +125,15 @@ public class CustomerController extends AbstractController {
 				customer.getUserAccount().setPassword(hashPassword);
 				this.customerService.save(customer);
 				result = new ModelAndView("welcome/index");
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
 			} catch (final Throwable oops) {
 				System.out.println("El error: ");
 				System.out.println(oops);

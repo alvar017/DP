@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.Throwable"/>
 <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
 <fullyQualifiedTypeName name="org.springframework.cglib.core.Converter"/>
 <fullyQualifiedTypeName name="domain.Category"/>
@@ -30,16 +29,11 @@
 <fullyQualifiedTypeName name="domain.Endorsable"/>
 <fullyQualifiedTypeName name="domain.Customer"/>
 <fullyQualifiedTypeName name="org.springframework.cglib.core.Local"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
-<fullyQualifiedTypeName name="security.UserAccount"/>
 <fullyQualifiedTypeName name="security.UserAccountRepository"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="services.FixUpService"/>
-<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
-<fullyQualifiedTypeName name="security.LoginService"/>
-<fullyQualifiedTypeName name="services.WelcomeService"/>
 <fullyQualifiedTypeName name="controllers.WelcomeController"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
@@ -47,8 +41,6 @@
 <fullyQualifiedTypeName name="javax.persistence.AccessType"/>
 <fullyQualifiedTypeName name="javax.persistence.Temporal"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
-<fullyQualifiedTypeName name="domain.Message"/>
 <fullyQualifiedTypeName name="services.MessageService"/>
 <fullyQualifiedTypeName name="services.MailBoxService"/>
 <fullyQualifiedTypeName name="org.joda.time.LocalDateTime"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="domain.Warranty"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
+<fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
+<fullyQualifiedTypeName name="services.WelcomeService"/>
+<fullyQualifiedTypeName name="security.UserAccount"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="domain.MailBox"/>
+<fullyQualifiedTypeName name="domain.Message"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="security.LoginService"/>
 </qualifiedTypeNameHistroy>

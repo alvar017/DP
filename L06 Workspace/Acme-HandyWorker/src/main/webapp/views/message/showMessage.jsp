@@ -33,6 +33,8 @@
           			</table>
           			
           			<a onclick="return confirmar('accion.html')" title="AcmeTitle" href="message/delete.do?id=${msg.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
-          			
+          			<form>
+	<input type="button" value=<spring:message code="back" /> name="back" onclick="history.back()" />
+</form>
           			
       			</div>

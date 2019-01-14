@@ -155,7 +155,7 @@ public class ApplicationService {
 
 	private Boolean checkCreditCard(final CreditCard creditCard) {
 		Boolean res = true;
-		if (creditCard.getBrand().trim().isEmpty() || creditCard.getName().trim().isEmpty() || creditCard.getNumber().trim().isEmpty())
+		if (creditCard.getBrand().trim().isEmpty() || creditCard.getName().trim().isEmpty() || creditCard.getNumber() == 0)
 			res = false;
 		return res;
 	}

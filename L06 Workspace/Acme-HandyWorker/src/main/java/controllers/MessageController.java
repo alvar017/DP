@@ -10,9 +10,11 @@
 
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -66,7 +68,7 @@ public class MessageController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView listMessages(@RequestParam("mailBoxId") final int mailBoxId) {
+	public ModelAndView listMessages(@RequestParam(value = "mailBoxId", defaultValue = "-1") final int mailBoxId) {
 		final ModelAndView result;
 
 		final MailBox m = this.mailBoxService.findOne(mailBoxId);
@@ -130,16 +132,28 @@ public class MessageController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int messageId) {
+	public ModelAndView edit(@RequestParam(value = "messageId", defaultValue = "-1") final int messageId) {
 		ModelAndView result;
-		final Message msg;
+		if (messageId == -1) {
+			result = new ModelAndView("welcome/index");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			SimpleDateFormat formatter;
+			String moment;
+			formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+			moment = formatter.format(new Date());
+			result.addObject("moment", moment);
+		} else {
+			final Message msg;
 
-		msg = this.messageService.findOne(messageId);
-		Assert.notNull(msg);
-		result = this.createEditModelAndView(msg);
+			msg = this.messageService.findOne(messageId);
+			Assert.notNull(msg);
+			result = this.createEditModelAndView(msg);
+		}
 		return result;
 	}
-
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView send(@ModelAttribute("msg") @Valid Message msg, final BindingResult binding, @RequestParam(value = "emailReceiver", defaultValue = "FfalsoF@gmail.com") final String emailReceiver) {
 		ModelAndView result;
@@ -352,8 +366,18 @@ public class MessageController extends AbstractController {
 		System.out.println(sender);
 		System.out.println(creator);
 
-		if (creator.getId() != sender.getId()) {
+		if (!this.checkUserOwner(sender, msg)) {
 			result = new ModelAndView("welcome/index");
+			result = new ModelAndView("welcome/index");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			SimpleDateFormat formatter;
+			String moment;
+			formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+			moment = formatter.format(new Date());
+			result.addObject("moment", moment);
 			return result;
 		}
 
@@ -398,6 +422,17 @@ public class MessageController extends AbstractController {
 		final UserAccount login = LoginService.getPrincipal();
 		final Actor sender = this.actorService.getActorByUserId(login.getId());
 
+		final Message oldMessage = this.messageService.findOne(msg.getId());
+		System.out.println(oldMessage.getMailBoxes());
+
+		msg.getMailBoxes().addAll(oldMessage.getMailBoxes());
+
+		System.out.println(msg.getMailBoxes());
+
+		for (final MailBox mailBox : oldMessage.getMailBoxes())
+			if (sender.getMailBoxes().contains(mailBox))
+				msg.getMailBoxes().remove(mailBox);
+
 		System.out.println(sender.getName());
 		System.out.println(sender.getEmail());
 
@@ -412,6 +447,7 @@ public class MessageController extends AbstractController {
 		} else
 			try {
 				System.out.println("intenta el list broadcast");
+
 				this.messageService.save(msg);
 
 				final Collection<MailBox> mailBoxes = sender.getMailBoxes();
@@ -436,6 +472,17 @@ public class MessageController extends AbstractController {
 		result.addObject("logo", logo);
 
 		return result;
+	}
+
+	private Boolean checkUserOwner(final Actor actor, final Message message) {
+		Boolean res = false;
+		for (final MailBox mailbox : actor.getMailBoxes())
+			if (mailbox.getMessages().contains(message)) {
+				res = true;
+				break;
+			}
+
+		return res;
 	}
 
 	protected ModelAndView createEditModelAndViewMailBox(final Message msg, final String msgCode) {
@@ -468,20 +515,24 @@ public class MessageController extends AbstractController {
 		System.out.println(sender);
 		System.out.println(creator);
 
-		if (creator.getId() != sender.getId()) {
+		if (!this.checkUserOwner(sender, msg)) {
 			result = new ModelAndView("welcome/index");
-			return result;
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			result.addObject("nameMailBox", nameMailBox);
+			result.addObject("msgCode", msgCode);
+		} else {
+			result = new ModelAndView("message/editMailBox");
+			result.addObject("msg", msg);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			result.addObject("nameMailBox", nameMailBox);
+			result.addObject("msgCode", msgCode);
 		}
-
-		result = new ModelAndView("message/editMailBox");
-		result.addObject("msg", msg);
-		final String system = this.welcomeService.getSystem();
-		result.addObject("system", system);
-		final String logo = this.welcomeService.getLogo();
-		result.addObject("logo", logo);
-		result.addObject("nameMailBox", nameMailBox);
-		result.addObject("msgCode", msgCode);
-
 		return result;
 	}
 

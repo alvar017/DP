@@ -12,8 +12,10 @@ public class CreditCard {
 	private String	name;
 	// cambio 18/12/2018
 	private String	brand;
-	private String	number;
+	private Integer	number;
 	private Integer	cvv;
+	private String	month;
+	private Integer	year;
 
 
 	public String getName() {
@@ -32,11 +34,11 @@ public class CreditCard {
 		this.brand = brand;
 	}
 
-	public String getNumber() {
+	public Integer getNumber() {
 		return this.number;
 	}
 
-	public void setNumber(final String number) {
+	public void setNumber(final Integer number) {
 		this.number = number;
 	}
 
@@ -46,6 +48,22 @@ public class CreditCard {
 
 	public void setCvv(final Integer cvv) {
 		this.cvv = cvv;
+	}
+
+	public String getMonth() {
+		return this.month;
+	}
+
+	public void setMonth(final String month) {
+		this.month = month;
+	}
+
+	public Integer getYear() {
+		return this.year;
+	}
+
+	public void setYear(final Integer year) {
+		this.year = year;
 	}
 
 }

@@ -10,6 +10,9 @@
 
 package controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,21 +58,33 @@ public class HandyWorkerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
 		ModelAndView result;
+		try {
+			final Boolean res = LoginService.getPrincipal() != null;
+			result = new ModelAndView("welcome/index");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			SimpleDateFormat formatter;
+			String moment;
+			formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+			moment = formatter.format(new Date());
+			result.addObject("moment", moment);
+		} catch (final Exception e) {
+			HandyWorker handyWorker;
 
-		HandyWorker handyWorker;
+			handyWorker = this.handyWorkerService.create();
 
-		handyWorker = this.handyWorkerService.create();
+			result = new ModelAndView("handyWorker/create");
 
-		result = new ModelAndView("handyWorker/create");
-
-		result.addObject("handyWorker", handyWorker);
-		final String phone = this.welcomeService.getPhone();
-		result.addObject("phone", phone);
-		final String system = this.welcomeService.getSystem();
-		result.addObject("system", system);
-		final String logo = this.welcomeService.getLogo();
-		result.addObject("logo", logo);
-
+			result.addObject("handyWorker", handyWorker);
+			final String phone = this.welcomeService.getPhone();
+			result.addObject("phone", phone);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		}
 		return result;
 	}
 
@@ -133,6 +148,15 @@ public class HandyWorkerController extends AbstractController {
 				handyWorker.getUserAccount().setPassword(hashPassword);
 				this.handyWorkerService.save(handyWorker);
 				result = new ModelAndView("welcome/index");
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
 			} catch (final Throwable oops) {
 				System.out.println("El error: ");
 				System.out.println(oops);
@@ -185,6 +209,12 @@ public class HandyWorkerController extends AbstractController {
 			binding.addError(error);
 			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
 		}
+		if (handyWorker.getEmail() != null && this.actorService.getActorByEmail(handyWorker.getEmail()) != null
+			&& this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(handyWorker.getEmail()).getId()) {
+			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
+			binding.addError(error);
+			binding.rejectValue("email", "error.actor.email.exits");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("El error pasa por aquí alvaro (IF de save())");
 			System.out.println(binding);
@@ -193,7 +223,7 @@ public class HandyWorkerController extends AbstractController {
 			try {
 				Assert.isTrue(this.handyWorkerService.findOne(handyWorker.getId()) != null);
 				this.handyWorkerService.save(handyWorker);
-				result = new ModelAndView("welcome/index");
+				result = new ModelAndView("redirect:show.do");
 			} catch (final Throwable oops) {
 				System.out.println("El error es en handyWorkerController: ");
 				System.out.println(oops);

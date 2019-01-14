@@ -27,6 +27,7 @@ public class Application extends DomainEntity {
 	private FixUp		fixUp;
 	//	private Collection<Phase>	workplan;	// workplan = phases;
 	private CreditCard	creditCard;
+	private String		commentsCus;
 
 
 	//	@Valid
@@ -104,5 +105,13 @@ public class Application extends DomainEntity {
 	@Override
 	public String toString() {
 		return "Application[ " + this.getId() + " ]";
+	}
+
+	public String getCommentsCus() {
+		return this.commentsCus;
+	}
+
+	public void setCommentsCus(final String commentsCus) {
+		this.commentsCus = commentsCus;
 	}
 }
