@@ -90,21 +90,30 @@ public class HandyWorkerController extends AbstractController {
 
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
 	public ModelAndView list() {
+
 		ModelAndView result;
+
 		final int userLoggin = LoginService.getPrincipal().getId();
-		final HandyWorker handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
+		final HandyWorker handyWorker;
+		handyWorker = this.handyWorkerService.findByUserAccountId(userLoggin);
 		Assert.isTrue(handyWorker != null);
 
 		result = new ModelAndView("handyWorker/show");
 		result.addObject("handyWorker", handyWorker);
 		result.addObject("socialProfiles", handyWorker.getSocialProfiles());
-		result.addObject("requestURI", "handyWorker/show.do");
+		result.addObject("applications", handyWorker.getApplications());
+		result.addObject("fixUps", handyWorker.getFixUps());
+
 		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
+
 		final String system = this.welcomeService.getSystem();
 		result.addObject("system", system);
+
 		final String logo = this.welcomeService.getLogo();
 		result.addObject("logo", logo);
+
+		result.addObject("requestURI", "handyWorker/show.do");
 
 		return result;
 	}
@@ -222,6 +231,8 @@ public class HandyWorkerController extends AbstractController {
 		} else
 			try {
 				Assert.isTrue(this.handyWorkerService.findOne(handyWorker.getId()) != null);
+				if (handyWorker.getPhone().matches("^([0-9]{4,})$"))
+					handyWorker.setPhone("+" + this.welcomeService.getPhone() + " " + handyWorker.getPhone());
 				this.handyWorkerService.save(handyWorker);
 				result = new ModelAndView("redirect:show.do");
 			} catch (final Throwable oops) {

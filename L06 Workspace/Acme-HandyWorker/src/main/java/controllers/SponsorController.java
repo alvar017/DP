@@ -198,6 +198,8 @@ public class SponsorController extends AbstractController {
 				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 				//				final String hashPassword = encoder.encodePassword(password, null);
 				//				sponsor.getUserAccount().setPassword(hashPassword);
+				if (sponsor.getPhone().matches("^([0-9]{4,})$"))
+					sponsor.setPhone("+" + this.welcomeService.getPhone() + " " + sponsor.getPhone());
 				this.sponsorService.save(sponsor);
 				result = new ModelAndView("actor/show");
 				result.addObject("actor", sponsor);

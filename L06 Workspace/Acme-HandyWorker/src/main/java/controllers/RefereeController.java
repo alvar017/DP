@@ -10,6 +10,8 @@
 
 package controllers;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,10 @@ import org.springframework.web.servlet.ModelAndView;
 import security.LoginService;
 import security.UserAccountRepository;
 import services.ActorService;
+import services.ComplaintService;
 import services.RefereeService;
 import services.WelcomeService;
+import domain.Complaint;
 import domain.Referee;
 
 @Controller
@@ -41,6 +45,8 @@ public class RefereeController extends AbstractController {
 	WelcomeService					welcomeService;
 	@Autowired
 	ActorService					actorService;
+	@Autowired
+	ComplaintService				complaintService;
 
 
 	//	@Autowired
@@ -74,7 +80,9 @@ public class RefereeController extends AbstractController {
 
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
 	public ModelAndView list() {
+
 		ModelAndView result;
+
 		final int userLoggin = LoginService.getPrincipal().getId();
 		final Referee referee = this.refereeService.findByUserAccountId(userLoggin);
 		Assert.isTrue(referee != null);
@@ -82,13 +90,21 @@ public class RefereeController extends AbstractController {
 		result = new ModelAndView("referee/show");
 		result.addObject("referee", referee);
 		result.addObject("socialProfiles", referee.getSocialProfiles());
-		result.addObject("requestURI", "referee/show.do");
+
+		final Collection<Complaint> complaints;
+		complaints = this.complaintService.getComplaintByReferee(referee.getId());
+		result.addObject("complaints", complaints);
+
 		final String phone = this.welcomeService.getPhone();
 		result.addObject("phone", phone);
+
 		final String system = this.welcomeService.getSystem();
 		result.addObject("system", system);
+
 		final String logo = this.welcomeService.getLogo();
 		result.addObject("logo", logo);
+
+		result.addObject("requestURI", "referee/show.do");
 
 		return result;
 	}
@@ -183,6 +199,8 @@ public class RefereeController extends AbstractController {
 		} else
 			try {
 				Assert.isTrue(this.refereeService.findOne(referee.getId()) != null);
+				if (referee.getPhone().matches("^([0-9]{4,})$"))
+					referee.setPhone("+" + this.welcomeService.getPhone() + " " + referee.getPhone());
 				//				final String password = referee.getUserAccount().getPassword();
 				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 				//				final String hashPassword = encoder.encodePassword(password, null);

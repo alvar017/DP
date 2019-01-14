@@ -8,45 +8,102 @@
  * http://www.tdg-seville.info/License.html
  --%>
 
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
-<%@taglib prefix="jstl"	uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-					
-      		<div class="content">
-				<img class="lupa" src="images/lupa.png" alt="Luga" width="19%"/>
-					<table>
-								<tr><td><spring:message code="actor.name" /><jstl:out value="${referee.name}"></jstl:out></td></tr>
-								<tr><td><spring:message code="actor.address" /><jstl:out value="${referee.address}"></jstl:out></td></tr>
-								<tr><td><spring:message code="actor.surname" /><jstl:out value="${referee.surname}"></jstl:out></td></tr>
-								<tr><td><spring:message code="actor.middleName" /><jstl:out value="${referee.middleName}"></jstl:out></td></tr>
-								<tr><td><spring:message code="actor.email" /><jstl:out value="${referee.email}"></jstl:out></td></tr>
-								<tr><td><img width="5%" class="customer_photo" src="${referee.photo}" alt=<jstl:out value="${actor.photo}"></jstl:out>/></td></tr>
-								<tr><td><spring:message code="actor.username" /><jstl:out value="${referee.userAccount.username}"></jstl:out></td></tr>
-								<tr><td>
-									<p><spring:message code="actor.socialProfiles" /></p>
-									<p><input type="button" value=<spring:message code="actor.createSocialProfile" /> id="buttonSocialProfile" name="buttonSocialProfile"  onclick="location.href='socialProfile/referee/create.do';"/></p>
-									<display:table name="socialProfiles" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
-										<display:column titleKey="button.edit"> 
-											<a href="socialProfile/referee/edit.do?socialProfileId=${row.id}"><spring:message code="button.edit" /></a>
-										</display:column>
-										<display:column titleKey="delete"> 
-											<a href="socialProfile/referee/delete.do?socialProfileId=${row.id}"><spring:message code="delete" /></a>
-										</display:column>
-										<display:column property="nick" titleKey="actor.nick" ></display:column>
-										<display:column property="link" titleKey="actor.link"></display:column>
-										<display:column property="name" titleKey="actor.name" ></display:column>
-									</display:table>
-								</td></tr>
-					</table>
-			</div>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-				<form>
-					<input type="button" value=<spring:message code="back" /> name="back" onclick="history.back()" />
-				</form>
+<div class="content">
+	<img class="lupa" src="images/lupa.png" alt="Luga" width="19%" />
+	<table>
+		<tr>
+			<td><spring:message code="referee.photo" /><br>
+			<img width="95"
+				class="customer_photo" src="${referee.photo}"
+				alt=<jstl:out value="${referee.photo}"></jstl:out> /></td>
+		</tr>
+		<tr>
+			<td><spring:message code="referee.name" /> <jstl:out
+					value="${referee.name}"></jstl:out></td>
+		</tr>
+		<tr>
+			<td><spring:message code="referee.middlename" /> <jstl:out
+					value="${referee.middleName}"></jstl:out></td>
+		</tr>
+		<tr>
+			<td><spring:message code="referee.surname" /> <jstl:out
+					value="${referee.surname}"></jstl:out></td>
+		</tr>
+		<tr>
+			<td><spring:message code="referee.address" /> <jstl:out
+					value="${referee.address}"></jstl:out></td>
+		</tr>
+		<tr>
+			<td><spring:message code="referee.phone" /> <jstl:out
+					value="${referee.phone}"></jstl:out></td>
+		</tr>
+		<tr>
+			<td><spring:message code="referee.email" /> <jstl:out
+					value="${referee.email}"></jstl:out></td>
+		</tr>
+		<tr>
+			<td><spring:message code="referee.username" /> <jstl:out
+					value="${referee.userAccount.username}"></jstl:out></td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<spring:message code="actor.socialProfiles" />
+				</p> <display:table name="socialProfiles" id="row"
+					requestURI="${requestURI}" pagesize="5" class="displaytag">
+					<display:column titleKey="button.edit">
+						<a href="socialProfile/referee/edit.do?socialProfileId=${row.id}"><spring:message
+								code="button.edit" /></a>
+					</display:column>
+					<display:column titleKey="delete">
+						<a
+							href="socialProfile/referee/delete.do?socialProfileId=${row.id}"><spring:message
+								code="delete" /></a>
+					</display:column>
+					<display:column property="nick" titleKey="actor.nick"></display:column>
+					<display:column property="link" titleKey="actor.link"></display:column>
+					<display:column property="name" titleKey="actor.name"></display:column>
+				</display:table>
+				<p>
+					<input type="button"
+						value=<spring:message code="actor.createSocialProfile" />
+						id="buttonSocialProfile" name="buttonSocialProfile"
+						onclick="location.href='socialProfile/referee/create.do';" />
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<spring:message code="referee.complaints" />
+				</p> <display:table name="complaints" id="row" requestURI="${requestURI}"
+					pagesize="5" class="displaytag">
+					<display:column property=""></display:column>
+					<display:column property="ticker" titleKey="complaint.ticker"></display:column>
+					<display:column property="fixUp.customer.name" titleKey="customer.name"></display:column>
+					<display:column property="fixUp.handyWorker.name" titleKey="handyWorker.name"></display:column>
+					<display:column property="moment" titleKey="report.moment"
+						format="{0,date,dd/MM/yyyy HH:mm}"></display:column>
+				</display:table>
+			</td>
+		</tr>
+	</table>
+</div>
+
+
+<form>
+	<input type="button" value=<spring:message code="back" /> name="back"
+		onclick="history.back()" />
+</form>

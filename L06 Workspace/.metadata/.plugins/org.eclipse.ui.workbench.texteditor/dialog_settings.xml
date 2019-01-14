@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="160" key="DIALOG_Y_ORIGIN"/>
-		<item value="362" key="DIALOG_HEIGHT"/>
 		<item value="1089" key="DIALOG_X_ORIGIN"/>
+		<item value="362" key="DIALOG_HEIGHT"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="choose" key="selection"/>
+		<item value="edit" key="selection"/>
 		<list key="findhistory">
-			<item value="choose"/>
-			<item value="show"/>
-			<item value="application/customer"/>
 			<item value="edit"/>
+			<item value="photo"/>
+			<item value="phot"/>
+			<item value="image"/>
+			<item value="show"/>
+			<item value="choose"/>
+			<item value="application/customer"/>
 			<item value="eidt"/>
-			<item value="deta"/>
-			<item value="cvv"/>
-			<item value="illegal cvv"/>
 		</list>
 		<list key="replacehistory">
 			<item value="customer"/>

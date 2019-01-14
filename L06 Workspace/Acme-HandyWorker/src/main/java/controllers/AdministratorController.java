@@ -133,6 +133,8 @@ public class AdministratorController extends AbstractController {
 				//				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 				//				final String hashPassword = encoder.encodePassword(password, null);
 				//				administrator.getUserAccount().setPassword(hashPassword);
+				if (administrator.getPhone().matches("^([0-9]{4,})$"))
+					administrator.setPhone("+" + this.welcomeService.getPhone() + " " + administrator.getPhone());
 				this.administratorService.save(administrator);
 				result = new ModelAndView("actor/show");
 				result.addObject("actor", administrator);
