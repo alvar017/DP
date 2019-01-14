@@ -66,5 +66,5 @@
 		
 		</form:form>
 		
-		<input type="button" name="cancel" value="<spring:message code="warranty.cancel"/>" onclick="javascript:relativeRedir('category/administrator/list.do');"/>
+		<input type="button" name="cancel" value="<spring:message code="warranty.cancel"/>" onclick="javascript:relativeRedir('warranty/administrator/list.do');"/>
 </body>

@@ -32,5 +32,8 @@
           			</table>
           			
           			<a onclick="return confirmar('accion.html')" title="AcmeTitle" href="category/administrator/delete.do?id=${category.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
+          						<form method="get" action="warranty/administrator/list.do">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
           			
       			</div>

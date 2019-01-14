@@ -29,8 +29,10 @@ import org.springframework.web.servlet.ModelAndView;
 import security.LoginService;
 import security.UserAccountRepository;
 import services.ActorService;
+import services.FinderService;
 import services.HandyWorkerService;
 import services.WelcomeService;
+import domain.Finder;
 import domain.HandyWorker;
 
 @Controller
@@ -45,6 +47,8 @@ public class HandyWorkerController extends AbstractController {
 	private WelcomeService			welcomeService;
 	@Autowired
 	private ActorService			actorService;
+	@Autowired
+	private FinderService			finderService;
 
 
 	//	@Autowired
@@ -74,7 +78,10 @@ public class HandyWorkerController extends AbstractController {
 			HandyWorker handyWorker;
 
 			handyWorker = this.handyWorkerService.create();
-
+			final Finder finder = this.finderService.create();
+			finder.setKeyword("aaaaaalohholaaaaaa");
+			final Finder save = this.finderService.save(finder);
+			handyWorker.setFinder(save);
 			result = new ModelAndView("handyWorker/create");
 
 			result.addObject("handyWorker", handyWorker);
@@ -87,7 +94,6 @@ public class HandyWorkerController extends AbstractController {
 		}
 		return result;
 	}
-
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
 	public ModelAndView list() {
 

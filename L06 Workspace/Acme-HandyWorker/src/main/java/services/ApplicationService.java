@@ -4,7 +4,7 @@ package services;
 import java.util.Collection;
 import java.util.HashSet;
 
-import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -86,7 +86,7 @@ public class ApplicationService {
 		final UserAccount login = LoginService.getPrincipal();
 		final HandyWorker handyWorker = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
 		application.setApplier(handyWorker);
-		application.setMoment(LocalDate.now().toDate());
+		application.setMoment(LocalDateTime.now().toDate());
 		return application;
 
 	}

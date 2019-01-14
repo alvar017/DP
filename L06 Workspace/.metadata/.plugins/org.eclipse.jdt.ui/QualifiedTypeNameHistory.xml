@@ -31,7 +31,6 @@
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="security.UserAccountRepository"/>
 <fullyQualifiedTypeName name="domain.FixUp"/>
-<fullyQualifiedTypeName name="services.FixUpService"/>
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="controllers.WelcomeController"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
@@ -58,6 +57,7 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="java.util.Collection"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="domain.Complaint"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="services.FixUpService"/>
 </qualifiedTypeNameHistroy>

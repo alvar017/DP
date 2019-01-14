@@ -35,35 +35,26 @@ public class MessageService {
 	AdministratorService		administratorService;
 	@Autowired
 	ActorService				actorService;
+	@Autowired
+	FixUpService				fixUpService;
 
 	@Autowired
 	private CustomerService		customerService;
 
 	//private final List<String>	spamWords	= Arrays.asList("sex", "viagra", "cialis", "ferrete", "one million", "you've been selected", "Nigeria", "queryfonsiponsypaferrete", "sexo", "un millón", "ha sido seleccionado");
 
-	public HashSet<String>		spamWords	= new HashSet<>();
+	public HashSet<String>		spamWords;
 
 
 	//Carmen: Método para añadir spam words (adm)
-	public HashSet<String> newSpamWords(final String newWord) {
-		this.listSpamWords().add(newWord);
-		return this.listSpamWords();
-	}
+	//	public HashSet<String> newSpamWords(final String newWord) {
+	//		this.listSpamWords().add(newWord);
+	//		return this.listSpamWords();
+	//	}
 
 	//Carmen: Método para mostrar las spam words
 	public HashSet<String> listSpamWords() {
-
-		this.spamWords.add("sex");
-		this.spamWords.add("viagra");
-		this.spamWords.add("cialis");
-		this.spamWords.add("one millon");
-		this.spamWords.add("you've been selected");
-		this.spamWords.add("Nigeria");
-		this.spamWords.add("sexo");
-		this.spamWords.add("un millón");
-		this.spamWords.add("ha sido seleccionado");
-
-		return this.spamWords;
+		return this.fixUpService.listSpamWords();
 	}
 
 	public Message create() {

@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="160" key="DIALOG_Y_ORIGIN"/>
-		<item value="1089" key="DIALOG_X_ORIGIN"/>
 		<item value="362" key="DIALOG_HEIGHT"/>
+		<item value="1089" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="edit" key="selection"/>
+		<item value="check" key="selection"/>
 		<list key="findhistory">
-			<item value="edit"/>
-			<item value="photo"/>
-			<item value="phot"/>
-			<item value="image"/>
-			<item value="show"/>
-			<item value="choose"/>
-			<item value="application/customer"/>
-			<item value="eidt"/>
+			<item value="check"/>
+			<item value="checkis"/>
+			<item value="checkissus"/>
+			<item value="setmom"/>
+			<item value="create"/>
+			<item value="moment"/>
+			<item value="setmoment"/>
+			<item value="setMo"/>
 		</list>
 		<list key="replacehistory">
 			<item value="customer"/>

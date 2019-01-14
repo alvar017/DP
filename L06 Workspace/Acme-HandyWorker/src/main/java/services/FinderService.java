@@ -95,9 +95,9 @@ public class FinderService {
 
 		final Finder finder = new Finder();
 
-		final UserAccount login = LoginService.getPrincipal();
-		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
-		Assert.notNull(hw);
+		//		final UserAccount login = LoginService.getPrincipal();
+		//		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
+		//		Assert.notNull(hw);
 
 		final Date moment = LocalDate.now().toDate();
 
@@ -112,9 +112,13 @@ public class FinderService {
 	}
 
 	public Finder save(final Finder finder) {
-		if (finder.getEndDate() != null && finder.getStartDate() != null)
-			Assert.isTrue(!this.checkStartDateEndDate(finder.getStartDate(), finder.getEndDate()), "finder.wrongDate");
-		//			Assert.isTrue(!this.checkEndDate(finder.getStartDate(), finder.getEndDate()), "finder.wrongMomentDate");
+
+		System.out.println("ferrete puto y maricon" + finder.getEndDate());
+
+		if (finder.getEndDate() != null || finder.getStartDate() != null)
+			Assert.isTrue(this.checkEndDate(finder.getStartDate(), finder.getEndDate()), "finder.wrongDate");
+		//			Assert.isTrue(!this.checkStartDate(finder.getStartDate(), finder.getEndDate()), "finder.wrongDate");
+
 		if (finder.getMaxPrice() != null && finder.getMinPrice() == null) {
 			Assert.isTrue(!this.checkMax(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrong");
 			Assert.isTrue(!this.checkMin(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrongP");
@@ -125,8 +129,18 @@ public class FinderService {
 		}
 		if (finder.getMaxPrice() != null && finder.getMinPrice() != null)
 			Assert.isTrue(!this.checkDate(finder.getMaxPrice(), finder.getMinPrice()), "finder.wrong");
+
+		//		if (finder.getStartDate() != null && finder.getEndDate() == null || finder.getStartDate() == null && finder.getEndDate() != null)
+		//			Assert.isTrue(!this.checkDateEndStart(finder.getStartDate(), finder.getEndDate()), "finder..wrongD");
 		return this.finderRepository.save(finder);
 	}
+
+	//	private Boolean checkDateEndStart(final Date startDate, final Date endDate) {
+	//		Boolean res = true;
+	//		if (startDate != null && endDate == null || startDate == null && endDate != null)
+	//			res = false;
+	//		return res;
+	//	}
 
 	private Boolean checkMax(final Double max, final Double min) {
 		Boolean res = true;
@@ -148,10 +162,12 @@ public class FinderService {
 		return res;
 	}
 
-	private Boolean checkStartDateEndDate(final Date startDate, final Date endDate) {
-		Boolean res = true;
-		if (startDate != null && endDate != null && startDate.after(endDate))
-			res = false;
+	private Boolean checkEndDate(final Date startDate, final Date endDate) {
+		final Boolean res = true;
+		if (startDate == null || endDate == null)
+			return false;
+		if (startDate.after(endDate))
+			return false;
 		return res;
 	}
 

@@ -24,6 +24,7 @@ import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.LoginService;
@@ -62,6 +63,8 @@ public class FinderHandyWorkerController extends AbstractController {
 	@Autowired
 	private WelcomeService		welcomeService;
 
+	private ModelAndView		result;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -76,7 +79,18 @@ public class FinderHandyWorkerController extends AbstractController {
 		final ModelAndView result;
 		final SimpleDateFormat formatter;
 
-		final Finder finder = this.finderService.yourFinder();
+		final UserAccount user1 = LoginService.getPrincipal();
+		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(user1.getId());
+
+		final Finder finder = hw.getFinder();
+
+		//		if (hw.getFinder() != null)
+		//			finder = this.finderService.yourFinder();
+		//		else
+		//			finder = null;
+		//
+		//		//		Finder finder = this.finderService.yourFinder();
+
 		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
 		formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -153,6 +167,9 @@ public class FinderHandyWorkerController extends AbstractController {
 		result.addObject("requestURI", "finder/handyWorker/list.do");
 		result.addObject("resultF", resultF);
 		result.addObject("system", system);
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("finderFixUp", finder.getFixUps());
 
 		return result;
@@ -166,54 +183,55 @@ public class FinderHandyWorkerController extends AbstractController {
 		final Collection<Category> category = this.categoryService.findAll();
 		final Collection<Warranty> warranty = this.warrantyService.findAll();
 
+		final String system = this.welcomeService.getSystem();
+		final String logo = this.welcomeService.getLogo();
+
 		Finder finder;
 
 		finder = this.finderService.create();
-
-		final UserAccount user = LoginService.getPrincipal();
-		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(user.getId());
-		hw.setFinder(finder);
 
 		res = this.createEditModelAndView(finder);
 
 		res.addObject("category", category);
 		res.addObject("warranty", warranty);
+		res.addObject("system", system);
+		res.addObject("logo", logo);
 
 		return res;
 	}
 
 	//edit--------------------------------------------------------------
 
-	//	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	//	public ModelAndView edit(@RequestParam("finderId") final int finderId) {
-	//		ModelAndView result;
-	//
-	//		System.out.println("Carmen: Entro en edit");
-	//
-	//		final Collection<Category> category = this.categoryService.findAll();
-	//		final Collection<Warranty> warranty = this.warrantyService.findAll();
-	//
-	//		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
-	//
-	//		final Finder finder = this.finderService.yourFinder();
-	//
-	//		result = this.createEditModelAndView(finder);
-	//
-	//		result.addObject("language", language);
-	//		result.addObject("category", category);
-	//		result.addObject("warranty", warranty);
-	//
-	//		System.out.println("Carmen: Salgo de edit");
-	//
-	//		return result;
-	//	}
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public ModelAndView edit(@RequestParam(value = "id", defaultValue = "-1") final int finderId) {
+		ModelAndView result;
 
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
+		Finder finder;
+
+		final UserAccount user = LoginService.getPrincipal();
+		final HandyWorker hw = this.handyWorkerService.getHandyWorkerByUserAccountId(user.getId());
+		finder = this.finderService.findOne(finderId);
+		if (this.finderService.findOne(finderId) == null || LoginService.getPrincipal().getId() != hw.getId())
+			result = new ModelAndView("redirect:list.do");
+		else {
+			Assert.notNull(finder);
+			result = this.createEditModelAndView(finder);
+			result.addObject("language", language);
+
+		}
+
+		return result;
+	}
 	//save ---------------------	
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Finder finder, final BindingResult binding) {
 		ModelAndView result;
 
 		System.out.println("Carmen: Entro en el save");
+
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
 
 		System.out.println("BindingErrors: " + binding.getFieldErrors());
 		//		if (finder.getMaxPrice() == null || finder.getMaxPrice() < 0) {
@@ -280,6 +298,7 @@ public class FinderHandyWorkerController extends AbstractController {
 
 				final Collection<FixUp> finderFixUp = this.finderService.fixUpByFinder(finder.getFixUps());
 
+				System.out.println(finder.getEndDate());
 				System.out.println("Carmen: !PUEDO GUARDAR¡");
 				System.out.println("Busqueda de fixUps nuevos" + finder.getFixUps());
 				System.out.println(finderFixUp);
@@ -289,7 +308,7 @@ public class FinderHandyWorkerController extends AbstractController {
 			} catch (final Throwable oops) {
 				System.out.println("Carmen: !NO PUEDO GUARDAR¡");
 				System.out.println("finder error:" + oops);
-				if (oops.getMessage().equals("fixUp.wrongDate")) {
+				if (oops.getMessage().equals("finder.wrongDate")) {
 					System.out.println("1");
 					result = this.createEditModelAndView(finder, "finder.wrongDate");
 				} else if (oops.getMessage().equals("finder.wrongMomentDate")) {
@@ -303,6 +322,9 @@ public class FinderHandyWorkerController extends AbstractController {
 					result = this.createEditModelAndView(finder, "finder.wrong");
 				} else
 					result = this.createEditModelAndView(finder, "finder.wrongDate");
+
+				result.addObject("language", language);
+
 			}
 
 		return result;
@@ -329,12 +351,20 @@ public class FinderHandyWorkerController extends AbstractController {
 		final Collection<Category> category = this.categoryService.findAll();
 		final Collection<Warranty> warranty = this.warrantyService.findAll();
 
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+
 		result = new ModelAndView("finder/handyWorker/edit");
 
 		result.addObject("finder", finder);
 		result.addObject("message", messageCode);
 
+		result.addObject("language", language);
+
 		result.addObject("category", category);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		result.addObject("warranty", warranty);
 
 		return result;

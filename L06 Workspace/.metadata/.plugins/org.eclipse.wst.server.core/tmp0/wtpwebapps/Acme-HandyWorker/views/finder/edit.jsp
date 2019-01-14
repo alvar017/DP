@@ -26,9 +26,7 @@
 
 	<article>
 		<header>
-			<h2>
-				<spring:message code="handyWorker.edit" />
-			</h2>
+
 		</header>
 
 		<div class="content">
@@ -76,7 +74,7 @@
 					<spring:message code="handyWorker.showing.endDate" />
 				</form:label>				
 				<form:input type="date" path="endDate" placeholder="yyyy/MM/dd HH:mm"/>
-				<form:errors cssClass="error" path="endDate"/><br>
+				<form:errors cssClass="error" path="endDate"/><br>				
 				
 				<form:label path="startDate">
 					<spring:message code="handyWorker.showing.startDate" />
@@ -90,23 +88,12 @@
 			</form:form>
 		</div>
 
+
+	<form method="get" action="welcome/index.do">
+    			<button type="submit"><spring:message code="button.back" /></button>
+			</form>
 	</article>
 	<!-- /article -->
 
 </section>
 <!-- / #main-content -->
-
-<c:choose>
-	<c:when test="${language=='English'}">
-		<form>
-			<input type="button" value="Back" name="volver atrás2"
-				onclick="history.back()" />
-		</form>
-	</c:when>
-	<c:otherwise>
-		<form>
-			<input type="button" value="Volver" name="volver atrás2"
-				onclick="history.back()" />
-		</form>
-	</c:otherwise>
-</c:choose>
