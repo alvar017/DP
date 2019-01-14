@@ -44,7 +44,12 @@
 	<definition name="application/customer/show" extends="master.page">	
 		<put-attribute name="title" value="Customer: Show applications" />
 		<put-attribute name="body" value="/views/application/show_customer.jsp" />
-	</definition>	
+	</definition>
+	
+	<definition name="application/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="HandyWorker: Show applications" />
+		<put-attribute name="body" value="/views/application/show_handyWorker.jsp" />
+	</definition>		
 	
 	<definition name="application/handyWorker/update" extends="master.page">	
 		<put-attribute name="title" value="HandyWorker: Updating Application" />

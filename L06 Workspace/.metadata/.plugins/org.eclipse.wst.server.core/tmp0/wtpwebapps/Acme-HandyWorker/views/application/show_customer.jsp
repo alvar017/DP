@@ -41,6 +41,8 @@
 					
 					<tr><td><spring:message code="application.show.comments" /><jstl:out value="${application.comments}"></jstl:out></td></tr>
 					
+					<tr><td><spring:message code="application.show.commentsCus" /><jstl:out value="${application.commentsCus}"></jstl:out></td></tr>
+					
 					<tr><td><spring:message code="application.show.applier" /><jstl:out value="${application.applier.name}"></jstl:out></td></tr>
           			
           			<tr><td><spring:message code="application.show.fixUp" /><jstl:out value="${application.fixUp.ticker}"></jstl:out></td></tr>

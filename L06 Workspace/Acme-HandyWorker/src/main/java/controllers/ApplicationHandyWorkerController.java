@@ -14,6 +14,7 @@ import java.util.Collection;
 
 import javax.validation.Valid;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -211,5 +212,58 @@ public class ApplicationHandyWorkerController extends AbstractController {
 		result.addObject("message", messageCode);
 
 		return result;
+	}
+
+	@RequestMapping(value = "/show", method = RequestMethod.GET)
+	public ModelAndView show(@RequestParam(value = "applicationId", defaultValue = "-1") final int applicationId) {
+		ModelAndView result;
+
+		//		final FixUp fixUp = this.fixUpService.findOne(463);
+		final Application application = this.applicationService.findOne(applicationId);
+		if (application == null) {
+			final UserAccount login = LoginService.getPrincipal();
+
+			final HandyWorker logged = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
+
+			final Collection<Application> applications = this.applicationService.findAllByHandyWorker(logged.getId());
+
+			result = new ModelAndView("application/handyWorker/list");
+			result.addObject("applications", applications);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+
+			result.addObject("requestURI", "application/handyWorker/list.do");
+
+		} else {
+			Assert.notNull(application);
+			final Double iva = this.applicationService.iva(application);
+			final String color = this.chooseColor(application);
+			System.out.println("Color: " + color);
+
+			result = new ModelAndView("application/customer/show");
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+
+			result.addObject("color", color);
+			result.addObject("application", application);
+			result.addObject("iva", iva);
+			result.addObject("requestURI", "application/customer/show.do");
+		}
+		return result;
+	}
+
+	private String chooseColor(final Application application) {
+		String res;
+		if (application.getState() == null || application.getFixUp().getEndDate().before(LocalDate.now().toDate()))
+			res = "ninguno";
+		else if (application.getState() != null && application.getState() == true)
+			res = "#00FF00";
+		else
+			res = "#FF0000";
+		return res;
 	}
 }

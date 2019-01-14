@@ -24,6 +24,9 @@
   	<display:column titleKey="handyWorker.editApplication"> 
 		<a href="application/handyWorker/edit.do?applicationId=${row.id}">Edit</a>
 	</display:column>
+	<display:column titleKey="application.show"> 
+		<a href="application/handyWorker/show.do?applicationId=${row.id}"><spring:message code="application.show" /></a>
+	</display:column>
   	<display:column property="fixUp.ticker" titleKey="application.fixUp"/>
   	<display:column titleKey="application.state">
   	<jstl:choose>

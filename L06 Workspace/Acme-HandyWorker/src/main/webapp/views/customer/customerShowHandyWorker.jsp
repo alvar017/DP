@@ -28,7 +28,7 @@
       
       		<div class="content">
 				<table>
-					<tr><td><img class="customer_photo" src="${customer.photo}" alt="Photo" width="5%"/></td></tr>
+					<tr><td><img class="customer_photo" src="${customer.photo}" alt="/\" width="5%"/></td></tr>
 					<tr><td><strong><spring:message code="customer.details" /> <jstl:out value="${customer.name}"></jstl:out>: </strong></td></tr>
     						
     				<tr><td><spring:message code="customer.name" /> <jstl:out value="${customer.name}"></jstl:out></td></tr>
