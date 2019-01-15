@@ -34,6 +34,11 @@
 </div>
 <div>
 	<a href="complaint/customer/create.do"><input type="button" value="<spring:message code='button.create'/>"></a>
+			<form method="get" action=" ">
+				<button type="submit">
+					<spring:message code="button.back" />
+				</button>
+			</form>
 </div>
 </security:authorize>
  </div>

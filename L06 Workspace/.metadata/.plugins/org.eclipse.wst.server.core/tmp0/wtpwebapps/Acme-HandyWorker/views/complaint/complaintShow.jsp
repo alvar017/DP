@@ -22,10 +22,6 @@
 <div>
 <security:authorize access="hasRole('CUSTOMER')">
 	<div>
-		<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
-		<br />
-	</div>
-	<div>
 		<spring:message code="complaint.details"></spring:message>
 		<display:table name="complaint" id="row" requestURI="${requestURI}" class="displaytag">
 			<display:column property="moment" titleKey="complaint.moment" format="{0,date,dd/MM/yyyy HH:mm}"></display:column>
@@ -51,6 +47,10 @@
 				<a href="report/customer/show.do?reportId=${row.id}"><spring:message code="details" /></a>
 			</display:column>
 		</display:table>
+		<br />
+	</div>
+		<div>
+		<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
 		<br />
 	</div>
 </security:authorize>

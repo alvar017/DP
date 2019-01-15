@@ -28,13 +28,15 @@
 	<form:hidden path="commentReferee"/>
 	<form:hidden path="commentHandyWorker"/>
 
-	<div>
-		<input type="submit" name="save" value="<spring:message code='button.edit' />" />
-	</div>
+
 	<div>
 		<form:label path="commentCustomer"><spring:message code="commentCustomer" /></form:label>
-		<form:textarea path="commentCustomer"/>
+		<form:textarea path="commentCustomer" required="required"/>
 		<form:errors path="commentCustomer"></form:errors>
 		<br />
+	</div>
+		<div>
+		<input type="submit" name="save" value="<spring:message code='button.edit' />" />
+				<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
 	</div>
 </form:form>

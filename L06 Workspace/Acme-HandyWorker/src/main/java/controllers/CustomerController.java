@@ -119,6 +119,8 @@ public class CustomerController extends AbstractController {
 			try {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
 				System.out.println(binding);
+				if (customer.getPhone().matches("^([0-9]{4,})$"))
+					customer.setPhone("+" + this.welcomeService.getPhone() + " " + customer.getPhone());
 				final String password = customer.getUserAccount().getPassword();
 				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 				final String hashPassword = encoder.encodePassword(password, null);

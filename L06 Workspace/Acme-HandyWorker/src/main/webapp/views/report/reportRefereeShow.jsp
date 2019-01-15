@@ -22,10 +22,6 @@
 <div>
 <security:authorize access="hasRole('REFEREE')">
 	<div>
-		<a href="complaint/referee/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
-		<br />
-	</div>
-	<div>
 		<h2><spring:message code="report.details"></spring:message></h2>
 		<display:table name="report" id="row" requestURI="${requestURI}" class="displaytag">
 			<display:column property="moment" titleKey="report.moment" format="{0,date,dd/MM/yyyy HH:mm}"></display:column>
@@ -54,6 +50,10 @@
 	</div>
 	<div>
 		<a href="note/referee/create.do?id=${report.id}"><input type="button" value="<spring:message code='button.create'></spring:message>"></a>
+			<div>
+		<a href="complaint/referee/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
+		<br />
+	</div>
 	</div>
 </security:authorize>
  </div>

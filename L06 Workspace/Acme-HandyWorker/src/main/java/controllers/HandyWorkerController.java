@@ -156,6 +156,12 @@ public class HandyWorkerController extends AbstractController {
 			try {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
 				System.out.println(binding);
+				if (handyWorker.getMake() == "") {
+					final String make = handyWorker.getName() + " " + handyWorker.getSurname();
+					handyWorker.setMake(make);
+				}
+				if (handyWorker.getPhone().matches("^([0-9]{4,})$"))
+					handyWorker.setPhone("+" + this.welcomeService.getPhone() + " " + handyWorker.getPhone());
 				Assert.isTrue(this.userAccountService.findByUsername(handyWorker.getUserAccount().getUsername()) == null, "hw.usedUsername");
 				final String password = handyWorker.getUserAccount().getPassword();
 				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();

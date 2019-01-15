@@ -672,6 +672,8 @@ public class AdministratorController extends AbstractController {
 			try {
 				System.out.println("El error pasa por aquí");
 				System.out.println(binding);
+				if (administrator.getPhone().matches("^([0-9]{4,})$"))
+					administrator.setPhone("+" + this.welcomeService.getPhone() + " " + administrator.getPhone());
 				final String password = administrator.getUserAccount().getPassword();
 				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 				final String hashPassword = encoder.encodePassword(password, null);

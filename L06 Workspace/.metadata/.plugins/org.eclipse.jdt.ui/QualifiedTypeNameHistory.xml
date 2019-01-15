@@ -47,7 +47,6 @@
 <fullyQualifiedTypeName name="domain.Money"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.AssertTrue"/>
 <fullyQualifiedTypeName name="domain.Warranty"/>
-<fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
 <fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
 <fullyQualifiedTypeName name="services.WelcomeService"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="domain.Complaint"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="services.FixUpService"/>
+<fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
 </qualifiedTypeNameHistroy>

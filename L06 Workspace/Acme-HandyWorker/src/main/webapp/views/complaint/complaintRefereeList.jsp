@@ -35,7 +35,7 @@
  </div>
  <div>
  	<h2><spring:message code="complaint.referee.myList"></spring:message></h2>
-	<display:table name="myComplaints" id="row" requestURI="${requestURI} }" pagesize="5" class="displaytag">
+	<display:table name="myComplaints" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 		<display:column titleKey="customer.ticker"> 
 			<a href="complaint/referee/show.do?complaintId=${row.id}">${row.ticker}</a>
 		</display:column>
@@ -47,4 +47,9 @@
 </div>
 </security:authorize>
  </div>
+ 			<form method="get" action=" ">
+				<button type="submit">
+					<spring:message code="button.back" />
+				</button>
+			</form>
 </body>

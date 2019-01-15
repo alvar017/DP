@@ -125,6 +125,7 @@ public class ComplaintRefereeController extends AbstractController {
 		final String logo = this.welcomeService.getLogo();
 		res.addObject("logo", logo);
 		res.addObject("fixUps", fixUps);
+		res.addObject("complaint", complaint);
 		res.addObject("requestURI", "complaint/customer/show.do");
 
 		return res;

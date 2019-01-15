@@ -22,10 +22,6 @@
 <div>
 <security:authorize access="hasRole('CUSTOMER')">
 	<div>
-		<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
-		<br />
-	</div>
-	<div>
 		<spring:message code="details"></spring:message>
 		<display:table name="note" id="row" requestURI="${requestURI}" class="displaytag">
 			<display:column property="moment" titleKey="moment" format="{0,date,dd/MM/yyyy HH:mm}"></display:column>
@@ -53,6 +49,10 @@
 		<c:if test="${empty note.commentCustomer}">
 			<a href="note/customer/edit.do?noteId=${note.id}"><input type="button" value="<spring:message code='button.edit'></spring:message>"></a>
 		</c:if>
+	</div>
+		<div>
+		<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
+		<br />
 	</div>
 </security:authorize>
  </div>

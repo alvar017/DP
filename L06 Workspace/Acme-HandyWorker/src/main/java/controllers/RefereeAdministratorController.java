@@ -126,6 +126,8 @@ public class RefereeAdministratorController extends AbstractController {
 		} else
 			try {
 				System.out.println(binding);
+				if (referee.getPhone().matches("^([0-9]{4,})$"))
+					referee.setPhone("+" + this.welcomeService.getPhone() + " " + referee.getPhone());
 				final String password = referee.getUserAccount().getPassword();
 				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 				final String hashPassword = encoder.encodePassword(password, null);

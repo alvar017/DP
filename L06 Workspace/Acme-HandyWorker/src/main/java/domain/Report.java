@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -46,6 +47,7 @@ public class Report extends DomainEntity {
 		this.moment = moment;
 	}
 
+	@NotBlank
 	public String getDescription() {
 		return this.description;
 	}

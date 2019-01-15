@@ -25,10 +25,6 @@
 	<form:hidden path="notes"/>
 	<form:hidden path="isFinal" />
 	<div>
-		<a href="complaint/referee/list.do"><input type="button" value="<spring:message code='button.cancel'></spring:message>"></a>
-		<input type="submit" name="save" value="<spring:message code='complaint.save' />" onclick="return confirm('<spring:message code='conf'></spring:message>');">
-	</div>
-	<div>
 		<form:label path="description"><spring:message code="complaint.description" /></form:label>
 		<form:textarea path="description"/>
 		<form:errors path="description"></form:errors>
@@ -37,5 +33,9 @@
 		<form:textarea path="attachment"/>
 		<form:errors path="attachment"></form:errors>
 		<br />
+	</div>
+		<div>
+		<a href="complaint/referee/list.do"><input type="button" value="<spring:message code='button.cancel'></spring:message>"></a>
+		<input type="submit" name="save" value="<spring:message code='complaint.save' />" onclick="return confirm('<spring:message code='conf'></spring:message>');">
 	</div>
 </form:form>

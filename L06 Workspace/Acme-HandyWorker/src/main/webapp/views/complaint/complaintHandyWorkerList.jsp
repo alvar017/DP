@@ -32,6 +32,11 @@
 	<display:column property="description" titleKey="complaint.description" />	
 </display:table>
 </div>
+			<form method="get" action=" ">
+				<button type="submit">
+					<spring:message code="button.back" />
+				</button>
+			</form>
 </security:authorize>
  </div>
 </body>

@@ -76,7 +76,7 @@ public class FinderService {
 
 	private Boolean checkResult(final Integer result) {
 		Boolean res = true;
-		if (result > 0)
+		if (result > 0 && result < 100)
 			res = false;
 		return res;
 	}

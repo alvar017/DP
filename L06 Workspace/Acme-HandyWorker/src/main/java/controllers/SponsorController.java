@@ -123,6 +123,8 @@ public class SponsorController extends AbstractController {
 			try {
 				System.out.println("El error pasa por aquí alvaro (TRY de save())");
 				System.out.println(binding);
+				if (sponsor.getPhone().matches("^([0-9]{4,})$"))
+					sponsor.setPhone("+" + this.welcomeService.getPhone() + " " + sponsor.getPhone());
 				final String password = sponsor.getUserAccount().getPassword();
 				final Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 				final String hashPassword = encoder.encodePassword(password, null);

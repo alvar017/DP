@@ -24,12 +24,6 @@
 	<form:hidden path="ticker"/>
 	<form:hidden path="referee"/>
 	<div>
-		<a href="complaint/customer/edit.do?complaintId=${complaint.id}"><input type="button" value="<spring:message code='button.reset'></spring:message>"></a>
-		<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
-		<input type="submit" name="save" value="<spring:message code='complaint.save' />" onclick="return confirm('<spring:message code='create'></spring:message>')"/>
-		<br />
-	</div>
-	<div>
 		<br />
 		<form:label path="fixUp"><spring:message code="complaint.fixUp" /></form:label>
 		<form:select  id="fixUps" path="fixUp">
@@ -47,6 +41,12 @@
 		<form:label path="attachment"><spring:message code="complaint.attachment" /></form:label>
 		<form:textarea path="attachment"/>
 		<form:errors path="attachment"></form:errors>
+		<br />
+	</div>
+	<div>
+		<br />
+		<a href="complaint/customer/list.do"><input type="button" value="<spring:message code='button.back'></spring:message>"></a>
+		<input type="submit" name="save" value="<spring:message code='complaint.save' />" onclick="return confirm('<spring:message code='create.confirm'></spring:message>')"/>
 		<br />
 	</div>
 </form:form>
