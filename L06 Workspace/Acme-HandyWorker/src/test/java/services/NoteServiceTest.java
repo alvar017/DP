@@ -1,6 +1,8 @@
 
 package services;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -74,6 +76,14 @@ public class NoteServiceTest extends AbstractTest {
 
 		final FixUp fixUp = this.fixUpService.create();
 		fixUp.setHandyWorker(savehandyWorker);
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp fixUpSave = this.fixUpService.save(fixUp);
 
 		final Administrator administrator = this.administratorService.createFirstAdmin();
@@ -94,6 +104,7 @@ public class NoteServiceTest extends AbstractTest {
 
 		final Complaint complaint = this.complaintService.create();
 		complaint.setFixUp(fixUpSave);
+		complaint.setDescription("descriptionTest");
 		final Complaint complaintSave = this.complaintService.save(complaint);
 
 		final Boolean refereeBefore = complaintSave.getReferee() != null;
@@ -103,6 +114,7 @@ public class NoteServiceTest extends AbstractTest {
 
 		final Report report = this.reportService.create();
 		report.setComplaint(complaintSave);
+		report.setDescription("test");
 		final Report reportSaver = this.reportService.save(report);
 
 		final Authority a = new Authority();
@@ -138,6 +150,14 @@ public class NoteServiceTest extends AbstractTest {
 
 		final FixUp fixUp = this.fixUpService.create();
 		fixUp.setHandyWorker(savehandyWorker);
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp fixUpSave = this.fixUpService.save(fixUp);
 
 		final Administrator administrator = this.administratorService.createFirstAdmin();
@@ -158,6 +178,7 @@ public class NoteServiceTest extends AbstractTest {
 
 		final Complaint complaint = this.complaintService.create();
 		complaint.setFixUp(fixUpSave);
+		complaint.setDescription("descriptionTest");
 		final Complaint complaintSave = this.complaintService.save(complaint);
 
 		final Boolean refereeBefore = complaintSave.getReferee() != null;
@@ -167,6 +188,7 @@ public class NoteServiceTest extends AbstractTest {
 
 		final Report report = this.reportService.create();
 		report.setComplaint(complaintSave);
+		report.setDescription("test");
 		final Report reportSaver = this.reportService.save(report);
 
 		final Authority a = new Authority();
@@ -204,6 +226,14 @@ public class NoteServiceTest extends AbstractTest {
 
 		final FixUp fixUp = this.fixUpService.create();
 		fixUp.setHandyWorker(savehandyWorker);
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp fixUpSave = this.fixUpService.save(fixUp);
 
 		final Administrator administrator = this.administratorService.createFirstAdmin();
@@ -224,6 +254,7 @@ public class NoteServiceTest extends AbstractTest {
 
 		final Complaint complaint = this.complaintService.create();
 		complaint.setFixUp(fixUpSave);
+		complaint.setDescription("descriptionTest");
 		final Complaint complaintSave = this.complaintService.save(complaint);
 
 		final Boolean refereeBefore = complaintSave.getReferee() != null;
@@ -233,6 +264,7 @@ public class NoteServiceTest extends AbstractTest {
 
 		final Report report = this.reportService.create();
 		report.setComplaint(complaintSave);
+		report.setDescription("test");
 		final Report reportSaver = this.reportService.save(report);
 
 		final Note note = this.noteService.create();
@@ -277,6 +309,14 @@ public class NoteServiceTest extends AbstractTest {
 
 		final FixUp fixUp = this.fixUpService.create();
 		fixUp.setHandyWorker(savehandyWorker);
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp fixUpSave = this.fixUpService.save(fixUp);
 
 		final Administrator administrator = this.administratorService.createFirstAdmin();
@@ -297,6 +337,7 @@ public class NoteServiceTest extends AbstractTest {
 
 		final Complaint complaint = this.complaintService.create();
 		complaint.setFixUp(fixUpSave);
+		complaint.setDescription("descriptionTest");
 		final Complaint complaintSave = this.complaintService.save(complaint);
 
 		final Boolean refereeBefore = complaintSave.getReferee() != null;
@@ -306,6 +347,7 @@ public class NoteServiceTest extends AbstractTest {
 
 		final Report report = this.reportService.create();
 		report.setComplaint(complaintSave);
+		report.setDescription("test");
 		final Report reportSaver = this.reportService.save(report);
 
 		final Note note = this.noteService.create();

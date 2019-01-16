@@ -1,8 +1,10 @@
 
 package services;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -42,6 +44,8 @@ public class FixUpServiceTest extends AbstractTest {
 	@Autowired
 	private FinderService			finderService;
 
+	SimpleDateFormat				sdf	= new SimpleDateFormat("yyyy/MM/dd HH:mm");
+
 
 	@Test
 	public void testCreateFixUp() {
@@ -58,6 +62,14 @@ public class FixUpServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
 	}
@@ -71,6 +83,14 @@ public class FixUpServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
 		saveFixUp.setAddress("Rodrigo de Triana 14");
@@ -88,6 +108,14 @@ public class FixUpServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		Assert.isTrue(this.fixUpService.findAll().contains(saveFixUp));
 		this.fixUpService.delete(saveFixUp);
@@ -104,17 +132,54 @@ public class FixUpServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp1 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate1 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate1 = new Date(2019, 12, 11);
+		fixUp1.setStartDate(startDate1);
+		fixUp1.setEndDate(endDate1);
+		fixUp1.setAddress("AddressTest");
+		fixUp1.setDescription("DescriptionTest");
 		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
+
 		final FixUp fixUp2 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate2 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate2 = new Date(2019, 12, 11);
+		fixUp2.setStartDate(startDate2);
+		fixUp2.setEndDate(endDate2);
+		fixUp2.setAddress("AddressTest");
+		fixUp2.setDescription("DescriptionTest");
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
+
 		final FixUp fixUp3 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate3 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate3 = new Date(2019, 12, 11);
+		fixUp3.setStartDate(startDate3);
+		fixUp3.setEndDate(endDate3);
+		fixUp3.setAddress("AddressTest");
+		fixUp3.setDescription("DescriptionTest");
 		final FixUp saveFixUp3 = this.fixUpService.save(fixUp3);
+
 		final FixUp fixUp4 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate4 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate4 = new Date(2019, 12, 11);
+		fixUp4.setStartDate(startDate4);
+		fixUp4.setEndDate(endDate4);
+		fixUp4.setAddress("AddressTest");
+		fixUp4.setDescription("DescriptionTest");
 		final FixUp saveFixUp4 = this.fixUpService.save(fixUp4);
+
 		final int numFixUpAfter = this.fixUpService.listing().size();
 		Assert.isTrue(numFixUpAfter == 4);
 	}
 
+	@Test
 	public void testShowFixUp() {
 		final Customer customer = this.customerService.create();
 		customer.setName("Alvaro");
@@ -124,6 +189,14 @@ public class FixUpServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp1 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate4 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate4 = new Date(2019, 12, 11);
+		fixUp1.setStartDate(startDate4);
+		fixUp1.setEndDate(endDate4);
+		fixUp1.setAddress("AddressTest");
+		fixUp1.setDescription("DescriptionTest");
 		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
 		Assert.isTrue(this.fixUpService.showing(saveFixUp1.getId()).equals(saveFixUp1));
 	}
@@ -197,6 +270,14 @@ public class FixUpServiceTest extends AbstractTest {
 		final Customer savedCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate1 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate1 = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate1);
+		fixUp.setEndDate(endDate1);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		fixUp.setDescription("sex");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		//Comprobar que el customer está baneado
@@ -216,15 +297,47 @@ public class FixUpServiceTest extends AbstractTest {
 		super.authenticate("carferben");
 
 		final FixUp fixUp1 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate1 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate1 = new Date(2019, 12, 11);
+		fixUp1.setStartDate(startDate1);
+		fixUp1.setEndDate(endDate1);
+		fixUp1.setAddress("AddressTest");
+		fixUp1.setDescription("DescriptionTest");
 		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
 
 		final FixUp fixUp2 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate2 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate2 = new Date(2019, 12, 11);
+		fixUp2.setStartDate(startDate2);
+		fixUp2.setEndDate(endDate2);
+		fixUp2.setAddress("AddressTest");
+		fixUp2.setDescription("DescriptionTest");
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
 
 		final FixUp fixUp3 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate3 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate3 = new Date(2019, 12, 11);
+		fixUp3.setStartDate(startDate3);
+		fixUp3.setEndDate(endDate3);
+		fixUp3.setAddress("AddressTest");
+		fixUp3.setDescription("DescriptionTest");
 		final FixUp saveFixUp3 = this.fixUpService.save(fixUp3);
 
 		final FixUp fixUp4 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate4 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate4 = new Date(2019, 12, 11);
+		fixUp4.setStartDate(startDate4);
+		fixUp4.setEndDate(endDate4);
+		fixUp4.setAddress("AddressTest");
+		fixUp4.setDescription("DescriptionTest");
 		final FixUp saveFixUp4 = this.fixUpService.save(fixUp4);
 
 		final Collection<FixUp> fixUps = new ArrayList<>();
@@ -233,18 +346,29 @@ public class FixUpServiceTest extends AbstractTest {
 		fixUps.add(saveFixUp3);
 		fixUps.add(saveFixUp4);
 
+		final HandyWorker handyWorker = this.handyWorkerService.create();
+		handyWorker.setName("CarmenH");
+		handyWorker.setSurname("carmenH");
+		handyWorker.getUserAccount().setUsername("carferbenH");
+		handyWorker.getUserAccount().setPassword("123456789H");
+		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
+		super.authenticate("carferbenH");
+
 		final Finder finder = this.finderService.create();
 		finder.setFixUps(fixUps);
 		final Finder finderSave = this.finderService.save(finder);
 
-		final HandyWorker handyWorker = this.handyWorkerService.create();
-		handyWorker.setName("Alvaro");
-		handyWorker.setSurname("alvaro");
-		handyWorker.getUserAccount().setUsername("hwAuth");
-		handyWorker.getUserAccount().setPassword("123456789");
-		handyWorker.setFinder(finderSave);
-		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
-		super.authenticate("hwAuth");
+		saveHandyWorker.setFinder(finderSave);
+		final HandyWorker save2HandyWorker = this.handyWorkerService.save(saveHandyWorker);
+
+		//		final HandyWorker handyWorker = this.handyWorkerService.create();
+		//		handyWorker.setName("Alvaro");
+		//		handyWorker.setSurname("alvaro");
+		//		handyWorker.getUserAccount().setUsername("hwAuth");
+		//		handyWorker.getUserAccount().setPassword("123456789");
+		//		handyWorker.setFinder(finderSave);
+		//		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
+		//		super.authenticate("hwAuth");
 
 		final Collection<FixUp> resF = this.fixUpService.showAllFixUpbyFinder(finderSave.getId());
 		final Integer list = resF.size();

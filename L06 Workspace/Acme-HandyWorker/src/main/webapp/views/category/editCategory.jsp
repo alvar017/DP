@@ -40,13 +40,13 @@
 		
 		<br />
 		
-		<form:label path="subCategories">
-			<spring:message code="category.subcategories" />:
+		<form:label path="parentCategory">
+			<spring:message code="category.parentCategory" />:
 		</form:label>
-		<form:select path="subCategories">
+		<form:select path="parentCategory">
    		 	<form:options items="${nameCategories}" />
 		</form:select>
-		<form:errors cssClass="error" path="subCategories" />
+		<form:errors cssClass="error" path="parentCategory" />
 		
 		<br />
 	

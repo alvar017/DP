@@ -2,6 +2,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -48,6 +49,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final HandyWorker hw = this.handyWorkerService.create();
 		hw.setName("hw");
 		hw.setSurname("hwsur");
@@ -55,7 +64,9 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setMoment(startDate);
 		endorsement.setendorsableReceiver(saveHandyWorker);
+		endorsement.setComments("comment");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
 	}
@@ -71,6 +82,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final HandyWorker hw = this.handyWorkerService.create();
 		hw.setName("hw");
 		hw.setSurname("hwsur");
@@ -82,7 +101,9 @@ public class EndorsementsServiceTest extends AbstractTest {
 		super.unauthenticate();
 		super.authenticate("dogran2");
 		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setMoment(startDate);
 		endorsement.setendorsableReceiver(saveCustomer);
+		endorsement.setComments("comment");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
 	}
@@ -98,6 +119,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final HandyWorker hw = this.handyWorkerService.create();
 		hw.setName("hw");
 		hw.setSurname("hwsur");
@@ -105,7 +134,9 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setMoment(startDate);
 		endorsement.setendorsableReceiver(saveHandyWorker);
+		endorsement.setComments("comment");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		super.unauthenticate();
 
@@ -118,6 +149,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer2 = this.customerService.save(customer2);
 		super.authenticate("dogran2");
 		final FixUp fixUp2 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate2 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate2 = new Date(2019, 12, 11);
+		fixUp2.setStartDate(startDate2);
+		fixUp2.setEndDate(endDate2);
+		fixUp2.setAddress("AddressTest");
+		fixUp2.setDescription("DescriptionTest");
 		final HandyWorker hw2 = this.handyWorkerService.create();
 		hw2.setName("hw");
 		hw2.setSurname("hwsur");
@@ -125,6 +164,8 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp2.setHandyWorker(saveHandyWorker2);
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
 		final Endorsement endorsement2 = this.endorsementsService.create();
+		endorsement2.setComments("comment");
+		endorsement2.setMoment(startDate);
 		endorsement2.setendorsableReceiver(saveHandyWorker2);
 		final Endorsement saveEndorsement2 = this.endorsementsService.save(endorsement2);
 		Assert.isTrue(this.endorsementsService.findAll().size() == 2);
@@ -143,6 +184,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final HandyWorker hw = this.handyWorkerService.create();
 		hw.setName("hw");
 		hw.setSurname("hwsur");
@@ -150,7 +199,9 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setMoment(startDate);
 		endorsement.setendorsableReceiver(saveHandyWorker);
+		endorsement.setComments("comment");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		super.unauthenticate();
 
@@ -163,6 +214,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer2 = this.customerService.save(customer2);
 		super.authenticate("dogran2");
 		final FixUp fixUp2 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate2 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate2 = new Date(2019, 12, 11);
+		fixUp2.setStartDate(startDate2);
+		fixUp2.setEndDate(endDate2);
+		fixUp2.setAddress("AddressTest");
+		fixUp2.setDescription("DescriptionTest");
 		final HandyWorker hw2 = this.handyWorkerService.create();
 		hw2.setName("hw");
 		hw2.setSurname("hwsur");
@@ -170,6 +229,8 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp2.setHandyWorker(saveHandyWorker2);
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
 		final Endorsement endorsement2 = this.endorsementsService.create();
+		endorsement2.setComments("comment");
+		endorsement2.setMoment(startDate);
 		endorsement2.setendorsableReceiver(saveHandyWorker2);
 		final Endorsement saveEndorsement2 = this.endorsementsService.save(endorsement2);
 		Assert.isTrue(this.endorsementsService.findAll().size() == 2);
@@ -189,6 +250,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final HandyWorker hw = this.handyWorkerService.create();
 		hw.setName("hw");
 		hw.setSurname("hwsur");
@@ -196,7 +265,9 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setMoment(startDate);
 		endorsement.setendorsableReceiver(saveHandyWorker);
+		endorsement.setComments("comment");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		saveEndorsement.setComments("ddad");
 		final Endorsement updateEndorsement = this.endorsementsService.update(saveEndorsement);
@@ -213,6 +284,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final HandyWorker hw = this.handyWorkerService.create();
 		hw.setName("hw");
 		hw.setSurname("hwsur");
@@ -220,7 +299,9 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setMoment(startDate);
 		endorsement.setendorsableReceiver(saveHandyWorker);
+		endorsement.setComments("comment");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		Assert.isTrue(this.endorsementsService.findAll().contains(saveEndorsement));
 		this.endorsementsService.delete(saveEndorsement);
@@ -238,6 +319,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final HandyWorker hw = this.handyWorkerService.create();
 		hw.setName("hw");
 		hw.setSurname("hwsur");
@@ -245,7 +334,9 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setMoment(startDate);
 		endorsement.setendorsableReceiver(saveHandyWorker);
+		endorsement.setComments("comment");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);
 		super.unauthenticate();
 
@@ -258,6 +349,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer2 = this.customerService.save(customer2);
 		super.authenticate("dogran2");
 		final FixUp fixUp2 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate2 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate2 = new Date(2019, 12, 11);
+		fixUp2.setStartDate(startDate2);
+		fixUp2.setEndDate(endDate2);
+		fixUp2.setAddress("AddressTest");
+		fixUp2.setDescription("DescriptionTest");
 		final HandyWorker hw2 = this.handyWorkerService.create();
 		hw2.setName("hw");
 		hw2.setSurname("hwsur");
@@ -265,7 +364,9 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp2.setHandyWorker(saveHandyWorker2);
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
 		final Endorsement endorsement2 = this.endorsementsService.create();
+		endorsement2.setMoment(startDate);
 		endorsement2.setendorsableReceiver(saveHandyWorker2);
+		endorsement2.setComments("comment");
 		final Endorsement saveEndorsement2 = this.endorsementsService.save(endorsement2);
 		Assert.isTrue(this.endorsementsService.findAll().size() == 2);
 		final Collection<Endorsement> endorses = this.endorsementsService.listing();
@@ -283,6 +384,14 @@ public class EndorsementsServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final HandyWorker hw = this.handyWorkerService.create();
 		hw.setName("hw");
 		hw.setSurname("hwsur");
@@ -290,6 +399,8 @@ public class EndorsementsServiceTest extends AbstractTest {
 		fixUp.setHandyWorker(saveHandyWorker);
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Endorsement endorsement = this.endorsementsService.create();
+		endorsement.setComments("comment");
+		endorsement.setMoment(startDate);
 		endorsement.setendorsableReceiver(saveHandyWorker);
 		endorsement.setComments("bueno rápido servicial");
 		final Endorsement saveEndorsement = this.endorsementsService.save(endorsement);

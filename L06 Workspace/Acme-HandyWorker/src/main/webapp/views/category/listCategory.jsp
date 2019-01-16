@@ -38,16 +38,23 @@
     	</c:otherwise>
 	</c:choose>
   
-  	<display:column property="subCategories" titleKey="category.subcategories"/>
+  	<display:column property="parentCategory" titleKey="category.parentCategory"/>
   	
   	</display:table>
   	
 	<p class="create"><input type="button" value=<spring:message code="administrator.createCategory" /> id="buttonCategory" name="buttonCategory"  onclick="location.href='category/administrator/create.do';"/></p>
   		
-			<form method="get" action=" ">
-				<button type="submit">
-					<spring:message code="button.back" />
-				</button>
-			</form>
+  		<c:choose>
+    		<c:when test="${language=='English'}">
+        		<form>
+      				<input type="button" value="Back" name="volver atrás2" onclick="history.back()" />
+	  			</form> 
+    		</c:when>    
+    		<c:otherwise>
+		 		<form>
+      				<input type="button" value="Volver" name="volver atrás2" onclick="history.back()" />
+	  			</form>        		
+    		</c:otherwise>
+		</c:choose>
 		
 </body>

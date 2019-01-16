@@ -1,6 +1,8 @@
 
 package services;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -54,6 +56,13 @@ public class PhaseServiceTest extends AbstractTest {
 		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
 		//CREAR PHASE
 		final Phase phase = this.phaseService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate2 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate2 = new Date(2019, 12, 11);
+		phase.setStartDate(startDate2);
+		phase.setEndDate(endDate2);
+		phase.setTitle("titleTest");
 		//CREAR CUSTOMER
 		final Customer customer = this.customerService.create();
 		customer.setName("Alvaro");
@@ -65,6 +74,14 @@ public class PhaseServiceTest extends AbstractTest {
 		super.authenticate("dogran2");
 		final FixUp fixUp = this.fixUpService.create();
 		fixUp.setHandyWorker(saveHandyWorker);
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		super.unauthenticate();
 		//AUTENTICAR HW PARA GUARDAR PHASE
@@ -86,6 +103,13 @@ public class PhaseServiceTest extends AbstractTest {
 		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
 		//CREAR PHASE
 		final Phase phase = this.phaseService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate2 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate2 = new Date(2019, 12, 11);
+		phase.setStartDate(startDate2);
+		phase.setEndDate(endDate2);
+		phase.setTitle("titleTest");
 		//CREAR CUSTOMER
 		final Customer customer = this.customerService.create();
 		customer.setName("Alvaro");
@@ -97,6 +121,14 @@ public class PhaseServiceTest extends AbstractTest {
 		super.authenticate("dogran2");
 		final FixUp fixUp = this.fixUpService.create();
 		fixUp.setHandyWorker(saveHandyWorker);
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		super.unauthenticate();
 		//AUTENTICAR HW PARA GUARDAR PHASE

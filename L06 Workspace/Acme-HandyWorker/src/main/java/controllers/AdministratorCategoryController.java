@@ -104,37 +104,54 @@ public class AdministratorCategoryController extends AbstractController {
 
 		category = this.categoryService.create();
 		result = this.createEditModelAndView(category);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		return result;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int categoryId) {
+	public ModelAndView edit(@RequestParam(value = "categoryId", defaultValue = "-1") final int categoryId) {
 		ModelAndView result;
 		final Category category;
+		final Collection<Category> categories = this.categoryService.findAll();
 
-		category = this.categoryService.findOne(categoryId);
-		Assert.notNull(category);
-		result = this.createEditModelAndView(category);
+		if (categoryId == -1) {
+			result = new ModelAndView("category/administrator/list");
+			result.addObject("categories", categories);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		} else {
+			category = this.categoryService.findOne(categoryId);
+			Assert.notNull(category);
+			result = this.createEditModelAndView(category);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		}
 		return result;
 	}
-
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Category category, final BindingResult binding) {
 		ModelAndView result;
 		System.out.println(category);
-		System.out.println(category.getSubCategories());
+		System.out.println(category.getParentCategory());
 		System.out.println("Entro en el save");
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding");
 			System.out.println(binding.getAllErrors().get(0));
 			result = this.createEditModelAndView(category);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 		} else
 			try {
 				this.categoryService.save(category);
 				result = new ModelAndView("redirect:list.do");
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
 			} catch (final Throwable oops) {
 				System.out.println(oops);
 				result = this.createEditModelAndView(category, "category.commit.error");
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
 			}
 
 		return result;
@@ -153,14 +170,24 @@ public class AdministratorCategoryController extends AbstractController {
 		final List<Category> categoriesList = new ArrayList<>();
 		categoriesList.addAll(categories);
 
+		for (int j = 0; j < categoriesList.size(); j++)
+			if (categoriesList.get(j).getParentCategory() == null)
+				categoriesList.remove(categoriesList.get(j));
+
+		System.out.println("Antes del for");
+
 		try {
-			for (int i = 0; i < categories.size(); i++)
-				if (categoriesList.get(i).getSubCategories().contains(category)) {
-					category.setSubCategories(null);
-					System.out.println("PASA ESTO1");
-					categoriesList.get(i).getSubCategories().remove(category);
-					System.out.println("PASA ESTO2");
+			for (int i = 0; i < categoriesList.size(); i++)
+				if (category.getParentCategory() != null) {
+					System.out.println("Antes del segundo if");
+					System.out.println(category.getParentCategory());
+					if (categoriesList.get(i).getParentCategory().getId() == categoryId)
+						categoriesList.get(i).setParentCategory(category.getParentCategory());
+				} else if (categoriesList.get(i).getParentCategory().getId() == categoryId) {
+					System.out.println("en el else");
+					categoriesList.get(i).setParentCategory(null);
 				}
+			System.out.println("Después del for");
 			final Collection<FixUp> fixUps = this.fixUpService.findAll();
 			final List<FixUp> fixUpsList = new ArrayList<>();
 			fixUpsList.addAll(fixUps);
@@ -169,11 +196,17 @@ public class AdministratorCategoryController extends AbstractController {
 				if (fixUpsList.get(i).getCategory() != null)
 					if (fixUpsList.get(i).getCategory().getId() == categoryId)
 						fixUpsList.get(i).setCategory(null);
+			System.out.println("Después del fiUp");
+
 			this.categoryService.delete(category);
 			result = new ModelAndView("redirect:list.do");
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 		} catch (final Exception e) {
 			System.out.println(e);
 			result = new ModelAndView("redirect:list.do");
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 		}
 
 		result.addObject("language", language);

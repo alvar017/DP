@@ -97,15 +97,19 @@ public class ApplicationHandyWorkerController extends AbstractController {
 	}
 	//NUEVA
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int applicationId) {
+	public ModelAndView edit(@RequestParam(value = "applicationId", defaultValue = "-1") final int applicationId) {
 		ModelAndView result;
 		Application application;
 
-		System.out.println("Entro en el create");
-		application = this.applicationService.findOne(applicationId);
+		if (applicationId == -1)
+			result = new ModelAndView("redirect:list.do");
+		else {
+			System.out.println("Entro en el create");
+			application = this.applicationService.findOne(applicationId);
 
-		Assert.notNull(application);
-		result = this.createUpdateModelAndView(application);
+			Assert.notNull(application);
+			result = this.createUpdateModelAndView(application);
+		}
 
 		return result;
 	}
@@ -141,7 +145,7 @@ public class ApplicationHandyWorkerController extends AbstractController {
 		System.out.println(application);
 		System.out.println(application.getComments());
 		System.out.println("Entro en el update");
-		if (application.getOffered().getQuantity() < 0) {
+		if (application.getOffered() == null || application.getOffered().getQuantity() == null || application.getOffered().getQuantity() < 0) {
 			final ObjectError error = new ObjectError("maxPrice.quantity", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("offered.quantity", "error.maxPrice.quantity");

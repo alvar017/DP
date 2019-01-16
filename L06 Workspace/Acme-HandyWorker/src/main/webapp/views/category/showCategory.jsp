@@ -23,17 +23,20 @@
 				<table>
 					<tr><td><strong><spring:message code="category.show" /></strong></td></tr>
     						
-    				<tr><td><spring:message code="category.show.nameES" /><jstl:out value="${categore.nameES}"></jstl:out></td></tr>
+    				<tr><td><spring:message code="category.show.nameES" /><jstl:out value="${category.nameES}"></jstl:out></td></tr>
     							
     				<tr><td><spring:message code="category.show.nameEN" /><jstl:out value="${category.nameEN}"></jstl:out></td></tr>
     				  								
-					<tr><td><spring:message code="category.show.subcategories" /><jstl:out value="${category.subCategories}"></jstl:out></td></tr>
+					<tr><td><spring:message code="category.show.parentCategory" /><jstl:out value="${category.parentCategory}"></jstl:out></td></tr>
 										          			
           			</table>
           			
           			<a onclick="return confirmar('accion.html')" title="AcmeTitle" href="category/administrator/delete.do?id=${category.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
-          						<form method="get" action="warranty/administrator/list.do">
-    			<button type="submit"><spring:message code="button.back" /></button>
-			</form>
           			
       			</div>
+      			
+			<form method="get" action=" ">
+        		<form>
+      				<input type="button" value="Back" name="volver atrás2" onclick="history.back()" />
+	  			</form> 
+			</form>

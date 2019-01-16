@@ -1,6 +1,8 @@
 
 package services;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -52,10 +54,19 @@ public class ReportServiceTest extends AbstractTest {
 		super.authenticate("dogran");
 
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 
 		final Complaint c1 = this.complaintService.create();
 		c1.setFixUp(saveFixUp);
+		c1.setDescription("DescriptionTest");
 		final Complaint saveComplaint1 = this.complaintService.save(c1);
 		super.unauthenticate();
 
@@ -82,6 +93,7 @@ public class ReportServiceTest extends AbstractTest {
 
 		final Report re = this.reportService.create();
 		re.setComplaint(saveComplaint1);
+		re.setDescription("test");
 		final Report save = this.reportService.save(re);
 
 		Assert.isTrue(this.reportService.findAll().contains(save));
@@ -99,10 +111,19 @@ public class ReportServiceTest extends AbstractTest {
 		super.authenticate("dogran");
 
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 
 		final Complaint c1 = this.complaintService.create();
 		c1.setFixUp(saveFixUp);
+		c1.setDescription("descriptionTes");
 		final Complaint saveComplaint1 = this.complaintService.save(c1);
 		super.unauthenticate();
 

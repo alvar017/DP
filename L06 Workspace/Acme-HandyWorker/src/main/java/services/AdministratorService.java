@@ -84,8 +84,8 @@ public class AdministratorService {
 	}
 
 	public Administrator createFirstAdmin() {
-		final Collection<Administrator> administrators = this.adminRepository.findAll();
-		Assert.isTrue(administrators.size() == 0);
+		//		final Collection<Administrator> administrators = this.adminRepository.findAll();
+		//		Assert.isTrue(administrators.size() == 0);
 		final Administrator ad = new Administrator();
 		final UserAccount cuenta = new UserAccount();
 		final List<Authority> autoridades = new ArrayList<>();

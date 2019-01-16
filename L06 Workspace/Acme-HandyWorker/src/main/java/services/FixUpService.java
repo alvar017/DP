@@ -53,6 +53,8 @@ public class FixUpService {
 	FinderService				finderService;
 	@Autowired
 	PhaseService				phaseService;
+	@Autowired
+	ActorService				actorService;
 
 
 	//CARMEN: Método para modificar el IVA
@@ -153,7 +155,7 @@ public class FixUpService {
 		return this.fixUpRepository.findOne(id);
 	}
 	public FixUp save(final FixUp fixUp) {
-		this.checkSuspicious(fixUp);
+		this.checkSuspiciousWithBoolean(fixUp);
 		Assert.isTrue(!this.checkStartDateEndDate(fixUp.getStartDate(), fixUp.getEndDate()), "fixUp.wrongDate");
 		Assert.isTrue(!this.checkMomentDate(fixUp.getStartDate(), fixUp.getMoment()), "fixUp.wrongMomentDate");
 		return this.fixUpRepository.save(fixUp);
@@ -352,5 +354,16 @@ public class FixUpService {
 		result.put("ratio.fx", ratioFx);
 
 		return result;
+	}
+
+	private Boolean checkSuspiciousWithBoolean(final FixUp fixUp) {
+		Boolean res = false;
+		System.out.println(this.spamWords);
+		for (final String word : this.listSpamWords())
+			if (fixUp.getDescription().contains(word)) {
+				res = true;
+				this.actorService.getActorByUserId(LoginService.getPrincipal().getId()).setIsSuspicious(true);
+			}
+		return res;
 	}
 }

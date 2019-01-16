@@ -52,7 +52,7 @@ public class HandyWorkerServiceTest extends AbstractTest {
 		super.authenticate("AdminBox1");
 		final Collection<HandyWorker> handyWorkers = this.handyWorkerService.betterHandyWorker();
 		final List<HandyWorker> handWorkerList = (List<HandyWorker>) handyWorkers;
-		Assert.isTrue(handWorkerList.get(0).getId() == 450);
+		Assert.isTrue(handWorkerList.get(0).getId() == 827);
 	}
 
 	@Test

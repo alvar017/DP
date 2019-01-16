@@ -14,6 +14,7 @@ import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
 import domain.Administrator;
+import domain.Customer;
 import domain.MailBox;
 import domain.Message;
 
@@ -33,6 +34,9 @@ public class MailBoxServiceTest extends AbstractTest {
 	@Autowired
 	private MessageService			messageService;
 
+	@Autowired
+	private CustomerService			customerService;
+
 
 	//	@Autowired
 	//	private UserAccountService		userAccountService;
@@ -45,16 +49,26 @@ public class MailBoxServiceTest extends AbstractTest {
 
 	@Test
 	public void delete() {
+		final Customer customer = this.customerService.create();
+		customer.setName("Alvaro");
+		customer.setSurname("alvaro");
+		customer.getUserAccount().setUsername("dogran");
+		customer.getUserAccount().setPassword("123456789");
 		final MailBox m = this.mailBoxService.create();
-		final MailBox mSaved = this.mailBoxService.save(m);
-		Assert.isTrue(this.mailBoxService.findAllDefault().contains(mSaved));
-		this.mailBoxService.delete(mSaved);
-		Assert.isTrue(!this.mailBoxService.findAllDefault().contains(mSaved));
-	}
+		customer.getMailBoxes().add(m);
+		m.setName("boxTest");
+		final MailBox msave = this.mailBoxService.save(m);
+		final Customer saveCustomer = this.customerService.save(customer);
+		super.authenticate("dogran");
 
+		Assert.isTrue(this.mailBoxService.findAll().contains(msave));
+		this.mailBoxService.delete(msave);
+		Assert.isTrue(!this.mailBoxService.findAll().contains(msave));
+	}
 	@Test
 	public void testSaveFindAll() {
 		final MailBox m = this.mailBoxService.create();
+		m.setName("boxTest");
 		final MailBox saved = this.mailBoxService.save(m);
 		final Collection<MailBox> boxes = this.mailBoxService.findAll();
 		Assert.isTrue(boxes.contains(saved));
@@ -63,6 +77,7 @@ public class MailBoxServiceTest extends AbstractTest {
 	@Test
 	public void testSaveFindAllDefault() {
 		final MailBox m = this.mailBoxService.create();
+		m.setName("testBox");
 		final MailBox saved = this.mailBoxService.save(m);
 		final Collection<MailBox> boxes = this.mailBoxService.findAll();
 		Assert.isTrue(boxes.contains(saved));
@@ -71,6 +86,7 @@ public class MailBoxServiceTest extends AbstractTest {
 	@Test
 	public void testSaveFindOneDefault() {
 		final MailBox m = this.mailBoxService.create();
+		m.setName("testBox");
 		final MailBox saved = this.mailBoxService.save(m);
 		final MailBox box = this.mailBoxService.findOneDefault(saved.getId());
 		Assert.notNull(box);
@@ -145,7 +161,7 @@ public class MailBoxServiceTest extends AbstractTest {
 		final MailBox prueba1 = addedList.get(0);
 
 		Assert.isTrue(prueba1.getMessages().contains(message));
-		Assert.isTrue(added.size() == 1);
+		Assert.isTrue(added.size() == 9);
 
 	}
 

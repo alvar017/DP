@@ -2,6 +2,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -58,9 +59,18 @@ public class ComplaintServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Complaint c = this.complaintService.create();
 		c.setFixUp(saveFixUp);
+		c.setDescription("test");
 		final Complaint saveComplaint = this.complaintService.save(c);
 		Assert.isTrue(this.complaintService.findAll().contains(saveComplaint));
 	}
@@ -103,12 +113,24 @@ public class ComplaintServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Complaint c1 = this.complaintService.create();
 		final Complaint c2 = this.complaintService.create();
 		c1.setFixUp(saveFixUp);
+		c1.setDescription("test");
+
 		c1.setReferee(saveReferee);
 		c2.setFixUp(saveFixUp);
+		c2.setDescription("test");
+
 		super.unauthenticate();
 
 		super.authenticate("refereeUser");
@@ -128,9 +150,19 @@ public class ComplaintServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Complaint c1 = this.complaintService.create();
 		c1.setFixUp(saveFixUp);
+		c1.setDescription("test");
+
 		final Complaint saveComplaint1 = this.complaintService.save(c1);
 		super.unauthenticate();
 		// Creo un referee
@@ -166,9 +198,19 @@ public class ComplaintServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		final Complaint c1 = this.complaintService.create();
 		c1.setFixUp(saveFixUp);
+		c1.setDescription("test");
+
 		final Complaint saveComplaint1 = this.complaintService.save(c1);
 		super.unauthenticate();
 		// Creo un referee
@@ -215,13 +257,25 @@ public class ComplaintServiceTest extends AbstractTest {
 		super.authenticate("carferben");
 
 		final FixUp fixUp1 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp1.setStartDate(startDate);
+		fixUp1.setEndDate(endDate);
+		fixUp1.setAddress("AddressTest");
+		fixUp1.setDescription("DescriptionTest");
 		fixUp1.setHandyWorker(saveHandyWorker);
 		fixUp1.setCustomer(saveCustomer);
 		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
 
 		final Complaint c = this.complaintService.create();
 		c.setFixUp(saveFixUp1);
+		c.setDescription("test");
+
 		final Complaint cSave = this.complaintService.save(c);
+
+		super.authenticate("hwAuth");
 
 		final Collection<Complaint> res = this.complaintService.getAllComplaintsByHandyWorker();
 		Assert.isTrue(res.size() == 1);
@@ -251,8 +305,18 @@ public class ComplaintServiceTest extends AbstractTest {
 
 		final Complaint c = this.complaintService.create();
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
 		final FixUp savedFixUp = this.fixUpService.save(fixUp);
 		c.setFixUp(savedFixUp);
+		c.setDescription("test");
+
 		final Complaint savedC = this.complaintService.save(c);
 
 		final Complaint one = this.complaintService.findOne(savedC.getId());

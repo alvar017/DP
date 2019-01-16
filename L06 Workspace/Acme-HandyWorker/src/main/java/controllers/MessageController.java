@@ -230,13 +230,28 @@ public class MessageController extends AbstractController {
 		return result;
 	}
 	@RequestMapping(value = "/editBroadcast", method = RequestMethod.GET)
-	public ModelAndView editBroadcast(@RequestParam final int messageId) {
+	public ModelAndView editBroadcast(@RequestParam(value = "messageId", defaultValue = "-1") final int messageId) {
 		ModelAndView result;
-		final Message msg;
-
-		msg = this.messageService.findOne(messageId);
-		Assert.notNull(msg);
-		result = this.createEditModelAndViewBroadcast(msg);
+		if (messageId == -1) {
+			final UserAccount login = LoginService.getPrincipal();
+			final Actor a = this.actorService.getActorByUserId(login.getId());
+			result = new ModelAndView("mailBox/list");
+			result.addObject("mailBoxes", a.getMailBoxes());
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			SimpleDateFormat formatter;
+			String moment;
+			formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+			moment = formatter.format(new Date());
+			result.addObject("moment", moment);
+		} else {
+			final Message msg;
+			msg = this.messageService.findOne(messageId);
+			Assert.notNull(msg);
+			result = this.createEditModelAndViewBroadcast(msg);
+		}
 		return result;
 	}
 
@@ -246,7 +261,6 @@ public class MessageController extends AbstractController {
 		final UserAccount login = LoginService.getPrincipal();
 		final Actor sender = this.actorService.getActorByUserId(login.getId());
 		System.out.println("antes de exchangeMessage");
-		msg = this.messageService.sendBroadcast(msg);
 		System.out.println("despues de exchangeMessage");
 		System.out.println(sender);
 		System.out.println(msg);
@@ -254,17 +268,24 @@ public class MessageController extends AbstractController {
 		System.out.println(this.mailBoxService.getOutBoxActor(sender.getId()).getMessages());
 
 		System.out.println("Entro en el save");
+		//		if (msg.getBody() == null || msg.getBody().isEmpty()) {
+		//			final ObjectError error = new ObjectError("message.body", "An account already exists for this email.");
+		//			binding.addError(error);
+		//			binding.rejectValue("body", "error.message.body.blank");
+		//		}
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding messageController");
 			System.out.println(binding.getAllErrors().get(0));
 
 			final Collection<MailBox> mailBoxes = sender.getMailBoxes();
 			System.out.println(mailBoxes);
-			result = new ModelAndView("mailBox/list");
+			result = new ModelAndView("message/editBroadcast");
 			result.addObject("mailBoxes", mailBoxes);
+			result.addObject("messageId", msg.getId());
 		} else
 			try {
 				System.out.println("intenta el list broadcast");
+				msg = this.messageService.sendBroadcast(msg);
 				this.messageService.save(msg);
 				final Collection<MailBox> mailBoxes = sender.getMailBoxes();
 				System.out.println(mailBoxes);

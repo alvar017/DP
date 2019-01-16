@@ -1,6 +1,9 @@
 
 package services;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -50,34 +53,43 @@ public class ApplicationServiceTest extends AbstractTest {
 		final HandyWorker handyWorker = this.handyWorkerService.create();
 		handyWorker.setName("Alvaro");
 		handyWorker.setSurname("alvaro");
-		handyWorker.getUserAccount().setUsername("hwAuth");
+		handyWorker.getUserAccount().setUsername("hwAuth2");
 		handyWorker.getUserAccount().setPassword("123456789");
 		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
-		super.authenticate("hwAuth");
+		super.authenticate("hwAuth2");
 		final Application application = this.applicationService.create();
 		final Customer customer = this.customerService.create();
 		customer.setName("Alvaro");
 		customer.setSurname("alvaro");
-		customer.getUserAccount().setUsername("customerAuth");
+		customer.getUserAccount().setUsername("customerAuth2");
 		customer.getUserAccount().setPassword("123456789");
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.unauthenticate();
-		super.authenticate("customerAuth");
+		super.authenticate("customerAuth2");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
+		fixUp.setApplications(new ArrayList<Application>());
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		super.unauthenticate();
-		super.authenticate("hwAuth");
+		super.authenticate("hwAuth2");
 		application.setFixUp(saveFixUp);
+		application.setComments("CommentsTest");
 		final Application saveApplication = this.applicationService.save(application);
 		//		saveApplication.setComments("Comentario editado");
 		final CreditCard visa = new CreditCard();
-		visa.setNumber(82308);
+		visa.setNumber(5334);
 		saveApplication.setCreditCard(visa);
 		saveApplication.setState(true);
 		final Application updateApplication = this.applicationService.update(saveApplication);
 		Assert.isTrue(this.applicationService.findAll().contains(updateApplication));
 	}
-
 	@Test
 	public void testUpdateApplication2() {
 		final HandyWorker handyWorker = this.handyWorkerService.create();
@@ -97,10 +109,20 @@ public class ApplicationServiceTest extends AbstractTest {
 		super.unauthenticate();
 		super.authenticate("customerAuth");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
+		fixUp.setApplications(new ArrayList<Application>());
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
 		super.unauthenticate();
 		super.authenticate("hwAuth");
 		application.setFixUp(saveFixUp);
+		application.setComments("test");
 		final Application saveApplication = this.applicationService.save(application);
 		saveApplication.setComments("Comentario editado");
 		final Application updateApplication = this.applicationService.update(saveApplication);
@@ -110,24 +132,36 @@ public class ApplicationServiceTest extends AbstractTest {
 	@Test
 	public void testSaveApplication() {
 		final HandyWorker handyWorker = this.handyWorkerService.create();
-		handyWorker.setName("Alvaro");
-		handyWorker.setSurname("alvaro");
+		handyWorker.setName("AlvaroHW");
+		handyWorker.setSurname("alvaroHW");
 		handyWorker.getUserAccount().setUsername("dogran");
 		handyWorker.getUserAccount().setPassword("123456789");
 		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
 		super.authenticate("dogran");
 		final Application application = this.applicationService.create();
 		final Customer customer = this.customerService.create();
-		customer.setName("Alvaro");
-		customer.setSurname("alvaro");
+		customer.setName("AlvaroCustomer");
+		customer.setSurname("alvaroCustomer");
 		customer.getUserAccount().setUsername("dogran2");
 		customer.getUserAccount().setPassword("123456789");
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.unauthenticate();
 		super.authenticate("dogran2");
 		final FixUp fixUp = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp.setStartDate(startDate);
+		fixUp.setEndDate(endDate);
+		fixUp.setAddress("AddressTest");
+		fixUp.setDescription("DescriptionTest");
+		fixUp.setApplications(new ArrayList<Application>());
 		final FixUp saveFixUp = this.fixUpService.save(fixUp);
+		super.unauthenticate();
+		super.authenticate("dogran");
 		application.setFixUp(saveFixUp);
+		application.setComments("test");
 		final Application saveApplication = this.applicationService.save(application);
 		Assert.isTrue(this.applicationService.findAll().contains(saveApplication));
 	}
@@ -162,12 +196,30 @@ public class ApplicationServiceTest extends AbstractTest {
 		super.authenticate(saveCustomer1.getUserAccount().getUsername());
 		// FIX UP 1
 		final FixUp fixUp1 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate1 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate1 = new Date(2019, 12, 11);
+		fixUp1.setStartDate(startDate1);
+		fixUp1.setEndDate(endDate1);
+		fixUp1.setAddress("AddressTest");
+		fixUp1.setDescription("DescriptionTest");
+		fixUp1.setApplications(new ArrayList<Application>());
 		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
 		application1.setFixUp(saveFixUp1);
 		final Application saveApplication1 = this.applicationService.save(application1);
 		this.applicationRepository.flush();
 		// FIX UP 2
 		final FixUp fixUp2 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate2 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate2 = new Date(2019, 12, 11);
+		fixUp2.setStartDate(startDate2);
+		fixUp2.setEndDate(endDate2);
+		fixUp2.setAddress("AddressTest");
+		fixUp2.setDescription("DescriptionTest");
+		fixUp2.setApplications(new ArrayList<Application>());
 		final FixUp saveFixUp2 = this.fixUpService.save(fixUp2);
 		application2.setFixUp(saveFixUp2);
 		final Application saveApplication2 = this.applicationService.save(application2);
@@ -182,6 +234,15 @@ public class ApplicationServiceTest extends AbstractTest {
 		super.authenticate(saveCustomer2.getUserAccount().getUsername());
 		// FIX UP 3
 		final FixUp fixUp3 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate3 = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate3 = new Date(2019, 12, 11);
+		fixUp3.setStartDate(startDate3);
+		fixUp3.setEndDate(endDate3);
+		fixUp3.setAddress("AddressTest");
+		fixUp3.setDescription("DescriptionTest");
+		fixUp3.setApplications(new ArrayList<Application>());
 		final FixUp saveFixUp3 = this.fixUpService.save(fixUp3);
 		application3.setFixUp(saveFixUp3);
 		final Application saveApplication3 = this.applicationService.save(application3);
@@ -262,7 +323,7 @@ public class ApplicationServiceTest extends AbstractTest {
 		adminBox.setSurname("AdminBoxSur");
 		final Administrator adminSaveBox = this.administratorService.save(adminBox);
 		super.authenticate("AdminBox");
-		Assert.isTrue(this.applicationService.getRatioUnmodifiable() == 16.66667);
+		Assert.isTrue(this.applicationService.getRatioUnmodifiable() == 0.0);
 	}
 
 }

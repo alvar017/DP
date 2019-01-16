@@ -19,6 +19,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -111,14 +112,38 @@ public class MailBoxController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int mailBoxId) {
+	public ModelAndView edit(@RequestParam(value = "mailBoxId", defaultValue = "-1") final int mailBoxId) {
 		ModelAndView result;
 		final MailBox mailBox;
+		final UserAccount user = LoginService.getPrincipal();
+		final Actor a = this.actorService.getActorByUserId(user.getId());
+		if (mailBoxId == -1) {
+			result = new ModelAndView("mailBox/list");
+			result.addObject("mailBoxes", a.getMailBoxes());
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		} else {
 
-		mailBox = this.mailBoxService.findOne(mailBoxId);
-		Assert.notNull(mailBox);
-		result = this.createEditModelAndView(mailBox);
+			mailBox = this.mailBoxService.findOne(mailBoxId);
+			Assert.notNull(mailBox);
+			result = this.createEditModelAndView(mailBox);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		}
 		return result;
+	}
+
+	private Boolean checkNameMailbox(final MailBox mailboxToCreate) {
+		Boolean res = false;
+		final UserAccount login = LoginService.getPrincipal();
+		final Actor logged = this.actorService.getActorByUserId(login.getId());
+		final Collection<MailBox> mailboxes = logged.getMailBoxes();
+		for (final MailBox mailBoxCheck : mailboxes)
+			if (mailBoxCheck.getName().equals(mailboxToCreate.getName())) {
+				res = true;
+				break;
+			}
+		return res;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
@@ -132,7 +157,11 @@ public class MailBoxController extends AbstractController {
 		System.out.println(binding);
 		System.out.println(mailBox);
 		System.out.println("Entro en el save");
-
+		if (this.checkNameMailbox(mailBox)) {
+			final ObjectError error = new ObjectError("mailbox.name", "Ya existe esa box");
+			binding.addError(error);
+			binding.rejectValue("name", "error.mailbox.name");
+		}
 		if (binding.hasErrors()) {
 			System.out.println("Entro en el binding");
 			System.out.println(binding.getAllErrors().get(0));

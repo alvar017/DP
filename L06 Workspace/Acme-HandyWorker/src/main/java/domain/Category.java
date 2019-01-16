@@ -1,13 +1,10 @@
 
 package domain;
 
-import java.util.Collection;
-
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -16,9 +13,9 @@ import org.springframework.context.i18n.LocaleContextHolder;
 @Access(AccessType.PROPERTY)
 public class Category extends DomainEntity {
 
-	private String					nameES;
-	private String					nameEN;
-	private Collection<Category>	subCategories;
+	private String		nameES;
+	private String		nameEN;
+	private Category	parentCategory;
 
 
 	@NotBlank
@@ -39,13 +36,13 @@ public class Category extends DomainEntity {
 		this.nameEN = nameEN;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	public Collection<Category> getSubCategories() {
-		return this.subCategories;
+	@ManyToOne
+	public Category getParentCategory() {
+		return this.parentCategory;
 	}
 
-	public void setSubCategories(final Collection<Category> subCategories) {
-		this.subCategories = subCategories;
+	public void setParentCategory(final Category parentCategory) {
+		this.parentCategory = parentCategory;
 	}
 
 	@Override

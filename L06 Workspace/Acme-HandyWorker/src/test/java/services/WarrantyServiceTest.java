@@ -42,7 +42,7 @@ public class WarrantyServiceTest extends AbstractTest {
 	}
 	@Test
 	public void testFindOne() {
-		Assert.isTrue(this.warrantyService.findOne(452) != null);
+		Assert.isTrue(this.warrantyService.findOne(870) != null);
 	}
 
 	@Test
@@ -55,6 +55,7 @@ public class WarrantyServiceTest extends AbstractTest {
 		final Administrator adminTestSave = this.administratorService.save(adminTest);
 		super.authenticate("dogran");
 		final Warranty warranty = this.warrantyService.create();
+		warranty.setTitle("TittleTest");
 		final Warranty saved = this.warrantyService.save(warranty);
 		Assert.isTrue(this.warrantyService.findAll().contains(saved));
 	}
@@ -69,6 +70,7 @@ public class WarrantyServiceTest extends AbstractTest {
 		final Administrator adminTestSave = this.administratorService.save(adminTest);
 		super.authenticate("dogran");
 		final Warranty warranty = this.warrantyService.create();
+		warranty.setTitle("TittleTest");
 		final Warranty saved = this.warrantyService.save(warranty);
 		Assert.isTrue(this.warrantyService.findAll().contains(saved));
 		final Warranty savedCopy = this.warrantyService.create();
@@ -99,6 +101,7 @@ public class WarrantyServiceTest extends AbstractTest {
 		final Administrator adminTestSave = this.administratorService.save(adminTest);
 		super.authenticate("dogran");
 		final Warranty warranty = this.warrantyService.create();
+		warranty.setTitle("TittleTest");
 		final Warranty saved = this.warrantyService.save(warranty);
 		Assert.isTrue(this.warrantyService.findAll().contains(saved));
 		this.warrantyService.delete(saved);

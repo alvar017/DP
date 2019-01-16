@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="271" key="DIALOG_Y_ORIGIN"/>
-		<item value="1051" key="DIALOG_X_ORIGIN"/>
 		<item value="362" key="DIALOG_HEIGHT"/>
+		<item value="961" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="resutl.bad=" key="selection"/>
+		<item value="Back" key="selection"/>
 		<list key="findhistory">
-			<item value="resutl.bad="/>
-			<item value="negative"/>
-			<item value="note"/>
-			<item value="administrator.indicator1"/>
-			<item value="notbl"/>
-			<item value="history"/>
-			<item value="histori"/>
-			<item value="comment"/>
+			<item value="back"/>
+			<item value="update"/>
+			<item value="if"/>
+			<item value="antes de exchangeMessage"/>
+			<item value="Entro en el binding messageController"/>
+			<item value="logo"/>
+			<item value="editBroad"/>
+			<item value="broad"/>
 		</list>
 		<list key="replacehistory">
 			<item value="customer"/>

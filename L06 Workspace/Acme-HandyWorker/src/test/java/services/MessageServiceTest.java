@@ -60,16 +60,23 @@ public class MessageServiceTest extends AbstractTest {
 		customBox.getUserAccount().setPassword("customBox");
 
 		final Message message = this.messageService.create();
+		message.setBody("bodyTest");
+		message.setSubject("subjectTest");
 
 		final Collection<MailBox> mailBoxes = customBox.getMailBoxes();
 		for (final MailBox mailBox : mailBoxes)
-			if (mailBox.getName() == "inBox")
+			if (mailBox.getName() == "inBox") {
+				message.getMailBoxes().add(mailBox);
 				mailBox.getMessages().add(message);
+			}
+
+		final Message messageSaved = this.messageService.save(message);
+
 		final Customer customBoxSaved = this.customerService.save(customBox);
 
 		super.authenticate("customBox");
 
-		final Message messageDelete = this.messageService.delete(message);
+		final Message messageDelete = this.messageService.delete(messageSaved);
 
 		MailBox inBox = null;
 		MailBox trashBox = null;
@@ -80,8 +87,8 @@ public class MessageServiceTest extends AbstractTest {
 			else if (mailBox.getName() == "trashBox")
 				trashBox = mailBox;
 
-		Assert.isTrue(!inBox.getMessages().contains(message));
-		Assert.isTrue(trashBox.getMessages().contains(message));
+		Assert.isTrue(!inBox.getMessages().contains(messageSaved));
+		Assert.isTrue(trashBox.getMessages().contains(messageSaved));
 
 	}
 	//FERRETE

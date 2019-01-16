@@ -36,12 +36,13 @@ public class FinderServiceTest extends AbstractTest {
 		hw.setSurname("alvaro");
 		hw.getUserAccount().setUsername("dogran");
 		hw.getUserAccount().setPassword("123456789");
+		hw.setFinder(this.finderService.findOne(885));
 		final HandyWorker saveHW = this.handyWorkerService.save(hw);
 		super.authenticate("dogran");
 
-		final Finder f = this.finderService.findOne(462);
+		final Finder f = this.finderService.findOne(885);
 
-		f.setVersion(2);
+		f.setKeyword("key");
 
 		final Finder saveF = this.finderService.update(f);
 

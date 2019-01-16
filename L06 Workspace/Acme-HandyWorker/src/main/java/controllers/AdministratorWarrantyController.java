@@ -96,20 +96,31 @@ public class AdministratorWarrantyController extends AbstractController {
 
 		warranty = this.warrantyService.create();
 		result = this.createEditModelAndView(warranty);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
 		return result;
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView edit(@RequestParam final int warrantyId) {
+	public ModelAndView edit(@RequestParam(value = "warrantyId", defaultValue = "-1") final int warrantyId) {
 		ModelAndView result;
 		final Warranty warranty;
+		final Collection<Warranty> warranties = this.warrantyService.findAll();
 
-		warranty = this.warrantyService.findOne(warrantyId);
-		Assert.notNull(warranty);
-		result = this.createEditModelAndView(warranty);
+		if (warrantyId == -1) {
+			result = new ModelAndView("warranty/administrator/list");
+			result.addObject("warranties", warranties);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		} else {
+			warranty = this.warrantyService.findOne(warrantyId);
+			Assert.notNull(warranty);
+			result = this.createEditModelAndView(warranty);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+		}
 		return result;
 	}
-
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Warranty warranty, final BindingResult binding) {
 		ModelAndView result;
@@ -119,6 +130,8 @@ public class AdministratorWarrantyController extends AbstractController {
 			System.out.println("Entro en el binding");
 			System.out.println(binding.getAllErrors().get(0));
 			result = this.createEditModelAndView(warranty);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 		} else
 			try {
 				this.warrantyService.save(warranty);
@@ -126,6 +139,8 @@ public class AdministratorWarrantyController extends AbstractController {
 			} catch (final Throwable oops) {
 				System.out.println(oops);
 				result = this.createEditModelAndView(warranty, "warranty.commit.error");
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
 			}
 
 		return result;
@@ -140,6 +155,8 @@ public class AdministratorWarrantyController extends AbstractController {
 		System.out.println("Warranty encontrado: " + warranty);
 		if (warranty.getIsFinal() == true) {
 			result = new ModelAndView("redirect:list.do");
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 			return result;
 		}
 		Assert.notNull(warranty, "warranty.null");
@@ -147,8 +164,12 @@ public class AdministratorWarrantyController extends AbstractController {
 		try {
 			this.warrantyService.delete(warranty);
 			result = new ModelAndView("redirect:list.do");
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 		} catch (final Exception e) {
 			result = new ModelAndView("welcome/index");
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
 		}
 
 		result.addObject("language", language);

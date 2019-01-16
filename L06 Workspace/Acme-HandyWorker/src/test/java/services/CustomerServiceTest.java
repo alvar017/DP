@@ -2,6 +2,7 @@
 package services;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -67,7 +68,7 @@ public class CustomerServiceTest extends AbstractTest {
 		super.authenticate("dogran1");
 		final Collection<Customer> customers = this.customerService.betterCustomer();
 		final List<Customer> customersList = (List<Customer>) customers;
-		Assert.isTrue(customersList.get(0).getId() == 455);
+		Assert.isTrue(customersList.get(0).getId() == 837);
 	}
 
 	@Test
@@ -81,6 +82,14 @@ public class CustomerServiceTest extends AbstractTest {
 		final Customer saveCustomer = this.customerService.save(customer);
 		super.authenticate("dogran");
 		final FixUp fixUp1 = this.fixUpService.create();
+		@SuppressWarnings("deprecation")
+		final Date startDate = new Date(2019, 11, 11);
+		@SuppressWarnings("deprecation")
+		final Date endDate = new Date(2019, 12, 11);
+		fixUp1.setStartDate(startDate);
+		fixUp1.setEndDate(endDate);
+		fixUp1.setAddress("AddressTest");
+		fixUp1.setDescription("DescriptionTest");
 		final FixUp saveFixUp1 = this.fixUpService.save(fixUp1);
 		//CREAR Y AUTENTICAR HW
 		final HandyWorker handyWorker = this.handyWorkerService.create();

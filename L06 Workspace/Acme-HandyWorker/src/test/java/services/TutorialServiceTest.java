@@ -55,6 +55,9 @@ public class TutorialServiceTest extends AbstractTest {
 		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
 		super.authenticate("dogran");
 		final Tutorial tutorial = this.tutorialService.create();
+		tutorial.setSummary("Summarytes");
+		tutorial.setPicture("http://pictureTes.com");
+		tutorial.setTitle("TitleTest");
 		final Tutorial tutorialSaved = this.tutorialService.save(tutorial);
 		Assert.isTrue(this.tutorialService.findAll().contains(tutorialSaved));
 		Assert.isTrue(tutorialSaved.getHandyWorker().equals(saveHandyWorker));
@@ -85,6 +88,9 @@ public class TutorialServiceTest extends AbstractTest {
 		final HandyWorker saveHandyWorker = this.handyWorkerService.save(handyWorker);
 		super.authenticate("dogran");
 		final Tutorial tutorial = this.tutorialService.create();
+		tutorial.setSummary("Summarytes");
+		tutorial.setPicture("http://pictureTes.com");
+		tutorial.setTitle("TitleTest");
 		final Tutorial tutorialSaved = this.tutorialService.save(tutorial);
 		Assert.notNull(this.tutorialService.findOne(tutorialSaved.getId()));
 		Assert.isTrue(tutorialSaved.getHandyWorker().equals(saveHandyWorker));

@@ -61,7 +61,7 @@ public class CategoryServiceTest extends AbstractTest {
 
 	@Test
 	public void testFindOne() {
-		Assert.isTrue(this.categoryService.findOne(451) != null);
+		Assert.isTrue(this.categoryService.findOne(894) != null);
 	}
 
 	@Test
@@ -74,6 +74,8 @@ public class CategoryServiceTest extends AbstractTest {
 		final Administrator adminTestSave = this.administratorService.save(adminTest);
 		super.authenticate("dogran");
 		final Category category = this.categoryService.create();
+		category.setNameEN("CategoryTest");
+		category.setNameES("CategoriaTest");
 		final Category saved = this.categoryService.save(category);
 		Assert.isTrue(this.categoryService.findAll().contains(saved));
 		this.categoryService.delete(saved);
@@ -90,6 +92,8 @@ public class CategoryServiceTest extends AbstractTest {
 		final Administrator adminTestSave = this.administratorService.save(adminTest);
 		super.authenticate("dogran");
 		final Category category = this.categoryService.create();
+		category.setNameEN("CategoryTest");
+		category.setNameES("CategoriaTest");
 		final Category saved = this.categoryService.save(category);
 		Assert.isTrue(this.categoryService.findAll().contains(saved));
 	}
@@ -103,11 +107,11 @@ public class CategoryServiceTest extends AbstractTest {
 		adminTest.getUserAccount().setPassword("123456789");
 		final Administrator adminTestSave = this.administratorService.save(adminTest);
 		super.authenticate("dogran");
-		final Category category = this.categoryService.findOne(451);
+		final Category category = this.categoryService.findOne(894);
 		category.setNameEN("update");
 		final Category udpateCategory = this.categoryService.update(category);
 
-		final Category pruebaUpdate = this.categoryService.findOne(451);
+		final Category pruebaUpdate = this.categoryService.findOne(894);
 
 		Assert.isTrue(pruebaUpdate.getNameEN() == "update");
 	}
