@@ -129,104 +129,49 @@ public class MessageService {
 
 		return message;
 	}
-	public Message delete(final Message message) {
+	public Message delete(final Message message, final Integer mailBoxId) {
 		final UserAccount user = LoginService.getPrincipal();
 		final Actor a = this.actorService.getActorByUserId(user.getId());
 
-		System.out.println(a.getName());
+		final Collection<MailBox> boxes = a.getMailBoxes();
+		final List<MailBox> boxesList = new ArrayList<>();
+		boxesList.addAll(boxes);
+		System.out.println("aqui");
+		System.out.println(boxesList);
+		MailBox trash = null;
+		for (int i = 0; i < boxesList.size(); i++)
+			if (boxesList.get(i).getName().equals("trashBox")) {
+				System.out.println("Entra aqui");
+				trash = boxesList.get(i);
+			}
+		System.out.println("aqui 2");
+		System.out.println(trash);
 
-		final MailBox inBox = this.mailBoxService.getInBoxActor(a.getId());
-		final MailBox outBox = this.mailBoxService.getOutBoxActor(a.getId());
-		final MailBox spamBox = this.mailBoxService.getSpamBoxActor(a.getId());
-		final MailBox trashBox = this.mailBoxService.getTrashBoxActor(a.getId());
+		final MailBox v = this.mailBoxService.findOne(mailBoxId);
 
-		Message saved = message;
+		System.out.println(v);
 
-		if (trashBox.getMessages().contains(message))
-			System.out.println("entra en trashBox.contains(message)");
-		message.getMailBoxes().remove(trashBox);
-		trashBox.getMessages().remove(message);
+		if (v.getName().equals("trashBox"))
+			for (int i = 0; i < boxesList.size(); i++) {
+				message.getMailBoxes().remove(boxesList.get(i));
+				boxesList.get(i).getMessages().remove(message);
+
+			}
+		else {
+			System.out.println("falla aqui");
+			message.getMailBoxes().remove(v);
+			v.getMessages().remove(message);
+
+			if (!trash.getMessages().contains(message)) {
+				message.getMailBoxes().add(trash);
+				trash.getMessages().add(message);
+			}
+		}
 
 		if (message.getMailBoxes().size() == 0)
-			this.messageRepository.delete(message.getId());
+			this.messageRepository.delete(message);
 
-		System.out.println(trashBox.getMessages());
-
-		if (inBox.getMessages().contains(message)) {
-			System.out.println("entra en inBox.contains(message)");
-
-			message.getMailBoxes().add(trashBox);
-			trashBox.getMessages().add(message);
-
-			message.getMailBoxes().remove(inBox);
-			inBox.getMessages().remove(message);
-
-			saved = this.save(message);
-
-			System.out.println(message.getMailBoxes());
-			System.out.println(inBox.getMessages());
-			System.out.println(trashBox.getMessages());
-
-		}
-		if (outBox.getMessages().contains(message)) {
-			System.out.println("entra en outBox.contains(message)");
-
-			message.getMailBoxes().add(trashBox);
-			trashBox.getMessages().add(message);
-
-			System.out.println("antes de aqui");
-
-			message.getMailBoxes().remove(outBox);
-
-			System.out.println("despues");
-			System.out.println(outBox.getMessages());
-			System.out.println(message.getId());
-			outBox.getMessages().remove(message);
-
-			saved = this.save(message);
-
-			System.out.println(message.getMailBoxes());
-			System.out.println(outBox.getMessages());
-			System.out.println(trashBox.getMessages());
-
-		}
-		if (spamBox.getMessages().contains(message)) {
-			System.out.println("entra en spamBox.contains(message)");
-
-			message.getMailBoxes().add(trashBox);
-			trashBox.getMessages().add(message);
-
-			message.getMailBoxes().remove(spamBox);
-			spamBox.getMessages().remove(message);
-
-			saved = this.save(message);
-
-			System.out.println(message.getMailBoxes());
-			System.out.println(spamBox.getMessages());
-			System.out.println(trashBox.getMessages());
-
-		}
-
-		if (!inBox.getMessages().contains(message) && !outBox.getMessages().contains(message) && !spamBox.getMessages().contains(message) && !trashBox.getMessages().contains(message) && message.getMailBoxes().size() > 0) {
-			System.out.println("entra en super if delete");
-			message.getMailBoxes().add(trashBox);
-			trashBox.getMessages().add(message);
-
-			final Collection<MailBox> newBoxes = message.getMailBoxes();
-			System.out.println(newBoxes);
-			final List<MailBox> newBoxesList = new ArrayList<>();
-			newBoxesList.addAll(newBoxes);
-			final MailBox newBox = newBoxesList.get(0);
-
-			System.out.println(newBox);
-
-			message.getMailBoxes().remove(newBox);
-			newBox.getMessages().remove(message);
-
-			System.out.println("SALGO SUPER IF DELETE");
-		}
-
-		return saved;
+		return message;
 
 	}
 	public Message findOne(final int id) {

@@ -1,0 +1,35 @@
+# messages.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+administrator.showMailBox = MailBox
+administrator.editMailBox = Edit mailBox
+administrator.deleteMailBox = Delete mailbox
+
+deleteMailBox = Delete
+
+listMailBox = Categories
+editMailBox = Edit
+showMailBox = Show
+createMailBox = Create
+
+mailBox.name = Nombre
+mailBox.msgs = Mensajes
+mailBox.commit.error = Error
+
+mailBox.show = Show mailBox
+mailBox.show.name = Nombre: 
+mailBox.show.messages = Mensajes: 
+
+mailBox.cancel = Cancel
+seeMessages = See messages
+send.msg = Send message
+send.msg.broadcast = Send broadcast message
+
+mailBox.notEdit = 
+mailBox.null = MailBox dont exist
+mailbox.commit.error = Error

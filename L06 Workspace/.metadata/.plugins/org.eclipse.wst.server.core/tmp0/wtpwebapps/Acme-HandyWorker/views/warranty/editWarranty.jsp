@@ -54,11 +54,10 @@
 			<spring:message code="warranty.isFinal" />:
 		</form:label>
 		<form:select path="isFinal" >
-			<form:option value="true"></form:option>
-			<form:option value="false"></form:option>
+			<form:option value=""><spring:message code="warranty.show.isFinal.NO"/></form:option>
+			<form:option value=""><spring:message code="warranty.show.isFinal.SI"/></form:option>
 		</form:select>
 		<form:errors cssClass="error" path="isFinal" />
-		
 		<br />
 		
 	

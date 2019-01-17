@@ -18,17 +18,35 @@
 
 <%@taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<center>
+<form method="get" action=" ">
+	<button type="submit">
+		<spring:message code="button.back" />
+	</button>
+</form>
+</center>
+<h1><spring:message code="panic.text" /></h1>
+<div>
+<img class="ferrete" class="customer_photo" src="images/ferrete.png" alt="/\" width="30%"/>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
 
-<p><spring:message code="panic.text" /> <code>${name}</code>.</p>
-
-<h2><spring:message code="panic.message" /></h2>
-
-<p style="font-family: 'Courier New'">
-	${exception}
-</p>
-
-<h2><spring:message code="panic.stack.trace" /></h2>
-
-<p style="font-family: 'Courier New'">	
-	${stackTrace}
-</p>

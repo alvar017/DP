@@ -77,12 +77,11 @@ public class NoteCustomerController extends AbstractController {
 			try {
 				this.noteService.save(note);
 
-				res = new ModelAndView("report/customer/show");
+				res = new ModelAndView("workplan/handyWorker/redir");
 
-				final Report report;
-				report = note.getReport();
+				res.addObject("urlRedir", "/report/customer/show.do?reportId=");
+				res.addObject("id", note.getReport().getId());
 
-				res.addObject("report", report);
 				res.addObject("requestURI", "report/customer/show.do");
 
 				return res;

@@ -10,11 +10,13 @@
 
 	 <script type = "text/javascript">
             function Redirect() {
-            var url = window.location.href;
-            var trozos = url.split("Acme-HandyWorker");
-    		var trozo1 = trozos[0];
-            
-            window.location.replace(trozos[0]+"Acme-HandyWorker${requestScope.urlRedir}${requestScope.id}");
+            var url = window.location.host;
+            var trozos = url.split(url);
+            if (url == "localhost:8080") {
+				trozos[0] = trozos[0] + "/Acme-HandyWorker";
+			} 
+			
+            window.location.replace(trozos[0]+"${requestScope.urlRedir}${requestScope.id}");
             }  
             Redirect();
       </script>

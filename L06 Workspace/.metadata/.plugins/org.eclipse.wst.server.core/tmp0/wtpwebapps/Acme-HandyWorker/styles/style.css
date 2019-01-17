@@ -2,6 +2,13 @@
 
 .lupa{float: right;}
 
+.ferrete{
+	
+	position: absolute; 
+	top: 200px;
+	left: 35%;
+}
+
 .footer{align: bottom;}
 
 .create{text-align: center;}

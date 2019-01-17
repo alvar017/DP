@@ -83,7 +83,7 @@
 				<br>
 
 				<form:label path="name">
-					<spring:message code="sponsor.name" />
+					<spring:message code="nombre" />
 				</form:label>
 				<form:input path="name" required="required" />
 				<form:errors cssClass="error" path="name" />
@@ -141,6 +141,12 @@
 				<input type="submit" name="save"
 					value=<spring:message code="send" /> />
 			</form:form>
+
+			<form method="get" action="welcome/index">
+				<button type="submit">
+					<spring:message code="button.back" />
+				</button>
+			</form>
 		</div>
 
 	</article>

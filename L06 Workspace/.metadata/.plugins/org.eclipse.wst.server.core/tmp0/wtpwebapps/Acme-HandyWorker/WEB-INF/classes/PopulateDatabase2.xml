@@ -1,0 +1,82 @@
+<!-- * PopulateDatabase.xml * * Copyright (C) 2018 Universidah´ de Sevilla
+    * * The use of this project is hereby constrained to the conditions of the
+    * T<?xml version="1.0" encoding="UTF-8"?>
+DG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+  
+
+    <!-- User accounts -->
+
+
+    <bean id="userAccount1" class="security.UserAccount">
+        <property name="username" value="admin" />
+        <property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+        <property name="authorities">
+            <list>
+                <bean class="security.Authority">
+                    <property name="authority" value="ADMIN" />
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Other domain beans come here -->
+
+ <bean id="adm01" class="domain.Administrator">
+		<property name="phone"><null/></property>
+        <property name="name" value="Laura" />
+        <property name="surname" value="Exposito" />
+        <property name="middleName" value="" />
+        <property name="email" value="admin@gmail.com" />
+        <property name="SocialProfiles">
+            <null />
+        </property>
+        <property name="photo">
+            <null />
+        </property>
+         <property name="mailBoxes">
+        	<list>
+                <ref bean="mailBox1"/>
+                <ref bean="mailBox2"/>
+                <ref bean="mailBox3"/>
+                <ref bean="mailBox4"/>
+        	</list>
+        </property>
+        <property name="address" value="Calle Aguditas Número 12" />
+        <property name="userAccount" ref= "userAccount1"/>
+    </bean>
+    
+     <bean id="mailBox1" class="domain.MailBox">
+        <property name="name" value="inBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox2" class="domain.MailBox">
+        <property name="name" value="outBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox3" class="domain.MailBox">
+        <property name="name" value="spamBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+     <bean id="mailBox4" class="domain.MailBox">
+        <property name="name" value="trashBox" />
+        <property name="isDefault" value="true" />
+        <property name="messages"><null/></property>   
+    </bean> 
+    
+    
+</beans>
+
+

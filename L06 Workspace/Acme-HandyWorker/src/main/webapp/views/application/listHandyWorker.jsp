@@ -22,7 +22,9 @@
    <display:table name="applications" id="row"  requestURI="${requestURI}"	pagesize="5" class="displaytag" >
   	
   	<display:column titleKey="handyWorker.editApplication"> 
-		<a href="application/handyWorker/edit.do?applicationId=${row.id}">Edit</a>
+  		<jstl:if test="${not row.state}">
+  			<a href="application/handyWorker/edit.do?applicationId=${row.id}">Edit</a>
+  		</jstl:if>
 	</display:column>
 	<display:column titleKey="application.show"> 
 		<a href="application/handyWorker/show.do?applicationId=${row.id}"><spring:message code="application.show" /></a>

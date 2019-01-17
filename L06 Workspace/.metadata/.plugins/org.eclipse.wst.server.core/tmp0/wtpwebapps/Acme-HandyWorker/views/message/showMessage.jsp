@@ -32,7 +32,7 @@
           			<tr><td><spring:message code="msg.show.moment" /><jstl:out value="${msg.moment}"></jstl:out></td></tr>															          			
           			</table>
           			
-          			<a onclick="return confirmar('accion.html')" title="AcmeTitle" href="message/delete.do?id=${msg.id}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
+          			<a onclick="return confirmar('accion.html')" title="AcmeTitle" href="message/delete.do?id=${msg.id}&mailBoxId=${mailBoxId}"><img src="images/delete.png" alt="Delete" width="3%"/></a>
           			<form>
 	<input type="button" value=<spring:message code="back" /> name="back" onclick="history.back()" />
 </form>

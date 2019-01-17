@@ -62,17 +62,23 @@ public class ReportRefereeController extends AbstractController {
 			try {
 				this.reportService.save(report);
 
-				res = new ModelAndView("complaint/referee/show");
+				//				res = new ModelAndView("complaint/referee/show");
+				//
+				//				final Complaint complaint;
+				//				complaint = report.getComplaint();
+				//
+				//				res.addObject("complaint", complaint);
+				//				final String system = this.welcomeService.getSystem();
+				//				res.addObject("system", system);
+				//				final String logo = this.welcomeService.getLogo();
+				//				res.addObject("logo", logo);
+				//				res.addObject("requestURI", "complaint/referee/show.do");
 
-				final Complaint complaint;
-				complaint = report.getComplaint();
+				res = new ModelAndView("workplan/handyWorker/redir");
 
-				res.addObject("complaint", complaint);
-				final String system = this.welcomeService.getSystem();
-				res.addObject("system", system);
-				final String logo = this.welcomeService.getLogo();
-				res.addObject("logo", logo);
-				res.addObject("requestURI", "complaint/referee/show.do");
+				res.addObject("urlRedir", "/complaint/referee/show.do?complaintId=");
+				res.addObject("id", report.getComplaint().getId());
+
 			} catch (final Throwable oops) {
 				System.out.println(oops);
 				res = this.createEditModelAndView(report, "report.commit.error");

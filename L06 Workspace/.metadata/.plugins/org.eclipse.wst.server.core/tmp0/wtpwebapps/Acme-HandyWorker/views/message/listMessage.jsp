@@ -23,7 +23,7 @@
    <display:table name="msgs" id="row"  requestURI="${requestURI}"	pagesize="5" class="displaytag" >
   	
   	<display:column titleKey="administrator.showMessage"> 
-		<a href="message/show.do?messageId=${row.id}"><spring:message code="showMessage" /></a>
+		<a href="message/show.do?messageId=${row.id}&mailBoxId=${mailBoxId}"><spring:message code="showMessage" /></a>
 	</display:column>
 		<display:column titleKey="administrator.editMessage"> 
 		<a href="message/editMailBox.do?msgId=${row.id}"><spring:message code="editMessage" /></a>

@@ -81,12 +81,13 @@ public class MessageController extends AbstractController {
 		result.addObject("system", system);
 		final String logo = this.welcomeService.getLogo();
 		result.addObject("logo", logo);
+		result.addObject("mailBoxId", mailBoxId);
 		result.addObject("requestURI", "message/list.do");
 
 		return result;
 	}
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
-	public ModelAndView show(@RequestParam("messageId") final int messageId) {
+	public ModelAndView show(@RequestParam("messageId") final int messageId, @RequestParam("mailBoxId") final int mailBoxId) {
 		ModelAndView result;
 
 		final Message msg = this.messageService.findOne(messageId);
@@ -99,6 +100,7 @@ public class MessageController extends AbstractController {
 		final String logo = this.welcomeService.getLogo();
 		result.addObject("logo", logo);
 		result.addObject("language", language);
+		result.addObject("mailBoxId", mailBoxId);
 		result.addObject("requestURI", "message/show.do");
 
 		return result;
@@ -217,10 +219,12 @@ public class MessageController extends AbstractController {
 
 				System.out.println("intenta el list de exchange message");
 				this.messageService.save(msg);
-				final Collection<MailBox> mailBoxes = sender.getMailBoxes();
-				System.out.println(mailBoxes);
-				result = new ModelAndView("mailBox/list");
-				result.addObject("mailBoxes", mailBoxes);
+
+				result = new ModelAndView("workplan/handyWorker/redir");
+
+				result.addObject("urlRedir", "/mailBox/list.do");
+				result.addObject("id", "");
+
 			} catch (final Throwable oops) {
 				System.out.println("Es el oops");
 				System.out.println(oops);
@@ -366,7 +370,7 @@ public class MessageController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView delete(@RequestParam("id") final int msgId) {
+	public ModelAndView delete(@RequestParam("id") final int msgId, @RequestParam("mailBoxId") final int mailBoxId) {
 		ModelAndView result;
 
 		final UserAccount login = LoginService.getPrincipal();
@@ -406,7 +410,8 @@ public class MessageController extends AbstractController {
 		Assert.notNull(msg, "msg.null");
 
 		try {
-			final Message m = this.messageService.delete(msg);
+			System.out.println("entra en el try");
+			final Message m = this.messageService.delete(msg, mailBoxId);
 			final Collection<MailBox> mailBoxes = sender.getMailBoxes();
 			System.out.println(mailBoxes);
 			result = new ModelAndView("mailBox/list");
