@@ -78,6 +78,7 @@ public class HandyWorkerController extends AbstractController {
 			HandyWorker handyWorker;
 
 			handyWorker = this.handyWorkerService.create();
+			handyWorker.setCalification(0.);
 			final Finder finder = this.finderService.create();
 			finder.setKeyword("aaaaaalohholaaaaaa");
 			final Finder save = this.finderService.save(finder);
@@ -127,7 +128,7 @@ public class HandyWorkerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final HandyWorker handyWorker, final BindingResult binding) {
 		ModelAndView result;
-		if (this.actorService.getActorByEmail(handyWorker.getEmail()) != null) {
+		if (this.actorService.getActorByEmail(handyWorker.getEmail()) != null || !(handyWorker.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || handyWorker.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");
@@ -183,6 +184,15 @@ public class HandyWorkerController extends AbstractController {
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("handyWorker/create");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}
@@ -231,7 +241,8 @@ public class HandyWorkerController extends AbstractController {
 			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
 		}
 		if (handyWorker.getEmail() != null && this.actorService.getActorByEmail(handyWorker.getEmail()) != null
-			&& this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(handyWorker.getEmail()).getId()) {
+			&& this.handyWorkerService.findByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(handyWorker.getEmail()).getId()
+			|| !(handyWorker.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || handyWorker.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");
@@ -252,6 +263,15 @@ public class HandyWorkerController extends AbstractController {
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("handyWorker/edit");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}

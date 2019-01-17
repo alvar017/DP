@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.springframework.cglib.core.Converter"/>
-<fullyQualifiedTypeName name="domain.Category"/>
-<fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
 <fullyQualifiedTypeName name="org.hibernate.annotations.NotFound"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotEmpty"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.internal.util.logging.Log"/>
@@ -18,7 +15,6 @@
 <fullyQualifiedTypeName name="domain.Tutorial"/>
 <fullyQualifiedTypeName name="domain.Actor"/>
 <fullyQualifiedTypeName name="domain.SocialProfile"/>
-<fullyQualifiedTypeName name="services.AdministratorService"/>
 <fullyQualifiedTypeName name="domain.MiscellaneousRecord"/>
 <fullyQualifiedTypeName name="repositories.MiscellaneousRecordRepository"/>
 <fullyQualifiedTypeName name="controllers.HandyWorkerController"/>
@@ -57,7 +53,11 @@
 <fullyQualifiedTypeName name="java.util.Collection"/>
 <fullyQualifiedTypeName name="domain.Complaint"/>
 <fullyQualifiedTypeName name="services.FixUpService"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
 <fullyQualifiedTypeName name="domain.MailBox"/>
+<fullyQualifiedTypeName name="antlr.collections.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="services.AdministratorService"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
 </qualifiedTypeNameHistroy>

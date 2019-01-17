@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Back" key="selection"/>
+		<item value="list" key="selection"/>
 		<list key="findhistory">
+			<item value="list"/>
+			<item value="negativas"/>
+			<item value="score"/>
+			<item value="delete"/>
+			<item value="save"/>
 			<item value="back"/>
 			<item value="update"/>
 			<item value="if"/>
-			<item value="antes de exchangeMessage"/>
-			<item value="Entro en el binding messageController"/>
-			<item value="logo"/>
-			<item value="editBroad"/>
-			<item value="broad"/>
 		</list>
 		<list key="replacehistory">
 			<item value="customer"/>

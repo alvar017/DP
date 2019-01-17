@@ -27,11 +27,11 @@
 	<div>
 		<form:label path="description"><spring:message code="complaint.description" /></form:label>
 		<form:textarea path="description"/>
-		<form:errors path="description"></form:errors>
+		<form:errors cssClass="error" path="description"></form:errors>
 		<br />
 		<form:label path="attachment"><spring:message code="complaint.attachment" /></form:label>
 		<form:textarea path="attachment"/>
-		<form:errors path="attachment"></form:errors>
+		<form:errors cssClass="error" path="attachment"></form:errors>
 		<br />
 	</div>
 		<div>

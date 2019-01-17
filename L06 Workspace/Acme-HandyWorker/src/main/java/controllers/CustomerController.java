@@ -70,6 +70,7 @@ public class CustomerController extends AbstractController {
 			Customer customer;
 
 			customer = this.customerService.create();
+			customer.setCalification(0.);
 
 			result = new ModelAndView("customer/create");
 
@@ -87,7 +88,7 @@ public class CustomerController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Customer customer, final BindingResult binding) {
 		ModelAndView result;
-		if (this.actorService.getActorByEmail(customer.getEmail()) != null) {
+		if (this.actorService.getActorByEmail(customer.getEmail()) != null || !(customer.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || customer.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");
@@ -141,6 +142,15 @@ public class CustomerController extends AbstractController {
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("customer/create");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}

@@ -214,3 +214,39 @@
 		<input type="submit" value=<spring:message code="saveNewSpamWord" /> />
 </form:form>
 <!-- PHONE -->
+
+<!-- SCORE WORDS -->
+<h3><i><spring:message code="ScoreWords" /></i></h3>
+<p>Pos: ${scoreWordsPos}</p>
+<p>Neg: ${scoreWordsNeg}</p>
+<security:authorize access="hasRole('ADMIN')">
+	<p>Pos:</p>
+	<form:form class="formularioEdicion" method="GET"  action="administrator/newScoreWord.do?newScoreWordPositiva='${newScoreWord}'.do">		
+		<spring:message code="newScoreWord" />
+			<input type=text name="newScoreWord" required="required"/>
+		<form:errors cssClass="error" path="spamWord.wrong"/><br>
+		<input type="submit" value=<spring:message code="saveNewScoreWord"/> />
+	</form:form>
+	<form:form class="formularioEdicion" method="GET"  action="administrator/deleteScoreWord.do?ScoreWordPositiva='${ScoreWord}'.do">		
+		<spring:message code="deleteScoreWord" />
+			<input type=text name="deleteScoreWord" required="required"/>
+		<form:errors cssClass="error" path="scoreWord.wrong"/><br>
+		<input type="submit" value=<spring:message code="deleteScoreWord"/> />
+	</form:form>
+</security:authorize>
+<security:authorize access="hasRole('ADMIN')">
+	<p>Neg:</p>
+	<form:form class="formularioEdicion" method="GET"  action="administrator/newScoreWord.do?newScoreWordNegativa='${newScoreWord}'.do">		
+		<spring:message code="newScoreWord" />
+			<input type=text name="newScoreWord" required="required"/>
+		<form:errors cssClass="error" path="spamWord.wrong"/><br>
+		<input type="submit" value=<spring:message code="saveNewScoreWord"/> />
+	</form:form>
+	<form:form class="formularioEdicion" method="GET"  action="administrator/deleteScoreWord.do?ScoreWordNegativa='${ScoreWord}'.do">		
+		<spring:message code="deleteScoreWord" />
+			<input type=text name="deleteScoreWord" required="required"/>
+		<form:errors cssClass="error" path="scoreWord.wrong"/><br>
+		<input type="submit" value=<spring:message code="deleteScoreWord"/> />
+	</form:form>
+</security:authorize>
+<!-- SCORE WORDS -->

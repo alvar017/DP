@@ -82,6 +82,12 @@ public class SponsorController extends AbstractController {
 			result.addObject("system", system);
 			final String logo = this.welcomeService.getLogo();
 			result.addObject("logo", logo);
+			SimpleDateFormat formatter;
+			String moment;
+			formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+			moment = formatter.format(new Date());
+			result.addObject("moment", moment);
+
 		}
 
 		return result;
@@ -90,7 +96,7 @@ public class SponsorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Sponsor sponsor, final BindingResult binding) {
 		ModelAndView result;
-		if (this.actorService.getActorByEmail(sponsor.getEmail()) != null) {
+		if (this.actorService.getActorByEmail(sponsor.getEmail()) != null || !(sponsor.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || sponsor.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");
@@ -131,11 +137,29 @@ public class SponsorController extends AbstractController {
 				sponsor.getUserAccount().setPassword(hashPassword);
 				this.sponsorService.save(sponsor);
 				result = new ModelAndView("welcome/index");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			} catch (final Throwable oops) {
 				System.out.println("El error: ");
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("sponsor/create");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}
@@ -184,7 +208,8 @@ public class SponsorController extends AbstractController {
 			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
 		}
 		if (sponsor.getEmail() != null && this.actorService.getActorByEmail(sponsor.getEmail()) != null
-			&& this.sponsorService.findByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(sponsor.getEmail()).getId()) {
+			&& this.sponsorService.findByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(sponsor.getEmail()).getId()
+			|| !(sponsor.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || sponsor.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");
@@ -214,6 +239,15 @@ public class SponsorController extends AbstractController {
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("sponsor/edit");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}

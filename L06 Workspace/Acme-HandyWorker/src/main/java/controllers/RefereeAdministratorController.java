@@ -96,7 +96,7 @@ public class RefereeAdministratorController extends AbstractController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST, params = "save")
 	public ModelAndView save(@Valid final Referee referee, final BindingResult binding) {
 		ModelAndView result;
-		if (this.actorService.getActorByEmail(referee.getEmail()) != null) {
+		if (this.actorService.getActorByEmail(referee.getEmail()) != null || !(referee.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || referee.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");

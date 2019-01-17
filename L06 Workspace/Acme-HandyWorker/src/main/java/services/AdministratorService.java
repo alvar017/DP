@@ -242,30 +242,46 @@ public class AdministratorService {
 	}
 
 	// Método para mostrar las score words
-	public HashSet<String> listScoreWords() {
+	public HashSet<String> listScoreWordsPositivas() {
 
 		final List<String> enP = Arrays.asList("good", "fantastic", "excellent", "great", "amazing", "terrific", "beautiful");
 		this.scoreWords.addAll(enP);
 		final List<String> esP = Arrays.asList("bueno", "fantástico", "excelente", "genial", "increíble", "excelente", "hermoso");
 		this.scoreWords.addAll(esP);
-		final List<String> enN = Arrays.asList("not", "bad", "horrible", "average", "disaster");
+
+		return this.scoreWords;
+	}
+
+	public HashSet<String> listScoreWordsNegativas() {
+
+		final List<String> enP = Arrays.asList("good", "fantastic", "excellent", "great", "amazing", "terrific", "beautiful");
 		this.scoreWords.addAll(enP);
-		final List<String> esN = Arrays.asList("no", "malo", "horrible", "promedio", "desastre");
+		final List<String> esP = Arrays.asList("bueno", "fantástico", "excelente", "genial", "increíble", "excelente", "hermoso");
 		this.scoreWords.addAll(esP);
 
 		return this.scoreWords;
 	}
 
 	// Método para añadir
-	public HashSet<String> newScoreWords(final String newWord) {
-		this.listScoreWords().add(newWord);
-		return this.listScoreWords();
+	public HashSet<String> newScoreWordsPositivas(final String newWord) {
+		this.listScoreWordsPositivas().add(newWord);
+		return this.listScoreWordsPositivas();
+	}
+
+	public HashSet<String> newScoreWordsNegativas(final String newWord) {
+		this.listScoreWordsPositivas().add(newWord);
+		return this.listScoreWordsPositivas();
 	}
 
 	// Método para borrar
-	public HashSet<String> deleteScoreWords(final String word) {
-		this.listScoreWords().remove(word);
-		return this.listScoreWords();
+	public HashSet<String> deleteScoreWordsPositivas(final String word) {
+		this.listScoreWordsNegativas().remove(word);
+		return this.listScoreWordsNegativas();
+	}
+
+	public HashSet<String> deleteScoreWordsNegativas(final String word) {
+		this.listScoreWordsNegativas().remove(word);
+		return this.listScoreWordsNegativas();
 	}
 
 }

@@ -23,9 +23,6 @@
 
 	<article>
 		<header>
-			<h2>
-				<spring:message code="register.customer" />
-			</h2>
 						<script type="text/javascript">
 				function phonenumberval() {
 
@@ -62,7 +59,7 @@
 			<form:form class="formularioEdicion" method="POST"
 				modelAttribute="customer" action="customer/create.do" onsubmit="return phonenumberval()">
 				<form:hidden path="id" />
-				<form:hidden path="version" />
+				<form:hidden path="version"/>
 				<form:hidden path="socialProfiles" />
 				<form:hidden path="isBanned" />
 				<form:hidden path="isSuspicious" />

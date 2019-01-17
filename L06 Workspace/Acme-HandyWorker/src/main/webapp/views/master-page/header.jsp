@@ -103,7 +103,6 @@
 					</security:authorize>
 					<security:authorize access="hasRole('ADMIN')">
 						<li><a href="administrator/edit.do"><spring:message code="master.page.editProfile" /></a></li>
-						<li><a href="complaint/administrator/showD.do"><spring:message code="master.page.administrator.action.2" /></a></li>
 						<li><a href="actor/show.do"><spring:message code="master.page.showProfile" /></a></li>
 					</security:authorize>
 					<security:authorize access="hasRole('REFEREE')">

@@ -10,7 +10,9 @@
 
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -133,11 +135,29 @@ public class RefereeController extends AbstractController {
 				referee.getUserAccount().setPassword(hashPassword);
 				this.refereeService.save(referee);
 				result = new ModelAndView("welcome/index");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			} catch (final Throwable oops) {
 				System.out.println("El error: ");
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("referee/create");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}
@@ -187,7 +207,8 @@ public class RefereeController extends AbstractController {
 			binding.rejectValue("userAccount.username", "error.userAccount.username.exits");
 		}
 		if (referee.getEmail() != null && this.actorService.getActorByEmail(referee.getEmail()) != null
-			&& this.refereeService.findByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(referee.getEmail()).getId()) {
+			&& this.refereeService.findByUserAccountId(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(referee.getEmail()).getId()
+			|| !(referee.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || referee.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");
@@ -207,11 +228,29 @@ public class RefereeController extends AbstractController {
 				//				referee.getUserAccount().setPassword(hashPassword);
 				this.refereeService.save(referee);
 				result = new ModelAndView("redirect:show.do");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			} catch (final Throwable oops) {
 				System.out.println("El error es en refereeController: ");
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("referee/edit");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}

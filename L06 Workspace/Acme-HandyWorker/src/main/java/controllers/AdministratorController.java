@@ -10,7 +10,9 @@
 
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 
 import javax.validation.Valid;
@@ -105,8 +107,11 @@ public class AdministratorController extends AbstractController {
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView saveEdit(@Valid final Administrator administrator, final BindingResult binding) {
 		ModelAndView result;
-		if (administrator.getEmail() != null && this.actorService.getActorByEmail(administrator.getEmail()) != null
-			&& this.administratorService.findByUserAccount(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(administrator.getEmail()).getId()) {
+		if (administrator.getEmail() != null
+			&& this.actorService.getActorByEmail(administrator.getEmail()) != null
+			&& this.administratorService.findByUserAccount(LoginService.getPrincipal().getId()).getId() != this.actorService.getActorByEmail(administrator.getEmail()).getId()
+			|| !(administrator.getEmail().matches("[\\w\\.\\w]{1,}(@)") || administrator.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)(>)") || administrator.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || administrator
+				.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");
@@ -138,16 +143,33 @@ public class AdministratorController extends AbstractController {
 				this.administratorService.save(administrator);
 				result = new ModelAndView("actor/show");
 				result.addObject("actor", administrator);
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 
 			} catch (final Throwable oops) {
 				System.out.println("El error es en administratorController: ");
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("administrator/edit");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}
-
 	//CONFIGURATION
 	@RequestMapping(value = "/list")
 	public ModelAndView list() {
@@ -160,6 +182,10 @@ public class AdministratorController extends AbstractController {
 		//Logo
 		final String logo = this.welcomeService.getLogo();
 
+		//Score Words
+		final HashSet<String> scoreWordsPositives = this.administratorService.listScoreWordsPositivas();
+		final HashSet<String> scoreWordsNegatives = this.administratorService.listScoreWordsNegativas();
+
 		//iva
 		final Integer iva = this.fixUpService.getIva();
 
@@ -168,9 +194,6 @@ public class AdministratorController extends AbstractController {
 
 		System.out.println("Carmen: Esta es la lista de spam words");
 		System.out.println(spamWords);
-
-		//Score Words
-		final HashSet<String> scoreWords = this.administratorService.listScoreWords();
 
 		//Welcome page
 		final String ingles = this.welcomeService.getS();
@@ -210,7 +233,8 @@ public class AdministratorController extends AbstractController {
 		result.addObject("iva", iva);
 
 		result.addObject("spamWords", spamWords);
-		result.addObject("scoreWords", scoreWords);
+		result.addObject("scoreWordsPos", scoreWordsPositives);
+		result.addObject("scoreWordsNeg", scoreWordsNegatives);
 
 		result.addObject("time", time);
 		result.addObject("resultF", resultF);
@@ -642,7 +666,9 @@ public class AdministratorController extends AbstractController {
 	public ModelAndView save(@Valid final Administrator administrator, final BindingResult binding) {
 		ModelAndView result;
 
-		if (this.actorService.getActorByEmail(administrator.getEmail()) != null) {
+		if (this.actorService.getActorByEmail(administrator.getEmail()) != null
+			|| !(administrator.getEmail().matches("[\\w\\.\\w]{1,}(@)") || administrator.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)(>)") || administrator.getEmail().matches("[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}") || administrator
+				.getEmail().matches("[\\w\\s\\w]{1,}(<)[\\w\\.\\w]{1,}(@)[\\w]{1,}\\.[\\w]{1,}(>)"))) {
 			final ObjectError error = new ObjectError("actor.email", "An account already exists for this email.");
 			binding.addError(error);
 			binding.rejectValue("email", "error.actor.email.exits");
@@ -680,15 +706,32 @@ public class AdministratorController extends AbstractController {
 				administrator.getUserAccount().setPassword(hashPassword);
 				this.administratorService.save(administrator);
 				result = new ModelAndView("welcome/index");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			} catch (final Throwable oops) {
 				System.out.println("El error: ");
 				System.out.println(oops);
 				System.out.println(binding);
 				result = new ModelAndView("administrator/create");
+				final String system = this.welcomeService.getSystem();
+				result.addObject("system", system);
+				final String logo = this.welcomeService.getLogo();
+				result.addObject("logo", logo);
+				SimpleDateFormat formatter;
+				String moment;
+				formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+				moment = formatter.format(new Date());
+				result.addObject("moment", moment);
 			}
 		return result;
 	}
-
 	@RequestMapping(value = "/statistics", method = RequestMethod.GET)
 	public ModelAndView statistics() {
 		final ModelAndView result;
@@ -782,23 +825,44 @@ public class AdministratorController extends AbstractController {
 
 		return result;
 	}
-	@RequestMapping(value = "/deleteScoreWord", method = RequestMethod.GET)
-	public ModelAndView deleteScoreWord(@RequestParam("deleteScoreWord") final String ScoreWord) {
+	@RequestMapping(value = "/deleteScoreWordPositiva", method = RequestMethod.GET)
+	public ModelAndView deleteScoreWordPositive(@RequestParam("deleteScoreWord") final String ScoreWord) {
 		ModelAndView result;
 
-		this.administratorService.deleteScoreWords(ScoreWord);
+		this.administratorService.deleteScoreWordsPositivas(ScoreWord);
 		result = new ModelAndView("redirect:list.do");
 
 		return result;
 	}
 
-	@RequestMapping(value = "/newScoreWord", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteScoreWordNegativa", method = RequestMethod.GET)
+	public ModelAndView deleteScoreWordNegative(@RequestParam("deleteScoreWord") final String ScoreWord) {
+		ModelAndView result;
+
+		this.administratorService.deleteScoreWordsNegativas(ScoreWord);
+		result = new ModelAndView("redirect:list.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/newScoreWordPositiva", method = RequestMethod.GET)
+	public ModelAndView newScoreWordPositives(@RequestParam("newScoreWord") final String newScoreWord) {
+		ModelAndView result;
+
+		this.administratorService.newScoreWordsPositivas(newScoreWord);
+		result = new ModelAndView("redirect:list.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/newScoreWordNegativa", method = RequestMethod.GET)
 	public ModelAndView newScoreWord(@RequestParam("newScoreWord") final String newScoreWord) {
 		ModelAndView result;
 
-		this.administratorService.newScoreWords(newScoreWord);
+		this.administratorService.newScoreWordsNegativas(newScoreWord);
 		result = new ModelAndView("redirect:list.do");
 
 		return result;
 	}
+
 }

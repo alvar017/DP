@@ -1,8 +1,10 @@
 
 package services;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +26,10 @@ import domain.HandyWorker;
 @Transactional
 public class ApplicationService {
 
-	public HashSet<String>			brands	= new HashSet<>();
-	private Integer					iva		= 21;
+	private final HashSet<String>	scoreWords	= new HashSet<>();
+
+	public HashSet<String>			brands		= new HashSet<>();
+	private Integer					iva			= 21;
 
 	//Managed Repository -------------------	
 
@@ -280,5 +284,32 @@ public class ApplicationService {
 
 	public Collection<Application> findAllByHandyWorker(final int id) {
 		return this.applicationRepository.findAllByHandyWorker(id);
+	}
+
+	// Método para mostrar las score words
+	public HashSet<String> listScoreWords() {
+
+		final List<String> enP = Arrays.asList("good", "fantastic", "excellent", "great", "amazing", "terrific", "beautiful");
+		this.scoreWords.addAll(enP);
+		final List<String> esP = Arrays.asList("bueno", "fantástico", "excelente", "genial", "increíble", "excelente", "hermoso");
+		this.scoreWords.addAll(esP);
+		final List<String> enN = Arrays.asList("not", "bad", "horrible", "average", "disaster");
+		this.scoreWords.addAll(enP);
+		final List<String> esN = Arrays.asList("no", "malo", "horrible", "promedio", "desastre");
+		this.scoreWords.addAll(esP);
+
+		return this.scoreWords;
+	}
+
+	// Método para añadir
+	public HashSet<String> newScoreWords(final String newWord) {
+		this.listScoreWords().add(newWord);
+		return this.listScoreWords();
+	}
+
+	// Método para borrar
+	public HashSet<String> deleteScoreWords(final String word) {
+		this.listScoreWords().remove(word);
+		return this.listScoreWords();
 	}
 }
