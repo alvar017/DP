@@ -7,9 +7,12 @@ En las posteriores tablas desaparece, únicamente de la primera fila, aquellas ce
 donde aparezca la etiqueta mencionada anteriormente. Es un fallo documentado de spring
 al no ser capaz de mantener esta información con su paginación.
 
+En cuanto a la paginación del buscador entendemos como valores máximos los que se
+muestran por página.
+
 Existe una error en el borrado de mensajes en la versión desplegada en clever cloud
 en la que no se borran correctamente mensajes que se encuentra en varios buzones
 a la vez. En la versión local que le adjuntamos ese error se encuentra corregido.
 
-Al conocer el la solución del bug de clever cloud tan tarde nos ha sido imposible
+Al conocer la solución del bug de clever cloud tan tarde nos ha sido imposible
 solventar el error en la versión desplegada.
