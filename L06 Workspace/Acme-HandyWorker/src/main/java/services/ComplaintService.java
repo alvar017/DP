@@ -119,16 +119,35 @@ public class ComplaintService {
 		Map<String, Double> result;
 		double minComplaintFx, maxComplaintFx, avComplaintFx, sdComplaintFx;
 
-		minComplaintFx = this.complaintRepository.getMinComplaintPerFixUp();
-		maxComplaintFx = this.complaintRepository.getMaxComplaintPerFixUp();
-		avComplaintFx = this.complaintRepository.getAverageComplaintPerFixUp();
-		sdComplaintFx = this.complaintRepository.getStandardDeviationFixUp();
-
 		result = new HashMap<String, Double>();
-		result.put("min.complaint.fx", minComplaintFx);
-		result.put("max.complaint.fx", maxComplaintFx);
-		result.put("av.complaint.fx", avComplaintFx);
-		result.put("sd.complaint.fx", sdComplaintFx);
+
+		if (this.complaintRepository.getMinComplaintPerFixUp() == null)
+			result.put("min.complaint.fx", 0.0);
+		else {
+			minComplaintFx = this.complaintRepository.getMinComplaintPerFixUp();
+			result.put("min.complaint.fx", minComplaintFx);
+		}
+
+		if (this.complaintRepository.getMaxComplaintPerFixUp() == null)
+			result.put("max.complaint.fx", 0.0);
+		else {
+			maxComplaintFx = this.complaintRepository.getMaxComplaintPerFixUp();
+			result.put("max.complaint.fx", maxComplaintFx);
+		}
+
+		if (this.complaintRepository.getAverageComplaintPerFixUp() == null)
+			result.put("av.complaint.fx", 0.0);
+		else {
+			avComplaintFx = this.complaintRepository.getAverageComplaintPerFixUp();
+			result.put("av.complaint.fx", avComplaintFx);
+		}
+
+		if (this.complaintRepository.getStandardDeviationFixUp() == null)
+			result.put("sd.complaint.fx", 0.0);
+		else {
+			sdComplaintFx = this.complaintRepository.getStandardDeviationFixUp();
+			result.put("sd.complaint.fx", sdComplaintFx);
+		}
 
 		return result;
 	}

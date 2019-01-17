@@ -182,10 +182,6 @@ public class AdministratorController extends AbstractController {
 		//Logo
 		final String logo = this.welcomeService.getLogo();
 
-		//Score Words
-		final HashSet<String> scoreWordsPositives = this.administratorService.listScoreWordsPositivas();
-		final HashSet<String> scoreWordsNegatives = this.administratorService.listScoreWordsNegativas();
-
 		//iva
 		final Integer iva = this.fixUpService.getIva();
 
@@ -233,6 +229,9 @@ public class AdministratorController extends AbstractController {
 		result.addObject("iva", iva);
 
 		result.addObject("spamWords", spamWords);
+		//Score Words
+		final HashSet<String> scoreWordsPositives = this.administratorService.listScoreWordsPositivas();
+		final HashSet<String> scoreWordsNegatives = this.administratorService.listScoreWordsNegativas();
 		result.addObject("scoreWordsPos", scoreWordsPositives);
 		result.addObject("scoreWordsNeg", scoreWordsNegatives);
 
@@ -323,7 +322,10 @@ public class AdministratorController extends AbstractController {
 		result.addObject("phone", phone);
 		result.addObject("logo", logo);
 		result.addObject("brand", brand);
-
+		final HashSet<String> scoreWordsPositives = this.administratorService.listScoreWordsPositivas();
+		final HashSet<String> scoreWordsNegatives = this.administratorService.listScoreWordsNegativas();
+		result.addObject("scoreWordsPos", scoreWordsPositives);
+		result.addObject("scoreWordsNeg", scoreWordsNegatives);
 		return result;
 	}
 
@@ -428,7 +430,10 @@ public class AdministratorController extends AbstractController {
 		result.addObject("language", language);
 
 		result.addObject("requestURI", "administrator/list.do");
-
+		final HashSet<String> scoreWordsPositives = this.administratorService.listScoreWordsPositivas();
+		final HashSet<String> scoreWordsNegatives = this.administratorService.listScoreWordsNegativas();
+		result.addObject("scoreWordsPos", scoreWordsPositives);
+		result.addObject("scoreWordsNeg", scoreWordsNegatives);
 		return result;
 	}
 
@@ -604,7 +609,10 @@ public class AdministratorController extends AbstractController {
 		result.addObject("requestURI", "administrator/list.do");
 
 		result.addObject("message", messageCode);
-
+		final HashSet<String> scoreWordsPositives = this.administratorService.listScoreWordsPositivas();
+		final HashSet<String> scoreWordsNegatives = this.administratorService.listScoreWordsNegativas();
+		result.addObject("scoreWordsPos", scoreWordsPositives);
+		result.addObject("scoreWordsNeg", scoreWordsNegatives);
 		return result;
 	}
 
@@ -829,7 +837,8 @@ public class AdministratorController extends AbstractController {
 	public ModelAndView deleteScoreWordPositive(@RequestParam("deleteScoreWord") final String ScoreWord) {
 		ModelAndView result;
 
-		this.administratorService.deleteScoreWordsPositivas(ScoreWord);
+		//		this.administratorService.deleteScoreWordsPositivas(ScoreWord);
+		this.administratorService.listScoreWordsPositivas().remove(ScoreWord);
 		result = new ModelAndView("redirect:list.do");
 
 		return result;
@@ -839,7 +848,8 @@ public class AdministratorController extends AbstractController {
 	public ModelAndView deleteScoreWordNegative(@RequestParam("deleteScoreWord") final String ScoreWord) {
 		ModelAndView result;
 
-		this.administratorService.deleteScoreWordsNegativas(ScoreWord);
+		//		this.administratorService.deleteScoreWordsNegativas(ScoreWord);
+		this.administratorService.listScoreWordsNegativas().remove(ScoreWord);
 		result = new ModelAndView("redirect:list.do");
 
 		return result;
@@ -849,7 +859,8 @@ public class AdministratorController extends AbstractController {
 	public ModelAndView newScoreWordPositives(@RequestParam("newScoreWord") final String newScoreWord) {
 		ModelAndView result;
 
-		this.administratorService.newScoreWordsPositivas(newScoreWord);
+		//		this.administratorService.newScoreWordsPositivas(newScoreWord);
+		this.administratorService.listScoreWordsPositivas().add(newScoreWord);
 		result = new ModelAndView("redirect:list.do");
 
 		return result;
@@ -859,7 +870,8 @@ public class AdministratorController extends AbstractController {
 	public ModelAndView newScoreWord(@RequestParam("newScoreWord") final String newScoreWord) {
 		ModelAndView result;
 
-		this.administratorService.newScoreWordsNegativas(newScoreWord);
+		//		this.administratorService.newScoreWordsNegativas(newScoreWord);
+		this.administratorService.listScoreWordsNegativas().add(newScoreWord);
 		result = new ModelAndView("redirect:list.do");
 
 		return result;

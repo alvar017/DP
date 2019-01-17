@@ -133,16 +133,35 @@ public class NoteService {
 		Map<String, Double> result;
 		double minNoteFx, maxNoteFx, avNoteFx, sdNoteFx;
 
-		minNoteFx = this.noteRepository.getMinNotesPerFixUp();
-		maxNoteFx = this.noteRepository.getMaxNotesPerFixUp();
-		avNoteFx = this.noteRepository.getAvgNotesPerFixUp();
-		sdNoteFx = this.noteRepository.getStandardDeviationNotesPerFixUp();
-
 		result = new HashMap<String, Double>();
-		result.put("min.note.fx", minNoteFx);
-		result.put("max.note.fx", maxNoteFx);
-		result.put("av.note.fx", avNoteFx);
-		result.put("sd.note.fx", sdNoteFx);
+
+		if (this.noteRepository.getMinNotesPerFixUp() == null)
+			result.put("min.note.fx", 0.0);
+		else {
+			minNoteFx = this.noteRepository.getMinNotesPerFixUp();
+			result.put("min.note.fx", minNoteFx);
+		}
+
+		if (this.noteRepository.getMaxNotesPerFixUp() == null)
+			result.put("max.note.fx", 0.0);
+		else {
+			maxNoteFx = this.noteRepository.getMaxNotesPerFixUp();
+			result.put("max.note.fx", maxNoteFx);
+		}
+
+		if (this.noteRepository.getAvgNotesPerFixUp() == null)
+			result.put("av.note.fx", 0.0);
+		else {
+			avNoteFx = this.noteRepository.getAvgNotesPerFixUp();
+			result.put("av.note.fx", avNoteFx);
+		}
+
+		if (this.noteRepository.getStandardDeviationNotesPerFixUp() == null)
+			result.put("sd.note.fx", 0.0);
+		else {
+			sdNoteFx = this.noteRepository.getStandardDeviationNotesPerFixUp();
+			result.put("sd.note.fx", sdNoteFx);
+		}
 
 		return result;
 	}

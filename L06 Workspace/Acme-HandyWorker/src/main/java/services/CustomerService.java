@@ -149,10 +149,11 @@ public class CustomerService {
 	public Collection<Customer> getTopThreeCustomers() {
 		Collection<Customer> list = this.customerRepository.getTopThreeCustomers();
 		final List<Customer> customers = new ArrayList<>(list);
-		if (customers.size() <= 3)
-			customers.subList(0, customers.size() - 1);
-		else
+		if (customers.size() <= 3 && customers.size() > 0)
+			customers.subList(0, customers.size());
+		else if (customers.size() > 0)
 			customers.subList(0, 2);
+
 		list = customers;
 		return list;
 	}

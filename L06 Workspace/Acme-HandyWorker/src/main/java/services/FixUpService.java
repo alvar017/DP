@@ -347,11 +347,14 @@ public class FixUpService {
 		Map<String, Double> result;
 		double ratioFx;
 
-		ratioFx = this.fixUpRepository.getRatioFixUpComplaint();
-
 		result = new HashMap<String, Double>();
 
-		result.put("ratio.fx", ratioFx);
+		if (this.fixUpRepository.getRatioFixUpComplaint() == null)
+			result.put("ratio.fx", 0.0);
+		else {
+			ratioFx = this.fixUpRepository.getRatioFixUpComplaint();
+			result.put("ratio.fx", ratioFx);
+		}
 
 		return result;
 	}

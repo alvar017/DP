@@ -221,13 +221,13 @@
 <p>Neg: ${scoreWordsNeg}</p>
 <security:authorize access="hasRole('ADMIN')">
 	<p>Pos:</p>
-	<form:form class="formularioEdicion" method="GET"  action="administrator/newScoreWord.do?newScoreWordPositiva='${newScoreWord}'.do">		
+	<form:form class="formularioEdicion" method="GET"  action="administrator/newScoreWordPositiva.do?newScoreWord='${newScoreWord}'.do">		
 		<spring:message code="newScoreWord" />
 			<input type=text name="newScoreWord" required="required"/>
 		<form:errors cssClass="error" path="spamWord.wrong"/><br>
 		<input type="submit" value=<spring:message code="saveNewScoreWord"/> />
 	</form:form>
-	<form:form class="formularioEdicion" method="GET"  action="administrator/deleteScoreWord.do?ScoreWordPositiva='${ScoreWord}'.do">		
+	<form:form class="formularioEdicion" method="GET"  action="administrator/deleteScoreWordPositiva.do?ScoreWord='${ScoreWord}'.do">		
 		<spring:message code="deleteScoreWord" />
 			<input type=text name="deleteScoreWord" required="required"/>
 		<form:errors cssClass="error" path="scoreWord.wrong"/><br>
@@ -236,13 +236,13 @@
 </security:authorize>
 <security:authorize access="hasRole('ADMIN')">
 	<p>Neg:</p>
-	<form:form class="formularioEdicion" method="GET"  action="administrator/newScoreWord.do?newScoreWordNegativa='${newScoreWord}'.do">		
+	<form:form class="formularioEdicion" method="GET"  action="administrator/newScoreWordNegativa.do?newScoreWord='${newScoreWord}'.do">		
 		<spring:message code="newScoreWord" />
 			<input type=text name="newScoreWord" required="required"/>
 		<form:errors cssClass="error" path="spamWord.wrong"/><br>
 		<input type="submit" value=<spring:message code="saveNewScoreWord"/> />
 	</form:form>
-	<form:form class="formularioEdicion" method="GET"  action="administrator/deleteScoreWord.do?ScoreWordNegativa='${ScoreWord}'.do">		
+	<form:form class="formularioEdicion" method="GET"  action="administrator/deleteScoreWordNegativa.do?ScoreWord='${ScoreWord}'.do">		
 		<spring:message code="deleteScoreWord" />
 			<input type=text name="deleteScoreWord" required="required"/>
 		<form:errors cssClass="error" path="scoreWord.wrong"/><br>

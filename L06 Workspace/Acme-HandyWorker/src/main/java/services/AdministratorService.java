@@ -25,7 +25,8 @@ import domain.MailBox;
 @Transactional
 public class AdministratorService {
 
-	private final HashSet<String>	scoreWords	= new HashSet<>();
+	private final HashSet<String>	scoreWordsPos	= new HashSet<>();
+	private final HashSet<String>	scoreWordsNeg	= new HashSet<>();
 
 	//Managed Repository -------------------	
 	@Autowired
@@ -245,21 +246,21 @@ public class AdministratorService {
 	public HashSet<String> listScoreWordsPositivas() {
 
 		final List<String> enP = Arrays.asList("good", "fantastic", "excellent", "great", "amazing", "terrific", "beautiful");
-		this.scoreWords.addAll(enP);
+		this.scoreWordsPos.addAll(enP);
 		final List<String> esP = Arrays.asList("bueno", "fantástico", "excelente", "genial", "increíble", "excelente", "hermoso");
-		this.scoreWords.addAll(esP);
+		this.scoreWordsPos.addAll(esP);
 
-		return this.scoreWords;
+		return this.scoreWordsPos;
 	}
 
 	public HashSet<String> listScoreWordsNegativas() {
 
-		final List<String> enP = Arrays.asList("good", "fantastic", "excellent", "great", "amazing", "terrific", "beautiful");
-		this.scoreWords.addAll(enP);
-		final List<String> esP = Arrays.asList("bueno", "fantástico", "excelente", "genial", "increíble", "excelente", "hermoso");
-		this.scoreWords.addAll(esP);
+		final List<String> enP = Arrays.asList("not", "bad", "horrible", "average", "disaster");
+		this.scoreWordsNeg.addAll(enP);
+		final List<String> esP = Arrays.asList("no", "malo", "horrible", "media", "desastre");
+		this.scoreWordsNeg.addAll(esP);
 
-		return this.scoreWords;
+		return this.scoreWordsNeg;
 	}
 
 	// Método para añadir

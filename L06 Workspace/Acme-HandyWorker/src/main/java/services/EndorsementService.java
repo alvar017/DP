@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,9 @@ import domain.HandyWorker;
 @Service
 @Transactional
 public class EndorsementService {
+
+	HashSet<String>					positivas;
+	HashSet<String>					negativas;
 
 	final List<String>				posAux		= null;
 	final List<String>				negAux		= null;
@@ -48,6 +52,9 @@ public class EndorsementService {
 	@Autowired
 	private CustomerService			customerService;
 
+	@Autowired
+	private AdministratorService	administratorService;
+
 
 	public Endorsement create() {
 		final Endorsement endorsement = new Endorsement();
@@ -65,6 +72,7 @@ public class EndorsementService {
 		Assert.notNull(endorsable);
 		Assert.isTrue(endorsement.getEndorsableSender().equals(endorsable));
 		endorsementSaved = this.endorsementRepository.save(endorsement);
+		this.calificateUser(endorsementSaved);
 		return endorsementSaved;
 	}
 	public Collection<Endorsement> findAll() {
@@ -125,11 +133,8 @@ public class EndorsementService {
 
 	public void calificateUser(final Endorsement endorsement) {
 
-		this.posAux.addAll(this.enPositive);
-		this.posAux.addAll(this.esPositive);
-
-		this.negAux.addAll(this.enNegative);
-		this.negAux.addAll(this.esNegative);
+		this.positivas = this.administratorService.listScoreWordsPositivas();
+		this.negativas = this.administratorService.listScoreWordsNegativas();
 
 		Assert.isTrue(endorsement.getendorsableReceiver() != null, "endorsement.endorsableReceiver.null");
 		final Endorsable endorsable = endorsement.getendorsableReceiver();
@@ -144,12 +149,12 @@ public class EndorsementService {
 		message.replace(".", "");
 		final List<String> listaMensaje = Arrays.asList(message.split(" "));
 		final Integer sizeOriginal = listaMensaje.size();
-		final List<String> positivas = new ArrayList<String>(listaMensaje);
-		final List<String> negativas = new ArrayList<String>(listaMensaje);
-		positivas.removeAll(this.posAux);
-		negativas.removeAll(this.negAux);
-		final Double contadorPositivo = (sizeOriginal - positivas.size()) * 1.;
-		final Double contadorNegativo = (sizeOriginal - negativas.size()) * 1.;
+		final List<String> positivasOriginales = new ArrayList<String>(listaMensaje);
+		final List<String> negativasOriginales = new ArrayList<String>(listaMensaje);
+		positivasOriginales.removeAll(this.positivas);
+		negativasOriginales.removeAll(this.negativas);
+		final Double contadorPositivo = (sizeOriginal - positivasOriginales.size()) * 1.;
+		final Double contadorNegativo = (sizeOriginal - negativasOriginales.size()) * 1.;
 		final Double totalPalabras = contadorPositivo + contadorNegativo;
 		final Double res = ((contadorPositivo) / totalPalabras) - (contadorNegativo / totalPalabras);
 		final Double calificacionActual = endorsement.getendorsableReceiver().getCalification();

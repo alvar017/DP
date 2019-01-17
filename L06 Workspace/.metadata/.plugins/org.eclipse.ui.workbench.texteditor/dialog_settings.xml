@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="271" key="DIALOG_Y_ORIGIN"/>
-		<item value="362" key="DIALOG_HEIGHT"/>
 		<item value="961" key="DIALOG_X_ORIGIN"/>
+		<item value="362" key="DIALOG_HEIGHT"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="list" key="selection"/>
+		<item value="eSt" key="selection"/>
 		<list key="findhistory">
+			<item value="est"/>
+			<item value="calificate"/>
 			<item value="list"/>
-			<item value="negativas"/>
 			<item value="score"/>
+			<item value="nega"/>
+			<item value="negativas"/>
 			<item value="delete"/>
 			<item value="save"/>
-			<item value="back"/>
-			<item value="update"/>
-			<item value="if"/>
 		</list>
 		<list key="replacehistory">
 			<item value="customer"/>
