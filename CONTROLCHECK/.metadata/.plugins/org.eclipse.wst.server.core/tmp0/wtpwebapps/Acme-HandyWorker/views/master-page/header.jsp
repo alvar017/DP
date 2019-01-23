@@ -42,6 +42,7 @@
 			<li><a class="fNiv"><spring:message	code="master.page.customer" /></a>
 				<ul>
 					<li class="arrow"></li>
+					<li><a href="quolet/customer/list.do"><spring:message code="master.page.customer.quolet" /></a></li>
 					<li><a href="fixUp/customer/list.do"><spring:message code="master.page.customer.action.1" /></a></li>
 					<li><a href="application/customer/list.do"><spring:message code="master.page.customer.list.application" /></a></li>
 					<li><a href="complaint/customer/list.do"><spring:message code="master.page.customer.complaint" /></a></li>
@@ -54,6 +55,7 @@
 			<li><a class="fNiv"><spring:message	code="master.page.handyWorker" /></a>
 				<ul>
 					<li class="arrow"></li>
+					<li><a href="quolet/handyWorker/list.do"><spring:message code="master.page.handyWorker.quolet" /></a></li>
 					<li><a href="fixUp/handyWorker/list.do"><spring:message code="master.page.customer.action.1" /></a></li>
 					<li><a href="finder/handyWorker/list.do"><spring:message code="master.page.handyWorker.finder" /></a></li>
 					<li><a href="application/handyWorker/list.do"><spring:message code="master.page.handyWorker.list.application" /></a></li>

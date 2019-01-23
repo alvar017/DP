@@ -1,0 +1,91 @@
+
+package services;
+
+import java.security.SecureRandom;
+import java.util.Collection;
+
+import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import repositories.QuoletRepository;
+import security.LoginService;
+import security.UserAccount;
+import domain.Customer;
+import domain.Quolet;
+
+@Service
+@Transactional
+public class QuoletService {
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private QuoletRepository	quoletRepository;
+
+	//Supporting services ------------------
+	@Autowired
+	private CustomerService		customerService;
+
+
+	public Quolet create() {
+
+		final Quolet quolet = new Quolet();
+		quolet.setTicker(this.randomTicker());
+		final UserAccount login = LoginService.getPrincipal();
+		final Customer customer = this.customerService.getCustomerByUserAccountId(login.getId());
+		quolet.setIsFinal(false);
+		quolet.setCustomer(customer);
+		quolet.setMoment(LocalDateTime.now().toDate());
+		return quolet;
+
+	}
+
+	/*
+	 * Este método se modifica en función de lo que nos diga el enunciado
+	 * Este método hace AÑO MES DIA 6CARACTERESALEATORIOS todo junto sin espacios
+	 */
+	public String randomTicker() {
+		final String characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		final StringBuilder sb = new StringBuilder(); //consider using StringBuffer if needed
+		for (int i = 0; i < 6; i++) {
+			final int randomInt = new SecureRandom().nextInt(characterSet.length());
+			sb.append(characterSet.substring(randomInt, randomInt + 1));
+		}
+		return LocalDate.now().toString().replaceAll("-", "") + sb.toString();
+	}
+
+	public Quolet save(final Quolet quolet) {
+		Assert.isTrue(quolet != null, "quolet.null");
+		Assert.isTrue(quolet.getCustomer() != null, "quolet.customer.null");
+		Assert.isTrue(quolet.getCustomer().getUserAccount().getId() == LoginService.getPrincipal().getId());
+		return this.quoletRepository.save(quolet);
+	}
+
+	public Collection<Quolet> listQuoletsByCustomer() {
+		final Customer customer = this.customerService.getCustomerByUserAccountId(LoginService.getPrincipal().getId());
+		Assert.notNull(customer, "quolet.customer.null");
+		final Collection<Quolet> quolets = this.quoletRepository.listQuoletsByCustomer(customer.getId());
+		return quolets;
+	}
+
+	public Collection<Quolet> listQuolets() {
+		final Collection<Quolet> quolets = this.quoletRepository.listQuoletsFinal();
+		return quolets;
+	}
+
+	public void delete(final Quolet quolet) {
+		Assert.notNull(quolet, "quolet.null.delete");
+		Assert.isTrue(quolet.getIsFinal() != null, "quolet.isfinal.delete.null");
+		Assert.isTrue(quolet.getIsFinal().equals(false), "quolet.isfinal.true.delete");
+		this.quoletRepository.delete(quolet);
+	}
+
+	public Quolet findOne(final Integer quoletId) {
+		return this.quoletRepository.findOne(quoletId);
+	}
+
+}

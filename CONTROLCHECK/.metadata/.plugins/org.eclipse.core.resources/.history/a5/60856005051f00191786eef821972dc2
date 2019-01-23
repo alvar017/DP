@@ -1,0 +1,81 @@
+/*
+ * CustomerController.java
+ * 
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the
+ * TDG Licence, a copy of which you may download from
+ * http://www.tdg-seville.info/License.html
+ */
+
+package controllers;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import security.LoginService;
+import services.CustomerService;
+import services.QuoletService;
+import services.WelcomeService;
+import domain.FixUp;
+import domain.Money;
+import domain.Quolet;
+
+@Controller
+@RequestMapping("/quolet/customer")
+public class QuoletCustomerController extends AbstractController {
+
+	@Autowired
+	private QuoletService	quoletService;
+
+	@Autowired
+	private CustomerService	customerService;
+
+	@Autowired
+	private WelcomeService	welcomeService;
+
+
+	// Constructors -----------------------------------------------------------
+
+	public QuoletCustomerController() {
+		super();
+	}
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView list() {
+		ModelAndView result;
+		final Integer userAccountId = LoginService.getPrincipal().getId();
+		if (userAccountId != null && this.customerService.getCustomerByUserAccountId(userAccountId) != null) {
+			final Collection<Quolet> quolets = this.quoletService.listQuoletsByCustomer();
+			result = new ModelAndView("quolet/customer/list");
+			result.addObject("quolets", quolets);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("logo", logo);
+			result.addObject("requestURI", "quolet/handyWorker/list.do");
+		} else
+			result = new ModelAndView("welcome/index");
+		return result;
+	}
+	
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
+	public ModelAndView create() {
+		ModelAndView result;
+
+
+		Quolet quolet;
+
+		quolet = this.quoletService.create();
+
+		result = this.createEditModelAndView(quolet);
+
+		return result;
+	}
+}

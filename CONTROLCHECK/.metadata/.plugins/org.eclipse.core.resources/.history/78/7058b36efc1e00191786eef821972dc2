@@ -1,0 +1,113 @@
+/*
+ * CustomerController.java
+ * 
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the
+ * TDG Licence, a copy of which you may download from
+ * http://www.tdg-seville.info/License.html
+ */
+
+package controllers;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import security.LoginService;
+import security.UserAccount;
+import services.HandyWorkerService;
+import services.QuoletService;
+import services.WelcomeService;
+import domain.Category;
+import domain.FixUp;
+import domain.HandyWorker;
+import domain.Phase;
+
+@Controller
+@RequestMapping("/quolet/handyWorker")
+public class QuoletHandyWorkerController extends AbstractController {
+
+	@Autowired
+	private QuoletService		quoletService;
+
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
+
+	@Autowired
+	private WelcomeService		welcomeService;
+
+
+	// Constructors -----------------------------------------------------------
+
+	public QuoletHandyWorkerController() {
+		super();
+	}
+
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView list() {
+		ModelAndView result;
+		final Collection<FixUp> fixUps = this.fixUpService.findAll();
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+		final Collection<FixUp> myFixUps = this.fixUpService.findAllByHWLogger();
+
+		result = new ModelAndView("fixUp/handyWorker/list");
+		result.addObject("fixUps", fixUps);
+		result.addObject("myFixUps", myFixUps);
+		result.addObject("language", language);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+		result.addObject("requestURI", "fixUp/handyWorker/list.do");
+
+		return result;
+	}
+
+	@RequestMapping(value = "/show", method = RequestMethod.GET)
+	public ModelAndView show(@RequestParam("fixUpId") final int fixUpId) {
+		ModelAndView result;
+
+		final FixUp fixUp = this.fixUpService.findOne(fixUpId);
+		//NUEVO
+		final UserAccount login = LoginService.getPrincipal();
+
+		final HandyWorker logged = this.handyWorkerService.getHandyWorkerByUserAccountId(login.getId());
+		if (fixUp.getHandyWorker() != null) {
+			final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+			System.out.println("checkHW: " + checkHW);
+		}
+		//======================================
+		final Category category = fixUp.getCategory();
+		final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+		final Collection<Phase> workplan = this.phaseService.getPhasesByFixUp(fixUp);
+		final Double iva = this.fixUpService.iva(fixUp);
+
+		result = new ModelAndView("fixUp/handyWorker/show");
+		result.addObject("fixUp", fixUp);
+		result.addObject("category", category);
+		result.addObject("language", language);
+		//NUEVO
+		result.addObject("workplan", workplan);
+		final String system = this.welcomeService.getSystem();
+		result.addObject("system", system);
+		final String logo = this.welcomeService.getLogo();
+		result.addObject("logo", logo);
+		if (fixUp.getHandyWorker() != null) {
+			final boolean checkHW = logged.getId() == fixUp.getHandyWorker().getId();
+			System.out.println("checkHW: " + checkHW);
+			result.addObject("checkHW", checkHW);
+		}
+		//========================================
+		result.addObject("requestURI", "fixUp/handyWorker/show.do");
+		result.addObject("iva", iva);
+
+		return result;
+	}
+}

@@ -1,0 +1,25 @@
+
+package services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import repositories.QuoletRepository;
+
+@Service
+@Transactional
+public class QuoletService {
+
+	//Managed Repository -------------------	
+
+	@Autowired
+	private QuoletRepository	quoletRepository;
+
+	//Supporting services ------------------
+	@Autowired
+	private CustomerService		customerService;
+	@Autowired
+	private HandyWorkerService	handyWorkerService;
+
+}

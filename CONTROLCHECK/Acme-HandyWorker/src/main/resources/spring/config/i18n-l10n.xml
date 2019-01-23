@@ -44,7 +44,9 @@
 		<value>/views/warranty/messages</value>
 		<value>/views/category/messages</value>
 		<value>/views/tutorial/messages</value>
-		<value>/views/section/messages</value>						
+		<value>/views/section/messages</value>
+		
+		<value>/views/quolet/messages</value>								
 	</util:list>
 
 </beans>

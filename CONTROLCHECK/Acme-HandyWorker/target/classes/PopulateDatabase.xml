@@ -1285,6 +1285,29 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="messages"><null/></property>   
     </bean> 
     
+    <!-- ControlCheck -->
+    
+    <bean id="quoletBorrador" class="domain.Quolet">
+        <property name="ticker" value="23012019BORRADOR"/>
+        <property name="moment" value="2018/11/10 08:00" />
+        <property name="body" value="Cuerpo de la quolet borrador" />
+        <property name="picture" value="https://www.google.es/" />
+        <property name="isFinal" value="false" />
+        <property name="fixUp" ref="fixUp1" />
+        <property name="customer" ref="ancus01" />          
+    </bean>
+    
+    <bean id="QuoletFinal" class="domain.Quolet">
+        <property name="ticker" value="23012019FINAL"/>
+        <property name="moment" value="2018/11/10 08:01" />
+        <property name="body" value="Cuerpo de la quolet final" />
+        <property name="picture" value="https://www.google.es/" />
+        <property name="isFinal" value="true" />
+        <property name="fixUp" ref="fixUp1" />
+        <property name="customer" ref="ancus01" />          
+    </bean>
+    
+    <!-- ControlCheck -->
 </beans>
 
 
