@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles_es.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+      
+<tiles-definitions>
+
+	<definition name="application/handyWorker/edit" extends="master.page">	
+		<put-attribute name="title" value="Trabajador Práctico: Editar aplicación" />
+		<put-attribute name="body" value="/views/application/editHandyWorker.jsp" />
+	</definition>
+	
+	<definition name="application/handyWorker/create" extends="master.page">	
+		<put-attribute name="title" value="Trabajador práctico: Crear aplicación" />
+		<put-attribute name="body" value="/views/application/editHandyWorker.jsp" />
+	</definition>
+	
+	<definition name="application/handyWorker/list" extends="master.page">	
+		<put-attribute name="title" value="Trabajador práctico: Lista de aplicaciones" />
+		<put-attribute name="body" value="/views/application/listHandyWorker.jsp" />
+	</definition>
+	
+	<definition name="application/customer/edit" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Editar aplicación" />
+		<put-attribute name="body" value="/views/application/editCustomer.jsp" />
+	</definition>
+	
+		<definition name="application/customer/list" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Lista de aplicaciones" />
+		<put-attribute name="body" value="/views/application/listCustomer.jsp" />
+	</definition>
+	
+	<definition name="application/customer/show" extends="master.page">	
+		<put-attribute name="title" value="Cliente: Mostrar aplicaciones" />
+		<put-attribute name="body" value="/views/application/show_customer.jsp" />
+	</definition>	
+	
+	<definition name="application/handyWorker/show" extends="master.page">	
+		<put-attribute name="title" value="Trabajador: Mostrar aplicación" />
+		<put-attribute name="body" value="/views/application/show_handyWorker.jsp" />
+	</definition>		
+	
+	<definition name="application/handyWorker/update" extends="master.page">	
+		<put-attribute name="title" value="HandyWorker: Actualizando Aplicación" />
+		<put-attribute name="body" value="/views/application/updateHandyWorker.jsp" />
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,98 @@
+# messages_es.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+back = Volver
+
+handyWorker.editApplication = Editar
+handyWorker.createApplication = Crear aplicación
+customer.listCustomer = Lista de aplicaciones
+customer.editApplication = Editar
+handyWorker.editApplication = Editar
+handyWorker.listHandyWorker = Lista de aplicaciones
+
+application.moment = Momento de creación
+application.offered = Precio
+application.comments = Comentarios
+application.creditCard = Tarjeta de crédito
+application.fixUp = FixUp
+application.cancel = Cancelar
+application.create = Crear aplicación
+application.save = Guardar
+
+application.moment = Momento de creación
+application.state = Estado
+application.offered = Precio
+application.comments = Comentarios
+application.show.commentsCus = Comentarios del cliente
+application.creditCard = Tarjeta de crédito
+application.fixUp = FixUp
+application.applier = Trabajador
+application.handyWorker = Trabajador práctico
+application.save = Guardar
+application.cancel = Cancelar
+application.create = Crear aplicación
+
+application.commit.error = Error
+
+application.offered.quantity = Cantidad
+application.offered.currency = Tipo de moneda
+
+application.creditCard.name = Nombre
+application.creditCard.brand = Marca
+application.creditCard.number = Número
+application.creditCard.cvv = CVV
+application.error.creditCard = Si la aplicación es aceptada, debe ser añadida una tarjeta de crédito.
+application.creditCard.info = Información de la tarjeta de crédito.
+application.accepted = Aceptada
+application.denied = Denegada
+application.pending = En progreso
+application.show = Mostrar
+
+application.show.moment = Momento de creación: 
+application.show.state = Estado: 
+application.show.offered = Precio: 
+application.show.comments = Comentarios: 
+application.show.applier = Trabajador: 
+application.show.fixUp = FixUp: 
+application.show.creditCard = Número de creditCard: 
+application.alreadyApplied=Ya has aplicado a esta Tarea
+
+#Añadidos
+application.state.accepted=Aceptada
+application.state.rejected=Rechazada
+application.state.pending=Pendiente
+application.workplan=Plan de trabajo
+
+error.maxPrice.quantity = El precio debe ser positivo
+
+handyWorker.applications = Aplicación
+
+error.offered.quantity = Cantidad no válida
+application.creditCard.month = Mes
+application.creditCard.year = Año
+
+error.creditCard.number = Número de tarjeta de crédito no válido (debes denegar y aceptar la aplicación otra vez)
+error.creditCard.name = No nombre válido (debes denegar y aceptar la aplicación otra vez)
+error.creditCard.cvv = CVV no válido (100-999) (debes denegar y aceptar la aplicación otra vez)
+
+JANUARY = ENERO
+FEBRUARY = FEBRERO
+MARCH = MARZO
+APRIL = ABRIL
+MAY = MAYO
+JUNE = JUNIO
+JULY = JULIO
+AUGUST = AGOSTO
+SEPTEMBER = SEPTIEMBRE
+OCTOBER = OCTUBRE
+NOVEMBER = NOVIEMBRE
+DECEMBER = DICIEMBRE
+
+error.creditCard.year = Año ilógico (debes denegar y aceptar la aplicación otra vez)
+
+creditCard.commentsCus = Error en los comentarios del cliente

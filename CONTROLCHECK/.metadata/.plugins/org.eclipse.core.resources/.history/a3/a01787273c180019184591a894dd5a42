@@ -1,0 +1,99 @@
+# messages.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+back = Back
+
+handyWorker.editApplication = Edit
+handyWorker.createApplication = Create application
+customer.listCustomer = List of aplicaciones
+customer.editApplication = Edit
+handyWorker.editApplication = Edit
+handyWorker.listHandyWorker = List of applications
+
+application.moment = Moment of creation
+application.offered = Price
+application.comments = Comments
+application.creditCard = Credit Card
+application.fixUp = FixUp
+application.cancel = Cancel
+application.create = Create application
+application.save = Save
+
+application.moment = Moment of creation
+application.state = State
+application.offered = Price
+application.comments = Comments
+application.show.commentsCU = Comments customer
+application.creditCard = Credit Card
+application.fixUp = FixUp
+application.applier = HandyWorker
+application.handyWorker = HandyWorker
+application.save = Save
+application.cancel = Cancel
+application.create = Create application
+
+application.commit.error = Error
+
+application.offered.quantity = Quantity
+application.offered.currency = Type of money
+
+application.creditCard.name = Name
+application.creditCard.brand = Brand
+application.creditCard.number = Number
+application.creditCard.cvv = CVV
+application.error.creditCard = If the application is accepted, a credit card must be added. 
+application.creditCard.info = CreditCard INFO
+application.accepted = Accept
+application.denied = Reject
+application.pending = In process
+application.show = Show
+
+application.show.moment = Moment of creation: 
+application.show.state = State: 
+application.show.offered = Price: 
+application.show.comments = Comments: 
+application.show.applier = HandyWorker: 
+application.show.fixUp = FixUp: 
+application.show.creditCard = Number of creditCard: 
+application.alreadyApplied=You have already applied to this FixUp
+
+#Añadidos
+application.state.accepted=Accepted
+application.state.rejected=Rejected
+application.state.pending=Pending
+application.workplan=Workplan
+
+error.maxPrice.quantity = Price must be positive
+
+handyWorker.applications = Application
+
+application.creditCard.month = Month
+application.creditCard.year = Year
+
+error.offered.quantity = Not valid quantity
+
+error.creditCard.number = Not valid credit card number (you must reject and accept the application one more time).
+error.creditCard.name = Not valid name (you must reject and accept the application one more time).
+error.creditCard.cvv = Not valid cvv (100-999) (you must reject and accept the application one more time).
+
+JANUARY = JANUARY
+FEBRUARY = FEBRUARY
+MARCH = MARCH
+APRIL = APRIL
+MAY = MAY
+JUNE = JUNE
+JULY = JULY
+AUGUST = AUGUST
+SEPTEMBER = SEPTEMBER
+OCTOBER = OCTOBER
+NOVEMBER = NOVEMBER
+DECEMBER = DECEMBER
+
+error.creditCard.year = Illogical year (you must reject and accept the application one more time).
+
+creditCard.commentsCus = Error in the customer comments

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+	
+	<definition name="mailBox/create" extends="master.page">	
+		<put-attribute name="title" value="Administrator: Create mailBox" />
+		<put-attribute name="body" value="/views/mailBox/editMailBox.jsp" />
+	</definition>
+	
+	<definition name="mailBox/list" extends="master.page">	
+		<put-attribute name="title" value="List of mailBoxes" />
+		<put-attribute name="body" value="/views/mailBox/listMailBox.jsp" />
+	</definition>
+	
+	<definition name="mailBox/edit" extends="master.page">	
+		<put-attribute name="title" value="Edit mailBox" />
+		<put-attribute name="body" value="/views/mailBox/editMailBox.jsp" />
+	</definition>
+	
+	<definition name="mailBox/show" extends="master.page">	
+		<put-attribute name="title" value="Administrator: Show mailBox" />
+		<put-attribute name="body" value="/views/mailBox/showMailBox.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

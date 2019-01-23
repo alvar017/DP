@@ -1,0 +1,54 @@
+# messages_es.properties
+#
+# Copyright (C) 2018 Universidad de Sevilla
+# 
+# The use of this project is hereby constrained to the conditions of the 
+# TDG Licence, a copy of which you may download from 
+# http://www.tdg-seville.info/License.html
+
+
+
+administrator.action.1 = Estadísticas
+administrator.indicator1 = Nota por tareas
+administrator.value1 = Valor
+administrator.min.note.fx = Mínimo
+administrator.max.note.fx = Máximo
+administrator.av.note.fx = Media
+administrator.sd.note.fx = Desviación típica
+button.next = Siguiente
+note.commit.error = Error
+
+
+handyWorker.create = Crear una nota
+handyWorker.showing.commentHandyWorker = Escribe tu comentario
+hw.send = Enviar
+
+hw.showing.details = Nota creada
+hw.showing.hw = Trabajador 
+hw.showing.moment = Momento 
+hw.showing.comment = Comentario
+
+handyWorker.create = Crear una nota
+handyWorker.showing.commentHandyWorker = Escribe tu comentario
+hw.send = Enviar
+
+save = Crear
+commentCustomer= Comentario del Cliente
+
+note.info = Información
+
+comments = Comentarios
+
+moment = Instante
+description = Descripcion
+handyWorker = Manitas
+referee = Revisor
+customer = Cliente
+commentReferee = Comentario del Revisor
+commentCustomer = Comentario del Cliente
+commentHandyWorker = Comentario del Manitas
+
+note.commit.error = Error al almacenar Nota
+note.edit = Editar
+
+button.edit = Comentar
