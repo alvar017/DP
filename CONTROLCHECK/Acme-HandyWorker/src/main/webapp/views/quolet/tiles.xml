@@ -30,5 +30,10 @@
 		<put-attribute name="title" value="Customer: Edit Quolets" />
 		<put-attribute name="body" value="/views/quolet/edit.jsp" />
 	</definition>
-
+	
+	<definition name="quolet/customer/show" extends="master.page">	
+		<put-attribute name="title" value="Customer: Show Quolets" />
+		<put-attribute name="body" value="/views/quolet/show_customer.jsp" />
+	</definition>
+	
 </tiles-definitions>

@@ -1287,9 +1287,9 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
     
     <!-- ControlCheck -->
     
-    <bean id="quoletBorrador" class="domain.Quolet">
+    <bean id="quoletBorradorTEST" class="domain.Quolet">
         <property name="ticker" value="23012019BORRADOR"/>
-        <property name="moment" value="2018/11/10 08:00" />
+        <property name="moment" value="2018/09/10 08:00" />
         <property name="body" value="Cuerpo de la quolet borrador" />
         <property name="picture" value="https://www.google.es/" />
         <property name="isFinal" value="false" />
@@ -1297,9 +1297,19 @@ DG Licence, a copy of which you may download from * http://www.tdg-seville.info/
         <property name="customer" ref="ancus01" />          
     </bean>
     
-    <bean id="QuoletFinal" class="domain.Quolet">
+    <bean id="QuoletFinalTEST" class="domain.Quolet">
         <property name="ticker" value="23012019FINAL"/>
-        <property name="moment" value="2018/11/10 08:01" />
+        <property name="moment" value="2019/01/01 08:01" />
+        <property name="body" value="Cuerpo de la quolet final" />
+        <property name="picture" value="https://www.google.es/" />
+        <property name="isFinal" value="true" />
+        <property name="fixUp" ref="fixUp1" />
+        <property name="customer" ref="ancus01" />          
+    </bean>
+    
+    <bean id="QuoletFinal2TEST" class="domain.Quolet">
+        <property name="ticker" value="23012019FINAL"/>
+        <property name="moment" value="2019/01/30 08:01" />
         <property name="body" value="Cuerpo de la quolet final" />
         <property name="picture" value="https://www.google.es/" />
         <property name="isFinal" value="true" />

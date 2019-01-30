@@ -247,6 +247,7 @@
 		<security:intercept-url pattern="/quolet/customer/edit.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/quolet/customer/show.do" access="hasRole('CUSTOMER')" />
 		<security:intercept-url pattern="/quolet/customer/delete.do" access="hasRole('CUSTOMER')" />
+		<security:intercept-url pattern="/quolet/customer/show.do" access="hasRole('CUSTOMER')" />
 		<!-- ControlCheck -->
 		
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />

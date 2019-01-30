@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;show_customer.jsp&apos; to &apos;quolet&apos;&#x0D;&#x0A;- Original project: &apos;Acme-HandyWorker&apos;&#x0D;&#x0A;- Destination element: &apos;quolet&apos;&#x0D;&#x0A;- Original element: &apos;show_customer.jsp&apos;" description="Copy file" element1="src/main/webapp/views/fixUp/show_customer.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1548841364768" target="/Acme-HandyWorker/src/main/webapp/views/quolet" units="0" version="1.0"/>
+</session>

@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="delete" key="selection"/>
+		<item value="quolet" key="selection"/>
 		<list key="findhistory">
+			<item value="quolet"/>
+			<item value="langu"/>
+			<item value="las fechas"/>
+			<item value="las"/>
+			<item value="show"/>
 			<item value="delete"/>
 			<item value="edit"/>
 			<item value="domain.customer"/>
-			<item value="show"/>
-			<item value="create"/>
-			<item value="est"/>
-			<item value="calificate"/>
-			<item value="list"/>
 		</list>
 		<list key="replacehistory">
 			<item value="customer"/>

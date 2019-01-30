@@ -33,13 +33,13 @@
 			<a href="quolet/customer/delete.do?id=${row.id}"><spring:message code="Delete" /></a>
 		</jstl:if>
 	</display:column>
+	
+	<display:column titleKey="Show" >
+		<a href="quolet/customer/show.do?quoletId=${row.id}"><spring:message code="Show" /></a>
+	</display:column>
 
 	<display:column property="ticker" titleKey="ticker"></display:column>
-	<display:column property="fixUp.ticker" titleKey="fixUp"></display:column>
-	<display:column property="moment" titleKey="moment"></display:column>
-	<display:column property="body" titleKey="body"></display:column>
-	<display:column property="picture" titleKey="picture"></display:column>
-	
+
 	<c:choose>
 		<c:when test="${row.isFinal != true}">
 			<display:column titleKey="isFinal">

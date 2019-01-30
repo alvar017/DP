@@ -491,3 +491,8 @@
 127.0.0.1 - - [23/Jan/2019:14:35:31 +0100] "GET /Acme-HandyWorker/quolet/customer/list.do HTTP/1.1" 200 5299
 127.0.0.1 - - [23/Jan/2019:14:35:33 +0100] "GET /Acme-HandyWorker/quolet/customer/delete.do?id=920 HTTP/1.1" 302 -
 127.0.0.1 - - [23/Jan/2019:14:35:33 +0100] "GET /Acme-HandyWorker/quolet/customer/list.do HTTP/1.1" 200 4914
+127.0.0.1 - - [23/Jan/2019:15:08:46 +0100] "GET / HTTP/1.1" 404 951
+127.0.0.1 - - [23/Jan/2019:15:16:47 +0100] "GET /Acme-HandyWorker HTTP/1.1" 404 983
+127.0.0.1 - - [23/Jan/2019:15:16:47 +0100] "GET /favicon.ico HTTP/1.1" 404 973
+127.0.0.1 - - [23/Jan/2019:15:16:47 +0100] "GET /favicon.ico HTTP/1.1" 404 973
+127.0.0.1 - - [23/Jan/2019:15:17:01 +0100] "GET /Acme-HandyWorker HTTP/1.1" 404 983

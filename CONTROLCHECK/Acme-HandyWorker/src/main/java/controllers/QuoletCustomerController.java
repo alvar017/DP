@@ -10,12 +10,16 @@
 
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.validation.Valid;
 
+import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
@@ -196,6 +200,99 @@ public class QuoletCustomerController extends AbstractController {
 				System.out.println(e.getLocalizedMessage());
 				result = this.createEditModelAndView(quolet, "quolet.commit.error");
 			}
+		}
+		return result;
+	}
+
+	@SuppressWarnings("deprecation")
+	private Date restarMes1(final Date fecha) {
+		final Date res = LocalDateTime.now().toDate();
+		if (res.getMonth() == 0) {
+			res.setYear(res.getYear() - 1);
+			res.setMonth(11);
+		} else
+			res.setMonth(res.getMonth() - 1);
+		return res;
+	}
+
+	@SuppressWarnings("deprecation")
+	private Date restarMes2(final Date fecha) {
+		final Date res = LocalDateTime.now().toDate();
+		if (res.getMonth() == 1) {
+			res.setYear(res.getYear() - 1);
+			res.setMonth(10);
+		} else
+			res.setMonth(res.getMonth() - 2);
+		return res;
+	}
+
+	@SuppressWarnings("deprecation")
+	private Date restarMes3(final Date fecha) {
+		final Date res = LocalDateTime.now().toDate();
+		if (res.getMonth() == 2) {
+			res.setYear(res.getYear() - 1);
+			res.setMonth(9);
+		} else
+			res.setMonth(res.getMonth() - 3);
+		return res;
+	}
+
+	private String chooseColor(final Quolet quolet) {
+		String res;
+		final Date fechaActual = LocalDate.now().toDate();
+		System.out.println("Fecha actual: " + fechaActual);
+		final Date cal1month = this.restarMes1(quolet.getMoment());
+		final Date cal2month = this.restarMes2(quolet.getMoment());
+		final Date cal3month = this.restarMes3(quolet.getMoment());
+
+		System.out.println("Primera prueba: " + cal1month.before(fechaActual));
+		System.out.println("Segunda prueba: " + !cal2month.before(fechaActual));
+		if (quolet.getMoment().after(cal1month))
+			// VERDE
+			res = "#00cc00";
+		else if (quolet.getMoment().after(cal2month) && quolet.getMoment().before(cal1month))
+			// ROJA
+			res = "#ff0000";
+		else {
+			// AZUL PATRONA
+			System.out.println("Las fechas son: 1 mes -> " + cal1month + " y 2 meses: " + cal2month + " y 3 meses: " + cal3month);
+			res = "#0033cc";
+		}
+		return res;
+	}
+	@RequestMapping(value = "/show", method = RequestMethod.GET)
+	//Cambiar quolet por el nombre que den en el enunciado
+	public ModelAndView show(@RequestParam(value = "quoletId", defaultValue = "-1") final int quoletId) {
+		ModelAndView result;
+		final Quolet quolet = this.quoletService.findOne(quoletId);
+
+		if (this.quoletService.findOne(quoletId) == null || LoginService.getPrincipal().getId() != quolet.getCustomer().getUserAccount().getId())
+			result = new ModelAndView("redirect:list.do");
+		else {
+			Assert.notNull(quolet, "quolet.nul");
+
+			final String color = this.chooseColor(quolet);
+			final Date dateES = quolet.getMoment();
+			final Date dateEN = quolet.getMoment();
+
+			final SimpleDateFormat formatES = new SimpleDateFormat("yy/mm/dd hh:mm");
+			final SimpleDateFormat formatEN = new SimpleDateFormat("dd-mm-yy hh:mm");
+
+			final String dateESparse = formatES.format(dateES);
+			final String dateENparse = formatEN.format(dateEN);
+
+			result = new ModelAndView("quolet/customer/show");
+			final String language = LocaleContextHolder.getLocale().getDisplayLanguage();
+			result.addObject("language", language);
+			result.addObject("quolet", quolet);
+			final String system = this.welcomeService.getSystem();
+			result.addObject("system", system);
+			final String logo = this.welcomeService.getLogo();
+			result.addObject("color", color);
+			result.addObject("logo", logo);
+			result.addObject("dateENparse", dateENparse);
+			result.addObject("dateESparse", dateESparse);
+			result.addObject("requestURI", "quolet/customer/show.do");
 		}
 		return result;
 	}
