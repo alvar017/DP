@@ -62,6 +62,7 @@
           	<form:hidden path="version"/>
           	<form:hidden path="socialProfiles"/>
           	<form:hidden path="isBanned"/>
+          	<form:hidden path="quolets"/>
           	<form:hidden path="isSuspicious"/>
           	<form:hidden path="mailBoxes"/>
           	

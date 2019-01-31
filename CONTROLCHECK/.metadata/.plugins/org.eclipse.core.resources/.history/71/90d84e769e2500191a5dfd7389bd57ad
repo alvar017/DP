@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -14,18 +13,7 @@ import javax.persistence.OneToMany;
 public class Customer extends Endorsable {
 
 	private Collection<FixUp>	fixUps;
-	// Añadida bidireccionalidad cambiar en función del CONTROLCHECK
-	private Collection<Quolet>	quolets;
 
-
-	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-	public Collection<Quolet> getQuolets() {
-		return this.quolets;
-	}
-
-	public void setQuolets(final Collection<Quolet> quolets) {
-		this.quolets = quolets;
-	}
 
 	@OneToMany(mappedBy = "customer")
 	public Collection<FixUp> getFixUps() {
