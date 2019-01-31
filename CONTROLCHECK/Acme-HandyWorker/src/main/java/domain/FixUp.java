@@ -38,7 +38,18 @@ public class FixUp extends DomainEntity {
 	private Collection<Complaint>	complaints;
 	private HandyWorker				handyWorker;
 	private Customer				customer;
+	// Añadida bidireccionalidad cambiar en función del CONTROLCHECK
+	private Collection<Quolet>		quolets;
 
+
+	@OneToMany(mappedBy = "fixUp", cascade = CascadeType.ALL)
+	public Collection<Quolet> getQuolets() {
+		return this.quolets;
+	}
+
+	public void setQuolets(final Collection<Quolet> quolets) {
+		this.quolets = quolets;
+	}
 
 	@ManyToOne(optional = false)
 	public Customer getCustomer() {

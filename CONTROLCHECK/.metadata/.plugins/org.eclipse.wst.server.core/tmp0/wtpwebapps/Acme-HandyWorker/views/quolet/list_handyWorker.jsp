@@ -21,16 +21,18 @@
 <div>
 <security:authorize access="hasRole('HANDYWORKER')">
 <display:table name="quolets" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
+	<display:column titleKey="Show" >
+		<a href="quolet/handyWorker/show.do?quoletId=${row.id}"><spring:message code="Show" /></a>
+	</display:column>
 	<display:column property="ticker" titleKey="ticker"></display:column>
-	<display:column property="moment" titleKey="moment"></display:column>
-	<display:column property="body" titleKey="body"></display:column>
-	<display:column property="picture" titleKey="picture"></display:column>
 </display:table>
 </security:authorize>
 </div>
 
-<form>
-	<input type="button" value=<spring:message code="back" /> name="back" onclick="history.back()" />
+<form method="get" action=" ">
+	<button type="submit">
+		<spring:message code="button.back" />
+	</button>
 </form>
 
 </body>

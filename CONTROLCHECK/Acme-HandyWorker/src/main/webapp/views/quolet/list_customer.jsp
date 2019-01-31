@@ -20,7 +20,14 @@
 <body>
 <div>
 <security:authorize access="hasRole('CUSTOMER')">
-<p class="create"><input type="button" value=<spring:message code="createQuolet" /> id="buttonFixUp" name="buttonQuolet"  onclick="location.href='quolet/customer/create.do';"/></p>
+<c:choose>
+	<c:when test="${hasAnyEntityRequired == true}">
+		<p class="create"><input type="button" value=<spring:message code="createQuolet" /> id="buttonFixUp" name="buttonQuolet"  onclick="location.href='quolet/customer/create.do';"/></p>
+	</c:when>
+	<c:otherwise>
+		<p><spring:message code="notEntity" /></p>
+	</c:otherwise>
+</c:choose>
 <display:table name="quolets" id="row" requestURI="${requestURI}" pagesize="5" class="displaytag">
 	<display:column titleKey="Edit" >
 		<jstl:if test="${not row.isFinal}" >

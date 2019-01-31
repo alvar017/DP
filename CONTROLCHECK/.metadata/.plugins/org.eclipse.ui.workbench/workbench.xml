@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="69" version="2.0">
+<workbench progressCount="73" version="2.0">
 <workbenchAdvisor/>
 <window height="675" maximized="true" width="965" x="-1" y="3">
 <fastViewData fastViewLocation="1024">
@@ -15,7 +15,7 @@
 <coolItem id="org.eclipse.datatools.sqltools.sqlscrapbook.SQLScrapbookEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="124" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jpt.jpa.ui.internal.editors.PersistenceEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="88" y="22"/>
@@ -29,7 +29,7 @@
 <coolItem id="org.eclipse.wst.server.ui.editor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="39" y="22"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="39" y="22"/>
-<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="62" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
@@ -43,15 +43,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="PopulateDatabase.xml" partName="PopulateDatabase.xml" path="//Vboxsvr/dp/CONTROLCHECK/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml" title="PopulateDatabase.xml" tooltip="Acme-HandyWorker/src/main/resources/PopulateDatabase.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.jdt.junit.ResultView" partName="JUnit">
@@ -62,8 +57,8 @@
 </view>
 <view id="org.eclipse.search.ui.views.SearchView" partName="Search">
 <viewState isPinned="false">
-<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
@@ -204,15 +199,15 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.27527675" ratioLeft="373" ratioRight="982" relationship="2" relative="topLeft"/>
 <info folder="true" part="bottomRight" ratio="0.549323" ratioLeft="284" ratioRight="233" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.wst.server.ui.ServersView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="Snippets"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
 <page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.jdt.junit.ResultView" label="JUnit"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
@@ -339,180 +334,12 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/quolet/show_customer.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/QuoletCustomerController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/application/show_customer.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/complaint/messages.properties"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" path="/Acme-HandyWorker/src/main/webapp/views/note/messages.properties"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/welcome/index.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/quolet/list_customer.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" path="/Acme-HandyWorker/src/main/webapp/views/quolet/show_customer.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/services/WelcomeService.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Acme-HandyWorker/src/main/java/controllers/WelcomeController.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" path="/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml"/>
-</editors>
-<item historyLabel="show_customer.jsp" index="2">
-<position info="not_deleted" x="1303" y="7"/>
-</item>
-<item historyLabel="show_customer.jsp" index="0">
-<position/>
-</item>
-<item historyLabel="show_customer.jsp" index="2">
-<position info="not_deleted" x="1138" y="182"/>
-</item>
-<item historyLabel="show_customer.jsp" index="0">
-<position info="not_deleted" x="1392" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="10658" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9229" y="0"/>
-</item>
-<item historyLabel="FixUp.java" index="3">
-<position info="not_deleted" x="698" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9229" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="7991" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="7971" y="4"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="7991" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="8119" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="8840" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9355" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9721" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9708" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="10083" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9775" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9381" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9562" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9811" y="0"/>
-</item>
-<item historyLabel="messages.properties" index="4">
-<position info="not_deleted" x="2324" y="6"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9811" y="0"/>
-</item>
-<item historyLabel="messages.properties" index="5">
-<position info="not_deleted" x="1004" y="0"/>
-</item>
-<item historyLabel="index.jsp" index="6">
-<position/>
-</item>
-<item historyLabel="messages.properties" index="5">
-<position info="not_deleted" x="1004" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="9811" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="10747" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="10803" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11285" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11360" y="0"/>
-</item>
-<item historyLabel="list_customer.jsp" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11360" y="0"/>
-</item>
-<item historyLabel="show_customer.jsp" index="8">
-<position info="not_deleted" x="284" y="0"/>
-</item>
-<item historyLabel="index.jsp" index="6">
-<position info="not_deleted" x="784" y="176"/>
-</item>
-<item historyLabel="show_customer.jsp" index="8">
-<position info="not_deleted" x="1419" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11279" y="11"/>
-</item>
-<item historyLabel="show_customer.jsp" index="8">
-<position info="not_deleted" x="1488" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11279" y="11"/>
-</item>
-<item historyLabel="WelcomeService.java" index="9">
-<position info="not_deleted" x="449" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11279" y="11"/>
-</item>
-<item historyLabel="WelcomeController.java" index="10">
-<position info="not_deleted" x="1204" y="77"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11068" y="0"/>
-</item>
-<item historyLabel="show_customer.jsp" index="8">
-<position info="not_deleted" x="1488" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11123" y="0"/>
-</item>
-<item historyLabel="show_customer.jsp" index="8">
-<position info="not_deleted" x="1420" y="0"/>
-</item>
-<item historyLabel="QuoletCustomerController.java" index="1">
-<position info="not_deleted" x="11123" y="0"/>
-</item>
-<item historyLabel="WelcomeController.java" index="10">
-<position info="not_deleted" x="1204" y="77"/>
-</item>
-<item historyLabel="index.jsp" index="6">
-<position info="not_deleted" x="784" y="176"/>
-</item>
-<item active="true" historyLabel="PopulateDatabase.xml" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="topLeft"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -521,55 +348,54 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
-<trimItem IMemento.internal.id="bottomRight"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="PopulateDatabase.xml" tooltip="Acme-HandyWorker/src/main/resources/PopulateDatabase.xml">
-<persistable path="/Acme-HandyWorker/src/main/resources/PopulateDatabase.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="show_handyWorker.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/show_handyWorker.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/show_handyWorker.jsp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WelcomeController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/WelcomeController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/WelcomeController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WelcomeService.java" tooltip="Acme-HandyWorker/src/main/java/services/WelcomeService.java">
-<persistable path="/Acme-HandyWorker/src/main/java/services/WelcomeService.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="index.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/welcome/index.jsp">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/welcome/index.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="show_customer.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/show_customer.jsp">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/show_customer.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="list_customer.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/list_customer.jsp">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/list_customer.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/note/messages.properties">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/note/messages.properties"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/complaint/messages.properties">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/complaint/messages.properties"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUp.java" tooltip="Acme-HandyWorker/src/main/java/domain/FixUp.java">
-<persistable path="/Acme-HandyWorker/src/main/java/domain/FixUp.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="show_customer.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/application/show_customer.jsp">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/application/show_customer.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="QuoletCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/QuoletCustomerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/QuoletCustomerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ApplicationCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/ApplicationCustomerController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/ApplicationCustomerController.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomerAdministratorController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/CustomerAdministratorController.java">
-<persistable path="/Acme-HandyWorker/src/main/java/controllers/CustomerAdministratorController.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="security.xml" tooltip="Acme-HandyWorker/src/main/resources/spring/config/security.xml">
+<persistable path="/Acme-HandyWorker/src/main/resources/spring/config/security.xml"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles_es.xml" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/tiles_es.xml">
 <persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/tiles_es.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/fixUp/messages_es.properties">
-<persistable path="/Acme-HandyWorker/src/main/webapp/views/fixUp/messages_es.properties"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="tiles.xml" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/tiles.xml">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/tiles.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Quolet.java" tooltip="Acme-HandyWorker/src/main/java/domain/Quolet.java">
+<persistable path="/Acme-HandyWorker/src/main/java/domain/Quolet.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages_es.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/messages_es.properties">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/messages_es.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.PropertiesFileEditor" name="messages.properties" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/messages.properties">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/messages.properties"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="QuoletCustomerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/QuoletCustomerController.java">
+<persistable path="/Acme-HandyWorker/src/main/java/controllers/QuoletCustomerController.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="QuoletHandyWorkerController.java" tooltip="Acme-HandyWorker/src/main/java/controllers/QuoletHandyWorkerController.java">
+<persistable path="/Acme-HandyWorker/src/main/java/controllers/QuoletHandyWorkerController.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="list_customer.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/list_customer.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/list_customer.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jst.jsp.core.jspsource.source" name="list_handyWorker.jsp" tooltip="Acme-HandyWorker/src/main/webapp/views/quolet/list_handyWorker.jsp">
+<persistable path="/Acme-HandyWorker/src/main/webapp/views/quolet/list_handyWorker.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" name="converters.xml" tooltip="Acme-HandyWorker/src/main/resources/spring/config/converters.xml">
+<persistable path="/Acme-HandyWorker/src/main/resources/spring/config/converters.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FixUpService.java" tooltip="Acme-HandyWorker/src/main/java/services/FixUpService.java">
+<persistable path="/Acme-HandyWorker/src/main/java/services/FixUpService.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StringToQuoletConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/StringToQuoletConverter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/converters/StringToQuoletConverter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="QuoletToStringConverter.java" tooltip="Acme-HandyWorker/src/main/java/converters/QuoletToStringConverter.java">
+<persistable path="/Acme-HandyWorker/src/main/java/converters/QuoletToStringConverter.java"/>
 </file>
 </mruList>
 </workbench>

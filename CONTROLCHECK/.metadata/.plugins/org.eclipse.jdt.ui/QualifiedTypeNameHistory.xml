@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="domain.Note"/>
 <fullyQualifiedTypeName name="services.CustomerService"/>
 <fullyQualifiedTypeName name="controllers.NoteHandyWorkerController"/>
 <fullyQualifiedTypeName name="domain.CreditCard"/>
@@ -22,7 +21,6 @@
 <fullyQualifiedTypeName name="domain.HandyWorker"/>
 <fullyQualifiedTypeName name="controllers.WelcomeController"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="services.HandyWorkerService"/>
 <fullyQualifiedTypeName name="javax.persistence.AccessType"/>
 <fullyQualifiedTypeName name="javax.persistence.Temporal"/>
@@ -45,8 +43,6 @@
 <fullyQualifiedTypeName name="services.AdministratorService"/>
 <fullyQualifiedTypeName name="org.hibernate.validator.constraints.NotBlank"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
-<fullyQualifiedTypeName name="domain.Quolet"/>
 <fullyQualifiedTypeName name="org.springframework.cglib.core.Local"/>
 <fullyQualifiedTypeName name="services.FixUpService"/>
 <fullyQualifiedTypeName name="org.hibernate.mapping.Collection"/>
@@ -54,10 +50,14 @@
 <fullyQualifiedTypeName name="domain.FixUp"/>
 <fullyQualifiedTypeName name="security.UserAccount"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
-<fullyQualifiedTypeName name="security.LoginService"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="org.joda.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="org.joda.time.LocalDate"/>
 <fullyQualifiedTypeName name="org.joda.time.format.DateTimeFormatter"/>
+<fullyQualifiedTypeName name="security.LoginService"/>
+<fullyQualifiedTypeName name="org.springframework.util.Assert"/>
+<fullyQualifiedTypeName name="domain.Quolet"/>
+<fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+<fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 </qualifiedTypeNameHistroy>

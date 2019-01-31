@@ -33,6 +33,7 @@
           <img class="lupa" src="images/edit.png" alt="Edit" width="19%"/>
           <form:form class="formularioEdicion" method="POST" modelAttribute="fixUp" action="fixUp/customer/edit.do">
           	<form:hidden path="customer"/>
+          	<form:hidden path="quolets"/>
           	<form:hidden path="ticker"/>
           	<form:hidden path="handyWorker"/>
           	<form:hidden path="version"/>

@@ -33,6 +33,7 @@ import services.CustomerService;
 import services.FixUpService;
 import services.QuoletService;
 import services.WelcomeService;
+import domain.Customer;
 import domain.FixUp;
 import domain.Quolet;
 
@@ -71,7 +72,8 @@ public class QuoletCustomerController extends AbstractController {
 			result.addObject("system", system);
 			final String logo = this.welcomeService.getLogo();
 			result.addObject("logo", logo);
-			result.addObject("requestURI", "quolet/handyWorker/list.do");
+			result.addObject("hasAnyEntityRequired", this.hasAnyEntityRequired());
+			result.addObject("requestURI", "quolet/customer/list.do");
 		} else
 			result = new ModelAndView("welcome/index");
 		return result;
@@ -81,13 +83,14 @@ public class QuoletCustomerController extends AbstractController {
 	public ModelAndView create() {
 		ModelAndView result;
 
-		Quolet quolet;
-
-		quolet = this.quoletService.create();
-		quolet.setMoment(LocalDateTime.now().toDate());
-
-		result = this.createEditModelAndView(quolet);
-
+		if (!this.hasAnyEntityRequired())
+			result = new ModelAndView("redirect:list.do");
+		else {
+			Quolet quolet;
+			quolet = this.quoletService.create();
+			quolet.setMoment(LocalDateTime.now().toDate());
+			result = this.createEditModelAndView(quolet);
+		}
 		return result;
 	}
 
@@ -275,8 +278,8 @@ public class QuoletCustomerController extends AbstractController {
 			final Date dateES = quolet.getMoment();
 			final Date dateEN = quolet.getMoment();
 
-			final SimpleDateFormat formatES = new SimpleDateFormat("yy/mm/dd hh:mm");
-			final SimpleDateFormat formatEN = new SimpleDateFormat("dd-mm-yy hh:mm");
+			final SimpleDateFormat formatEN = new SimpleDateFormat("yy/mm/dd hh:mm");
+			final SimpleDateFormat formatES = new SimpleDateFormat("dd-mm-yy hh:mm");
 
 			final String dateESparse = formatES.format(dateES);
 			final String dateENparse = formatEN.format(dateEN);
@@ -295,5 +298,16 @@ public class QuoletCustomerController extends AbstractController {
 			result.addObject("requestURI", "quolet/customer/show.do");
 		}
 		return result;
+	}
+
+	private Boolean hasAnyEntityRequired() { // Comprobamos que el usuario tiene alguna entidad sobre la que se pueda crear una quolet
+		Boolean res = false;
+		final int userAccountLogin = LoginService.getPrincipal().getId();
+		// Suponemos que quien crea la entidad es un customer
+		final Customer customerLogin = this.customerService.getCustomerByUserAccountId(userAccountLogin);
+		Assert.notNull(customerLogin, "customerLogin.null");
+		if (customerLogin.getFixUps().size() > 0)
+			res = true;
+		return res;
 	}
 }

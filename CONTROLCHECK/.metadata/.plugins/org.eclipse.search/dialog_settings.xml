@@ -13,8 +13,8 @@
 	<section name="DialogBounds_SearchDialog">
 		<item value="640" key="DIALOG_WIDTH"/>
 		<item value="210" key="DIALOG_Y_ORIGIN"/>
-		<item value="565" key="DIALOG_X_ORIGIN"/>
 		<item value="423" key="DIALOG_HEIGHT"/>
+		<item value="565" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="Search">
@@ -45,18 +45,7 @@
 		<item value="12" key="HISTORY_SIZE"/>
 		<section name="HISTORY11">
 			<item value="false" key="isRegExSearch"/>
-			<item value="error.actor.email.exits" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY2">
-			<item value="false" key="isRegExSearch"/>
-			<item value="Client: Mostrar Quolets " key="textPattern"/>
+			<item value="@ManyToOne" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -69,9 +58,9 @@
 			<item value="*.jsp" key="1"/>
 			<item value="*.*" key="0"/>
 		</section>
-		<section name="HISTORY3">
+		<section name="HISTORY2">
 			<item value="false" key="isRegExSearch"/>
-			<item value="instante" key="textPattern"/>
+			<item value="/quolet/customer/show.do" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -80,9 +69,9 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY0">
+		<section name="HISTORY3">
 			<item value="false" key="isRegExSearch"/>
-			<item value="moment" key="textPattern"/>
+			<item value="cascade" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -93,7 +82,7 @@
 		</section>
 		<section name="HISTORY10">
 			<item value="false" key="isRegExSearch"/>
-			<item value="The email already exits" key="textPattern"/>
+			<item value="&lt;/display:colum" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -102,51 +91,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY1">
-			<item value="false" key="isRegExSearch"/>
-			<item value="#" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY9">
-			<item value="false" key="isRegExSearch"/>
-			<item value="El correo ya existe" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY8">
-			<item value="false" key="isRegExSearch"/>
-			<item value="@ManyToOne" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY5">
-			<item value="false" key="isRegExSearch"/>
-			<item value="custome" key="textPattern"/>
-			<item value="0" key="scope"/>
-			<item value="true" key="ignoreCase"/>
-			<list key="fileNamePatterns">
-				<item value="*.*"/>
-			</list>
-			<list key="workingSets">
-			</list>
-		</section>
-		<section name="HISTORY4">
+		<section name="HISTORY0">
 			<item value="false" key="isRegExSearch"/>
 			<item value="security.xml" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -157,9 +102,9 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY7">
+		<section name="HISTORY1">
 			<item value="false" key="isRegExSearch"/>
-			<item value="&lt;/display:colum" key="textPattern"/>
+			<item value="security" key="textPattern"/>
 			<item value="0" key="scope"/>
 			<item value="true" key="ignoreCase"/>
 			<list key="fileNamePatterns">
@@ -168,7 +113,7 @@
 			<list key="workingSets">
 			</list>
 		</section>
-		<section name="HISTORY6">
+		<section name="HISTORY9">
 			<item value="false" key="isRegExSearch"/>
 			<item value="security.xom" key="textPattern"/>
 			<item value="0" key="scope"/>
@@ -179,6 +124,64 @@
 			<list key="workingSets">
 			</list>
 		</section>
+		<section name="HISTORY8">
+			<item value="false" key="isRegExSearch"/>
+			<item value="custome" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY5">
+			<item value="false" key="isRegExSearch"/>
+			<item value="#" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY4">
+			<item value="false" key="isRegExSearch"/>
+			<item value="moment" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item value="false" key="isRegExSearch"/>
+			<item value="instante" key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item value="false" key="isRegExSearch"/>
+			<item value="Client: Mostrar Quolets " key="textPattern"/>
+			<item value="0" key="scope"/>
+			<item value="true" key="ignoreCase"/>
+			<list key="fileNamePatterns">
+				<item value="*.*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+	</section>
+	<section name="SearchDialog.ScopePart">
+		<item value="0" key="scope"/>
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
@@ -190,8 +193,5 @@
 			<item value="Copyright (C) 2018"/>
 			<item value="1.15"/>
 		</list>
-	</section>
-	<section name="SearchDialog.ScopePart">
-		<item value="0" key="scope"/>
 	</section>
 </section>

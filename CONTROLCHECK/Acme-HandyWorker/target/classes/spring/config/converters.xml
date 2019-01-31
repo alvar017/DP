@@ -74,6 +74,10 @@
 		<!-- FRAN -->
 		<bean class="converters.NoteToStringConverter"></bean>
 		<bean class="converters.StringToNoteConverter"></bean>
+		<!-- CONTROLCHECK -->
+		<bean class="converters.QuoletToStringConverter"></bean>
+		<bean class="converters.StringToQuoletConverter"></bean>		
+		<!-- CONTROLCHECK -->
 	</util:list>
 	
 </beans>

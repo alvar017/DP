@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+ * tiles.xml
+ *
+ * Copyright (C) 2018 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<definition name="quolet/handyWorker/list" extends="master.page">	
+		<put-attribute name="title" value="HandyWorker: Listing Quolets" />
+		<put-attribute name="body" value="/views/quolet/list_handyWorker.jsp" />
+	</definition>
+	
+	<definition name="quolet/customer/list" extends="master.page">	
+		<put-attribute name="title" value="Customer: Listing Quolets" />
+		<put-attribute name="body" value="/views/quolet/list_customer.jsp" />
+	</definition>
+	
+	<definition name="quolet/customer/edit" extends="master.page">	
+		<put-attribute name="title" value="Customer: Edit Quolets" />
+		<put-attribute name="body" value="/views/quolet/edit.jsp" />
+	</definition>
+	
+	<definition name="quolet/customer/show" extends="master.page">	
+		<put-attribute name="title" value="Customer: Show Quolets" />
+		<put-attribute name="body" value="/views/quolet/show_customer.jsp" />
+	</definition>
+	
+</tiles-definitions>
