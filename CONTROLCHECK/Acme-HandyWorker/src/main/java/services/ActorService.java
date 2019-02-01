@@ -63,6 +63,7 @@ public class ActorService {
 		Assert.isTrue(this.findOne(actor.getId()) != null);
 		Assert.isTrue(actor.getIsBanned() != true, "Actor is already banned");
 		actor.setIsBanned(true);
+		actor.getUserAccount().setIsBanned(true);
 		final Actor saveActor = this.actorRepository.save(actor);
 		return saveActor;
 	}
@@ -74,6 +75,7 @@ public class ActorService {
 		Assert.isTrue(this.findOne(actor.getId()) != null);
 		Assert.isTrue(actor.getIsBanned() != false, "Actor is not ban");
 		actor.setIsBanned(false);
+		actor.getUserAccount().setIsBanned(false);
 		final Actor saveActor = this.actorRepository.save(actor);
 		return saveActor;
 	}

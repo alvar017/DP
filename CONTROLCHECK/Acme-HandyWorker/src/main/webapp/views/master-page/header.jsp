@@ -26,14 +26,14 @@
 			<li><a class="fNiv"><spring:message	code="master.page.administrator" /></a>
 				<ul>
 					<li class="arrow"></li>
+					<li><a href="administrator/statistics.do"><spring:message code="master.page.administrator.statistics" /></a></li>
 					<li><a href="administrator/list.do"><spring:message code="master.page.administrator.action.1" /></a></li>
 					<li><a href="referee/administrator/list.do"><spring:message code="master.page.administrator.action.3" /></a></li>
 					<li><a href="complaint/administrator/showD.do"><spring:message code="master.page.administrator.action.2" /></a></li>
 					<li><a href="endorsement/administrator/list.do"><spring:message code="master.page.administrator.endorsement" /></a></li>
 										<li><a href="administrator/create.do"><spring:message code="master.page.administrator.create" /></a></li>		
 					<li><a href="category/administrator/list.do"><spring:message code="master.page.category.list" /></a></li>																
-					<li><a href="warranty/administrator/list.do"><spring:message code="master.page.warranty.list" /></a></li>																
-					<li><a href="administrator/statistics.do"><spring:message code="master.page.administrator.statistics" /></a></li>																
+					<li><a href="warranty/administrator/list.do"><spring:message code="master.page.warranty.list" /></a></li>																																
 				</ul>
 			</li>
 		</security:authorize>

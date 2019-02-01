@@ -1,0 +1,52 @@
+
+package repositories;
+
+import java.util.Collection;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import domain.Administrator;
+import domain.Customer;
+import domain.HandyWorker;
+
+@Repository
+public interface AdministratorRepository extends JpaRepository<Administrator, Integer> {
+
+	@Query("select f.complaints.size from FixUp f where (f.complaints.size=(select min(f1.complaints.size) from FixUp f1))")
+	Integer getMinComplaintPerFixUp();
+
+	@Query("select f.complaints.size from FixUp f where (f.complaints.size=(select max(f1.complaints.size) from FixUp f1))")
+	Integer getMaxComplaintPerFixUp();
+
+	@Query("select avg(f.complaints.size)from FixUp f")
+	Double getAverageComplaintPerFixUp();
+
+	@Query("select sqrt(sum(f.complaints.size*f.complaints.size)/count(f)-(avg(f.complaints.size)*avg(f.complaints.size))) from FixUp f")
+	Double getStandardDeviationFixUp();
+
+	@Query("select r.notes.size from Report r where (r.notes.size = ( select max(r1.notes.size) from  Report r1))")
+	Integer getMaxNotesPerFixUp();
+
+	@Query("select r.notes.size from Report r where (r.notes.size = ( select min(r1.notes.size) from  Report r1))))")
+	Integer getMinNotesPerFixUp();
+
+	@Query("select avg(r.notes.size) from Report r")
+	Double getAvgNotesPerFixUp();
+
+	@Query("select sqrt (sum(r.notes.size*r.notes.size)/count(r.notes.size)-(avg(r.notes.size)*avg(r.notes.size))) from Report r")
+	Double getStandardDeviationNotesPerFixUp();
+
+	@Query("select ((select count(f) from FixUp f where f.complaints.size > 0)/count(f))*1.0 from FixUp f")
+	Double getRatioFixUpComplaint();
+
+	@Query("select cu from Customer cu join cu.fixUps f where f.complaints.size > 0 order by f.complaints.size desc")
+	Collection<Customer> getTopThreeCustomers();
+
+	@Query("select distinct hw from HandyWorker hw join hw.fixUps f order by f.complaints.size desc")
+	Collection<HandyWorker> getTopThreeHandyWorker();
+
+	@Query("select a from Administrator a join a.userAccount aua where aua.id=?1")
+	Administrator findByUserAccountId(int userAccountId);
+}

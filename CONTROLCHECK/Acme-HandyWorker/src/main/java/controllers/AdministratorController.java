@@ -38,6 +38,7 @@ import services.CustomerService;
 import services.FinderService;
 import services.FixUpService;
 import services.HandyWorkerService;
+import services.QuoletService;
 import services.WelcomeService;
 import domain.Actor;
 import domain.Administrator;
@@ -47,6 +48,11 @@ import domain.HandyWorker;
 @Controller
 @RequestMapping("/administrator")
 public class AdministratorController extends AbstractController {
+
+	//CONTROLCHECK
+	@Autowired
+	QuoletService					quoletService;
+	//CONTROLCHECK
 
 	@Autowired
 	HandyWorkerService				handyWorkerService;
@@ -745,40 +751,92 @@ public class AdministratorController extends AbstractController {
 		final ModelAndView result;
 
 		//12.5.1
-		final Integer minFixUpPerUser = this.fixUpService.minFixUpHandyWorker();
-		final Integer maxFixUpPerUser = this.fixUpService.maxFixUpHandyWorker();
-		final Double avgFixUpPerUser = this.fixUpService.avgFixUpPerHandyWorker();
-		final Double desviationFixUpPerUser = this.fixUpService.desviationFixUpPerHandyWorker();
+		Integer minFixUpPerUser = this.fixUpService.minFixUpHandyWorker();
+		if (minFixUpPerUser == null)
+			minFixUpPerUser = 0;
+
+		Integer maxFixUpPerUser = this.fixUpService.maxFixUpHandyWorker();
+		if (maxFixUpPerUser == null)
+			maxFixUpPerUser = 0;
+
+		Double avgFixUpPerUser = this.fixUpService.avgFixUpPerHandyWorker();
+		if (avgFixUpPerUser == null)
+			avgFixUpPerUser = 0.0;
+
+		Double desviationFixUpPerUser = this.fixUpService.desviationFixUpPerHandyWorker();
+		if (desviationFixUpPerUser == null)
+			desviationFixUpPerUser = 0.0;
 		//
 		//12.5.2
-		final Integer minAppPerFixUp = this.applicationService.minFixUp();
-		final Integer maxAppUpPerFixUp = this.applicationService.maxFixUp();
-		final Double avgAppPerFixUp = this.applicationService.avgPerFixUp();
-		final Double desviationAppPerFixUp = this.applicationService.desviationPerFixUp();
+		Integer minAppPerFixUp = this.applicationService.minFixUp();
+		if (minAppPerFixUp == null)
+			minAppPerFixUp = 0;
+
+		Integer maxAppUpPerFixUp = this.applicationService.maxFixUp();
+		if (maxAppUpPerFixUp == null)
+			maxAppUpPerFixUp = 0;
+
+		Double avgAppPerFixUp = this.applicationService.avgPerFixUp();
+		if (avgAppPerFixUp == null)
+			avgAppPerFixUp = 0.0;
+
+		Double desviationAppPerFixUp = this.applicationService.desviationPerFixUp();
+		if (desviationAppPerFixUp == null)
+			desviationAppPerFixUp = 0.0;
 		//
 		//12.5.3
-		final Double minPriceFixUp = this.fixUpService.minPriceFixUp();
-		final Double maxPriceFixUp = this.fixUpService.maxPriceFixUp();
-		final Double avgPriceFixUp = this.fixUpService.avgPriceFixUp();
-		final Double desviationPriceFixUp = this.fixUpService.desviationPriceFixUp();
+		Double minPriceFixUp = this.fixUpService.minPriceFixUp();
+		if (minPriceFixUp == null)
+			minPriceFixUp = 0.0;
+
+		Double maxPriceFixUp = this.fixUpService.maxPriceFixUp();
+		if (maxPriceFixUp == null)
+			maxPriceFixUp = 0.0;
+
+		Double avgPriceFixUp = this.fixUpService.avgPriceFixUp();
+		if (avgPriceFixUp == null)
+			avgPriceFixUp = 0.0;
+
+		Double desviationPriceFixUp = this.fixUpService.desviationPriceFixUp();
+		if (desviationPriceFixUp == null)
+			desviationPriceFixUp = 0.0;
 		//
 		//12.5.4
-		final Double minPriceApp = this.applicationService.minPricePerApplication();
-		final Double maxPriceApp = this.applicationService.maxPricePerApplication();
-		final Double avgPriceApp = this.applicationService.averagePriceApp();
-		final Double desviationPriceApp = this.applicationService.desviationPriceApp();
+		Double minPriceApp = this.applicationService.minPricePerApplication();
+		if (minPriceApp == null)
+			minPriceApp = 0.0;
+
+		Double maxPriceApp = this.applicationService.maxPricePerApplication();
+		if (maxPriceApp == null)
+			maxPriceApp = 0.0;
+
+		Double avgPriceApp = this.applicationService.averagePriceApp();
+		if (avgPriceApp == null)
+			avgPriceApp = 0.0;
+
+		Double desviationPriceApp = this.applicationService.desviationPriceApp();
+		if (desviationPriceApp == null)
+			desviationPriceApp = 0.0;
 		//
 		//12.5.5
-		final Double pendingApplicationRatio = this.applicationService.getRatioPending();
+		Double pendingApplicationRatio = this.applicationService.getRatioPending();
+		if (pendingApplicationRatio == null)
+			pendingApplicationRatio = 0.0;
 		//
 		//12.5.6
-		final Double acceptedApplicationRatio = this.applicationService.getRatioAccepted();
+		Double acceptedApplicationRatio = this.applicationService.getRatioAccepted();
+		if (acceptedApplicationRatio == null)
+			acceptedApplicationRatio = 0.0;
 		//
 		//12.5.7
-		final Double rejectedApplicationRatio = this.applicationService.getRatioRejected();
+		Double rejectedApplicationRatio = this.applicationService.getRatioRejected();
+		if (rejectedApplicationRatio == null)
+			rejectedApplicationRatio = 0.0;
 		//
 		//12.5.8
-		final Double unModificableApplicationRatio = this.applicationService.getRatioUnmodifiable();
+		Double unModificableApplicationRatio = this.applicationService.getRatioUnmodifiable();
+		if (unModificableApplicationRatio == null)
+			unModificableApplicationRatio = 0.0;
 		//
 		//12.5.9
 		final Collection<Customer> betterCustomers = this.customerService.betterCustomer();
@@ -786,7 +844,6 @@ public class AdministratorController extends AbstractController {
 		//12.5.10
 		final Collection<HandyWorker> betterHandyWorkers = this.handyWorkerService.betterHandyWorker();
 		//
-
 		System.out.println(betterCustomers);
 		System.out.println(betterHandyWorkers);
 
@@ -830,6 +887,17 @@ public class AdministratorController extends AbstractController {
 		result.addObject("logo", logo);
 
 		result.addObject("requestURI", "administrator/statistics.do");
+
+		// CONTROLCHECK
+		final Double ratioPublishedQuolet = this.quoletService.getRatioPublished();
+		final Double ratioUnpublishedQuolet = this.quoletService.getRatioUnpublished();
+		final Double averageQuolet = this.quoletService.getAverage();
+		final Double standardDeviation = this.quoletService.getStandardDeviation();
+		result.addObject("ratioPublishedQuolet", ratioPublishedQuolet);
+		result.addObject("ratioUnpublishedQuolet", ratioUnpublishedQuolet);
+		result.addObject("averageQuolet", averageQuolet);
+		result.addObject("standardDeviation", standardDeviation);
+		// CONTROLCHECK
 
 		return result;
 	}

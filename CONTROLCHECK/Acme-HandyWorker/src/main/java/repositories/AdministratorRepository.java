@@ -14,6 +14,21 @@ import domain.HandyWorker;
 @Repository
 public interface AdministratorRepository extends JpaRepository<Administrator, Integer> {
 
+	// CONTROLCHECK
+
+	//a) The average and standard deviation of the number of published XXXX per XXXX
+	//a.1)
+
+	//a.2)
+
+	//b) The ratio of published XXXX versus total number of XXXX;
+	@Query("select ((select count(q) from Quolet q where q.isFinal = 1)/count(q))*1.0 from Quolet q")
+	Double ratioPublished();
+	//c) the ratio of unpublished XXXX versus total number of XXXX
+	@Query("select ((select count(q) from Quolet q where q.isFinal = 0)/count(q))*1.0 from Quolet q")
+	Double ratioUnpublished();
+	// CONTROLCHECK
+
 	@Query("select f.complaints.size from FixUp f where (f.complaints.size=(select min(f1.complaints.size) from FixUp f1))")
 	Integer getMinComplaintPerFixUp();
 

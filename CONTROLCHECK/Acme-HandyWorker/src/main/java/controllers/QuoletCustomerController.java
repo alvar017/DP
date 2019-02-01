@@ -278,8 +278,8 @@ public class QuoletCustomerController extends AbstractController {
 			final Date dateES = quolet.getMoment();
 			final Date dateEN = quolet.getMoment();
 
-			final SimpleDateFormat formatEN = new SimpleDateFormat("yy/mm/dd hh:mm");
-			final SimpleDateFormat formatES = new SimpleDateFormat("dd-mm-yy hh:mm");
+			final SimpleDateFormat formatEN = new SimpleDateFormat("yy/MM/dd hh:mm");
+			final SimpleDateFormat formatES = new SimpleDateFormat("dd-MM-yy hh:mm");
 
 			final String dateESparse = formatES.format(dateES);
 			final String dateENparse = formatEN.format(dateEN);

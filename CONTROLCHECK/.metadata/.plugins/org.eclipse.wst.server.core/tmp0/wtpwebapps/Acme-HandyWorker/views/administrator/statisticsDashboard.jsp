@@ -19,6 +19,14 @@
 
 <p><spring:message code="administrator.statistics"/></p>
 <body>
+	<!-- CONTROLCHECK -->
+	<table>
+   		 <tr><td><spring:message code="ratioPublishedQuolet" /><jstl:out value="${ratioPublishedQuolet}"></jstl:out></td></tr>
+		 <tr><td><spring:message code="ratioUnpublishedQuolet" /><jstl:out value="${ratioUnpublishedQuolet}"></jstl:out></td></tr>
+   		 <tr><td><spring:message code="averageQuolet" /><jstl:out value="${averageQuolet}"></jstl:out></td></tr>
+   		 <tr><td><spring:message code="standardDeviation" /><jstl:out value="${standardDeviation}"></jstl:out></td></tr>
+    </table>
+    <!-- CONTROLCHECK -->
 
 	<table>
    		 <tr><td><spring:message code="minFixUpPerUser" /><jstl:out value="${minFixUpPerUser}"></jstl:out></td></tr>

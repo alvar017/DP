@@ -2,9 +2,9 @@
 package services;
 
 import java.security.SecureRandom;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 
-import org.joda.time.LocalDate;
 import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,7 +55,9 @@ public class QuoletService {
 			final int randomInt = new SecureRandom().nextInt(characterSet.length());
 			sb.append(characterSet.substring(randomInt, randomInt + 1));
 		}
-		return LocalDate.now().toString().replaceAll("-", "") + sb.toString();
+		final SimpleDateFormat formateador = new SimpleDateFormat("dd-MM-yy"); // CAMBIAR ESTE FORMATO POR LO QUE DIGA EL ENUNCIDADO
+		final String dateparse = formateador.format(LocalDateTime.now().toDate());
+		return dateparse.toString().replaceAll("-", "") + sb.toString();
 	}
 
 	public Quolet save(final Quolet quolet) {
@@ -86,4 +88,34 @@ public class QuoletService {
 		return this.quoletRepository.findOne(quoletId);
 	}
 
+	// DASHBOARD
+
+	public Double getAverage() {
+		Double res = 0.0;
+		if (this.quoletRepository.getAverage() != null)
+			res = this.quoletRepository.getAverage();
+		return res;
+	}
+
+	public Double getStandardDeviation() {
+		Double res = 0.0;
+		if (this.quoletRepository.getStandardDeviation() != null)
+			res = this.quoletRepository.getStandardDeviation();
+		return res;
+	}
+
+	public Double getRatioPublished() {
+		Double res = 0.0;
+		if (this.quoletRepository.getRatioPublished() != null)
+			res = this.quoletRepository.getRatioPublished();
+		return res;
+	}
+
+	public Double getRatioUnpublished() {
+		Double res = 0.0;
+		if (this.quoletRepository.getRatioUnpublished() != null)
+			res = this.quoletRepository.getRatioUnpublished();
+		return res;
+	}
+	// DASHBOARD
 }
