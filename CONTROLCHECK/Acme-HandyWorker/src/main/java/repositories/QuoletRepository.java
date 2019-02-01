@@ -25,7 +25,7 @@ public interface QuoletRepository extends JpaRepository<Quolet, Integer> {
 	@Query("select ((select count(q) from Quolet q where q.isFinal = 1)/count(q))*1.0 from Quolet q")
 	Double getAverage();
 	//a.2)
-	@Query("select ((select count(q) from Quolet q where q.isFinal = 1)/count(q))*1.0 from Quolet q")
+	@Query("select sqrt(sum((select count(q1) from FixUp f1 join f1.quolets q1 where f1.id=f.id and q1.isFinal=true)*(select count(q2) from FixUp f2 join f2.quolets q2 where f2.id=f.id and q2.isFinal=true))/(select count(f) from FixUp f)-(((select count(q3) from FixUp f3 join f3.quolets q3 where q3.isFinal=true) / (select count(f) from FixUp f)) * ((select count(q4) from FixUp f4 join f4.quolets q4 where q4.isFinal=true) / (select count(f) from FixUp f)))) from FixUp f")
 	Double getStandardDeviation();
 	//b) The ratio of published XXXX versus total number of XXXX;
 	@Query("select ((select count(q) from Quolet q where q.isFinal = 1)/count(q))*1.0 from Quolet q")
