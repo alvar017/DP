@@ -7,5 +7,4 @@ Batista Núñez, Francisco.\
 de la Flor Bonilla, Álvaro.\
 Fernández Benjumea, Carmen.\
 Ferrete Molle, José Antonio.\
-Piñero Pastor, María de Gracia.\
 Salvat Pérez, Antonio Manuel.
