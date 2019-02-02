@@ -1,0 +1,2 @@
+Aquí solo necesitas poner el sql con el .war (RECUERDA QUE EL DATA.XML TIENE QUE TENER LA CONFI DE CLEVERCLOUD)
+y el sql tines que poner -> use `EL NOMBRE DE LA BASE DE DATOS';

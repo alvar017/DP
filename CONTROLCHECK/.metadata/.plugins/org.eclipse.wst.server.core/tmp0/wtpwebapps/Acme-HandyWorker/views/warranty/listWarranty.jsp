@@ -41,8 +41,19 @@
   	<display:column property="title" titleKey="warranty.title"/>
   	<display:column property="terms" titleKey="warranty.terms"/>
   	<display:column property="laws" titleKey="warranty.laws"/>
-   	<display:column property="isFinal" titleKey="warranty.isFinal"/> 	
-  	
+   	
+   	<c:choose>
+		<c:when test="${row.isFinal != true}">
+			<display:column titleKey="warranty.show.isFinal">
+				<spring:message code="warranty.show.isFinal.NO" />
+			</display:column>
+		</c:when>
+		<c:otherwise>
+			<display:column titleKey="warranty.show.isFinal">
+				<spring:message	code="warranty.show.isFinal.SI" />
+			</display:column>
+		</c:otherwise>
+	</c:choose>
   	</display:table>
   	
 	<p class="create"><input type="button" value=<spring:message code="administrator.createWarranty" /> id="buttonWarranty" name="buttonWarranty"  onclick="location.href='warranty/administrator/create.do';"/></p>

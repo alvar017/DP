@@ -1,0 +1,2 @@
+Aquí solo necesitas poner el sql con el .war (RECUERDA QUE EL DATA.XML TIENE QUE TENER LA CONFI DE LOCAL)
+y el sql que le tienes que inyectar los comandos de allCommands.sql

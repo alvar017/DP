@@ -22,10 +22,19 @@
 	<!-- Data source -->
 	
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"> 
-		<property name="driverClass" value="com.mysql.jdbc.Driver" /> 
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<!-- CLEVERCLOUD -->
+		<!--
+		<property name="jdbcUrl" value="jdbc:mysql://bl62jlwxbyjfmmpfxbze-mysql.services.clever-cloud.com:3306/bl62jlwxbyjfmmpfxbze" /> 
+		<property name="user" value="uxaapv1oyvf042reqecq" /> 
+		<property name="password" value="Ws96aLLSTgScTIh3F0ab" />
+		-->
+		<!-- CLEVERCLOUD -->
+		<!-- LOCAL --> 
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/Acme-HandyWorker" /> 
 		<property name="user" value="acme-user" /> 
 		<property name="password" value="ACME-Us3r-P@ssw0rd" /> 
+		<!-- LOCAL -->
 		<property name="minPoolSize" value="1" /> 
 		<property name="maxPoolSize" value="5" /> 
 	</bean>
